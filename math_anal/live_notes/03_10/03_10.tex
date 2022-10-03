@@ -1,0 +1,196 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+\usepackage{amsfonts, amssymb, amsmath, mathtools, amsthm}  %% for math symbs
+\usepackage{mathrsfs}
+\usepackage{float}  %% for table floating
+\usepackage{enumerate} %% for lists
+
+\usepackage{fullpage}  %% less margin 
+
+\usepackage{graphicx} %% for pics
+\usepackage{hyperref} %% for links
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{corollary}{Следствие}[theorem]
+\newtheorem{lemma}{Лемма}[section]
+\newtheorem*{definition}{Определение}
+\newtheorem*{remark}{Замечание}
+\newtheorem{illustration}{Пример}
+\newtheorem*{proposition}{Предложение}
+
+\parindent 0px  % no white space in new lines
+\title{Матан 03 10}
+\author{lindy2076}
+\begin{document}
+    \maketitle
+    
+    \textbf{14:10 Симонов пришёл}\\
+
+    Давайте определим интеграл от функции более менее чё\dots
+    Характеристическая фунция множеств : $\chi_E(x) = 1 \text{ if } x \in E \text{ else } 0$ 
+    Докажем, что точки разрыва характеристической функции совпадают с границей.\\
+    
+    $\mathbb{R}^n = Int E \cup \delta E \cup Ext E $\\
+    По гейне предела нет, т.е. это точка разрыва следовательно она совпадает с границей.
+
+    \textbf{Следствие}: 
+    $E \subset \Pi \text{(параллелипипед какой-то)}: \exists \int_{\Pi} \chi_E \iff \mu(\delta E) = 0$ мю ето мера множества\\
+
+    \textbf{Опр}. $E \subset \Pi, f: E \to \mathbb{R}$ ограничена. Интеграл: \\
+
+    $$\int_E f = \int_{\Pi} f \cdot \chi_E$$
+    
+    $ \widetilde{f}(x) =  f(x) \text{ if } x \in E \text{ elif } x \in \Pi \setminus E \text{ then } 0$\\
+
+    \textbf{Лемма}: $\mu(\delta E) = 0, f: E \to \mathbb{R}$ почти везде непрерывна (везде, кроме
+    множества меры 0). Тогда $\exists \int_\Pi f$
+
+    Д: нужно доказать, что существует интеграл от продолжения функции(ф с волной). 
+    Посмотрим на точки разрыва фунции с волной в $\Pi$: их множетсво разбивается на множетсво
+    точек разрыва ф с волной во внутренности $E$, множество точек разрыва ф с волной на
+    границе $E$ и на множество точек разрыва во внешности $E = Ext E \cap \Pi$.
+    Первое входит в множество точек разрыва ф без волны во всём $E$, второе подмножество границы $E$, 
+    третье пустое. Первые два имеют меру 0 следовательно всё множество точек разрыва ф с 
+    волной имеет меру 0.\\
+
+    Определим жорданов объем. \\
+    \textbf{Опр}. $E$ ограничено, $\mu(\delta E) = 0$\\
+    $\displaystyle\exists \Pi \subset \mathbb{R}^n, n \mid n, E \subset \Pi: v(e) = \int_E 1 = \int_\Pi \chi_E$ - 
+    \textbf{жорданов объём}. % н мид н чзх.
+    При н = 1 это длина, н = 3 - объём.
+    Мы распространили оьъем с квадратиков на довольно большой класс множеств. 
+    В каком-то смысле этот класс недостаточен. существуют неизмеримые жордановы множества.
+    Возьмем отрезок $\mathbb{Q} \cap [0,1] = \{q_k, k \in \mathbb{N}\}$. Теперь для каждой точки
+    $q_k$ найдем инетрвал, который лежит в $[0,1]$ и длиной $r_k$. $\sum_{k=1}^\infty r_k< 1$.\\
+    $(q_k-\frac{r_k}{2}, q_k + \frac{r_k}{2}) \subset (0, 1)$. Рассмотрим множество 
+    $G = \bigcup^\infty_{k=1} (q_k-\frac{r_k}{2}, q_k + \frac{r_k}{2})$. Оно плотно в $[0, 1]$ 
+    ($\overline{G} = [0, 1])$, открыто $Int G = G$ $\implies \delta G = \overline{G} \setminus Int G = [0, 1] \setminus G$
+    $\mu(\delta G) \neq 0$ Докажем, что граница не равна 0.\\
+    Док:
+    предположим, что мера равна 0: $\mu(\delta G ) = 0. \exists a_k, b_k, k \in \mathbb{R}: 
+    2 \cdot \sum_{k=1}^\infty (b_k - a_k) < 1 - \sum_{l=1}^\infty r_l  $. Потребуем:
+    $\delta G \subset \bigcup^\infty_{k=1}[a_k, b_k]$. Сделаем покрытие открытым: % рис 1 
+    $\delta G \subset \bigcup^\infty_{k=1}(\hat{a_k},\hat{b_k})$\\
+    Мы хотем свести с противоречием, что отрезок можно покрыть конечным набором 
+    интервалов суммарной длины меньше отрезка. Покроем отрезок: 
+    $[0, 1] = G \cup \delta G \subset \left(\bigcup_{k=1}^\infty (q_k - \frac{r_k}{2}, q_k + \frac{r_k}{2} )\cup (\bigcup_{k=1}^\infty (\hat{a_k}, \hat{b_k})) \right) \implies$
+    существует конечное подпокрытие 
+    $$\displaystyle 
+    [0, 1] \subset\left((\bigcup_{i=1}^I (q_{ki} - \frac{r_{ki}}{2}, q_{ki} + \frac{r_{ki}}{2})) \cup (\bigcup^J_{j=1} (\hat{a_{lj}}, \hat{b_{lj}})) \right) \subset 
+    \left( (\bigcup^I_{i=1} [q_{ki} - \frac{r_{ki}}{2}, q_{ki} + \frac{r_{ki}}{2} ]) \cup (\bigcup^J_{j=1}[\hat{a_{lj}}, \hat{b_{lj}}])\right)$$
+    
+    д-во лемма 5 $\sum^I_{i=1} r_{ki} + \sum^J_{j=1} (\hat{b_{lj}} - \hat{a_{lj}}) \ge 1$. \\
+    С другой стороны $\sum^J_{j=1} r_{kj} + \sum^J_{j=1} (\hat{b_{lj}} - \hat{a_{lj}})  \le \sum^\infty_{k=1} r_k + 2 \sum^\infty_{l=1} (b_l - a_l) < 1$
+    противоречие $\implies \mu (\delta E) \neq 0$\\
+    % пауза
+
+    \textbf{зам*}. $v(E) = 0$ старом смысле $\implies E$ измеримо по Жордану и $v(E)=0$ (в смысле Жордана)
+    % походу без доказательства. 
+    \\
+
+    мера - обобщение понятие длины, объёма. (типа если множества не пересекаются то можно просто сложить их объёмы) 
+    
+    \textbf{Опр}. $F \subset 2^X $ -- $\sigma$-алгебра, если 
+    $\\
+    1. \varnothing, X \in F \\
+    2. E \in F \implies X \setminus E \in F. \\
+    3. E_k \in F, k \in \mathbb{N} \implies \bigcup_{k=1}^\infty E_k \in F 
+    $\\
+
+    \textbf{Замечание}. $\bigcap^\infty_{k=1} E_k \in F$. $F_1, F_2 - \sigma$-алгебра $\implies F_1 \cap F_2$ - $\sigma$-алгебра.\\
+    $F_\alpha - \sigma$-алгебра $\forall \alpha \implies \bigcap_\alpha F_\alpha - \sigma$-алгебра.
+
+    Для любого семейства множеств из $2^X$ существует наименьшая $\sigma$-алгебра,
+    содержащая это семейство. Построение: Пересечение всех сигм алгебр, содержащее это семейство.
+    Не пусто, потому что по крайней мере $2^X$ лежит. И минимальное.
+
+    \textbf{факт} Для любого метричекого постранства есть \textbf{борелевская} $\sigma$-алгебра. 
+    Она порождена всеми открытыми множествами.
+
+    Что такое мера?\\
+    \textbf{Опр}. Пусть есть пространство $X$, $F - \sigma$-алгебра на нём.\\
+    $\mu: F \to [0, \infty]$ называется \textbf{мерой}, если
+    $\\
+    1. \mu(\varnothing) = 0 \\
+    2. E_k \in F, k \in \mathbb{N}, E_i \cap E_j \neq \varnothing, i\neq j \implies
+    \mu(\bigcup^\infty_{k=1} E_k) = \sum^\infty_{k=1} \mu(E_k)
+    $\\
+
+    Мера Лебега в $\mathbb{R}^n: \prod^n_{i=1}[a_i, b_i)$
+    Если есть один параллелипипед и другой маленький в нём. 
+    Маленький параллелипипед можно достроить до большого добавлением элементов
+    из полукольца. % еб какого полукольца я пропустил (видимо ребёр параллелипипеда)
+
+    \textbf{Опр}. $R \subset 2^X$ -- кольцо множеств, если 
+    $\forall E_1, E_2 \in R: E_1 \setminus E_2 \in R, E_1 \triangle E_2 \in R$\\
+    $(E_1 \cup E_2 \in R, E_1 \cap E_2 \in R)$\\
+
+    % чет ваще какая-то муть про кольца началась рис2 ниче не понял супремум типа описанный инф типа вписанный
+    % такие множества образуют кольца.
+
+    \textbf{Лемма}. Пусть множество $E$ измеримо по Жоржану. \\
+    Тогда $\forall \varepsilon \, \exists \text{ компакт } K \subset E$, измеримый по Жордану
+    и такой, что $v(E) - v(K) < \varepsilon$\\
+    Д-во: $\varepsilon > 0$. $E$ измеримо следовательно $\mu(\delta E) = 0$\\
+    $\exists C_k, k \in \mathbb{N}$, открытые кубы, $\delta E \subset \bigcup_{k=1}^\infty C_k, \sum_{k=1}^\infty v(C_k) < \varepsilon$.\\
+    $E$ компактна следовательно можно выбрать конечное подпокрытие, чтобы $\delta E \subset 
+    \bigcup_{j=1}^J C_{kj}$\\
+    $K = \overline{E} \setminus \bigcup_{j=1}^J C_{kj}$ компактно.\\
+    $\delta K = \delta (\overline{E} \cap (\mathbb{R} \setminus \bigcup^J_{j=1} C_{kj})) = \delta E \cup (\bigcup^J_{j=1} \delta C_{kj})$ -- имеет меру 0.\\
+    $K \subset E, \quad E \setminus K \in \bigcup^J_{j=1} C_{kj} \quad v(E) - v(K) = \int_\Pi \chi_E - \chi_K =
+    \int_\Pi \chi_{E \setminus K} \le \int_\Pi \chi_{\bigcup^\infty_{j=1} C_{kj}} \le
+    \sum^J_{j=1} \int_\Pi \chi_C = \sum^J_{j=1} \delta(C_{kj}) < \varepsilon
+    $ % блять не увидел че там за chi_C нарисовано
+    \\
+
+    $
+    \displaystyle
+    \Pi, P \\ \sum_{\Pi \in P} \inf_\Pi f_1 v(\Pi) + \sum_{\Pi \in P} \inf f_2 v(\Pi) \le
+    \sum_{\Pi \in P} \inf_\Pi (f_1 + f_2) v(\Pi)
+    $\\
+
+    $
+    \displaystyle
+    \implies \int_\Pi f_1 + \int_\Pi f_2 \le \int_\Pi f_1 + f_2 \le \overline\int_\Pi f_1 + f_2
+    \le \overline\int_\Pi f_1 + \overline\int_\pi f_2
+    $
+
+    \subsection*{Теорема Фубини}
+    %рис4
+    $\int_\Pi f = \int_{\Pi_1} dx \int_{\Pi_2} f(x,y) dy$
+
+    Теор.(фубини)
+    $\Pi = \Pi_1 \times \Pi_2, \Pi_1 \subset \mathbb{R}^n, \Pi_2 \in \mathbb{R}^m, f: \Pi \to \mathbb{R}$ огр.\\
+    Если $\exists \int_\Pi f$, то $\exists \int_{\Pi_1}\mathscr{L}, \int_{\Pi_2} \mathscr{U}$ и они все равны между собой
+    \\
+    $\mathscr{L}(x) = \underline\int_{\Pi_2} f(x,y)dy, \mathscr{U}(x) = \overline\int_{\Pi_2}f(x,y) dy$\\
+    $f(x,y) dxdy = \Pi = \int_{\Pi_1}\mathscr{L}(x)dx = \int_{\Pi_1}\mathscr{U}(x)dx = \int_{\Pi_1}dx(\underline\int_{\Pi_2}f(x,y)dy) = \int_{\Pi_1}dx(\overline\int_{\Pi_2}f(x,y)dy)$\\
+
+    Д-во: $p = p_1 \times p_2$ - разбиение $\Pi$.$p_1 - разбиение \Pi_1, p_2 - разбиение \Pi_2$
+    $P = \{ \Pi_1 \times \Pi_2 | \Pi_1 \in P_1, \Pi_2 \in P_2 \}$
+    $L(f, P) = \sum_{\Pi \in P} \inf_\Pi v(\Pi) = \sum_{\Pi_1, \Pi_2} \inf_{\Pi_1 \times \Pi_2} f \cdot v(\Pi_1) v(\Pi_2) = 
+    \sum_{\Pi_1} v(\Pi_1)\sum_{\Pi_2} \inf_{\Pi_1 \times \Pi_2} fv(\Pi_2)$\\
+
+    $\displaystyle\forall x \in \Pi_1 \inf_{\Pi_1 \times \Pi_2} f \le \inf_{y \in \Pi_2} f(x,y), \quad 
+    \sum_{\Pi_2}\inf_{\Pi_1 \times \Pi_2} f \cdot v(\Pi_2) \le \sum_{\Pi_2} \inf_{y \in \Pi_2} f(x,y)v(\Pi_2)$
+    \\$ = L(f(x, \cdot), p_2) \le \mathscr{L}(x) \implies \inf_{\Pi_1 \times \Pi_2} f = \inf_{\Pi_1} \mathscr{L}
+    \implies L(f, p) \le L(\mathscr{L}, p_1)$\\
+
+    $L(f, P) \le L(\mathscr{L}, p_1) \le U(\mathscr{L}, p_1) \le U(\mathscr{U}, P_1) \le U(f, p)$ (*)\\
+
+    $\sup_p L(f, p) = \inf_p U(f,p)$  (условие)\\
+
+    $\sup_p L(f,p) \le \sup_{p_1} L(\mathscr{L}, p_1)$\\
+
+    $\sup_{p_1}L(\mathscr{L}, p_1) \le \inf_{p_1} U(\mathscr{L}, p_1)$ (всегда верно)\\ 
+
+    $\inf_{p_1} U(\mathscr{L}, p_1) \le \inf_{p} U(f,p)$ (из (*))
+    \\
+
+    $\implies $ везде равенства $\implies \exists\int_{\Pi_1}\mathscr{L} = \int_\Pi f$
+
+\end{document}
