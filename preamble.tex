@@ -1,0 +1,48 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[english, russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm, amsmath, amsfonts, amssymb, mathtools}
+\usepackage{geometry}
+\usepackage{indentfirst}
+\usepackage{titleps}
+\usepackage{soulutf8}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{pgfplots}
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{wrapfig}
+
+\pgfplotsset{compat=1.18, width=7cm}
+
+\newpagestyle{main}{
+    %\setheadrule{0.4pt}
+    \sethead{}{}{}
+    %\setfootrule{0.4pt}
+    \setfoot{}{\thepage}{}
+}
+
+\pagestyle{main}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{corollary}{Следствие}[theorem]
+\newtheorem{lemma}{Лемма}[section]
+\newtheorem*{definition}{Определение}
+\newtheorem*{remark}{Замечание}
+\newtheorem{illustration}{Пример}
+\newtheorem*{proposition}{Предложение}
+
+\geometry{top=25mm}
+\geometry{bottom=30mm}
+\geometry{left=20mm}
+\geometry{left=20mm}
+
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{\columnwidth}
+    \import{./figures/}{#1.pdf_tex}
+}
