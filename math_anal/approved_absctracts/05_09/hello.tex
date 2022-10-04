@@ -306,6 +306,39 @@
                 \par $\Rightarrow x_y \not\in \delta(K), \ x_y \in \Int K$
                 \par $h_y'(x_y) = (f(x) - y, f(x) - y)'_{\big|_{x=x_y}} = 2 (f(x) - y)^T \cdot f'(x)\big|_{x=x_y} = 0$
                 \par $V \subset f(K) \Rightarrow f(x_y) = y \Rightarrow y \in f(K)$
+            \item $x \in U$
+                \[
+                    \underbrace{\underbrace{f(x + h)}_{y+k} - \underbrace{f(h)}_y}_k = f'(x)h + \phi(x, h) \quad \frac{\|\phi(x, h)\|}{\|h\|} \xrightarrow[\|h\| \rightarrow 0]{} x
+                \]
+                \[
+                    \rotatebox[]{90}{\text{\scriptsize В силу биекции}} \begin{cases}
+                        y = f(x) \\
+                        x = f^{-1}(y) \\
+                        x + h = f^{-1}(y + k)
+                    \end{cases}
+                \]
+                \[
+                    k = f^{-1}(x) \cdot (f^{-1}(y + k) - f^{-1}(y)) + \phi(f^{-1}(y, h))    
+                \]
+                \[
+                    \left(\text{требовали в п. } 2 \text{:} \|f'(x) - I\| < \frac12 \Rightarrow \exists (f'(x))^{-1}\right)    
+                \]
+                \[
+                    f^{-1}(y + k) = f^{-1}(y) + (f'(x))^{-1} \cdot k - \underbrace{(f'(x))^{-1} \cdot \phi(f^{-1}(y), h)} _{= o(\|k\|), \ \|k\| \rightarrow 0}   
+                \]
+                \[
+                    ^{(*)}\left(\frac{\|(f(x))^{-1} \cdot \phi(f^{-1}(y), h)\|}{\|k\|}\right) \le \frac{\|\left(f(x)\right)^{-1}\| \cdot \|\phi(f^{-1}(y), f^{-1}(y + k) - f^{-1}(y))\|}{\|k\|}    
+                \]
+                \[
+                    \frac12\underbrace{\|x_1 - x_2\|}_{h} \le \underbrace{\|f(x_1) - f(x_2)\|}_{k} \le \frac32\underbrace{\|x_1 - x_2\|}_{h}   
+                \]
+                \[
+                    ^{(*)} \le \|(f'(x))^{-1}\| \cdot \underbrace{\frac{\|\phi(f^{-1}(y), f^{-1}(y + k) - f^{-1}(y))\|}{\|f^{-1}(y + k) - f^{-1}(y)\|}}_{\xrightarrow[n \rightarrow 0 \newline (k \rightarrow 0)]{} 0} \cdot \frac{\|f^{-1}(y+k) - f^{-1}(y)\|}{\|k\|}
+                \]
+                \[
+                    \Rightarrow \exists (f^{-1})'(f(x)) = (f'(x))^{-1}    
+                \]
+            \item $\left(f^{-1}\right)'(y) = \left(f'(f^{-1}(y))\right)^{-1}$
         \end{enumerate}
     \end{proof}
 
