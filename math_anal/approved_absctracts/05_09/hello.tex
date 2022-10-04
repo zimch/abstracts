@@ -339,7 +339,42 @@
                     \Rightarrow \exists (f^{-1})'(f(x)) = (f'(x))^{-1}    
                 \]
             \item $\left(f^{-1}\right)'(y) = \left(f'(f^{-1}(y))\right)^{-1}$
+                \par $f^{-1} : y \mapsto f^{-1}(y) \quad f^{-1} \in C(V, U)$
+                \par $f' : f^{-1}(y) \mapsto f'(f^{-1}(y)) \quad f' \in C(D, \R^n)$
+                \par $A \mapsto A^{-1} \quad$ непрерывное отображение
+                \par $\quad \Rightarrow f^{-1} \in C^1(V, U)$
+            \item Общий случай $\quad f^{-1}(x_0) = A, \ \det A \not= 0$
+                \par $\tilde f(x) := A^{-1}f(x)$
+                \par $\tilde f'(x) = A^{-1}f'(x)$
+                \par $\tilde f'(x_0) = A^{-1}A = I$
+                \par $\exists U, \tilde V, \tilde f\big|_U$ -- биекция, $\tilde f^{-1} \in C^1(\tilde V, U)$
+                \par $\quad (\tilde f^{-1})'(U) = $
+                \par $f(x) = A \tilde f(x) \quad f\big|_U$ биекция м. $U$ и $A \tilde V := V$
+                \par $y = A \tilde f(x) \quad x = \tilde f^{-1}(A^{-1} y) \Rightarrow f^{-1} \in C^1(V, U)$
+                \par $A^{-1}y = \tilde f(x) \quad f^{-1} = \tilde f^{-1} \cdot A^{-1}$
+                \pagebreak
+                \[
+                    (f^{-1})'(f(x)) = (\tilde f^{-1})(\overbrace{A^{-1}f(x)}^{=\tilde f(x)}) A^{-1} = (\tilde f'(x))^{-1} A^{-1} =
+                \]
+                \[
+                    = (A^{-1} f'(x))^{-1}A^{-1} = (f'(x))^{-1} AA^{-1} = (f'(x))^{-1}    
+                \]
         \end{enumerate}
     \end{proof}
+
+    \begin{remark}
+        \[
+            \begin{cases}
+                f \in C^r(D, \R^n) \\
+                \dots \\
+                \dots
+            \end{cases} = \begin{cases}
+                f^{-1} \in C^r(D, \R^n) \\
+                \dots \\
+                \dots
+            \end{cases}
+        \]
+        $\quad (f^{-1})' = (f')_{ik}^{-1} = \frac{\Delta_{ik}}{\Delta} \quad$ выражается через $\frac{\partial f_l}{\partial x_m}, \quad l, m = 1, 2, \dots, n$
+    \end{remark}
 
 \end{document}
