@@ -22,5 +22,17 @@
     \begin{corollary}
         (th. о локальном обращении)
         \par $D \subset \R^n$,  открыто, $f \in C^1(D, \R^n), \ f'(x)$ обратима при $\forall x \in D$
+        \par Тогда для $\forall$ открытого $G \subset D \quad f(G)$ открыто
     \end{corollary}
+    \begin{proof}
+        Докажем сначала для $G = D$
+        \[ \forall y \in f(D) \quad f^{-1}(y) := x \quad f(x) \text{ обр.,} \]
+        \[ \exists U \text{ крестность } x : f(U) \text{ открыто} \]
+        \[ y \in f(U) \subset f(D) \]
+        \[ \Rightarrow f(U) \text{ - окр-ть } y \]
+        \[\text{т. о. } f(D) \text{ открыто}\]
+        \par Пусть $G \subset D$, открыто. Рассмотрим $f\big|_G \Rightarrow$
+        \par $\quad \Rightarrow$ принимая доказанное $\Rightarrow$
+        \par $\quad f\big|_G(G) = f(G)$ -- открыто
+    \end{proof}
 \end{document}
