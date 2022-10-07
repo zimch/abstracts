@@ -1,0 +1,189 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+\usepackage{amsfonts, amssymb, amsmath}  %% for math symbs
+\usepackage{mathrsfs}
+\usepackage{float}  %% for table floating
+\usepackage{enumerate} %% for lists
+
+\usepackage{fullpage}  %% less margin 
+
+\usepackage{graphicx} %% for pics
+
+\parindent 0px  % no white space in new lines
+
+%% titling
+\title{Hello world} 
+\author{Lindy2076}
+\date{22.22.2} %%\today
+\begin{document}
+    \textbf{Понижение порядка в СЛДУ.}\\
+    Пусть известны $m < n$ лин нез решений. Рассмотрим матрицу $\Phi_1^{n \times n} = \{ \vec{\phi_1}, \dotsc, \vec{\phi_m} \}$\\
+    $rank \Phi_1 = m, \forall t_o \in (a, b) \exists \text{ ненулевой минор порядка } m$
+    $\implies $ пусть $ s$\\
+
+    $B \in \mathbb{C}^{n\times (n-m)} \quad b = 
+    \left(\begin{matrix}
+        0 \\ I % нули m раз, I n-m раз
+    \end{matrix}\right) \quad S(t) = (\Phi_1 | B) \implies det S(t) \neq 0$
+    $\vec{X}(t) = S(t) \vec{y}(t) = \text{ подставив } A(t) \vec{x}$\\
+    $\dot{\vec{\Phi_1}} = A\Phi_1$
+    $\dot{S}\vec{y} + S \dot{\vec{y}} = ASy = (A\Phi_1 | AB)\vec{y} = 
+    (A\Phi_1 | 0) \vec{y} + (0|AB)\vec{y}
+    $\\
+    $\dot{S}\vec{y} = (\dot{\Phi_1} | O)\vec{y} = (A\Phi_1 | 0)\vec{y}$\\
+    Отсюда $\dot{\vec{y}}= (0 | S^{-1}(t) A(t)B)y$. Обозначим всё в круглых скобках за $Q$.\\
+    $Q = \left(\begin{matrix}
+        0 & Q_1\\ 0 & Q_2 %блочная матрица, это блоки. блок с нулем сверху m x m, Q_1 n-m x m
+    \end{matrix}\right)$\\
+    $\vec{y} = \left(\begin{matrix}
+        \vec{y_1} \\ \vec{y_2}
+    \end{matrix}\right)$\\
+    $\begin{cases}
+        \dot{\vec{y_1}} = Q_1(t) \vec{y_2}\quad m\\
+        \dot{\vec{y_2}} = Q_2(t) \vec{y_2}\quad (n-m)\times (n-m)
+    \end{cases}$\\
+    Решения второй строчки обозначим за $\phi_j(t), j=\overline{n-m, \dotsc, n}$\\
+    $(Q_1(t)\begin{matrix}
+        \phi_{n-m}\\\phi_n
+    \end{matrix})_j = f_j(t) \implies \dot{\vec{y}}_j^{(1)} = f(t)$\\
+    $\implies y_j^{(1)} = \int^t_{t_0}f(\tau)d\tau + C \quad j=\overline{1, m}$.\\
+    Пусть $\Psi_2 = \{ \vec\Psi_{m+1}, \dotsc, \vec\Psi_n \}$ n-m линейно независ решений второго уравнения\\
+    $\dot{\vec\Psi_1} = Q_1(t)\Psi_2(t)$ выберем константу $C$ так, чтобы в $t_0$
+    $\Psi_1(t_0) = I$\\
+    $\Psi = \left(\begin{matrix}
+        \Psi_1(t) & 0 \\ 0 & \Psi_1(t) %блочная матрица
+    \end{matrix}\right)$. В силу блочной структуры $det \Psi \neq 0 \implies \Psi$ фундаментальна по построению
+    $\dot{\vec{y}} = Q(t)\vec{y}$\\
+    $\underline{ \Phi(t) = S(t)\Psi(t) }$\\
+
+    Рассмотрим системы ЛДФУ с постоянными матрицами. Решение сущ если коэф постоянны\\
+    \textbf{Однородные системы ЛДФУ с постоянными коэф.}\\
+    $\dot{\vec{X}} = A\vec{X}$. Фундаментальная сисьтема решений: $\Phi(t) = e^{At}$
+    А как взять экспоненту от матрицы? По формуле Тейлора: 
+    $e^x = \sum_{k=0}^\infty \frac{x^k}{k!}$\\
+    Выбираем норму $|| A || = \max_{\vec{x} \neq 0} \frac{||A\vec{x}||}{||\vec{x}||} = \max_{||\vec{x}|| = 1} ||A\vec{x}||$\\
+    $||A|| = \lambda_A$\\ % норма матрицы
+    $|| \sum^0_{k=0} \frac{A^k t^k}{k!} || \le \sum_{k=0} \frac{||A||^k}{k!} |t|^k \le \sum_{k=0} \frac{\lambda_A^k}{k!}|t|^k = e^{\lambda_A |t|} < \infty$\\ % t \in [a,b]
+    $\frac{d}{dt}\sum_{k=0} \frac{A^k t^k}{k!} = \sum_{k=1} \frac{A^k t^{k-1}}{(k-1)!} = A e^{At}$\\
+    
+    \textbf{Подобные матрицы}
+    $\dot{\vec{x}} = A\vec{x}$ заменим $\vec{x} = S\vec{y}, \det S \neq 0; \vec{y} = S^{-1}\vec{x}$\\
+    $ \cdot S^{-1}\mid S\dot{\vec{y}} = A s \vec{y} \implies 
+    \dot{\vec{y}} = \underbrace{S^{-1}A}_{=B}S\vec{y}\\
+    A \text{ и } B
+    $ подобны. $A ~ B \iff \exists S, \det S \neq 0\\
+    B = S^{-1}AS, A = SBS^{-1}
+    $
+
+    $
+    1. A \sim A\\
+    2. A ~ B \iff B ~ A\\
+    3. A ~ B, B ~ C \iff A ~ C\\
+    B = S^{-1}AS \quad C = T^{-1}S^{-1}AST, C = T^{-1}BT
+    $\\
+
+    $\det B = \det S^{-1}AS = \det S^{-1}\det A\det S$\\
+    $\chi_B(\lambda) = \chi_a(\lambda)$\\
+
+    Т. Жордана\\
+
+    $\forall A \sim J = \text{ diag} \{ J_0, J_1, \dotsc, J_q\} \quad
+    J_0 = \text{ diag}\{\lambda_1, \dotsc, \lambda_p \}
+    $\\
+    $J_k = \left(\begin{matrix}
+        \lambda & 1 & \dotsc & 0 \\
+        \vdots & & \lambda & 1 \\
+        0 & \dotsc & \dotsc & \lambda
+    \end{matrix}\right) = \lambda_{p+n} I_{rk} + Z_{rk}$\\  % rk - длина матрицы ж_к
+    $Z_{rk}$ -- нулевая матрица с побочной диагональю единиц\\
+
+    сл1.\\
+    $\det J = \prod^n_{j=1}\lambda_j, \text{ Tr } J = \sum^n_{j=1}\lambda_j \implies
+    \det A = \prod_{j=1}^n \lambda_j, \text{ Tr} A = \sum^n_{j=1}\lambda_j
+    $\\
+
+    сделаем несколько общих наблюдений\\
+    
+    \textbf{Функции от матриц}\\
+    $\{A_k\}_{k=1}^\infty, A_k \in \mathbb{C}^{n\times n}, \quad \lim_{k \to \infty} A_k = A \iff ||A_k - A|| \to 0, k \to \infty$\\
+    $\sum^\infty_{k=0} A_k < \infty \iff \exists \lim_{p \to \infty}S_p, S_p = \sum^P_{k=0}A_k$\\
+
+    $F(x) = \sum^\infty_{k=0} a_k x^k, $ ряд с ненулевым радиусом сходимости.\\
+    $f(A) := \sum^\infty_{k=0}a_k A^k$\\
+    Л1.\\
+    $A = S^{-1}JS \implies f(J)$ и $f(A)$ сх. и расх. одновременно.\\
+    $f(A) = S^{-1}f(J)S$\\
+    $S^{-1}A^k S = S^{-1}ASS^{-1}AS \dotsc S^{-1}AS$\\
+    d:
+    $S_p (A) = \sum^p_{k=0} a_k (S^{-1}JS)^k = S^{-1} \sum^p_{k=0} a_k J^kS = 
+    S^{-1}S_p(J)S 
+    $ пределим $p \to \infty$\\
+
+    Л2.\\
+    $J = \text{ diag}\{J_0, \dotsc, J_q\}, f(J) $ сх-ся $\iff f(J_0), \dotsc, f(J_q)$ сх-ся \\
+    //$J^k = \text{ diag}\{J_0^k, \dotsc, J_q^k\}$\\
+    $f(J) = \text{ diag}\{f(J_0), \dotsc f(J_q)\}$, а если хотя бы одни блок расходится, то и $f$ от него тоже.
+    d: 
+    $S_p(f(J)) = \sum^p_{k=0}a_k \text{ diag}\{ J_0^k, \dotsc, J^k_q\} = 
+    \text{ diag} \{ \sum^p_{k=0} a_kJ^k, \dotsc, \sum^P_{k=0} a_k J_q^k\} \implies % perdel
+    S_p(f(J)) \to f(J) = \text{ diag}\{ f(J_0), \dotsc, f(J_q)\}
+    $\\
+
+    Л3. \\
+    $f(z) = \sum_{j=0}^\infty a_jz^j$ с радиусом сходимости $\rho$.\\
+    $\forall A \lambda_1, \dotsc, \lambda_n$ -- корни $\chi_A(z)$ и $|\lambda_j| < \rho, j=1,\dotsc,n \implies 
+    f(A)$ сх-ся $\implies f(A) = S^{-1}\text{ diag}\{ f(J_0), \dotsc, f(J_q)\}S$, а если сущ. $\lambda > \rho$, тогда
+    $f(A)$ расх-ся.\\
+    d: $f(J_0) = \text{ diag}\{ f(\lambda_1), \dotsc, f(\lambda_p)\} - $ очевидно.\\
+    $f(J_k) = \left(\begin{matrix}
+        f(\lambda_{p +k}) & f'(\lambda_{p+k}) & \dotsc & \frac{f^{(r_k-1)}(\lambda_{p+k})}{(r_k-1)!} \\ % r_k x r_k
+        0 & f(\lambda_{p +k}) & \dotsc & \vdots \\
+        \vdots & & \ddots & \vdots\\
+        0 & \dotsc & 0 & f(\lambda_){p+k}
+        
+    \end{matrix}\right)$\\
+    $z$ - побочная диаг 1, $z^2$ - сдвинется диагональ на 1 вправо, $z^r = 0$\\
+    $S_p(J) = \sum_{k=0}^p a_k(\lambda I + z)^k$\\
+    $(\lambda I + z)^k = \sum^{\min(k, r-1)}_{j=0}C_k^j \lambda^{k-j}z^j = 
+    \left(\begin{matrix}
+        \lambda^k & k\lambda^{k-1} & \dotsc & C^{r-2}_k\lambda^{k-r+2} & C^{r-1}_k\lambda^{k-r+1}\\
+        0  & \lambda^k & k\lambda^{k-1} & \dotsc & C^{r-2}_k\lambda^{k-r+2} \\
+        \vdots & & \ddots & & \vdots \\
+        0 & & \cdots & 0 & \lambda^k
+    \end{matrix}\right)
+    $\\
+    $C^l_k = \frac{k(k-1)\dotsc(k-l+1)}{l!}$\\
+    $\sum^p_{k=j} a_kC^J_k\lambda^{k-j} = \frac{S_p^{(j)}(\lambda)}{} \implies
+    S_p(J) = \left(\begin{matrix}
+        S_p(\lambda) & S_p'(\lambda) & \dotsc & \frac{S_p^{(r-1)}(\lambda)}{(r-1)!} \\
+        0 & \ddots & & \vdots \\
+        \vdots & & &\\
+        0 & \dotsc & 0 & S_p(\lambda)
+    \end{matrix}\right) p \to \infty % diag
+    $\\
+
+    Сл. $t \in \mathbb{C}$, посмотрим $F(tA)$, $tA = S^{-1}tJS$\\
+    $f(tA) = S^{-1}\text{ diag}\{ F(tJ_0), \dotsc, F(tJ_q) \}$\\
+    $tJ = t \lambda I + tz, (tz)^l = t^lz^l$\\
+    $F(tJ_k) = 
+    \left(\begin{matrix}
+        f(\lambda t) & t\cdot f'(t\lambda) & \dotsc & \frac{t^{r-1}f^{(r-1)}}{(r-1)!}\\
+        0 & \ddots & \ddots & \vdots \\
+        \vdots & & \ddots & t\cdot f'(t\lambda)\\ 
+        0 & \cdots & 0 & f(\lambda t)
+    \end{matrix}\right)$\\
+
+    $\dot{\vec{x}} = Ax, \Phi(t) = e^{tA} = S^{-1}e^{tJ}S$\\
+    $e^{tJ} = \text{ diag}\{ e^{tJ_0}, \dotsc, e^{tJ_q} \}$\\
+    $\displaystyle e^{tJ_k} = 
+    \left(\begin{matrix}
+        e^{\lambda_{p+k}t} & t\cdot e^{\lambda_{p+k}\cdot t} & \dotsc & \frac{t^{r-1}\cdot e^{\lambda_{p+k}\cdot t}}{(r-1)!}\\
+        0 & \ddots & \ddots & \vdots \\ 
+        \vdots & & \ddots & t\cdot e^{\lambda_{p+k}\cdot t}\\
+        0 & \cdots & 0 & e^{\lambda_{p+k}t}
+
+    \end{matrix}\right)$
+\end{document}
