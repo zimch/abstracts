@@ -1,0 +1,172 @@
+\input{../../../preamble.tex}
+
+\DeclareMathOperator{\Kerr}{Ker}
+\DeclareMathOperator{\Imm}{Im}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator*{\id}{id}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\theta}{\vartheta}
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\C}{\mathbb{C}}
+
+\begin{document}
+    \title{Математический анализ}
+    \date{19 сентября 2022}
+    \maketitle
+
+    \pagebreak
+
+    \subsection*{Условный экстремум функции}
+
+    $D \subset \R^{n+m}, \ f : D \rightarrow \R, \quad z \in D$
+    \par $\quad \quad \Phi : D \rightarrow \R^m$
+    \quad \quad \quad условие $\Phi(z) = 0$
+
+    \begin{definition}
+        точка $z_0 \in D$ называется условным экстремумом функции $f$ при условии $\Phi = 0$, если $\Phi(z_0) = 0$ и $\exists U$ -- окрестность $z_0, \ U \subset \R^{n+m} \ \forall z \in D \cap U : \Phi(x) = 0$
+        выполняется условие $f(z) \ge f(z_0)$ ( -- условный $\min$); $f(z) \le f(z_0)$ ( -- условный $\max$)
+    \end{definition}
+
+    Пусть $D \subset \R^{n+m}$, открытое, $f \in C^1(D, \R), \ \Phi \in C^1(D, \R^m)$
+    \par \quad $z_0$ -- точка условного экстремума
+    \par \quad $\rank \Phi'(z_0) = m$
+    \par \quad Перенумеруем координаты $\begin{tabular}{|c|c|}\hline
+        $\Phi'_x$ & $\Phi'_y$ \\
+        \hline
+    \end{tabular} = \Phi'$
+    \par \quad $z = (x, y)$ так, чтобы было $\det \Phi'_y(z_0) \not= 0 \quad z_0 = (x_0, y_0)$
+    \par \quad По \textit{Th. о неявном отображении} $\exists U$ -- окрестность $x_0$:
+    \[
+        y = \phi(x), \ x \in U, \ \Phi(x, \phi(x)) = 0
+    \]
+    \par Тогда $f(x, \phi(x))$ имеет безусловный экстремум в точке $x_0$ (условие выполняется)
+    \par $\Rightarrow ^{(1)} \ \underbrace{f'_x(z)}_{1 \times n} + \underbrace{f'_y(z)}_{1 \times m} \cdot \underbrace{\phi'(x)}_{m \times n} = 0$ ( -- это и есть необх. усл. экстремума)
+
+    \par $\phi'(x_0) = -\left(\Phi'_y(z_0)\right)^{-1} \cdot \Phi'_x(z_0)$
+    \par $^{(1)} $ НУО: $f'_x(z) - \underbrace{f'_y(z)\left(\Phi'_y\right)}^{-1}_{= \lambda \text{ (см. след. \S)}} \Phi'_x(z) = 0$
+
+    \subsection*{Метод неопределенных множителей Лагранжа}
+
+    \[
+        \begin{cases}
+            f'_x(z) + f'_y(z)\phi'(x) = 0 \quad n \text{ уравнений} \\
+            \Phi(z) = 0 \text{ -- отсюда } + m \text{ уравнений, } n + m \text{ неизвестных}
+        \end{cases}    
+    \]
+
+    $\underbrace{f'_y(z)}_{1 \times m} = \underbrace{\lambda}_{1 \times m} \cdot \underbrace{\Phi'_y(z)}_{m \times n}$
+    \par $\Phi'_x(z) + \Phi'_y(z)\phi'(x) = 0$
+    \par $f'_x(z) + \cancel{f'_y(z)\phi'(x)} - \lambda (\Phi'_x(z) + \cancel{\Phi'_y(z)\phi'(x)}) = 0$
+    \par $f'_x(z) - \lambda \Phi'_x(z) = 0$
+    \par т. е. получаем
+
+    \[
+        \begin{cases}
+            f'_x(z) - \lambda \Phi'_x(z) = 0 \quad n+2m \text{ уравнений} \\
+            \Phi(z) = 0 \quad n+2m \text{ неизвестных} \\
+            f'_y(z) - \lambda \Phi'_x(z) = 0 \quad (\lambda \text{ в числе неизв.})
+        \end{cases}    
+    \]
+
+    $ $
+    \par $\Rightarrow$ т. е. система стала единообразной
+    \[
+        \begin{cases}
+            f'(z) - \lambda \Phi'(z) = 0 \\
+            \Phi(z) = 0  
+        \end{cases}  
+    \]
+
+    Пусть $F(z, \lambda) = f(z) - \lambda \Phi(z)$
+    \par \quad $F'_z(z, \lambda) = f'(z) - \lambda\Phi'(z)$
+    \par \quad $F'_\lambda(z, \lambda) = -\Phi'(x)$
+    \par \quad $\Rightarrow \boxed{F' = 0}$
+
+    \begin{illustration}
+        Наименьшее и наибольшее значения квадратичной формы на единичной сфере % Я ВООБЩЕ ТО НАПИСАЛ??
+    \end{illustration}
+
+    $A = A^T \in \Mat^d, \ (Az, z) = \sum_{i, k = 1}^d A_{ik} z_i z_k \quad z \in \R^d$
+    \par $S^{d-1} = \{x : \|z\| = 1\}$
+    \par $f(z) = (Az, z)$
+    \par $\Phi(z) = \|z\|^2 - 1 = \sum_{i=1}^d z_i^2 - 1, \quad m = 1, n = d - 1$
+    \par $f'(z) = 2(Az)^T \quad \Phi'(z) = 2z^T$
+    \par $\forall l \ \frac{\partial f}{\partial z_l} = \frac{\partial}{\partial z_l}\left(\sum_{k=1}^d A_{lk}z_k + \sum_{i=1}^d A_{il} z)i = 2(Az)_l\right)$
+
+    \[
+        \begin{cases}
+            f'(z) - \lambda \Phi'(z) \\
+            \Phi(z) = 0
+        \end{cases} = \begin{cases}
+            2(Az - \lambda z) = 0 \\
+            \Phi(z) = 0
+        \end{cases} \Leftrightarrow
+    \]
+    \[
+        \Leftrightarrow \begin{cases}
+            Az = \lambda z \\
+            \|z\| = 1
+        \end{cases} \qquad \text{-- задача на собственные знач. и векторы}
+    \]
+
+    \begin{remark}
+        Условные экстремумы в точках является нормированным собственными векторами матрицы
+    \end{remark}
+
+    \[
+        f(z) = (Az, z) = (\lambda z, z) = \lambda \|z\|^2 = \lambda    
+    \]
+
+    $\Rightarrow$ наибольшее значение квадратичной формы $= \max\{\lambda\}$
+    \par \quad наименьшее $= \min\{\lambda + \text{ с. ч } A\}$
+    \par $ $
+    \par $B \in \Mat^{m, n} \quad \|B\|^2 = \sup_{z \in S^{n-1}} \|Bz\|^2 = \sup_{z \in S^{n-1}} (Bz, Bz) =$
+    \par $= \sup_{z \in S^{n-1}} (B^TB, z) = \max \lambda (B^TB) = \max S(B), \quad \text{где } S(B) \text{ -- сингулярные числа на } B$
+    \par $A \in \Mat^{m, n}$
+    \par $A : \R^n \rightarrow \R^m$
+    \[
+        (Ax, y) = \sum_{k=1}^n \sum_{i=1}^m A_{ik} x_k y_i = \sum_{k=1}^n x_k (A^Ty)_k = (x, A^ty) % ТУТ ПЕРЕПРОВЕРИТЬ ПЖПЖ
+    \]
+    \[
+        (A^Ty)_k = \sum_{l=1}^m (A^T)_{kl}y_l = \sum_{l=1}^m A_{lk}y_l   
+    \]
+
+    \subsection*{Интеграл Римана в $\R^n$}
+
+    $\Pi$ -- координатный параллелепипед в $\R^n$,
+    \par $\Pi = [a_1, b_1] \times \dots \times [a_n, b_n] = \prod_{i=1}^n [a_i, b_i]$
+    \par $v(\Pi) = (b_1 - a_1) \cdot \dots \cdot (b_n - a_n) = \prod_{i=1}^n (b_i - a_i)$ -- объем
+    \par $ $
+    \par $f : \Pi \rightarrow \R$, ограниченное \quad $(\exists c > 0 : |f(x)| < c \ \forall x \in \Pi)$
+    \par $p_i = \{[t_{k-1}, t_k], \ k = 1, \dots, N_i\}$ -- разбиение $[a_i, b_i]$, если $a_i = t_0 \le t_1 \le \dots \le t_{N_i} = b_i$
+    \par $p = \{\pi = \pi_1 \times \dots \times \pi_n, \ \pi_i \in p_i\}$ -- разбиение $\Pi$
+    \[
+        d(p) = \max_{\pi \in p} \diam \pi, \qquad \diam \pi = \sup_{x, y \in \pi} \|x - y\|    
+    \]
+    \par $L(f, p) = \sum_{\pi \in p} \inf_\pi f \cdot v(\pi) \qquad$ -- нижняя сумма Дарбу
+    \par $U(f, p) = \sum_{\pi \in p} \sup_\pi f \cdot v(\pi) \qquad$ -- верхняя сумма Дарбу
+    \par $L(f, p) \le U(f, p)$
+
+    \begin{lemma}
+        Для $\forall$ разбиений $p_1, \ p_2 \quad L(f, p_1) \le U(f, p_2)$
+    \end{lemma}
+    \begin{proof}
+        $ $
+        \begin{enumerate}
+            \item $p_2$ -- расширение $p_1 \quad (\forall \pi \in p_1 : \pi = \bigcup_{i=1}^N \pi_i, \ \pi_i \in p_2)$
+                \par $v(\pi) = \sum_{i=1}^N v(\pi_i)$
+                \par $\inf_\pi f \le \inf_{\pi_i} f, \ \forall i$
+                \par $\sum_{i=1}^N \inf_{\pi_i} f \cdot v(\pi_i) \ge \inf_\pi f \cdot v(\pi)$
+                \par $\Rightarrow L(f, p_2) \ge L(f, p_1)$
+                \par Аналогично для $U(f, p_2) \le U(f, p_1)$
+            \item Пусть $p_1$ и $p_2$ -- два произвольных разбиения
+                \par Рассмотрим $p_3 = \{\pi_1 \cap \pi_2, \ \pi_1 \in p_1, \ \pi_2 \in p_2\}$
+                \par $L(f, p_1) \le L(f, p_3) \le U(g, p_3) \le U(f, p_2)$
+        \end{enumerate}
+    \end{proof}
+
+\end{document}
