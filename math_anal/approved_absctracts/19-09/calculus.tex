@@ -1,0 +1,51 @@
+\input{../../../preamble.tex}
+
+\DeclareMathOperator{\Kerr}{Ker}
+\DeclareMathOperator{\Imm}{Im}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator*{\id}{id}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\theta}{\vartheta}
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\C}{\mathbb{C}}
+
+\begin{document}
+    \title{Математический анализ}
+    \date{19 сентября 2022}
+    \maketitle
+
+    \pagebreak
+
+    \subsection*{Условный экстремум функции}
+
+    $D \subset \R^{n+m}, \ f : D \rightarrow \R, \quad z \in D$
+    \par $\quad \quad \Phi : D \rightarrow \R^m$
+    \quad \quad \quad условие $\Phi(z) = 0$
+
+    \begin{definition}
+        точка $z_0 \in D$ называется условным экстремумом функции $f$ при условии $\Phi = 0$, если $\Phi(z_0) = 0$ и $\exists U$ -- окрестность $z_0, \ U \subset \R^{n+m} \ \forall z \in D \cap U : \Phi(x) = 0$
+        выполняется условие $f(z) \ge f(z_0)$ ( -- условный $\min$); $f(z) \le f(z_0)$ ( -- условный $\max$)
+    \end{definition}
+
+    Пусть $D \subset \R^{n+m}$, открытое, $f \in C^1(D, \R), \ \Phi \in C^1(D, \R^m)$
+    \par \quad $z_0$ -- точка условного экстремума
+    \par \quad $\rank \Phi'(z_0) = m$
+    \par \quad Перенумеруем координаты $\begin{tabular}{|c|c|}\hline
+        $\Phi'_x$ & $\Phi'_y$ \\
+        \hline
+    \end{tabular} = \Phi'$
+    \par \quad $z = (x, y)$ так, чтобы было $\det \Phi'_y(z_0) \not= 0 \quad z_0 = (x_0, y_0)$
+    \par \quad По \textit{Th. о неявном отображении} $\exists U$ -- окрестность $x_0$:
+    \[
+        y = \phi(x), \ x \in U, \ \Phi(x, \phi(x)) = 0
+    \]
+    \par Тогда $f(x, \phi(x))$ имеет безусловный экстремум в точке $x_0$ (условие выполняется)
+    \par $\Rightarrow ^{(1)} \ \underbrace{f'_x(z)}_{1 \times n} + \underbrace{f'_y(z)}_{1 \times m} \cdot \underbrace{\phi'(x)}_{m \times n} = 0$ ( -- это и есть необх. усл. экстремума)
+
+    \par $\phi'(x_0) = -\left(\Phi'_y(z_0)\right)^{-1} \cdot \Phi'_x(z_0)$
+    \par $^{(1)} $ НУО: $f'_x(z) - \underbrace{f'_y(z)\left(\Phi'_y\right)}^{-1}_{= \lambda \text{ (см. след. \S)}} \Phi'_x(z) = 0$
+
+\end{document}
