@@ -1,0 +1,67 @@
+\input{../../preamble.tex}
+\parindent 0px
+
+\begin{document}
+    \textbf{1.} Каноническая форма дифференциального уравнения $n$-го порядка 
+    (системы дифференциальных уравнений первого порядка). 
+
+    Постановка задачи Коши для дифференциального уравнения n-го 
+    порядка и для системы дифференциальных уравнений
+    первого порядка, дуализм этих задач.
+    
+    \rule{\textwidth}{1px}
+    
+    \par $ $
+    $$F(x, y(x), y'(x), \dotsc, y^{(n)}(x)) = 0 \quad\textbf{ -- общий вид}$$
+    $\displaystyle\frac{\partial F}{\partial y^{(n)}} \neq 0$, 
+    $n$ -- порядок дифференциального уравнения. 
+    
+    \,\\
+    По теореме о неявной функции: $y^{(n)} = F(x, y, \dotsc, y^{(n-1)})$
+    \textbf{-- канонический вид}
+
+    % $y^{(n)} = f(x, y, \dotsc, y^{(n-1)})$
+
+    \,\\
+    $
+    \begin{cases}
+        y(x_0) = y_0 \\
+        y'(x_0) = y_1 \\
+        \dotsc \\
+        y^{(n-1)(x_0) = y_{n-1}}
+    \end{cases}
+    \iff
+    \begin{cases}
+        u'_1=u_2 \\
+        u_2'=u_3 \\
+        \dotsc \\
+        u'_{n-1} = u_n \\
+        u'_n = F(x, \vec{u})
+    \end{cases}
+    \overset{\overset{\text{замена переменных}}{\downarrow}}{u(x)}= 
+    \begin{cases}
+        y(x) \\
+        y'(x) \\
+        \vdots \\
+        y^{(n-1)}(x)
+    \end{cases}
+    $
+
+    \,\\
+    Каждое решение уравнения 1 системы переходит с помощью замены 
+    в решение второй системы.
+
+    Задача Коши.
+    $\sqsupset y^{(n)} = F(x, y, \dotsc, y^{(n-1)}) \qquad 
+    \begin{matrix*}[l]
+        t \in D \subset \mathbb{R} \\ y_0, \dotsc, y_{n-1} \in \mathbb{R}
+    \end{matrix*}$
+    
+    Тогда 
+    $\begin{cases}
+        y(x_0) = y_0 \\
+        \dot{y}(x_0) = y_1 \\
+        \dotsc \\
+        y^{(n-1)}(x_0) = y_{n-1}
+    \end{cases}$ имеет решение в $\varepsilon$-окрестности точки $x_0$
+\end{document}
