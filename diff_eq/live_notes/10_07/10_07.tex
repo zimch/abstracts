@@ -34,11 +34,12 @@
     (A\Phi_1 | 0) \vec{y} + (0|AB)\vec{y}
     $\\
     $\dot{S}\vec{y} = (\dot{\Phi_1} | O)\vec{y} = (A\Phi_1 | 0)\vec{y}$\\
-    Отсюда $\dot{\vec{y}}= (0 | S^{-1}(t) A(t)B)y$. Обозначим всё в круглых скобках за $Q$.\\
+    Отсюда $\dot{\vec{y}}= \Big(0 | S^{-1}(t) A(t)B\Big)y$. Обозначим всё в круглых скобках за $Q$.\\
     $Q = \left(\begin{matrix}
         0 & Q_1\\ 0 & Q_2 %блочная матрица, это блоки. блок с нулем сверху m x m, Q_1 n-m x m
-    \end{matrix}\right)$\\
-    $\vec{y} = \left(\begin{matrix}
+    \end{matrix}\right)$. Это блочная матрица, блок с нулями сверху размером $m \times m$\\
+    $\vec{y} = 
+    \left(\begin{matrix}
         \vec{y_1} \\ \vec{y_2}
     \end{matrix}\right)$\\
     $\begin{cases}
@@ -46,16 +47,20 @@
         \dot{\vec{y_2}} = Q_2(t) \vec{y_2}\quad (n-m)\times (n-m)
     \end{cases}$\\
     Решения второй строчки обозначим за $\phi_j(t), j=\overline{n-m, \dotsc, n}$\\
-    $(Q_1(t)\begin{matrix}
+    $(Q_1(t)
+    \left(\begin{matrix}
         \phi_{n-m}\\\phi_n
-    \end{matrix})_j = f_j(t) \implies \dot{\vec{y}}_j^{(1)} = f(t)$\\
+    \end{matrix}\right) )_j = f_j(t) \implies \dot{\vec{y}}_j^{(1)} = f(t)$\\
     $\implies y_j^{(1)} = \int^t_{t_0}f(\tau)d\tau + C \quad j=\overline{1, m}$.\\
     Пусть $\Psi_2 = \{ \vec\Psi_{m+1}, \dotsc, \vec\Psi_n \}$ n-m линейно независ решений второго уравнения\\
-    $\dot{\vec\Psi_1} = Q_1(t)\Psi_2(t)$ выберем константу $C$ так, чтобы в $t_0$
+    $\dot{\vec\Psi}_1 = Q_1(t)\Psi_2(t)$ выберем константу $C$ так, чтобы в $t_0$
     $\Psi_1(t_0) = I$\\
-    $\Psi = \left(\begin{matrix}
+    $\Psi = 
+    \left(\begin{matrix}
         \Psi_1(t) & 0 \\ 0 & \Psi_1(t) %блочная матрица
-    \end{matrix}\right)$. В силу блочной структуры $det \Psi \neq 0 \implies \Psi$ фундаментальна по построению
+    \end{matrix}\right)$ -- это тоже блочная матрица.
+    
+    В силу блочной структуры $det \Psi \neq 0 \implies \Psi$ фундаментальна по построению
     $\dot{\vec{y}} = Q(t)\vec{y}$\\
     $\underline{ \Phi(t) = S(t)\Psi(t) }$\\
 
@@ -100,7 +105,7 @@
     \end{matrix}\right) = \lambda_{p+n} I_{rk} + Z_{rk}$\\  % rk - длина матрицы ж_к
     $Z_{rk}$ -- нулевая матрица с побочной диагональю единиц\\
 
-    сл1.\\
+    \textbf{сл1.}\\
     $\det J = \prod^n_{j=1}\lambda_j, \text{ Tr } J = \sum^n_{j=1}\lambda_j \implies
     \det A = \prod_{j=1}^n \lambda_j, \text{ Tr} A = \sum^n_{j=1}\lambda_j
     $\\
@@ -113,7 +118,7 @@
 
     $F(x) = \sum^\infty_{k=0} a_k x^k, $ ряд с ненулевым радиусом сходимости.\\
     $f(A) := \sum^\infty_{k=0}a_k A^k$\\
-    Л1.\\
+    \textbf{Л1.}\\
     $A = S^{-1}JS \implies f(J)$ и $f(A)$ сх. и расх. одновременно.\\
     $f(A) = S^{-1}f(J)S$\\
     $S^{-1}A^k S = S^{-1}ASS^{-1}AS \dotsc S^{-1}AS$\\
@@ -122,7 +127,7 @@
     S^{-1}S_p(J)S 
     $ пределим $p \to \infty$\\
 
-    Л2.\\
+    \textbf{Л2.}\\
     $J = \text{ diag}\{J_0, \dotsc, J_q\}, f(J) $ сх-ся $\iff f(J_0), \dotsc, f(J_q)$ сх-ся \\
     //$J^k = \text{ diag}\{J_0^k, \dotsc, J_q^k\}$\\
     $f(J) = \text{ diag}\{f(J_0), \dotsc f(J_q)\}$, а если хотя бы одни блок расходится, то и $f$ от него тоже.
@@ -132,7 +137,7 @@
     S_p(f(J)) \to f(J) = \text{ diag}\{ f(J_0), \dotsc, f(J_q)\}
     $\\
 
-    Л3. \\
+    \textbf{Л3.} \\
     $f(z) = \sum_{j=0}^\infty a_jz^j$ с радиусом сходимости $\rho$.\\
     $\forall A \lambda_1, \dotsc, \lambda_n$ -- корни $\chi_A(z)$ и $|\lambda_j| < \rho, j=1,\dotsc,n \implies 
     f(A)$ сх-ся $\implies f(A) = S^{-1}\text{ diag}\{ f(J_0), \dotsc, f(J_q)\}S$, а если сущ. $\lambda > \rho$, тогда
@@ -165,7 +170,7 @@
     \end{matrix}\right) p \to \infty % diag
     $\\
 
-    Сл. $t \in \mathbb{C}$, посмотрим $F(tA)$, $tA = S^{-1}tJS$\\
+    \textbf{Сл.} $t \in \mathbb{C}$, посмотрим $F(tA)$, $tA = S^{-1}tJS$\\
     $f(tA) = S^{-1}\text{ diag}\{ F(tJ_0), \dotsc, F(tJ_q) \}$\\
     $tJ = t \lambda I + tz, (tz)^l = t^lz^l$\\
     $F(tJ_k) = 
