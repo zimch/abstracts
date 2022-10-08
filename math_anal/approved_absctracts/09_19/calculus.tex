@@ -12,6 +12,7 @@
 \renewcommand{\epsilon}{\varepsilon}
 \newcommand{\R}{\mathbb{R}}
 \renewcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
 
 \begin{document}
     \title{Математический анализ}
@@ -167,6 +168,108 @@
                 \par Рассмотрим $p_3 = \{\pi_1 \cap \pi_2, \ \pi_1 \in p_1, \ \pi_2 \in p_2\}$
                 \par $L(f, p_1) \le L(f, p_3) \le U(g, p_3) \le U(f, p_2)$
         \end{enumerate}
+    \end{proof}
+
+    \begin{corollary}
+        $\inf_p U(f, p) \ge \sup_p L(f, p)$
+    \end{corollary}
+
+    \pagebreak
+
+    \begin{definition}
+        \[
+            \underset{\Pi}{\underline{\int}} f := \sup_p L(f, p) \qquad \underset{\Pi}{\overline{\int}} f := \inf_p U(f, p)
+        \]
+        \[
+            f : \Pi \rightarrow \R \qquad \text{огранич.}
+        \]
+    \end{definition}
+
+    \begin{definition}
+        Если $\underset{\Pi}{\underline{\int}} f = \underset{\Pi}{\overline{\int}} f$, то $f$ называется интегрируемой по Риману и
+        \[
+            \underset{\Pi}{\underline{\int}} f = \underset{\Pi}{\overline{\int}} f = \underset{\Pi}{\int} f
+        \]
+        \[
+            \underset{\Pi}{\int} f = \int f(x)dx = \overbrace{\underset{\Pi}{\int \dots \int}}^n f(x_1, \dots, x_n) dx_1 \dots dx_n \text{ -- кратный интеграл}
+        \]
+    \end{definition}
+
+    \begin{illustration}
+        $ $
+        \begin{enumerate}
+            \item $f \equiv c \ \forall p \forall \pi \in p \ \inf_\pi f = \sup_\pi f = c$ % ТУТ sup ПО pi ИЛИ ПО Pi?
+                \par $L(f, p) = U(f, p) = c \cdot v(\pi)$
+                \par $\Rightarrow \exists \underset{\Pi}{\int} f = c \cdot v (\pi)$
+            \item $\pi = [0, 1]^2, \ f(x, y) = \begin{cases}
+                0 \quad , x \in \Q \\
+                1 \quad , x \not\in \Q
+            \end{cases}$ \quad $\forall p \ \forall \pi \in p \ \inf_\pi f = 0$
+            \par $ $
+            \par $L(f, p) = 0 \qquad U(f, p) = 0$
+        \end{enumerate}
+    \end{illustration}
+
+    \begin{lemma}
+        $f : \Pi \rightarrow \R \quad \text{огр.}$
+        \par $f$ интегрируема $\Leftrightarrow \forall \epsilon > 0 \ \exists p \ U(f, p) - L(f, p) < \epsilon$ 
+    \end{lemma}
+
+    \begin{proof}
+        $ $
+        \begin{enumerate}
+            \item[$\boxed{\Leftarrow}$] $\underset{\Pi}{\overline{\int}} f - \underset{\Pi}{\underline{\int}} f \le U(f, p) - L(f, p)$
+                \par $\forall \epsilon \ \exists p : U(f, p) - L(f, p) < \epsilon \Rightarrow = 0$
+            \item[$\boxed{\Leftarrow}$] $\sup_p L(f, p) = \inf_p U(f, p) \Rightarrow \exists p_2 : U(f, p_2) - \inf_p U(f, p) < \frac \epsilon 2 \ \exists p_1 : \sup_p L(f, p) - L(f, p_1) < \frac \epsilon 2$
+                \par Рассмотрим $p_3 = \{\pi_1 \cap \pi_2, \ \pi_1 \in p_1, \pi_2 \in p_2\}$
+                \par $U(f, p_2) - L(f, p_1) < \epsilon$
+                \par $U(f, p_3) - L(f, p_3) \le U(f, p_2) - L(f, p_1) < \epsilon$ % ВОТ ТУТ НАДА ПРОВЕРИТЬ!!
+                \par $\Rightarrow$ вот $\exists p = p_3$
+        \end{enumerate}
+    \end{proof}
+
+    \begin{lemma}
+        $f : \Pi \rightarrow \R$, огр.
+        \par Пусть $\{p_k\}_{k=1}^\infty$ -- последовательность разбиений $\Pi$
+        \par $d(p_k) \xrightarrow[k \rightarrow \infty]{} 0$. Тогда $L(f, p_k) \xrightarrow[k \rightarrow \infty]{} \underset{\Pi}{\underline{\int}} f$
+        \par $U(f, p_k) \xrightarrow[k \rightarrow \infty]{} \underset{\Pi}{\overline{\int}} f$
+    \end{lemma}
+
+    \begin{proof}
+        $\epsilon > 0 \quad \exists p_\epsilon : \underset{\Pi}{\underline{\int}} f - L(f, p_\epsilon) < \frac \epsilon 2$
+        \[
+            \underset{\Pi}{\underline{\int}} f - \frac{\epsilon}{2} < L(f, p_\epsilon) \le \underset{\Pi}{\underline{\int}} f    
+        \]
+        $p_k = p_k' \cup p_k'' \quad \begin{cases}
+            \pi \in p_k', \quad \text{ если } \exists \pi_1 \in p_\epsilon : \pi \supset \pi_1 \\ % ТУТ ТАК??
+            \pi \in p_k'', \quad \text{ если } \pi \text{ имеет непустое пересечение с гранями п-да из } p_\epsilon
+        \end{cases}$
+        \par Рассмотрим $p_{\epsilon, k} := \{\pi_1 \cap \pi_2, \ \pi_1 \in p_k, \pi_2 \in p_\epsilon\}$
+        \[
+            L(f,p_k) - L(f, p_{\epsilon, k} = \sum_{\pi'' \in p_k''} \inf_{\pi''} f v(\pi'') - \sum_{\begin{split}
+                \pi \in p_{\epsilon, k} \\
+                \pi \in \bigcup_{\pi'' \in p_k} \pi''
+            \end{split}} \inf_\pi f v(\pi) % ЧЕСТНО Я ХЗ КАК СДЕЛАТЬ ИНАЧЕ КРАСИВО ;(
+        \]
+
+        $S(p_\epsilon)$ -- сумма площадей всех граней п-ов из $p_\epsilon$
+        
+        \[
+            \sum_{\pi'' \in p_k''} v(\pi'') \le 2 - S(p_\epsilon) \cdot d(p_k) % ПЕРЕПРОВЕРИТЬ ПЖПЖ!    
+        \]
+        \[
+            \left|\sum_{\pi'' \in p_k''} v(\pi'')\right|, \left|\sum_{\begin{split}
+                \pi \in p_{\epsilon, k} \\
+                \pi \in \bigcup_{\pi'' \in p_k} \pi''
+            \end{split}} \inf_\pi f v(\pi) \right| \le
+        \]
+        \[
+            \sup_\pi |f| \cdot \sum_{\pi'' \in p_k''} v(\pi'') \le 2S(p_\epsilon) \cdot \sup_\pi |f| \cdot d(p_k) \xrightarrow[k \rightarrow 0]{} 0   
+        \]
+        $\exists K \ \forall k > K \quad L(f, p_{\epsilon, k}) - L(f, p_k) < \frac \epsilon 2$
+        \[
+            \underset{\Pi}{\underline{\int}} f - \frac \epsilon 2 < L(f, p_\epsilon) - \frac \epsilon 2 \le L(f, p_{\epsilon, k}) - \frac \epsilon 2 < L(f, p_k) < \underset{\Pi}{\underline{\int}} f \Rightarrow L(f, p_k) \xrightarrow[k \rightarrow 0]{} \underset{\Pi}{\underline{\int}} f
+        \]
     \end{proof}
 
 \end{document}
