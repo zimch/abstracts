@@ -156,4 +156,63 @@
         \]
     \end{proof}
 
+    \begin{lemma}
+        Если $K \subset \R^n$ компактно, то $v(K) = 0 \Leftrightarrow \mu (K) = 0$
+    \end{lemma}
+    \begin{proof}
+        \begin{enumerate}
+            \item[$\boxed{\Rightarrow}$] очев. (уже доказали)
+            \item[$\boxed{\Leftarrow}$] Пусть $K \subset \bigcup_{k=1}^\infty C_k$ открытые кубы,
+                \par $\sum_{k=1}^\infty v(C_k) < \epsilon$
+                \par $\exists$ конечное подпокрытие $K \subset \bigcup_{j=1}^N C_{kj}$,
+                \[
+                    \sum_{j=1}^N v(C_{kj}) < \epsilon \quad \quad \epsilon A \Rightarrow v(K) = 0 % Я ХУЗН ЧТО ТАКОЕ EPSILON A..... ;(
+                \]
+        \end{enumerate}
+    \end{proof}
+
+    \begin{illustration}
+        $E = [0, 1] \cap \Q$ -- разные точки $\quad [a, b] = \{q_k, \ k \in \N\} = \bigcup_{k=1}^\infty \{q_k\}$
+        \par $\mu(\{q_k\}) = 0 \ \forall k \xRightarrow[\text{Л. 4}]{} \mu(E) = 0$
+        \par при этом $v(E) \not= 0$
+        \par Пусть $E \subset \bigcup_{k=1}^N C_k \Rightarrow \underset{= [0, 1]}{\bar E} \subset \bigcup_{k=1}^N C_k \xRightarrow[\text{Л. 5}]{} \sum_{k=1}^N v(C_k) \ge 1$
+    \end{illustration}
+
+    \subsection*{Критерий интегрируемости Лебега}
+
+    \textit{Почти везде} $\equiv$ везде, кроме множества точек, имеющего меру $0$
+    \par $E \subset \R^n, \ f : E \rightarrow \R$ огранич.
+    \par \quad $x \in \bar E, \quad \delta > 0$
+    \par $M_\delta(f, x) := \sup_{B_\delta(c)} f, \quad m_\delta (f, x) := \inf_{B_\delta(x)} f$
+    \par $M_0(f, x) \uparrow, \quad m_0(f, x) \uparrow$
+    \par $M_\delta(f, x) - m_\delta(f, x) \ \uparrow$ по $\delta \Rightarrow E : \ \downarrow$
+
+    \begin{definition}
+        $\lim_{\delta \rightarrow 0^+} M_\delta(f, x) - m_\delta(f, x) = w(f, x)$ -- колеб. ф-ии $f$ в точке $x$
+    \end{definition}
+
+    \begin{lemma}
+        $E \subset \R^n, \ f : E \rightarrow \R$ огр. \quad $x \in \bar E$
+        \par $f$ непр. в точке $x \Leftrightarrow w(f, x) = 0$
+    \end{lemma}
+    \begin{proof}
+        $ $
+        \begin{enumerate}
+            \item[$\boxed \Rightarrow$] $\forall \epsilon > 0 \ \exists \delta_\epsilon > 0 \ \forall y \in B_\delta(x) \cap E \ |f(x) - f(y)| < \epsilon$
+                \par $\Rightarrow M_{\delta_\epsilon}(x) - m_{\delta_\epsilon}(x) < \epsilon < \epsilon$
+                \par и более того, $\forall \delta < \delta_\epsilon \ M_{\delta}(x) - m_{\delta}(x) < \epsilon$ % ВОТ ТУТ ПЕРЕПРОВЕРИТЬ!!
+                \par $M_\delta(f, x) , m_\delta(f, x) \xrightarrow[\delta \rightarrow 0^+]{} 0$
+                \par то есть $w(f, x) = 0$
+            \item[$\boxed \Rightarrow$] $w(f, x) = 0 \Rightarrow \forall \epsilon \ \exists \delta_\epsilon : \forall \delta < \delta_\epsilon$
+                \par $M_\delta(f, x) - m_\delta(f, x) < \epsilon$
+                \par $\forall y \in B_\delta(x) \cap E \quad |f(y) - f(x)| < \epsilon$
+                \par $f(y) \xrightarrow[y \rightarrow x]{} f(x)$
+        \end{enumerate}
+    \end{proof}
+
+    \begin{lemma}
+        $F \subset \R^n$ замкн., $f : F \rightarrow \R$ огр.
+        \par $\forall \epsilon > 0 : F_\epsilon := \{x \in F \ | \ w(f, x) \ge \epsilon\}$. Т. д. $F_\epsilon$ -- замкн.
+    \end{lemma}
+
 \end{document}
