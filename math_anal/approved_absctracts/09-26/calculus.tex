@@ -1,0 +1,159 @@
+\input{../../../preamble.tex}
+
+\DeclareMathOperator{\Kerr}{Ker}
+\DeclareMathOperator{\Imm}{Im}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator*{\id}{id}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\theta}{\vartheta}
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\setcounter{lemma}{3}
+\DeclareMathOperator{\lrhimani}{\underset{\Pi}{\underline{\int}}}
+\DeclareMathOperator{\urhimani}{\underset{\Pi}{\overline{\int}}}
+\DeclareMathOperator{\rhimani}{\underset{\Pi}{\int}}
+
+\begin{document}
+
+    \title{Математический анализ}
+    \date{26 сентября 2022}
+    \maketitle
+
+    \pagebreak
+
+    \subsection*{Определение интеграла Римана через интегральные суммы}
+
+    $\Pi \subset \R^n, \ f : \Pi \rightarrow \R$ огр.
+    \par $p$ -- разбиение $\Pi$, $= \{\pi_i, \ i = 1, \dots, N\}$
+    \par $\Xi = \{\xi_i \in \pi_i, \ | \ i = 1, \dots, N\}$
+    \par $\sum(f, p, \Xi) := \sum_{i=1}^N f(\xi) v(\pi_i)$ -- интегральная сумма Римана
+
+    \begin{definition}
+        Если $\exists I \in \R : \forall \{p_k\}_{k=1}^\infty : d(p_k) \xrightarrow[k \rightarrow]{} 0 \ \forall \{\Xi\}_{k=1}^\infty$
+        \[
+            \sum(f, p_k, \Xi_k) \xrightarrow[k \rightarrow \infty]{} I, \ \text{ то } f \text{ интегрируема по Риману и } I = \rhimani f    
+        \]
+    \end{definition}
+
+    \begin{theorem}
+        $ $
+        \par $\exists I \ \forall \{p_k\} : d(p_k) \xrightarrow[k \rightarrow \infty]{} 0 \ \forall \{\Xi\} \ \sum(f, p_k, \Xi_k) \xrightarrow[k \rightarrow \infty]{} I \Leftrightarrow \lrhimani f = \urhimani f = \rhimani f$
+    \end{theorem}
+    
+    \begin{proof}
+        $ $
+        \begin{enumerate}
+            \item[$\boxed{\Rightarrow}$] $\epsilon, p_k : d()p_k \xrightarrow[k \rightarrow \infty]{} 0 \ \forall \pi \in p_k \ \exists \xi \in \pi:$
+                \[
+                    f(\xi) - \inf_\pi f < \epsilon
+                \]
+                Получим $\Xi_k \ \sum(f, p_K, \Xi_k) - L(f, p_k) = \sum_{\pi \in p_k}(f(\xi(\pi)) - \inf_\pi f) \cdot v(\pi) \le$
+                \par \quad $\le \epsilon \cdot \sum_{\pi \in p} v(\pi) = \epsilon \cdot v(\pi)$
+                \par По \textit{Л. 3} $L(f, p_k) \xrightarrow[k \rightarrow 0]{} \lrhimani f \Rightarrow 0 \le I - \lrhimani f \le \epsilon \cdot v(\pi)$
+                \[
+                    \begin{rcases}
+                        \forall \epsilon \Rightarrow \lrhimani f = I \\
+                        \text{Аналогично } \urhimani f = I
+                    \end{rcases} \Rightarrow \exists \rhimani f = i
+                \]
+            \item[$\boxed{\Leftarrow}$] Пусть $\lrhimani f = \urhimani f = \rhimani f$. Возьмем произвольные
+                \[
+                    \{p_k\}, \ d(p_k) \rightarrow 0, \ \{\Xi_k\} \quad _{(*)}:    
+                \]
+                \[
+                    L(f, p_k) \le \sum(f, p_k, \Xi_k) = \sum_{\pi \in p_k}\underbrace{f(\xi(\pi))}_{(*)} v(\pi) \le U(f, p_k)    
+                \]
+                \[
+                    _{(*)} \quad \inf_\pi \le \dots \le \sup_\pi f    
+                \]
+                \[
+                    L(f, p_k) \xrightarrow[\text{Л. 3, } k \rightarrow \infty]{} \lrhimani f = \urhimani f \xleftarrow[\text{Л. 3, } k \rightarrow \infty]{} U(f, p_k)    
+                \]
+                \[
+                    \Rightarrow \sum(f, p_k, \Xi_k) \xrightarrow[k \rightarrow \infty]{} I
+                \]
+        \end{enumerate}
+    \end{proof}
+
+    \subsection*{Множество меры ноль}
+
+    \begin{definition}
+        $E \subset \R^n$ имеет меру ноль, если $\forall \epsilon > 0 \ \exists$ покрытие $E \subset \bigcup_{k = 1}^\infty C_k$, где $C_k$ -- открытые кубы
+        \[
+            \sum_{k=1}^\infty v(C_k) \le \epsilon \quad \quad \mu(E) = 0 \ \text{ -- мера}   
+        \]
+    \end{definition}
+
+    \begin{remark}
+        Открытые кубы $\Leftrightarrow$ замкнутые
+    \end{remark}
+    \begin{remark}
+        $E_1 \subset E, \ \mu(E) = 0 \Rightarrow \mu(E_1) = 0$
+    \end{remark}
+
+    \begin{lemma}
+        $\mu(E_k) = 0 \Rightarrow \forall k \in \N \Rightarrow \mu(\bigcup_{k=1}^\infty E_k) = 0$
+    \end{lemma}
+
+    \begin{proof}
+        $\forall k \ \exists$ покрытие кубами с $\sum$ объемов $ < \frac \epsilon 2^k$
+        \par Тогда $E = \bigcup_{k=1}^\infty E_k$ будут покрыты и $\sum$ объемов $< \epsilon \cdot \sum_{k=1}^\infty \frac 1 2^k = \epsilon$
+    \end{proof}
+
+    \begin{definition}
+        $E \subset \R^n$ имеет объем ноль, если $\forall \epsilon \ \exists$ конечное покрытие
+        \par $E = \bigcup_{k=1}^\infty C_k$, где $c_k$ -- открытый куб
+        \[
+            \sum_{k=1}^N v(C_k) < \epsilon \quad \quad v(E) = 0   
+        \]
+    \end{definition}
+
+    \begin{remark}
+        $ $
+        \begin{enumerate}
+            \item открытые $\Leftrightarrow$ замкнутые кубы
+            \item $v(E) = 0 \Rightarrow \mu(E) = 0$
+        \end{enumerate}
+    \end{remark}
+
+    \begin{theorem}
+        \par $[a, b] \subset \R$ не может иметь объем $0$
+    \end{theorem}
+    \begin{proof}
+        докажем, что если $[a, b] \subset \bigcup_{k=1}^N C_k$,
+        \[
+            C_k \text{ -- отрезки, то } \sum_{k=1}^N v(C_k) \ge b - a
+        \]
+        база : $N = 1$
+        \par \quad $[a, b] \subset C_1 \Rightarrow v(C_1) \ge b - a$
+        \par переход : $N + 1$
+        \par \quad $a \in U_{k=1}^{N+1} C_k \Rightarrow \exists k : a \in C_k$ \text{ перенумеруем } $C_k$ так, чтобы $a \in C_1 = [\alpha, \beta]$
+        \[
+            \alpha \le a \le \beta \le b % ВОТ ТУТ БЫ НАРИСОВАТЬ ОТРЕЗОК... НО Я ЧЕТА НЕ МОГУ НАЙТИ КАК ;(    
+        \]
+        Если $b \in [\alpha, \beta]$, то $[a, b] \subset [\alpha, \beta]$,
+        \[
+            \sum_{k=1}^{N+1} v(C_k) > v(C_1) = \beta - \alpha \ge b - a    
+        \]
+        Если $b \not \in [\alpha, \beta], \ b > \beta$ % ТУТ ТОЖЕ РИСУНОК ПЖПЖПЖ
+        \[
+            (\beta, b] \subset \bigcup_{k=2}^{N+1} C_k    
+        \]
+        \[
+            \Rightarrow [\beta, b] \subset \bigcup_{k=2}^{N+1}  C_k \xRightarrow[\text{инд. п.}]{} \sum_{k=2}^{N+1} v(C_k) \ge b - \beta
+        \]
+        \[
+            v(C_1) \ge \beta - a    
+        \]
+        \[
+            \Rightarrow \sum_{k=1}^{N+1} v(C_k) \ge b - a    
+        \]
+    \end{proof}
+
+\end{document}
