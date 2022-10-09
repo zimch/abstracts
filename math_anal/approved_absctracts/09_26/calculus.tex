@@ -214,5 +214,66 @@
         $F \subset \R^n$ замкн., $f : F \rightarrow \R$ огр.
         \par $\forall \epsilon > 0 : F_\epsilon := \{x \in F \ | \ w(f, x) \ge \epsilon\}$. Т. д. $F_\epsilon$ -- замкн.
     \end{lemma}
+    \begin{proof}
+        Докажем, что $\R \setminus F_\epsilon$ -- откр.
+        \[
+            \begin{array}{c}
+                1. \ x \in \R^n \setminus F \\
+                2. \ x \in F \setminus F_\epsilon
+            \end{array} \xRightarrow[]{??} \delta > 0 \quad B_\delta(x) \in \R^n \setminus F_\epsilon
+        \]
+        \begin{enumerate}
+            \item $x \in \underbrace{\R^n \setminus F}_{\text{огр.}} \Rightarrow \exists \delta > 0 \ B_\delta(x) \subset \R^n \setminus F \subset \R^n \setminus F_\epsilon$
+            \item $x \in F \setminus F_\epsilon \Rightarrow w(f, x) < \epsilon \Rightarrow \exists \delta > 0 : M_\delta(f, x) - m_\delta(f, x) < \epsilon$
+                \[
+                    y \in B_\delta(x) \ \exists \delta' > 0 \ B_{\delta'}(y) \subset B_\delta(y)    
+                \]
+                \[
+                    (\delta' < \delta - \|x-y\|)    
+                \]
+                если $y \not\in F$, то $y \in \R^n \setminus F \subset \R^n \setminus F_\epsilon$
+                \par если $y \in F$, то $w(f, y) < \epsilon$
+                \[
+                    \sup f - \inf f \le \sup f - \inf f < \epsilon    % ВОТ ТУТ КАКАЯТА ХРЕНЬ..
+                \]
+                \[
+                    \sup f \in B_{\delta'}(y) \cap F \quad \inf f \in B_{\delta'} \quad \sup f \in B_\delta(x) \cap F \quad \inf f B_\delta(x) \cap F % КАКАЯТА МЕГАХЕРНЯ...
+                \]
+                 \[
+                    \Rightarrow \forall \delta'' < \delta \quad M_{\delta''}(f, y) - m_{\delta''}(f, y) < \epsilon   
+                 \]
+                 \[
+                       \Rightarrow w(f, y) < \epsilon \Rightarrow y \in \R^n \setminus F_\epsilon
+                 \]
+        \end{enumerate}
+    \end{proof}
+
+    \begin{lemma}
+        $\Pi \subset \R^n, \ f : \Pi \rightarrow \R$ огр.
+        \par Если $\forall x \in \Pi \quad w(f, x) < \epsilon$, то  $\exists$ разбиение $p$:
+        \[
+            U(f, p) - L(f, p) < \epsilon v(\Pi)    
+        \]
+    \end{lemma}
+    \begin{proof}
+        $\forall x \in \Pi \ \lim_{\delta \rightarrow 0^+}(M_\delta(f, x) - m_\delta(f, x)) < \epsilon$
+        \par $\exists \delta_\epsilon : M_{\delta_\epsilon}(f, x) - m_{\delta_\epsilon}(f, x) < \epsilon$
+        \par $\forall x \ \exists \pi_x$ открытый п/п : $\underline{\sup}_{\pi_x} f - \underline{\inf}_{\pi_x} f < \epsilon$
+        \par $\Pi \subset \bigcup_{x \in \Pi} \pi_x$, $\Pi$ компактен $\Rightarrow \exists$ конечное подпокрытие
+        \[
+            \Pi \subset \bigcup_{k=1}^N \pi_{x_k}    
+        \]
+        разрешем $\Pi$ гранями всех $\pi_{x_k}, \ k = 1, \dots, N$
+        \par $\Rightarrow$ получаем разбиение $p$
+        \[
+            U(f, p) - L(f, p) = \sum_{\pi \in p} (\sup_\pi f - \inf_\pi f) v(\pi) \le \epsilon \cdot \sum_{\pi \in p} v(\pi) = \epsilon v(\pi)    
+        \]
+        \[
+            \forall \pi \in p \ \exists k \ \pi \subset \bar \pi_{x_k}    
+        \]
+        \[
+            \Rightarrow \sup_\pi f - \inf_\pi f \le \sup_{\bar \pi_{x_k}} f - \inf_{\bar \pi_{x_k}} f < \epsilon
+        \]
+    \end{proof}
 
 \end{document}
