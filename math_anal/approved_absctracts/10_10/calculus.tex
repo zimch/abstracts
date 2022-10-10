@@ -7,6 +7,82 @@
 
     \pagebreak
 
-    
+    $\Pi \subset \pi_1 \times \Pi_2 \subset \R^n \times \R^m, \ f : \Pi \rightarrow \R$ огр и почти везде непр.
+
+    \begin{remark}
+        $ $
+        \begin{enumerate}
+            \item \[
+                \rhimani{\Pi} f = \rhimani{\Pi_2} dy \lrhimani{\Pi_1} f(x, y) dx = \rhimani{\Pi_2} \urhimani{\Pi_1} f(x, y) dx
+                \]
+            \item Если $\forall y \in \Pi_2 \ \exists \rhimani{\Pi_1}f(x, y) dx$, то \[
+                \rhimani{\Pi} f = \rhimani{\Pi_2} \rhimani{\Pi_1}f(x, y)dx   
+            \]
+        \end{enumerate}
+    \end{remark}
+
+    \begin{illustration}
+        $\Pi_1 = \Pi_2 = [0, 1]$
+        \[
+            f(x, y) = \begin{cases}
+                1, \ x \in [0,1] \setminus \Q, \ y \in [0, 1] \setminus \Q \\
+                1 - \frac 1 q, \ x = \frac p q, \ y \in [0, 1]
+            \end{cases}    
+        \]
+        \par f непрерывна на $([0, 1] \setminus \Q)^2$
+        \par $(x, y) \in ([0, 1] \setminus \Q)^2, \quad f(x, y) = 1$
+        % РИСУНОК
+        \par $\forall \epsilon, \ \exists Q : \frac 1 Q < \epsilon$ \quad и $\forall q > 0 : \left|1-\frac 1 q - 1\right| < \epsilon$
+        \par $f$ почти везде непр. на $[0,1]^2 = \Pi$, огр., $\Rightarrow \exists \rhimani{\Pi} f$
+        \newline
+        \par $x \in [0,1] \setminus \Q: \quad \lrhimani{\Pi_2} f(x, y) dy = \urhimani{\Pi_2}f(x,y)dy = \rhimani{\Pi_2} 1 = 1$
+        \par $x \in [0,1] \cap \Q: \quad \lrhimani{\Pi_2} f(x,y)dy  = 1 - \frac{1}{q}, \quad \urhimani{\Pi_2}f(x, y) = 1$
+        \[
+            \mathcal L(x) = \begin{cases}
+                1, \ x \in [0, 1] \setminus \Q \\
+                1 - \frac 1 q, \ x = \frac p 1, \ \text{ неогр}
+            \end{cases}   
+        \]
+        \[
+            \mathcal{U}(x) = 1    
+        \]
+        \[
+            \rhimani{\Pi_1} \mathcal{L} = 1 = \rhimani{\Pi_1} \mathcal{U} = \rhimani{\Pi} f    
+        \]
+    \end{illustration}
+
+    \begin{illustration}
+        $E \subset \Pi = [a, b] \times [c, d], \ \mu (\partial E) = 0$
+        \par $f \in C(E) \quad \tilde{f} = f \cdot \chi_E$
+        \[
+            \rhimani{E} f = \rhimani{\Pi} \tilde{f} = \int_a^b dx \int_c^d \tilde{f}(x, y)dy = \int_c^d dy \in_a^b f(x, ydx)    
+        \]
+        \[
+            E = \{(x, y) \in \Pi \ | \ a \le x \le b, \ y_1(x) \le y \le y_2(x)\} = \{(x, y) \in \Pi \ | \ c \le y \le d , \ x_1(y) \le x \le x_2(y)\}   
+        \]
+        \[
+            \rhimani{E} f = \int_a^b dx = \int_{y_1(x)}^{y_2(x)} f(x, y) dy = \int_c^d dy \int_{x_1(y)}^{x_2(y)} fx(x, y)dx    
+        \]
+    \end{illustration}
+
+    \begin{remark}
+        $f \in C([0, 1])$
+        \par Тогда $\mu(\text{графика } f) = 0, \quad$ график $f = \{(x, f(x)) \ | x \in [0, 1]\}$
+    \end{remark}
+    \begin{proof}
+        $\Rightarrow [0, 1] \text{ компакт} \Rightarrow f $ равномерно непрерывна на $[0, 1]$
+        \[
+            \epsilon > 0 \ \exists \delta > 0 : \forall x_1, x_2 \in [0, 1] : |x_1 - x_2| < \delta \quad |f(x_1) - f(x_2)| < \epsilon
+        \]
+        \[
+            \left[\frac 1 \delta\right] + 1 \text{ интервалов}    
+        \]
+        \[
+            2\epsilon \frac \delta 2 \cdot \underbrace{\left(\left[\frac 2 \delta\right] + 1\right)}_{< 2 \cdot \left[\frac 2 \delta\right]} < 4 \epsilon \frac \delta 2 \left[\frac 2 \delta\right] < 4 \epsilon
+        \] % МЕНЬШЕ ЧЕМ В ДВА РАЗА БОЛЬШЕ 😳 
+        \par \text{\small(любой прямоугольник можно покрыть квадратами сумма площадей которых}
+        \par \text{\small не больше чем в 2 раза больше площади прямоугольника)} % ДОДЕЛАТЬ
+        \par $\Rightarrow \exists$ покрытие квадратами $\sum v(C) < 8 \epsilon$
+    \end{proof}
 
 \end{document}
