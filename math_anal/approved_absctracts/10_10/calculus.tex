@@ -190,4 +190,40 @@
         \par $\epsilon$ произвольная $\Rightarrow \rhimani{E} f = 0$
     \end{proof}
 
+    \subsection*{Замена переменной в интеграле}
+
+    $E \subset \R^n, f : E \rightarrow \R$
+    \par $\supp f = \{\overline{x : f(x) \not= 0}\}$
+
+    \begin{remark}
+        Пусть $G \subset \R^n$ отрктыо и ограничено
+        \par $f : G \rightarrow \R$ ограничена и почти везде непрерывна
+        \par Если $\supp f \subset G$, то $\exists \rhimani{G} $ \quad (независимо от того, какая $\delta G$)
+    \end{remark}
+    \begin{proof}
+        $\exists \Pi : G \subset \Pi, \ \supp f \subset \Int \Pi, \quad \tilde f : \Pi \rightarrow \R$ -- продолжение $f$ с нулем
+        \par $\{\text{т. разрыва } \tilde f\} = \{\text{т. разрыва} \tilde f \text{ на } \supp f\} \cup \{\text{т. разрыва } \tilde f \text{ в } \Int \Pi \setminus \supp f \text{ -- откр}\} \cup $
+        \par $\cup \{\text{т. разрыва } \tilde f \text{ на } \delta\Pi\} = \emptyset$
+        \par $\dist \{\delta\Pi, \ \supp f\} > 0$
+        \par $\hat f\big|_{\Pi \setminus \supp f} \equiv 0$
+        \par $ $
+        \par $\{\text{т. разрыва } \tilde f \text{ на } \supp f\} \subset \{\text{т. разрыва } f \text{ на } G\}$ -- множество меры 0
+    \end{proof}
+
+    \begin{theorem}
+        Пусть $G \subset \R^n$ открыто и ограничено,
+        \par \quad $g : G \rightarrow \R^n$ диффеоморфизм,
+        \par \quad $g(G)$ ограничено
+        \par \quad $f : g(G) \rightarrow \R$ ограничена и почти везде непрерывна
+        \par \quad $\supp f \subset g(G)$
+        \par Тогда $\exists \rhimani{G} f \circ g |\det g'|$ и
+        \[
+            \rhimani{g(G)} = \rhimani{G} f \circ g \cdot |\det g'|    
+        \]
+    \end{theorem}
+    
+    \begin{definition}
+        $G$ называется областью, если $G$ открыто и связно
+    \end{definition}
+
 \end{document}
