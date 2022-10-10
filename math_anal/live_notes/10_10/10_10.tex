@@ -64,7 +64,7 @@
     то есть найдется окрестность икса, что туда попадут чета. найдём окрестность точки
     (x,y) 
     
-    $\forall \epsilon \exists Q: \frac{1}{Q} < \epsilon \land \forall q > Q: |1 - \frac{1}{q} - 1| < \epsilon$
+    $\forall \epsilon \, \exists Q: \frac{1}{Q} < \epsilon \land \forall q > Q: |1 - \frac{1}{q} - 1| < \epsilon$
     
     $f $ почти везде непрерывна на $[0,1]^2 = \Pi$, огр. $\implies \exists \int_\Pi f$
 
@@ -92,7 +92,7 @@
     \par $ $
 
     $E \subset \Pi = [a, b] \times [c, d], \mu(\delta E) = 0 \\
-    f \in C(E \quad \widetilde{f} = f \cdot \chi_E \\
+    f \in C(E), \quad \widetilde{f} = f \cdot \chi_E \\
     \int_E f = \int_\Pi \widetilde{f} = \int^b_a dx \int^d_c \widetilde{f}(x,y)dy =
     \int^d_cdy\int^b_af(x,y) dx 
     \\\\
@@ -111,8 +111,8 @@
         Тогда $\mu (\underbrace{\text{график }}_{ \{ (x, f(x)) | x \in [0, 1]\} } f) = 0$
     \end{remark}
     \begin{proof}
-        $[0, 1]$ компакт $\implies f$ равномерно непр. на $[0, 1]$, $\epsilon > 0 \exists \delta > 0:
-        \forall x_1, x_2 \in [0, 1]: |x_1 - x_2| < \delta |f(x_1) - f(x_2)| < \epsilon
+        $[0, 1]$ компакт $\implies f$ равномерно непр. на $[0, 1]$, $\epsilon > 0 \,\exists \delta > 0:
+        \forall x_1, x_2 \in [0, 1]: |x_1 - x_2| < \delta \quad |f(x_1) - f(x_2)| < \epsilon
         $
 
         $[\frac{2}{\delta}] + 1$ интервалов (интервалы длины $\frac{\delta}{2}$)
@@ -122,25 +122,26 @@
         $ -- площадь что-ли
 
         $\forall \epsilon \exists$ покрытие квадратами, сумма площадей которых
-        не превосходит ээээ двух чё-то там ээээ $\epsilon v(c) < 8\epsilon$
+        не превосходит ээээ двух чё-то там ээээ $\sum v(c) < 8\epsilon$
     \end{proof}
 
     % \rule{0.2px}{\textwidth} pizd 
-    Когда мы говорили про интегрируемость по множеству мы опредялили интеграл 
+    Когда мы говорили про интегрируемость по множеству мы определили интеграл 
     по Е почти везде непрерывный... измеримость по жордану что-то...
 
     $\mu(E) = 0, f: E \to \R$ почти везде непрерывна, ограничена 
-    $\not\implies \int_E f = 0$
+    $\cancel\implies \int_E f = 0$
+    \par $ $
 
     $E = [0, 1] \cap \Q, f \equiv 1, f: E \to \R $
 
-    $\widetilde{f}(x) = f(x) \cdot\chi_E(x) = \begin{cases}
+    $$\widetilde{f}(x) = f(x) \cdot\chi_E(x) = \begin{cases}
         1, x \in E \\
         0, x \in [0, 1] \setminus \Q
     \end{cases}
-    $
+    $$
 
-    $\not\exists \int_{[0, 1]}\widetilde{f}, \exists \int_E f$
+    $$\cancel\exists \int_{[0, 1]}\widetilde{f}, \exists \int_E f$$
 
     $v(E) = 0 \implies E$ измеримо по жордану и его жорданов объём равен 0
     \begin{proof}
@@ -157,7 +158,7 @@
         
         $\exists \Pi, E \subset \Pi \quad \forall \epsilon E \subset \bigcup^N_{k=1}C_k$
 
-        Можно считать, что $\forall k C_k \subset \Pi$. Пусть $P$ - разбиение $\Pi$ гранями
+        Можно считать, что $\forall k \, C_k \subset \Pi$. Пусть $P$ - разбиение $\Pi$ гранями
         всех $C_k$
 
         Оценим интеграл 
@@ -165,77 +166,91 @@
         $\displaystyle v(E) = \int_E 1 = \int_\Pi \chi_E \le 
         U(\chi_E, P) \, \forall P = 
         \sum_{\Pi \in P} \sup_\Pi \chi_E \cdot v(\Pi)
-        = \\\sum_{\underset{\Pi \in \bigcup^N_{k=1}C_k}{\Pi \in P}} v(\Pi) \le \sum^N_{k=1} v(C_k) < \epsilon \forall \epsilon\\
+        = \\\sum_{\underset{\Pi \in \bigcup^N_{k=1}C_k}{\Pi \in P}} v(\Pi) \le 
+        \sum^N_{k=1} v(C_k) < \epsilon \quad \forall \epsilon\\\\
         \implies v(E) = 0
         $
     \end{proof}
 
-    \begin{lemma}
+    \begin{lemma} % 10
         $\Pi \subset \R^n, f_1 ,f_2: \Pi \to \R$ огр., п.в. непрерывна
         $\implies a_1f_1 + a_2f_2$ -- огр., п.в. непрерывна
 
-        $\int_\Pi(a_1f_1 + a_2f_2) = a_1\int_{\Pi_1} f + a_2\int_{\Pi_2}f$
+        $$\int_\Pi(a_1f_1 + a_2f_2) = a_1\int_{\Pi_1} f + a_2\int_{\Pi_2}f$$
     \end{lemma}
 
     \begin{proof}
         $\measuredangle P, \Xi$ 
 
-        $\sum(a_1f_1 + a_2f_2, \Xi) = \sum(af_1(\xi (\Pi)) ) + a_2f_2(\xi(\Pi)) \cdot v(\Pi) =
+        $\sum(a_1f_1 + a_2f_2,P , \Xi) = \sum(a_1f_1(\xi (\Pi))  + a_2f_2(\xi(\Pi)) )\cdot v(\Pi) =
         a_1 \sum(f_1, P, \Xi) + a_2 \sum (f_2, P, \Xi)
         $ ёбббб хзх фотка 
 
-        Пусть $P_k, k \in \N, d(P_k) \to 0, k \to \infty, \Xi_k, x \in \N: 
-        \int_\pi(a_1f_1 + a_2f_2) = a_1\int_\Pi f_1 + a_2\int_\pi f_2
+        Пусть $P_k, k \in \N, d(P_k) \to 0, k \to \infty, \Xi_k, k \in \N: 
+        \int_\pi(a_1f_1 + a_2f_2) = a_1\int_\Pi f_1 + a_2\int_\Pi f_2
         $
     \end{proof}
 
-    \begin{lemma}
+    \begin{lemma} % 11
         $E_1, E_2$ измеримы по жордану и не пересекаются
 
         $f: E_1 \cup E_2 \to \R$ огр и п.в. непр.
 
-        $\int_{E_1 \cup E_2} f = \int_{E_1} f + \int_{E_2} f$
+        $$\int_{E_1 \cup E_2} f = \int_{E_1} f + \int_{E_2} f$$
     \end{lemma}
     \begin{proof}
-        $\widetilde{f} = f \cdot \chi_E$ 
+        $\widetilde{f} = f \cdot \chi_E, \, \Pi \supset E_1 \cup E_2$ 
+        \par $ $
 
-        $\Pi \supset E_1 \cup E_2 \quad \int_{E_1 \cup E_2} f = \int_\Pi f \cdot \chi_{E_1 \cup E_2} = 
-        \int_\Pi f \cdot \chi_{E_1} + f \cdot \chi_{E_2} = \int_\Pi f \cdot \chi_{E_1} + \int_\Pi f \cdot \chi_{E_2} =
+        $\displaystyle \int_{E_1 \cup E_2} f = 
+        \int_\Pi f \cdot \chi_{E_1 \cup E_2} = 
+        \int_\Pi (f \cdot \chi_{E_1} + f \cdot \chi_{E_2}) = 
+        \int_\Pi f \cdot \chi_{E_1} + \int_\Pi f \cdot \chi_{E_2} =
         \int_{E_1} f + \int_{E_2} f
         $
     \end{proof}
+    \par $ $
 
-    \begin{lemma}
+    \begin{lemma} % 12
         $\Pi \subset \R^n, f: \Pi \to \R$ огр и п.в. непр.
 
-        $|\int_\pi f | \le \int_\Pi | f |$
+        $$\left|\int_\Pi f \right| \le \int_\Pi | f |$$
     \end{lemma}
     \begin{proof}
-        $P_k, d(P_k) \to 0, \Xi_k \\
-        |\underbrace{\sum(f, P_k, \Xi)}_{\to |\int_\Pi f|}| \le  |\sum_{\Pi \in P_k} f(\xi(\Pi) v(\Pi)) |
-         \le \sum_{\Pi \in P_k} | f(\xi(\Pi)) | \cdot v(\Pi) \to |\int_\Pi f|
-        $
+        $P_k, d(P_k) \to 0, \Xi_k$
+        $$
+        \underbrace{\left| \sum(f, P_k, \Xi) \right|}_{\xrightarrow[k \to \infty]{} |\int_\Pi f|} \le  
+        \left| \sum_{\Pi \in P_k} f(\xi(\Pi)) \cdot v(\Pi) \right| \le 
+        \underbrace{\sum_{\Pi \in P_k} \left| f(\xi(\Pi)) \right| \cdot v(\Pi) }_{
+            \xrightarrow[k \to \infty]{} |\int_\Pi f|
+        }
+        $$
     \end{proof}
-    \begin{lemma}
+    \begin{lemma} % 13
         $v(E) = 0, f: E \to \R$ огр 
 
         $\implies \int_E f  = 0$
     \end{lemma}
     \begin{proof}
-        $\forall \epsilon \exists \bigcup^N_{k=1}C_k, \sum^N_{k=1}v(C_k) < \epsilon$
+        $\displaystyle\forall \epsilon \, \exists \bigcup^N_{k=1}C_k, 
+        \sum^N_{k=1}v(C_k) < \epsilon$
 
-        $\exists M > 0: \forall x \in E |f(x)| < M \implies | \widetilde{f}(x) < M, \forall x \in \Pi$
+        $\exists M > 0: \forall x \in E \quad |f(x)| < M \implies 
+        | \widetilde{f}(x) | < M, \forall x \in \Pi$
 
         $C_k, k=1, \dotsc, N \to$  разбиение $P$
 
-        $| U(f, P) | = | \sum_{\pi \in P} \sup_\Pi |f|\chi_E \cdot v(\pi) \le 
-        \sum_{\Pi \in P: \Pi \in \bigcup^N_{k=1} C_k} \sup |f|\cdot v(\Pi) \le
+        $\displaystyle
+        | U(f, P) | = | \sum_{\pi \in P} \sup_\Pi |f|\chi_E \cdot v(\pi) \le 
+        \sum_{\underset{\Pi \in \bigcup^N_{k=1} C_k}{\Pi \in P}} \sup |f|\cdot v(\Pi) \le
         M \cdot \sum^N_{k=1}v(C_k) \le M\epsilon$
 
-        $|\int_E f| = \int_\Pi f\cdot\chi_E \le \int_\Pi |f|\cdot \chi_E 
-        le U(|f|, \chi_E, P) = \sup ... $
+        $|\int_E f| = \int_\Pi f\cdot\chi_E \le 
+        \int_\Pi |f|\cdot \chi_E \le 
+        U(|f|, \chi_E, P) = \sup ... $
+        \par $ $
 
-        $\epsilon$ произв. $\implies \int_E f = 0$
+        $\epsilon$ произволен $\implies \int_E f = 0$
         
     \end{proof}
 
@@ -258,11 +273,14 @@
         $\exists \Pi: G \subset \Pi, supp f \subset Int \Pi, \widetilde{f}: \Pi \to \R$
         продолжение $f$ нулём на $\Pi$
 
-        $\underbrace{\{ \text{т. разрыва } \widetilde{f}\}}_{\subset \{ t.r. f na G\} - mera 0} = \{ t.r. \widetilde{f} na supp f\}
-        \cup \{ t.r. \widetilde{f} v \underbrace{Int \Pi\setminus supp f\}}_{\text{откр.}} \cup 
-        \underbrace{\{ t.r. \widetilde{f} na \delta\Pi\}}_{= \varnothing}
+        $\underbrace{\{ \text{т. разрыва } \widetilde{f}\}}_{
+            \subset \{ \text{т.р. } f \text{ на } G\} - \text{ мера } 0
+            } = \{ \text{т.р. } \widetilde{f} \text{ на } supp f\}
+        \cup \{ \text{т.р. } \widetilde{f} \text{ в } \underbrace{Int \Pi\setminus supp f\}}_{\text{откр.}}
+        \cup \underbrace{\{ \text{т.р. } \widetilde{f} \text{ на } \delta\Pi\}}_{= \varnothing}
         $
-
+        \par $ $
+        
         $dist\{ \delta \Pi, supp f\} > 0 \\
         \widetilde{f} \mid_{\Pi \setminus supp f} \equiv 0
         $
