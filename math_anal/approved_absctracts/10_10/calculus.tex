@@ -85,4 +85,109 @@
         \par $\Rightarrow \exists$ покрытие квадратами $\sum v(C) < 8 \epsilon$
     \end{proof}
 
+    $\mu(E) = 0, \quad f : E \rightarrow \R$ огр. и почти везде непрерывна $\cancel \Rightarrow \rhimani{\Pi} f = 0$
+    \par $E = [0,1] \cap \Q, \ f \equiv 1, \ f : E \rightarrow \R$
+    \[
+        \tilde f(x) = f(x)\chi_E^{(x)} = \begin{cases}
+            1, \ x\in E \\
+            0, \ x \in [0,1] \setminus \Q
+        \end{cases}    
+    \]
+    \[
+        \not\exists \rhimani{[0, 1]} \tilde f, \exists \rhimani{E}f    
+    \]
+    \par $v(E) = 0 \Rightarrow E$ измерима по Жордану и его жорданов объем = 0
+    
+    \begin{proof}
+        $v(E) = 0 : \forall \epsilon > 0 \ \exists C_k, \ k = 1, \dots, N \text{ (кубы )} : E \subset \bigcup_{k=1}^N C_k$,
+        \par $\sum_{k=1}^N v(C_k) < \epsilon$
+        \par $\partial E \subset \bar E \subset \bigcup_{k=1}^N C_k$
+        \par $\Rightarrow v(\bar E) = 0, \ v(\partial E) = 0 \Rightarrow \mu(\partial E) = 0 \Rightarrow E$ измеримо по Жордану
+        \par $\exists \Pi \quad E \subset \Pi \quad \forall \epsilon \ E \subset \bigcup_{k=1}^N C_k$
+        \par \quad можно считать, что $\forall k \ C_k \in \Pi$
+        \par $ $
+        \par Пусть $p$ -- разбиение $\Pi$ гранями всех $C_k$
+        \[
+            v(E) = \rhimani{E} 1 = \rhimani{\Pi} \chi_E \le U(\chi_E, p) = \sum_{\pi \in p} \sup_\pi \chi_E \cdot v(\pi) =  
+        \] 
+        \[
+            \sum_{\begin{aligned}
+                \pi \in p \\
+                \pi \in \bigcup_{k = 1}^N C_k
+            \end{aligned}} v(\pi) \le \sum_{k=1}^N v(C_k) < \epsilon \Rightarrow v(E) = 0
+        \]
+    \end{proof}
+
+    \begin{lemma}
+        $\Pi \subset \R^n , \ f_1, f_2 : \Pi \rightarrow \R$ огр., почти везде непр.
+        \par $\Rightarrow a_1f_1 + a_2f_2$ -- огр. и почти везде непр.
+        \[
+            \rhimani{\Pi} (a_1f_1 + a_2f_2) = a_1 \rhimani{\Pi_1} f + a_2 \rhimani{\Pi_2} f    
+        \]
+    \end{lemma}
+    \begin{proof}
+        Рассмотрим $p, \Xi$
+        \[
+            \sum(a_1f_1 + a_2f_2, p, \Xi) = \sum(a_1f_1(\xi(\pi)) + a_2f_2(\xi(\pi))) \cdot v(\pi)     
+        \]
+        \[
+            = a_1 \sum(f_1, p, \Xi) + a_2\sum(f_2, p, \Xi)    
+        \]
+        \par Пусть $p_k, \ k \in \N, \ d(p_k) \xrightarrow[k \rightarrow \infty]{} 0, \ \Xi_k, \ k \in \N : \rhimani{\Pi}(a_1f_1 + a_2f_2)$
+        \par $= a_1 \rhimani{\Pi} f_1 + a_2\rhimani{\Pi} f_2$
+    \end{proof}
+
+    \begin{lemma}
+        $E_1, E_2$ -- измеримы по Жордану, $E_1 \cap E_2 = \emptyset$
+        \[
+            f : E_1 \cup E_2 \rightarrow \R \quad \text{огр и почти везде непр}    
+        \]
+        \[
+            \rhimani{E_1 \cup E_2} f = \rhimani{E_1} f + \rhimani{E_2} f    
+        \]
+    \end{lemma}
+    \begin{proof}
+        $\tilde f = f \cdot \chi_E$
+        \par $\Pi \supset E_1 \cup E_2$
+        \par $\rhimani{E_1 \cup E_2} f = \rhimani{\Pi} f \chi_{E_1 \cup E_2} = \rhimani{\Pi} f\chi_{E_1} + \rhimani{\Pi} f\chi_{E_2}$
+    \end{proof}
+
+    \begin{lemma}
+        $\Pi \subset \R^n, \ f : \Pi \rightarrow \R$ огр и почти везде непр
+        \[
+            \Rightarrow \left|\rhimani{\Pi} f\right| \le \rhimani{\Pi} |f|    
+        \]
+    \end{lemma}
+    \begin{proof}
+        $p_k, \ d(p_k) \rightarrow 0, \Xi_k$
+        \[
+            |\sum(f, p_k, \Xi_k| = |\sum_{\pi \in p_k} f(\xi(\pi)) v(\pi)| \le \sum_{\pi \in p_k} |f(\xi(\pi)) \cdot v(\pi)| \xrightarrow[k \rightarrow \infty]{} \rhimani{\Pi} |f|    
+        \]
+    \end{proof}
+
+    \begin{lemma}
+        $v(E) = 0, \ f : E \rightarrow \R$ огр
+        \par $\Rightarrow \rhimani{E} f = 0$
+    \end{lemma}
+    \begin{proof}
+        $E \subset \Pi$
+        \[
+            \forall \epsilon : E\subset \bigcup_{k=1}^N C_k, \ \sum_{k=1}^N v(C_k) < \epsilon
+        \]
+        \[
+            \exists M > 0 : \forall x \in E \ |f(x)| < M \Rightarrow |\tilde f(x)| < M, \ \forall x \in \Pi   
+        \]
+        \par Разрежем $\Pi$ гранями $C_l=k, \ k = 1, \dots, N \rightarrow $ разбиение $p$
+        \[
+            |\rhimani{E} f| = |\rhimani{\Pi} f \chi_E| \le \rhimani{\Pi} |f| \chi_E \le U(|f| \chi_E, p) =    
+        \]
+        \[
+            = |U(f, p)| = |\sum_{\pi \in p} \sup_{\pi} f \chi_E \cdot v(\pi)| \le \sum_{\begin{aligned}
+                \pi \in p \\
+                \pi \in \bigcup_{k = 1}^N C_k
+            \end{aligned}} M \cdot v(\pi) \le M \sum_{k=1}^N v(C_k) \le M \epsilon
+        \]
+        \par $\epsilon$ произвольная $\Rightarrow \rhimani{E} f = 0$
+    \end{proof}
+
 \end{document}
