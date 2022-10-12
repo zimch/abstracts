@@ -1,17 +1,5 @@
 \input{../../../preamble.tex}
 
-\DeclareMathOperator{\Kerr}{Ker}
-\DeclareMathOperator{\Imm}{Im}
-\DeclareMathOperator{\Int}{Int}
-\DeclareMathOperator{\Mat}{Mat}
-\DeclareMathOperator{\rank}{rank}
-\DeclareMathOperator*{\id}{id}
-\renewcommand{\phi}{\varphi}
-\renewcommand{\theta}{\vartheta}
-\renewcommand{\epsilon}{\varepsilon}
-\newcommand{\R}{\mathbb{R}}
-\renewcommand{\C}{\mathbb{C}}
-
 \begin{document}
     
     \title{Математический анализ}
@@ -148,18 +136,16 @@
         \]
     \end{remark}
 
-    \pagebreak
-
     \subsection*{Обратный оператор}
     
     $A : L \rightarrow M$ -- линейный оператор
 
     \begin{enumerate}
-        \item $\exists A : M \rightarrow L \ : \ AB = I_M$ -- ед. оператор в пространстве $M$
+        \item $\exists B : M \rightarrow L \ : \ AB = I_M$ -- ед. оператор в пространстве $M$
         \par $B \leftrightharpoons$ правый обратный
         \item $\exists C : M \rightarrow L \ : \ CA = I_l$ -- ед. оператор в пространстве $L$
         \par $C \leftrightharpoons$ левый обратный
-        \item $\exists$ оба и равны, ьл $A^{-1} \leftrightharpoons$ обратный оператор
+        \item $\exists$ оба и равны, $A^{-1} \leftrightharpoons$ обратный оператор
     \end{enumerate}
 
     $A \in \Mat^{n} : \exists A^{-1} \Leftrightarrow \det A \not= 0 \Leftrightarrow \Kerr A = \{0\} \Leftrightarrow \dots \Leftrightarrow \rank A = n$
@@ -204,8 +190,6 @@
             \item Отображение $A \mapsto A^{-1}$ непрерывно
         \end{enumerate}
     \end{remark}
-
-    \pagebreak
     
     \section*{Дифференцирование обратной функции}
 
