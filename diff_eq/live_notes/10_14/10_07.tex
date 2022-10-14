@@ -1,0 +1,277 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+\usepackage{amsfonts, amssymb, amsmath}  %% for math symbs
+\usepackage{mathrsfs}
+\usepackage{float}  %% for table floating
+\usepackage{enumerate} %% for lists
+
+\usepackage{fullpage}  %% less margin 
+
+\usepackage{graphicx} %% for pics
+
+\parindent 0px  % no white space in new lines
+
+%% titling
+\title{Hello world} 
+\author{Lindy2076}
+\date{22.22.2} %%\today
+\begin{document}
+    $\vec{x} = A \vec{x} \quad e^{At} = S e^{Jt} s^{-1}, e^{Jt} = 
+        \text{ diag} \{ e^{J_0t}, \dotsc e^{J_qt}\}$
+
+    $e^{J_kt} = 
+    \begin{pmatrix}
+        e^{\lambda_{k + p}t} & \dotsc & \frac{t^{r-1}e^{\lambda_{k+p}t}}{(r-1)!} \\
+        & \ddots & \vdots\\
+        0 & & e^{\lambda_{k+p}t}       
+    \end{pmatrix}$
+
+    $S \mid \frac{d}{dt}e^{Jt} = J e^{Jt} \mid S^{-1}$
+
+    $\frac{d}{dt}Se^{Jt}S^{-1} = \underbrace{SJS^{-1}}_{A} Se^{Jt}S^{-1} \implies 
+    \dot\Phi(t) = A\Phi(t)$
+
+    $\Phi(t) = \{ \varphi_\lambda(t), \dotsc, \varphi_n(t)\}$
+
+    $S = \{S_1, \dotsc, S_n\}$ - матрица присоединённых векторов
+
+    $j=1\dotsc p \quad
+    \varphi_j = S_je^{\lambda_jt}
+    $
+
+    \par $ $
+
+    $J_k: 
+    \begin{cases}
+    \varphi_{p+r_r+\dotsc+r_{k-1} + 1}(t) = S_{p + r_1 + \dotsc +  r_{k-1}}
+    e^{\lambda_{p+k}t} \\
+    \varphi_{p+r_1 + \dotsc + r_{k-1}+2}(t) = 
+    (tS_{p+ r_1 + \dotsc + r_{k-1}} + S_{p+r_1 + \dotsc + r_k + 2})e^{\lambda_{p+k}t} \\
+    \varphi_{p + r_1 + \dotsc + r_{k-1} + r_k}(t) = 
+    (\frac{t^{r_k-1}}{(r_k-1)!}S_{p + r_1 + \dotsc + r_{k-1} + 1} + \dotsc +
+    S_{p + r_1 + \dotsc + r_{k-1} + r_k})e^{\lambda_{p+k}t}
+    \end{cases}
+    $   
+
+    \par $ $
+
+    $\Phi(t)S = \Psi(t) \\
+    S^{-1}\dot{\vec{x}} = S^{-1}ASS^{-1}\vec{x}$
+    
+    $S \mid S^{-1} \dot\vec{x} = JS^{-1}\vec{x} \implies 
+    \dot{\vec{x}} = SJS^{-1}\vec{x}$
+
+    \par $ $
+
+    $\vec\varphi_j(t) = \vec{q_j} e^{\lambda_jt}\\
+    q_j(t) = \begin{pmatrix}
+        p_{k_1}^{(1)}(t) \\ \vdots \\ p^{(n)}_{k_1}(t)
+    \end{pmatrix}
+    $ степень $p$ (?) не выше кратность $\lambda_j$ ээ -1
+
+    \par $ $
+    \,\\
+
+    \textbf{Траектории на плоскости (фазовые пространства) решений системы
+    2х2}
+    $\dot{\vec{x}} = A\vec{x}$
+
+    1)$A = \begin{pmatrix}
+        a_{11} & a_{12} \\ a_{21} & a_{22}
+    \end{pmatrix} \to J = 
+    \begin{pmatrix}
+        \lambda_1 & 0 \\ 0 & \lambda_2
+    \end{pmatrix}, \lambda_1, \lambda_2 \in \mathbb{R}, \lambda_1 \neq \lambda_2$
+
+
+    $\dot{\vec{y}} = Jy \\ \dot y_1 = \lambda_1 y_1 \\ \dot y_2 = \lambda_2 y_2$
+
+    1.1) $\lambda_1 \cdot \lambda_2 > 0 \implies \begin{cases}
+        y_1 = c_1 e^{\lambda_1t} &\mid \frac{1}{c_1}, c_1\neq 0 \\
+        y_2 = c_2 e^\lambda &\mid \frac{1}{c_2}, c_2\neq 0
+    \end{cases}$
+
+    \par $ $
+
+    $$\left(\frac{y_1}{c_1}\right)^\lambda_2 = 
+    \left( \frac{y_2}{c_2}\right)^\lambda_1$$
+
+    параболу рисует, точнее семейство различных парабол. а как мы по них движемся?
+    зависит от общего знака лямбда1лямбда2. если отрицательны, то 
+    стремятся к 0. (типа стрелочки на параболах в сторону 0, 0)
+    Если оба знака плюс, то тоже самое семейство парабол и направление бега 
+    в противоположную сторону, из нуля собственно в бесконечность.
+    Эта картинка называется узел.
+
+    1.2) $\lambda_1 \cdot \lambda_2 < 0 \qquad |\lambda_1| < |\lambda_2|$
+    
+    $\lambda_1, \lambda_2 \in \mathbb{R}, \lambda_1 \neq \lambda_2$
+
+    $$\frac{y_1}{c_1} = 
+    \left(\frac{y_2}{c_2}\right)^{\frac{\lambda_2}{\lambda_1}}$$
+    $\frac{\lambda_2}{\lambda_1} < -1, |\frac{\lambda_2}{\lambda_1}| > 1$
+
+    Фазовая картинка не параболы, а гиперболы. Называется седлом. 
+    Если $\lambda_2 > 0$, а $\lambda_1 < 0$, то движение идёт в 
+    сторону "полюсов" от центра. В противном случае движение
+    идёт от полюсов в стороны.  (снизу/сверху вправо/влево)
+
+    \par $ $
+
+    Положим $\lambda = 0, \lambda_1 = \lambda_2 = \lambda = 0$ 
+    нет жордановой клетки. 
+
+    \par $ $
+
+    2) $\lambda_1 , \lambda_2 \in \mathbb{C}$
+    $\lambda_2 = \overline{\lambda_1}, \lambda_1 = a + i\beta, 
+    \lambda_2 = a - i\beta$
+
+    $\vec{x} = S^{-1}\vec{y}$
+
+    $J = \begin{pmatrix}
+        a+ i\beta & 0 \\ 0 & a - i\beta
+    \end{pmatrix}
+    $
+
+    $\dot{\vec{y}} = J\vec{y}$
+
+    $\begin{cases}
+        y_1 = z_1 + iz_2 \\ y_2 = z_1 - iz_2
+    \end{cases}$
+    
+        $T = \begin{pmatrix}
+            1 & i \\ 1 & -i
+        \end{pmatrix} \quad \vec{y} = T\vec{z}$
+
+    $\vec{x} = S^{-1}\vec{y} = S^{-1}T\vec{z}$
+
+    $\det S \neq 0, \det T = -2i$
+
+    $\begin{cases}
+        \dot y_1 = (a + i\beta)y_1 \\ \dot y_2 = (a - i\beta)y_2 
+    \end{cases} \implies 
+    \begin{cases}
+        \dot z_1 = az_1 - \beta z_2 \\ \dot z_2 = \beta z_1 + az_2
+    \end{cases}$
+
+    $\dot z_1 = \text{ Re } \dot y_1 = \frac{1}{2}(\dot y_1 + \dot y_2) = 
+    \frac{1}{2}((a + i\beta)y_1 + (a - i\beta)y_2) = 
+    az_1 - \beta z_1$
+    
+    $\dot z_2 = \text{ Im } \dot y_1$
+
+    Полярные координаты зачем-то вводим не услышал
+
+    $\begin{cases}
+        z_1 = r\cos\varphi \\ z_2 = r\sin\varphi
+    \end{cases} \implies 
+    \begin{cases}
+        y_1 = re^{i\varphi}\\
+        y_2 = re^{-i\varphi}
+    \end{cases} \implies 
+    \begin{matrix}
+        \dot y_1 = \dot r e^{i\varphi} + ire^{i\varphi} \dot \varphi = (a + i\beta)re^{i\varphi}\\
+        i(\cos\varphi + i \sin\varphi) + ir\dot \varphi (\cos\varphi + i\sin\varphi) = 
+    \end{matrix}
+    $
+
+    $ = \underline{\dot r \cos\varphi - r\dot\varphi \sin \varphi} + 
+    i(\dot r\sin\varphi + r \dot \varphi \cos\varphi) = 
+    \underline{ar\cos\varphi - \beta r\sin\varphi} + 
+    i(ar\sin\varphi + \beta r\cos\varphi)$
+
+    \par $ $
+
+    $\dot r \cos\varphi - r \dot \varphi \sin \varphi = ar\cos\varphi - \beta r \sin\varphi \quad| \cdot \cos\varphi \\
+    \dot r \sin\varphi + r\dot \varphi \cos\varphi = ar\sin\varphi + \beta r\cos\varphi \quad| \cdot \sin\varphi$
+
+    Сложим
+
+    $\dot r = ar$
+
+    Домножим первое на $-\sin\varphi$, а второе на $\cos\varphi$ и сложим.
+
+    $r\dot\varphi = \beta r \implies
+    \begin{cases}
+        \dot \varphi = ar \\ \dot \varphi = \beta
+    \end{cases} \implies r = r_o e^{at}, \varphi = \varphi_0 + \beta t$
+
+    \par $ $
+
+    Нарисуем картинку соотв пункту 2
+
+    2.1 $a \neq 0, \beta > 0$ - спираль%foto 
+    , называется картинка фокусом 
+    Если $a > 0$ то двигаемся из 0 в бесконечность.
+    В противном случае двигаемся в 0 из бесконечности.
+    
+    \par $ $
+    
+    2.2 $ a = 0 $ 
+
+    получаются разные окружности, картинка называется центром.
+    При $\beta > 0$ двигаемся против часовой
+    
+    \par $ $
+
+    А если жорданова клетка?
+
+    3. $\lambda_1 = \lambda_2, J = \begin{pmatrix}
+        \lambda & 1 \\ 0 & \lambda
+    \end{pmatrix}$
+
+    \quad3.1 $\lambda=0, J = \begin{pmatrix}
+        0 & 1 \\ 0& 0
+    \end{pmatrix}$
+    $\begin{cases}
+        \dot y_1 = y_2 & y_1 = c_2 t + c_1 \\
+        \dot y_2 = 0 & y_2 = c_2    
+    \end{cases}
+    $
+    % рисунок на фота
+
+    \quad 3.2 $\lambda > 0 \,(\lambda < 0)$
+
+    \quad$\begin{cases}
+        \dot y_1 = \lambda y_1 y_2 \\ \dot y_2 = \lambda y_2
+    \end{cases} \implies 
+    \begin{cases}
+        y_1 = (c_1 + c_2t)e^{\lambda t}\\
+        y_2 = ce^{\lambda t}
+    \end{cases}$
+    $\lambda < 0 $ -- бежим в 0, $\lambda > 0$ -- бежим в бесконечность. 
+    Картинка называется вырожденным узлом
+
+    $\frac{y_2}{c_2} = e^{\lambda t}\\ 
+    t = \frac{\ln \frac{y_2}{c_2}}{\lambda} \implies 
+    y_1 = (c_1 + \frac{\ln \frac{y_2}{c_2}}{\lambda})y_2$
+
+    \textbf{Формула Лиувиля}
+    
+    понижение порядка если знаем одно решение
+
+    $\dot \Phi(t) = A(t)\Phi(t)$
+
+    $\det \Phi(t) = W$ % vraskean KTO NAHUI
+
+    $W = \sum^n_{k=1} W_{ik} \Phi_{ik}\qquad W_{ik}$ - алг дополнение $\Phi_{ik}$
+
+    $\displaystyle\frac{\partial W}{\partial \Phi_{ik}} = W_{ik}$
+
+    $\dot W = \sum_{i,k} \frac{\partial W}{\partial W_{ik}}\dot\Phi_{ik}$
+
+    $\dot\Phi_{ik} = \sum_j a_{ij} \Phi_{jk}$
+
+    $\dot W = \sum_{i,k =1}^n W_{ik}\sum_j^n a_{ij}\Phi_{jk} = 
+    \sum_{i,j,k}a_{ij}W_{ik} \Phi_{j,k} = 
+    \sum_{i,j}a_{ij}\sum^n_{k=1}W_{ik}\Phi_{jk} = W \sum^n_{j=1}a_{ij} = 
+    W\text { Tr} A$
+
+    $$\dot W = \text{ Tr}A(t) \cdot W$$
+    $$W(t) = W(t_0)e^{\int^t_{t_0} \text{ Tr}A (\tau)d\tau}$$
+
+\end{document}
