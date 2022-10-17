@@ -1,0 +1,331 @@
+\input{../../../preamble.tex}
+\parindent 0px
+
+% \DeclareMathOperator{\lrhimani}{\underset{\Pi}{\underline{\int}}}
+% \DeclareMathOperator{\urhimani}{\underset{\Pi}{\overline{\int}}}
+% \DeclareMathOperator{\rhimani}{\underset{\Pi}{\int}}
+
+% \DeclareMathOperator{\Kerr}{Ker}
+% \DeclareMathOperator{\Imm}{Im}
+% \DeclareMathOperator{\Int}{Int}
+% \DeclareMathOperator{\Mat}{Mat}
+% \DeclareMathOperator{\rank}{rank}
+% \DeclareMathOperator{\diam}{diam}
+% \DeclareMathOperator*{\id}{id}
+
+% \newcommand{\R}{\mathbb{R}}
+% \renewcommand{\C}{\mathbb{C}}
+% \newcommand{\Q}{\mathbb{Q}}
+% \newcommand{\N}{\mathbb{N}}
+\usepackage{amsfonts, amssymb, amsmath, mathtools, amsthm}  %% for math symbs
+\usepackage{mathrsfs}
+
+\begin{document}
+чё
+
+$G \subset \R^n $ откр., огр., $f: G \to R$ огр и п.в. непр.
+
+$\text{supp} f \subset G$
+
+$$\implies \exists \int_G f$$
+
+\begin{theorem}
+    $G \subset \R^n$ откр., огр., 
+    
+    $g: G \to \R^n$ диффеоморфизм
+    
+    $g(G)$ огр., 
+
+    $f: g(G) \to \R$ огр. и п.в. непр., $\text{supp}f \subset g(G)$
+
+    Тогда $$\exists \int_G f\circ g | \det g' | = \int_{g(G)}f$$
+\end{theorem}
+
+\begin{proof}
+    \begin{lemma}
+        $G \subset \R^n$ открыто, $g: G \to R^n$ гомеоморфизм (биекция, непр. в обе стороны)
+    
+        $E \subset G: \overline{E} \subset G$
+
+        Тогда 
+        
+        $\begin{matrix*}[l]
+            g(\overline{E}) = \overline{g(E)} \\
+    
+            g(Int) = Int g(E)\\
+    
+            g(G\setminus\overline{E}) = g(G) \setminus \overline{g(E)}\\
+    
+            g(\delta E) = \delta g(E) 
+        \end{matrix*}$
+
+        Если $G, g(G)$ огр., $g$ - диффеоморфизм, то $\mu(E) = 0 \iff \mu(g(E))=0$
+    \end{lemma}    
+    \begin{proof}
+        $G \ni x_n \to x \in G, n \to \infty \iff 
+        g(G) \ni g(x_n) \to g(X) \in G(G), n \to \infty
+        $
+
+        $g(x) \ni g(\overline{E}) \iff 
+        x \in \overline{E} 
+        \iff g(x) \in \overline{g(E)}$
+
+        $x \in Int E \iff \exists \varepsilon > 0 : B_\varepsilon(x) \subset E
+        \iff \exists \delta > 0 : B_0 (g(x)) \subset g(E) 
+        \iff g(x) \in Int g(E)$
+
+        это $g, g^{-1}$ непр.
+
+        $x \in \delta E \iff E \ni y_n \to x, n \to \infty $
+
+        $G \setminus E \ni z_n \to x, n\to \infty$
+
+        $\iff
+        \begin{cases}
+            g(E) \ni g(y_n) \to g(x), n \to \infty \\
+            g(G\setminus E) \ni g(z_n) \to g(x)
+        \end{cases}
+        \iff g(x) \in \delta g(E)
+        $
+
+        $x \in G \setminus\overline{E} = Int(G \setminus E) \iff 
+        g(x) \in g(x) \in Int(g(G)\setminus g(E)) = g(G \setminus \overline{g(E)})$
+    \end{proof}
+
+    $g$ - диффеоморфизм, $G, g(G)$ огр., $\mu(E)=0$
+
+    $\forall \varepsilon \exists C_l, l=1,\dotsc, N $ открытые кубы $E \subset 
+    \bigcup^\infty_{l=1}C_l, \sum^\infty_{l=1}v(C_l) < \varepsilon$
+
+    $l(C)$ - длина ребра куба $C$, $v(C) = (l(C))^n$
+
+    $\text{diam} C = l(C) \cdot \sqrt{n}$
+
+    Если $\varepsilon < (\frac{\delta}{2\sqrt{n}})^n $
+    
+    $\forall l \quad v(C_l) < \varepsilon \implies l(C_l) < \frac{\delta}{2\sqrt{n}}$
+
+    $\text{diam} C_l < \frac{\delta}{2}$
+
+    $\text{dist} (E, \delta G) = \delta$
+
+    $E \subset \bigcup^\infty_{l=1}C_l \subset G$
+
+    $\bigcup^\infty_{l=1} C_l \subset E^{\frac{\delta}{2}} = 
+    \{  x \in \R^n \mid \text{dist}(x,E) < \frac{\delta}{2} \} \subset 
+    \overline{E^{\delta /2}} \subset G$
+
+    $\max_{\overline{E^{\delta / 2}}} ||g'|| = M$
+
+    $\forall x_1, x_2 \in E^{\delta / 2} \quad || g(x_1) - g(x_2) || < M \cdot ||x_1 - x_2||$
+    
+    \quad $x_l$ - центр куба $l$
+    
+    $G(C_l) \subset B_{M \text{diam}C_l \cdot 0.5} (g(x_l)) \subset \widetilde{C_l},
+    l(\widetilde{C_l}) = M \cdot \text{diam}C_l$
+
+    $v(\widetilde{C_l}) = (l(\widetilde{C_l}))^n = M^n (\text{diam}C_l)^n = 
+    M^n (\frac{\text{diam}C_l}{\sqrt{n}})^n (\sqrt{n})^n = (M\sqrt{n})^ v(C_l)
+    $
+
+    $g(E) \subset \bigcup^\infty_{l=1}\widetilde{C_l}, 
+    \sum^\infty_{l=1}\widetilde{C_l} = (M\sqrt{n})^n\cdot \varepsilon$ 
+
+    \begin{remark}
+        В условии теоремы $\exists \int_G f \circ g | \det g' |$
+    \end{remark}
+    \begin{proof}
+        $\text{supp} f = \{ y \in g(G) \mid f(y) \neq 0\}$
+
+        $\text{supp} (f\circ g \underbrace{| \det g' |}_{>0}) = \text{supp}f\circ g = 
+        \{ x \in G \mid (f \circ g)(x) \neq 0 \}
+        $
+
+        $g(\{ x \in G | f \circ g \neq 0 \}) = \{ y \in g(G) | f(y) \neq 0\}$
+
+        $\implies $ л.12 замыкания совпадают
+
+        $\text{supp} (f \circ g |\det g'|)$ компактен
+
+        $\sup_{\text{supp}(f\circ g |\det g'|)} |\det g'| < \infty \implies 
+        f \circ g |\det g'|$ огр.
+
+        \par $ $
+
+        $f$ п.в. непр. на $g(G) \implies f \circ g $ п.в. непр. на $G$
+
+        $| \det g'| \in C(G) \implies f \circ g |\det g'| $ п.в. непр. на $G$
+
+        Значит, $\exists_G f\circ g |\det g' |$
+    \end{proof}
+    
+    Разобъем область на маленькие кусочки, на каждом кусочке локально сможем представтиь
+    диффеоморфизм в виде композиции простейших диффеоморфизмов, меняющих одну коорд.
+    \begin{lemma} % 13 
+        $G \subset \R^n$ откр., 
+
+        $g: G \to R$ диффеоморфизм
+
+        $\forall x \in G \quad \exists$ окрестность $U \subset G$:
+        $$g | \underset{ U}{ } = g_1 \circ \dotsc \circ g_n$$
+        $g_k$ - диффеоморфизм простейшего вида, т.е. 
+        $(g_k)_i (x) = x_i, \forall i \neq k$
+    \end{lemma}
+
+    \begin{proof}
+        Индукция 
+
+        база: $k=1:$ уже простейший
+
+        переход: $(g(x))_i = x_i, \quad i \ge k+1$
+
+        $x = (y = (x_1, \dotsc, x_k),z)$
+
+        Пусть $x_0 \in G$, $g'(x_0) = 
+        \begin{pmatrix}
+            \frac{\partial g}{\partial y} & \frac{\partial g}{\partial z} \\
+            0 & I_{n - k}   
+        \end{pmatrix}
+        $
+
+        $0 \neq \det g'(x_0) = \det \frac{\partial g}{\partial y}(x_0) \implies $
+        не все миноры порядка $k-1$ нулевые. Найдётся $k-1$ независимый столбик.
+        
+        Перенумеровкой компонент тобъемся того, чтобы главный минор не был равен 0
+    
+        $f: G \to \R^n, \quad (f(x))_i = \begin{cases}
+            (g(x))_i, & i < k \\
+            x_i, & i \ge k
+        \end{cases}$
+
+        $f'(x_0) = \begin{pmatrix}
+            \frac{\partial g}{\partial y} & \frac{\partial g}{\partial z}_{k-1} \\ 
+            & I_{n - k + 1}
+        \end{pmatrix}$
+
+        $\det f'(x_0) = (\frac{\partial g}{\partial y})_{k-1} \neq 0$
+
+        \par $ $
+
+        $f \in C^1 (G)$
+
+        $\exists$ окрестность $U \ni x_o \quad f|\underset{U}{ }$ - диффеоморфизм
+
+        Рассм $h = g \circ (f|\underset{U}{ })^{-1}$ - диффеоморфизм
+
+        $h : f(U) \to g(U)$
+
+        $g|\underset{U}{ } = h \circ f|\underset{U}{ }$
+
+        Для $f \, \exists$ окрестность $x_0$, в которой $f$ раскладывается в композицию
+        простейших по инд предп. 
+
+        $u \in F(U)$
+
+        $i<k\quad (h(u))_i = (g \circ f^{-1}(u))_i = (f\circ f^{-1}(u))_i = u_i$
+
+        $i>k\quad (h(u))_i = (g \circ f^{-1}(u))_i = (f^{-1}(u))_i = u_i$
+
+        $(\underbrace{f(x)}_{=u})_i = x_i = (f^{-1}(u))_i \quad i>k$
+
+        т.е. $h$ - простейший диффеоморфизм и $g$ раскладывается
+
+    \end{proof}
+
+    \begin{lemma} % 14 
+        Утверждение теоремы верно при $n=1$
+
+        \begin{lemma} % 14'
+            В условиях теоремы на $G$ и на $g$ при $n=1$ для $\forall f: g(G)\to \R$ огр.
+            : $\text{supp} \subset g(G)$
+
+            $$\underline\int_G f\circ g |\det g'| = \underline\int_{g(G)}f 
+            ,\quad
+             \overline\int_G f\circ g |\det g'| = \overline\int_{g(G)} f
+            $$
+        \end{lemma}
+        \begin{proof}
+            $\text{supp}f$ компактен. 
+            
+            $\forall x \in \text{supp} f \quad \exists \varepsilon_x > 0 :
+            [x - \varepsilon_x, x + \varepsilon_x] \subset G$
+
+            $\text{supp}f \subset \bigcup_{x \in \text{supp}f} (x- \varepsilon_x, x + \varepsilon_x)
+            \implies \text{supp}f \subset \bigcup^N_{i=1}(x_i - \varepsilon_{x_i}, x_i + \varepsilon_{x_i})
+            $
+
+            $\text{supp} f \subset \bigcup^N_{i=1}[x_i - \varepsilon_{x_i}, x_i + \varepsilon_{x_i}]
+            $отрезки не пересекаются
+
+            $\forall i \quad (g^{-1})' |_{[x_i - \varepsilon_{x_i}, x_i + \varepsilon_{x_i}]}$ имеет постоянный знака
+
+            $g^{-1}([x_i - \varepsilon_{x_i}, x_i + \varepsilon_{x_i}])$ - отрезок
+
+            $\implies $ достаточно доказать, что $\int_{g([a,b])}f = \int_{[a,b]} f\circ g |g'|$
+
+            $g' > 0 : \int_{g(a)}^{g(b)}f(y)dy = \int^b_a f(g(x))g'(x)dx$
+
+            $g' < 0 : \int_{g(b)}^{g(a)}f(y)dy = \int^b_a f(g(x)) \,\, | g'(x) | dx$
+
+            $P_y$ - разбиение $g([a,b]) \quad P_x = g^{-1}(P_y)'' = \{ g^{-1}(\pi) | \pi \in P_y\}$
+
+            $\max_{[a,b]} | g'| \cdot d(P_y) \le d(P_x) \le \max_{g([a,b])} | (g^{-1})'| \cdot d(P_y)$
+            
+            $\sum_{\pi_y \in P_y}\sup_{\pi_y}f \cdot v(\pi_y) = 
+            \sum_{\pi_x \in P_x}\sup_{\pi_x} (f \circ g) |g'(\xi(\pi_x))| \cdot v(\pi_x)$
+
+            $\pi_y = g(\pi_x)$   
+
+            $v(\pi_y) = |g(\beta) - g(\alpha)| = |g'(\xi)| \cdot (\beta\alpha)$
+
+            прадалжаем неравенство (не правильное он все стер суака) $\displaystyle\le \underbrace{\sup_{[a,b]}|g'|}_{<\infty} \sum_{\pi_x \in P_x}\sup_{\Pi_x}f\circ g \cdot v(\pi_x)$
+
+            $P_{x,k}:d(P_{x,k}) \to 0, k \to \infty$
+
+            $P_{y,k}:d(P_{y,k}) \to 0, k \to \infty$
+
+            $\forall \pi_x \exists \xi(\pi_x) < \pi_x \quad v(\pi_y) = |g'(\xi(\pi_x))|\cdot v(\pi_x)$
+            
+            $U(f, P_{y,k}) \le \sum_{\pi_x \in P_x}\sup_{\pi_x}f\circ g |g'| \cdot v(\pi_x)
+            = U(f\circ g |g'|, P_{x,k})
+            $
+
+            слева $\overline\int_{g([a,b])}f \le$ справа $\int_{[a,b]}f\circ g |\det g' |$
+
+            $\overline\int_{g^{-1}g([a,b])}f\circ g |g'| \le \overline\int_{g([a,b])}f\circ g
+            \circ g^{-1} | g' \circ g^{-1}|\cdot |g^{-1}|$
+            
+            $\implies \overline\int_{g([a,b])}f = \overline\int_{[a,b]}f\circ g |g'|$
+        \end{proof}
+    \end{lemma}
+
+    \par $ $
+
+    1. $g$ - простейший диффеоморфизм
+    $\quad (g(x))_i = x_i \quad i<n$
+
+    $g(G) = \Pi_y = \underbrace{\Pi_1}_{\subset \R^n} \times \underbrace{\Pi_{yn}}_{\subset \R}$
+
+    $G = \Pi_x = \Pi_1 \times \underbrace{\Pi_{xn}}_{\subset \R}$
+
+    $\int_{g(G)}f = \int_{\Pi_y} f \cdot \chi_g(G) \overset{\text{фубини}}{=} \int_{\Pi_1} dy_1 \dotsc
+    dy_{n-1}\underline\int_{\Pi_2} dy_n f\cdot \chi_g(G) = \\
+    \int_{\Pi_1}dy_1 \dotsc dy_{n-1}\underline\int_{
+        \underbrace{\Pi_n[g(G)\cap(y_1, \dotsc,y_{n-1})\times \R]}_{\text{открытое огр мнжво}}
+        }f(y)dy_n$
+
+    $\overset{\text{лемма 14}}{=} \int_{\Pi_1}dx_1 \dotsc dx_{n-1}\underline\int_{
+        \Pi_n[G \cap (y_1, \dotsc, y_n) \times \R]
+    } (f\circ g)(x)(\frac{\partial g_n}{\partial x_n}(x)) dx_n$
+    что-та в последней скобке равно $\det g'(x)$
+
+    $= \int_{\Pi_1}dx_1 \dotsc dx_{n-1}\underline\int_{\Pi_{x_n}}f\circ g |\det g'| \cdot \chi_G = 
+    \int_{\Pi_x} f\circ g |\det g'| \cdot \chi_G = - \int_G f \circ g |\det g'|
+    $
+
+    \par $ $
+    видимо некст раз докажем
+
+\end{proof}
+
+\end{document}
