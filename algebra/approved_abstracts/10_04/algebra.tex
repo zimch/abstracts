@@ -1,0 +1,93 @@
+\input{../../../preamble.tex}
+
+\begin{document}
+    \title{Алгебра}
+    \date{4 октября 2022}
+    \maketitle
+
+    \pagebreak
+
+    \begin{theorem}
+        $V$ -- в. п. над полем $K$, $\dim V = n < \infty$, $f \in \End(V)$
+        \par $f$ диагонализируем $\Leftrightarrow \exists$ базис $V$, состоящий из собст. вект. оператора $f$
+    \end{theorem}
+    \begin{proof}
+        $ $
+        \begin{enumerate}
+            \item{$\Rightarrow$} $\exists$ базис $v_1, \dots, v_n$
+                \[
+                    [f]_{\{v_i\}} = \begin{pmatrix}
+                        \lambda_1 & & 0 \\
+                         & \ddots & \\
+                        0 & & \lambda_n
+                    \end{pmatrix} \ f(v_i) = \lambda_iv_i \ \quad v_i \text{ -- с. в., отвечающее с. ч. } \lambda_i
+                \]
+            \item{$\Leftarrow$} $v_1, \dots, v_n$ -- базис из с. в.
+                \par $f(v_i) = \lambda_i v_i$
+                \[
+                    [f]_{\{v_i\}} = \begin{pmatrix}
+                        \lambda_1 & & 0 \\
+                         & \ddots & \\
+                         0 & & \lambda_n
+                    \end{pmatrix}    
+                \]
+        \end{enumerate}
+    \end{proof}
+
+    \subsection*{Формулировка теоремы о Жордановой нормальной форме}
+
+    $V$ - в. п. над полем $K$, $\dim V = n < \infty$, $f \in \End(V)$
+    \par $\lambda \in K$
+    \par
+    \par $J_n(\lambda) = \begin{pmatrix}
+        \lambda & & & 0 \\
+        1 & \ddots & & \\
+        & \ddots & & \lambda \\
+        0 & & & 1
+    \end{pmatrix}$ -- жорданова клетка, размера $n$, отвечающая $\lambda$
+    \par
+    \par $J_1(\lambda) = \begin{pmatrix}
+        \lambda
+    \end{pmatrix}$
+    \par $J_2(\lambda) = \begin{pmatrix}
+        \lambda & 0 \\
+        1 & \lambda
+    \end{pmatrix}$
+    \par $J_3(\lambda) = \begin{pmatrix}
+        \lambda & 0 & 0 \\
+        1 & \lambda & 0 \\
+        0 & 0 & \lambda
+    \end{pmatrix}$
+
+    \begin{definition}
+        Блочно-диагональная матрица, составленная из жордановых клеток, называется жордановой матрицей 
+    \end{definition}
+
+    \[
+        \begin{pmatrix}
+            \boxed{J_{n_1}(\lambda_1)} & & & 0 \\
+            & \boxed{J_{n_2}(\lambda_2)} & & \\
+            & & \ddots & & \\
+            0 & & & \boxed{J_{n_k}(\lambda_k)}
+        \end{pmatrix}    
+    \]
+
+    \pagebreak
+
+    \begin{theorem}
+        (о жордановой нормальной форме)
+        \par $K$ -- алгебраически замкнутое поле
+        \par $V$ -- в. п. над $K$, $\dim V < \infty$, $f \in \End(V)$
+        \par Тогда $\exists$ базис $V$, такой что матрица $f$ в этом базисе -- жорданова матрица, причем 
+        жордановы клетки определены однозначно с точностью до порядка.
+    \end{theorem}
+    
+    \begin{definition}
+        Базис в теореме называется жорданвым базисом, а соответствующая жорданова матрица -- канонической
+        жордановой формой оператора $f$.
+    \end{definition}
+    $ $\\
+    Жорданова форма однозначна с точностью до порядка следования клеток \\
+    Жорданов базис, вообще говоря, неоднозначем (только когда оператор диагонализием с папарно разл. $\lambda$)
+
+\end{document}
