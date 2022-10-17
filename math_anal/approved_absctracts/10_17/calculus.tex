@@ -1,0 +1,226 @@
+\input{../../../preamble.tex}
+
+\begin{document}
+    \title{Математический анализ}
+    \date{17 октября 2022}
+    \maketitle
+
+    \pagebreak
+
+    $G \subset \R^n$ открытое ограниченное, $f : G \rightarrow \R$ огр. и п. в. непрерывно
+    \par $\supp f \subset G \Rightarrow \exists \rhimani{G} f$
+
+    \begin{theorem}
+        $G \subset \R^n$ открытое ограниченное, $g : G \rightarrow \R^n$ диффеоморфизм,
+        \par \quad $g(G)$ огр.,
+        \par \quad $f : g(G) \rightarrow \R$ огр., п. в. непрерывно, $\supp f \subset g(G)$
+        \par Тогда
+        \[
+            \exists \rhimani{G} f \circ g |\det g'| = \rhimani{g(G)} % ДОМНОЖЕННОЕ??    
+        \]
+    \end{theorem}
+
+    \begin{lemma} % тут нужно \bar сделать длинными%
+        Пусть $G \subset \R^n$ открыто, $g : G \rightarrow \R^n$ гомеоморфизм
+        \par $E \subset G \ \bar E \subset G$. Тогда
+        \par $g(\bar E) = \bar {g(E)}$
+        \par $g(\Int) = \Int g(E)$
+        \par $g(G \setminus \bar E) = g(G) \setminus \bar {g(E)}$
+        \par $g(\delta E) = \delta g(E)$
+        \par Если $G, \ g(G)$ огр., $g$ -- диффеоморфизм, то
+        \[
+            \mu(E) = 0 \Leftrightarrow \mu(g(E)) = 0    
+        \]
+    \end{lemma}
+    \begin{proof}
+        \[
+            G \ni x_n \xrightarrow[n \rightarrow \infty]{} x \in G \Leftrightarrow g(G) \ni g(x_k) \xrightarrow[n \rightarrow \infty]{} g(x) \in g(G)   
+        \]
+        \[
+            g(x) \in g(\bar E) \Leftrightarrow x \in \bar E \Leftrightarrow g(x) \in g(\bar E)   
+        \]
+        \[
+            x \in \Int E \Leftrightarrow \exists \epsilon > 0 \ B_\epsilon(x) \subset E \Leftrightarrow \exists \delta > 0 : B_\delta(g(x)) \subset g(E) \Leftrightarrow   
+        \]
+        \[
+            \Leftrightarrow g(x) \in \Int g(E)    
+        \]
+        \[
+            \begin{rcases}
+                x \in \delta E \Leftrightarrow E \ni y_n \xrightarrow[n \rightarrow \infty]{} x \\
+                G \setminus \ni x_n \xrightarrow[n \rightarrow \infty]{} x
+            \end{rcases} \Leftrightarrow \begin{cases}
+                g(E) \ni g(E) \ni g(y_n) \xrightarrow[n \rightarrow \infty]{} g(x) \\
+                g(G \setminus E) \ni g(z_n) \xrightarrow[n \rightarrow \infty]{} g(x)
+            \end{cases} \Leftrightarrow g(x \in \delta g(E))
+        \]
+        \[
+            x \in G \setminus \bar E - \Int (G \setminus E) \Leftrightarrow g(x) \in \Int (g(G) \setminus g(E)) = g (G) \setminus g(\bar E)    
+        \]
+        $ $
+        \par $\forall \epsilon \ \exists C_l, \ l = 1, \dots, N$ -- открытые кубы
+        \[
+            E \subset \bigcup_{l = 1}^N C_l, \quad \sum_{l=1}^N v(C_l) < \epsilon  
+        \]
+        \[
+            l(C) \text{ -- длина ребра куба } C \quad v(C) = (l(C))^n \quad \diam C = l(C) \sqrt n    
+        \]
+        $ $
+        \par  Если $\epsilon < {\frac{\delta}{2\sqrt n}}^n$, $\forall l v(C_l) < \epsilon$ $\Rightarrow l(C_1) < \frac{\delta}{2\sqrt n}$
+        \par $\diam C_l < \frac{\delta}{2}$ \quad $\dist (\bar E, \delta G) = \delta$
+
+        \[
+            \bigcup_{l=1}^N C_l \subset E^{\frac{\delta}{2}} = \{x \in \R^n \ | \ \dist (x, E) < \frac{\delta}{2}\} \subset \bar {E^{\frac{\delta}{2}}} \subset G  
+        \]
+        \[
+            \forall x_1, x_2 \in E^{\frac{\delta}{2}} \ \|g(x_1) - g(x_2)\| \le M \cdot \|x_1 - x_2\| \quad \max_{\bar{E^{\frac{\delta}{2}}}} \|g'\| = M   
+        \]
+        \[
+            g(C_l) \subset B_{\frac{M \cdot \diam C_l}{2}} (g(x_l)) \subset \tilde C_l, \ l(\tilde C_l) = M \cdot \diam C_l    
+        \]
+        \[
+            v(\tilde C_l) = (l(\tilde C_l))^n = M^n \cdot (\diam C_l)^n = M^n (\frac{\diam C_l}{\sqrt{n}})^n (\sqrt{n})^n = (M\sqrt{n})^n v (C_l)    
+        \]
+        \[
+            g(E) \subset \bigcup_{l=1}^N \tilde C_l, \quad \sum_{l=1}^N \tilde C_l = (M\sqrt{n})^n \cdot \epsilon   
+        \]
+    \end{proof}
+
+    \begin{remark}
+        В условие теоремы $\exists \rhimani{G} f \circ g |\det g'|$
+    \end{remark}
+    % ТУТ ПЕРЕДЕЛАТЬ КРАСИВО
+    \begin{proof}
+        $\supp f = \overline{\{y \in g(G) \ | \ f(y) \not = 0\}}$
+        \par $\supp (f \circ g |\det g'|) = \supp f \circ g = \overline{\{x \in G \ | \ (f \circ g) (x) \not= 0\}}$
+        \par $g(\{x \in G \ | \ f \circ g \not = 0\}) - \{y \in g(G) \ | \ f(y) \not = 0\}$
+        \par $\xRightarrow[\text{л. 12}]{}$ замыкание совпалает
+        \par $\supp (f \circ g |\det g'|)$ компактен
+        \par $\sup_{\supp (f \circ g |\det g'|)} < \infty \Rightarrow f \circ g \cdot |\det g'|$ огр.
+        \par $f$ п. в. непрерывно на $g(G) \xRightarrow[\text{л. 12}]{} f \circ g$ п. в. непрерывно на $G$
+        \par $|\det g'| \in C(G) \Rightarrow f \circ g |\det g '|$ п. в. непрерывно на $G$
+        \par Значит, $\exists \rhimani{G} f \circ g |\det g'|$
+    \end{proof}
+
+    \begin{lemma} % ЛЕММА 13
+        $G \subset \R^n$ открыто, $g : G \rightarrow \R$ диффеоморфизм
+        \par $\forall x \in G \ \exists$ окрестность $U \subset G$
+        \[
+            g\big|_U = g_1 \circ \dots \circ g_n    
+        \]
+        \par где $g_k$ -- простейший диффеоморфизм, т. е.
+        \[
+            ((g_k)(x))_i = x_i, \quad \forall i \not= k, \quad i \text{ -- координата}  
+        \]
+    \end{lemma}
+    \begin{proof}
+        Индукция
+        \par База $k=1$ : уже простейший
+        \par Переход \quad $(g(x))_i = x_i , \quad i \ge k+1 \quad x = (y, z)$ % y, z - vectors (photo)
+        \par $ $
+        \par Пусть $x_0 \in G \quad g'(x_0) = \begin{pmatrix}
+            \frac{\partial g}{\partial y} & \frac{\partial g}{\partial z} \\
+            0 & I_{n-k}
+        \end{pmatrix}$
+        \par $0 \not= \det g'(x_0) = \det \frac{\partial g}{\partial y} (x_O) \Rightarrow$ не все миноры порядка $k-1$ нулевые
+        \par \quad перенумерацией компонентов добъемся того, чтобы главный минор был $\not= 0$
+        \[
+            f : G \rightarrow \R^n \quad (f(x))_i = \begin{cases}
+                (g(x))_i, \ i < k \\
+                x_i, \ i \ge k
+            \end{cases}    
+        \]
+        \[
+            f'(x_0) = \begin{pmatrix}
+                \left(\frac{\partial g}{\partial y}\right) & \left(\frac{\partial g}{\partial z}\right)_{k-1} \\
+                & I_{n-k+1}
+            \end{pmatrix}    
+        \]
+        \[
+            \det f'(x_0) = \left(\frac{\partial g}{\partial y}\right)_{k-1} \not= 0    
+        \]
+
+        \par $f \in C^1(G) \quad \exists окрестность U \ni x_0 \quad f\big|_{U} -- диффеоморфизм$
+        \par Положим $h = h \circ (f\big|_{U})^{-1}$ -- диффеоморфизм $f(U) \rightarrow g(U)$
+        \[
+            sg\big|_U = h \circ f\big|_U
+        \]
+        \par Для $f \ \exists$ окрестность $x_0$, в которой $f$ раскладывается в композицию простейших
+        \par $u \in f(U)$
+        \[
+            i < k \quad (h(u))_i = (g \circ f^{-1}(u))_i = (f \circ f^{-1}(u))_i = u_1
+        \]
+        \[
+            i \ge k \quad (h(u))_i = (g \circ f^{-1}(u))_i = (f^{-1}(u))_i = u_i    
+        \]
+        \[
+            (\underbrace{f(x)}_{=u})_i = \underbrace{x_i}_{(f^{-1}(u))_i}, \quad i > k    
+        \]
+    \end{proof}
+
+    \begin{lemma}
+        Утверждение теоремыверно при $n = 1$
+        \begin{lemma}[14']
+            В условиях теоремы на $G$ и на $g$ при $n=1$ для $\forall f : g(G) \rightarrow \R$ огр. : $\supp \subset g(G)$
+            \[
+                \lrhimani{G} f \circ g |\det g'| = \lrhimani{g(G)} f, \urhimani{G} f \circ g |\det g'| = \urhimani{g(G)} f    
+            \]
+        \end{lemma}
+    \end{lemma}
+
+    \begin{proof}
+        % ОБЩЕЕ ДОКАЗАТЕЛЬСТВО
+        $\supp f$ компактен
+        \[
+            \forall x \in \supp f \ \exists \epsilon_x > 0 \quad [  x - \epsilon, x + \epsilon] \subset G    
+        \]
+        \[
+            \supp f \subset \bigcup_{x \in \supp f} (x - \epsilon_x, x + \epsilon_x) \Rightarrow \supp f \subset \bigcup_{i=1}^N (x_i - \epsilon_{x_i}, x_i + \epsilon_{x_i})  
+        \]
+        \[
+            \supp f \subset \bigcup_{i=1}^N [x_i - \epsilon_{x_i}, x_i + \epsilon_{x_i}] \quad \text{отрезки не пересек}   
+        \]
+        \[
+            \forall i \quad (g^{-1})'\big|_{[x_i - \epsilon_{x_i}, x_i + \epsilon_{x_i}]} \ \text{ имеет постоянный знак}    
+        \]
+        \[
+            g^{-1}([x_i - \epsilon_{x_i}, x_i + \epsilon_{x_i}]) \text{ -- отрезок} \Rightarrow \text{ достаточно доказать:}    
+        \]
+        \[
+            \rhimani{g([a, b])} g = \rhimani{[a, b]} f \circ g |g'|    
+        \]
+        \[
+            g' > 0 \quad \int_{g(a)}^{g(b)} f(y)dy = \int_a^b f(g(x))g'(x)dx    
+        \]
+        \[
+            g' < 0 \quad \int_{g(b)}^{g(a)} f(y)dy = \int_a^b f(g(x)) |g'(x)|dx
+        \]
+        % ТУТ Я УСНУЛ
+    \end{proof}
+
+    \begin{proof}{(Теоремы)}
+        $ $
+        \begin{enumerate}
+            \item Простейший диффеоморфизм $(g(x))_i = x_i , \ i < n$
+                \[
+                    g(G) = \Pi_y = \Pi_1 \times \Pi_{y_n} \quad \Pi_1 \subset \R^{n-1}, \Pi_{y_n \subset \R}    
+                \]
+                \[
+                    G = \Pi_x = \Pi_1 \times \Pi_{x_n} \quad \Pi_{x_n} \subset \R    
+                \]
+                \[
+                    \rhimani{g(G)} = \rhimani{\Pi_y} f \chi_{g(G)} \overset{Фубинни}{=} \rhimani{\Pi_1} dy_1 \dots dy_{n-1} \lrhimani{\Pi_{y_n}}  f \chi_{g(G)} = 
+                \]
+                \[
+                    \rhimani{\Pi_1} dy_1 \dots dy_{n-1} \lrhimani{\pi_n[g(G) \cap (y_1, \dots, y_{n-1} \times \R)]} f(y)dy_n \overset{Лемма}{=} \rhimani{\Pi_1}dx_1 \dots dx_{n-1} \lrhimani{\pi_n[G \cap (y_1, \dots, y_{n-1} \times \R)]} (f \circ g)(x) \underbrace{\left|\frac{\partial g_n}{\partial x_n} (x)\right|}_{=|\det g'|} 
+                \]
+                \[
+                    \rhimani{\Pi_1} dx_1 \dots dx_{n_1} \lrhimani{\Pi_{x_n}} f \circ g |\det g'| \chi_G  =   
+                \]
+                \[
+                    = \rhimani{\Pi_x} f \circ g |\det g'| \chi_G  = - \rhimani{G} f \circ g |\det g'|   
+                \]
+        \end{enumerate} % это лишь первый случай.....
+    \end{proof}
+
+\end{document}
