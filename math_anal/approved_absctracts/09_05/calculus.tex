@@ -273,21 +273,21 @@
                 \]
                 $f$ -- биекция из $K$ в $f(K)$
                 \par $f^{-1}$ -- из $f(K)$ в $K$ непр.
-            \item $\delta(K)$ компактно
+            \item $\delta(K)$ компактно, поскольку это сфера, сфера замкнута, сферу можно вписать в куб, куб - компакт, сфера - его закмкнутое подмножество, значит тоже компакт.
                 \[
                     \|f(\cdot) - f(x_0)\|_{\ge 0} \in C(\delta(K), \R), \ x_0 \not\in \delta(K) 
                 \]
                 Если $\inf_{x \in \delta(K)} \|f(x) - f(x_0)\| = 0$, то $\exists x' \in \delta(K) : f(x') = f(x_0)$.
                 \par Это означало бы, что $x' = x_0 \in \delta(K)$ (т. к. $f\big|_K$ биекция)
-                \par Значит, $\inf_{x \in \delta(K)} \|f(x) - f(x_0)\| > 0. \ \exists d > 0 \ B_d(f(x_0) \cap f(\delta(K))) = \emptyset$
-            \item $V = B_{\frac{r}{2}}(f(x_0))$
+                \par Значит, $\inf_{x \in \delta(K)} \|f(x) - f(x_0)\| > 0. \ \exists d > 0 \ B_d(f(x_0)) \cap f(\delta(K)) = \emptyset$
+            \item $V = B_{\frac{d}{2}}(f(x_0))$
                 \par $x \in \delta(K), \ y \in V$
                 \[
                     \|f(x) - y\| = \|\underbrace{f(x) - f(x_0)}_{\|\cdot\| > d} - \underbrace{(y - f(x_0))}_{\|\cdot\| < \frac{d}{2}}\| > d - \frac{d}{2} = \frac{d}{2}
                 \]
-                $h_y(x) = \|f(x) - y\|^2 \in C^1(K, \R_+)$
+                $h_y(x) = \|f(x) - y\|^2 \in C^1(K, \R_+)$ - производная скалярного произведения
                 \par $x \in \delta(K) \quad h_y(x) > \frac{d^2}{4}$
-                \par $x = x_0 \quad h_y(x) = \|f(x_0)-y\|^2 < \frac{d^2}{4}$
+                \par $x = x_0 \quad h_y(x_0) = \|f(x_0)-y\|^2 < \frac{d^2}{4}$
                 \par $\Rightarrow x_y \not\in \delta(K), \ x_y \in \Int K$
                 \par $h_y'(x_y) = (f(x) - y, f(x) - y)'_{\big|_{x=x_y}} = 2 (f(x) - y)^T \cdot f'(x)\big|_{x=x_y} = 0$
                 \par $V \subset f(K) \Rightarrow f(x_y) = y \Rightarrow y \in f(K)$
@@ -333,11 +333,11 @@
                 \par $\tilde f'(x) = A^{-1}f'(x)$
                 \par $\tilde f'(x_0) = A^{-1}A = I$
                 \par $\exists U, \tilde V, \tilde f\big|_U$ -- биекция, $\tilde f^{-1} \in C^1(\tilde V, U)$
-                \par $\quad (\tilde f^{-1})'(U) = $
+                \par $\quad (\tilde f^{-1})' (\tilde V) = (\tilde f')^{-1}(U)$
                 \par $f(x) = A \tilde f(x) \quad f\big|_U$ биекция м. $U$ и $A \tilde V := V$
                 \par $y = A \tilde f(x) \quad x = \tilde f^{-1}(A^{-1} y) \Rightarrow f^{-1} \in C^1(V, U)$
                 \par $A^{-1}y = \tilde f(x) \quad f^{-1} = \tilde f^{-1} \cdot A^{-1}$
-                \pagebreak
+                
                 \[
                     (f^{-1})'(f(x)) = (\tilde f^{-1})(\overbrace{A^{-1}f(x)}^{=\tilde f(x)}) A^{-1} = (\tilde f'(x))^{-1} A^{-1} =
                 \]
