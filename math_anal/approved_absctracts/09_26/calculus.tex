@@ -1,23 +1,5 @@
 \input{../../../preamble.tex}
 
-\DeclareMathOperator{\Kerr}{Ker}
-\DeclareMathOperator{\Imm}{Im}
-\DeclareMathOperator{\Int}{Int}
-\DeclareMathOperator{\Mat}{Mat}
-\DeclareMathOperator{\rank}{rank}
-\DeclareMathOperator{\diam}{diam}
-\DeclareMathOperator*{\id}{id}
-\renewcommand{\phi}{\varphi}
-\renewcommand{\theta}{\vartheta}
-\renewcommand{\epsilon}{\varepsilon}
-\newcommand{\R}{\mathbb{R}}
-\renewcommand{\C}{\mathbb{C}}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\N}{\mathbb{N}}
-\setcounter{lemma}{3}
-\DeclareMathOperator{\lrhimani}{\underset{\Pi}{\underline{\int}}}
-\DeclareMathOperator{\urhimani}{\underset{\Pi}{\overline{\int}}}
-\DeclareMathOperator{\rhimani}{\underset{\Pi}{\int}}
 
 \begin{document}
 
@@ -102,8 +84,8 @@
     \end{lemma}
 
     \begin{proof}
-        $\forall k \ \exists$ покрытие кубами с $\sum$ объемов $ < \frac \epsilon 2^k$
-        \par Тогда $E = \bigcup_{k=1}^\infty E_k$ будут покрыты и $\sum$ объемов $< \epsilon \cdot \sum_{k=1}^\infty \frac 1 2^k = \epsilon$
+        $\forall k \ \exists$ покрытие кубами с $\sum$ объемов $ < \epsilon \cdot (\frac{1}{2})^k$
+        \par Тогда $E = \bigcup_{k=1}^\infty E_k$ будут покрыты и $\sum$ объемов $< \epsilon \cdot \sum_{k=1}^\infty (\frac 1 2)^k = \epsilon$
     \end{proof}
 
     \begin{definition}
@@ -132,16 +114,43 @@
         \]
         база : $N = 1$
         \par \quad $[a, b] \subset C_1 \Rightarrow v(C_1) \ge b - a$
+        
+        \begin{figure}[H]
+
+            \centering
+            
+            \includegraphics[width=0.8\linewidth]{База.png}
+                   
+        \end{figure}
+
         \par переход : $N + 1$
         \par \quad $a \in U_{k=1}^{N+1} C_k \Rightarrow \exists k : a \in C_k$ \text{ перенумеруем } $C_k$ так, чтобы $a \in C_1 = [\alpha, \beta]$
         \[
-            \alpha \le a \le \beta \le b % ВОТ ТУТ БЫ НАРИСОВАТЬ ОТРЕЗОК... НО Я ЧЕТА НЕ МОГУ НАЙТИ КАК ;(    
+            \alpha \le a \le \beta \le b  
         \]
+
+        \begin{figure}[H]
+
+            \centering
+            
+            \includegraphics[width=0.8\linewidth]{1.png}
+                   
+        \end{figure}
+
         Если $b \in [\alpha, \beta]$, то $[a, b] \subset [\alpha, \beta]$,
         \[
             \sum_{k=1}^{N+1} v(C_k) > v(C_1) = \beta - \alpha \ge b - a    
         \]
-        Если $b \not \in [\alpha, \beta], \ b > \beta$ % ТУТ ТОЖЕ РИСУНОК ПЖПЖПЖ
+
+        \begin{figure}[H]
+
+            \centering
+            
+            \includegraphics[width=0.8\linewidth]{2.png}
+                   
+        \end{figure}
+
+        Если $b \not \in [\alpha, \beta], \ b > \beta$ 
         \[
             (\beta, b] \subset \bigcup_{k=2}^{N+1} C_k    
         \]
@@ -166,7 +175,7 @@
                 \par $\sum_{k=1}^\infty v(C_k) < \epsilon$
                 \par $\exists$ конечное подпокрытие $K \subset \bigcup_{j=1}^N C_{kj}$,
                 \[
-                    \sum_{j=1}^N v(C_{kj}) < \epsilon \quad \quad \epsilon A \Rightarrow v(K) = 0 % Я ХУЗН ЧТО ТАКОЕ EPSILON A..... ;(
+                    \sum_{j=1}^N v(C_{kj}) < \epsilon \Rightarrow v(K) = 0 
                 \]
         \end{enumerate}
     \end{proof}
@@ -183,9 +192,11 @@
     \textit{Почти везде} $\equiv$ везде, кроме множества точек, имеющего меру $0$
     \par $E \subset \R^n, \ f : E \rightarrow \R$ огранич.
     \par \quad $x \in \bar E, \quad \delta > 0$
-    \par $M_\delta(f, x) := \sup_{B_\delta(c)} f, \quad m_\delta (f, x) := \inf_{B_\delta(x)} f$
-    \par $M_0(f, x) \uparrow, \quad m_0(f, x) \uparrow$
-    \par $M_\delta(f, x) - m_\delta(f, x) \ \uparrow$ по $\delta \Rightarrow E : \ \downarrow$
+    \par $M_\delta(f, x) := \sup_{B_\delta(x)} f, \quad m_\delta (f, x) := \inf_{B_\delta(x)} f$
+    \par $M_\delta (f, x) \uparrow, \quad m_\delta (f, x) \uparrow$ - имеется в виду возрастание и убывание при росте $\delta$
+    \par $M_\delta(f, x) - m_\delta(f, x) \ \uparrow$ по $\delta$ \mycontour{$\Rightarrow E : \ \downarrow$}
+    
+
 
     \begin{definition}
         $\lim_{\delta \rightarrow 0^+} M_\delta(f, x) - m_\delta(f, x) = w(f, x)$ -- колеб. ф-ии $f$ в точке $x$
@@ -199,11 +210,11 @@
         $ $
         \begin{enumerate}
             \item[$\boxed \Rightarrow$] $\forall \epsilon > 0 \ \exists \delta_\epsilon > 0 \ \forall y \in B_\delta(x) \cap E \ |f(x) - f(y)| < \epsilon$
-                \par $\Rightarrow M_{\delta_\epsilon}(x) - m_{\delta_\epsilon}(x) < \epsilon < \epsilon$
-                \par и более того, $\forall \delta < \delta_\epsilon \ M_{\delta}(x) - m_{\delta}(x) < \epsilon$ % ВОТ ТУТ ПЕРЕПРОВЕРИТЬ!!
+                \par $\Rightarrow M_{\delta_\epsilon}(x) - m_{\delta_\epsilon}(x) \le \epsilon$
+                \par и более того, $\forall \delta < \delta_\epsilon \ M_{\delta}(x) - m_{\delta}(x) < \epsilon$ \mycontour{Check here}% ВОТ ТУТ ПЕРЕПРОВЕРИТЬ!!
                 \par $M_\delta(f, x) , m_\delta(f, x) \xrightarrow[\delta \rightarrow 0^+]{} 0$
                 \par то есть $w(f, x) = 0$
-            \item[$\boxed \Rightarrow$] $w(f, x) = 0 \Rightarrow \forall \epsilon \ \exists \delta_\epsilon : \forall \delta < \delta_\epsilon$
+            \item[$\boxed \Leftarrow$] $w(f, x) = 0 \Rightarrow \forall \epsilon \ \exists \delta_\epsilon : \forall \delta < \delta_\epsilon$
                 \par $M_\delta(f, x) - m_\delta(f, x) < \epsilon$
                 \par $\forall y \in B_\delta(x) \cap E \quad |f(y) - f(x)| < \epsilon$
                 \par $f(y) \xrightarrow[y \rightarrow x]{} f(x)$
@@ -234,10 +245,10 @@
                 если $y \not\in F$, то $y \in \R^n \setminus F \subset \R^n \setminus F_\epsilon$
                 \par если $y \in F$, то $w(f, y) < \epsilon$
                 \[
-                    \sup f - \inf f \le \sup f - \inf f < \epsilon    % ВОТ ТУТ КАКАЯТА ХРЕНЬ..
+                    \sup f - \inf f \le \sup f - \inf f < \epsilon  \mycontour{Check here}  % ВОТ ТУТ КАКАЯТА ХРЕНЬ..
                 \]
                 \[
-                    \sup f \in B_{\delta'}(y) \cap F \quad \inf f \in B_{\delta'} \quad \sup f \in B_\delta(x) \cap F \quad \inf f B_\delta(x) \cap F % КАКАЯТА МЕГАХЕРНЯ...
+                    \sup f \in B_{\delta'}(y) \cap F \quad \inf f \in B_{\delta'} \quad \sup f \in B_\delta(x) \cap F \quad \inf f B_\delta(x) \cap F \mycontour{Check here} % КАКАЯТА МЕГАХЕРНЯ... 
                 \]
                  \[
                     \Rightarrow \forall \delta'' < \delta \quad M_{\delta''}(f, y) - m_{\delta''}(f, y) < \epsilon   
