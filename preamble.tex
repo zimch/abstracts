@@ -16,10 +16,15 @@
 \usepackage{xifthen}
 \usepackage{pdfpages}
 \usepackage{transparent}
-\usepackage{wrapfig}
 \usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{contour}
 
 \onehalfspacing
+
+\contourlength{1pt}
 
 \pgfplotsset{compat=1.18, width=7cm}
 
@@ -51,6 +56,8 @@
     \import{./figures/}{#1.pdf_tex}
 }
 
+\graphicspath{ {./figures/} }
+
 \DeclareMathOperator{\Kerr}{Ker}
 \DeclareMathOperator{\Imm}{Im}
 \DeclareMathOperator{\Int}{Int}
@@ -73,3 +80,5 @@
 \newcommand{\lrhimani}[1]{\underset{#1}{\underline{\int}}}
 \newcommand{\urhimani}[1]{\underset{#1}{\overline{\int}}}
 \newcommand{\rhimani}[1]{\underset{#1}{\int}}
+
+\newcommand{\mycontour}[1]{\contour{red}{#1}}
