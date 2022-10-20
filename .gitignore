@@ -3,6 +3,6 @@
 **.fls
 **.log
 **.out
-**.synctex.*
+**.synctex*
 **.fdb_latexmk
 diff_eq/bilety/diffury_bilety.pdf
