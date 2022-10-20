@@ -154,7 +154,7 @@
         $A \in B(\R^n), \exists A^{-1}, B \in B(\R^n), \| B - A \| < \frac{1}{\| A^{-1} \|}$
         \par Тогда $B$ обратим,
         \[
-            \| B^{-1} \| \le \frac{1}{\left\| \frac{1}{A^{-1}} \right\| - \| B - A \|}, \| B^{-1} - A^{-1} \| \le \frac{\| A^{-1} \| \cdot \| B - A \|}{\left\|\frac{1}{A^{-1}}\right\| - \| B - A \|}  
+            \| B^{-1} \| \le \frac{1}{\frac{1}{\| A^{-1} \|}  - \| B - A \|}, \| B^{-1} - A^{-1} \| \le \frac{\| A^{-1} \| \cdot \| B - A \|}{\frac{1}{\| A^{-1} \|} - \| B - A \|}  
         \]
     \end{theorem}
 
@@ -167,9 +167,9 @@
         \[
             \|Ax\| \ge \frac{\|x\|}{\|A^{-1}\|} \quad x = (A^{-1})(Ax) \quad \|x\| \le \|A^{-1}\| \cdot \|Ax\|  
         \]
-        \[
-            Bx = 0 \Rightarrow \|x\| = 0 \Rightarrow x = 0 \quad \Kerr B = \{0\} \Rightarrow \exists B^{-1}  
-        \]
+        
+            $Bx = 0 \Rightarrow \|x\| = 0$, так как  $(\|Bx\| \ge \|x\| \cdot (..)_{>0}) \Rightarrow x = 0 \quad \Kerr B = \{0\} \Rightarrow \exists B^{-1}$  
+        
         \[
             \begin{matrix} y = Bx \\ x = B^{-1}y \end{matrix} \quad \|y\| \ge (\frac{1}{\|A^{-1}\|} - \|B-A\|)\|B^{-1}y\|, \ \forall y \in \R^n  
         \]
@@ -251,10 +251,10 @@
         \begin{enumerate}
             \item Пусть $f'(x_0) = I$. При $x$, близких к $x_0$, $f(x) \not= f(x_0)$
                 \[
-                    f'(x) = f(x_0) + (x-x_0) o(\|x-x_0\|)    
+                    f'(x) = f(x_0) + (x-x_0) + o(\|x-x_0\|)    
                 \]
                 \[
-                    \frac{\|f(x)-f(x_0)\|}{x-x_0} = \frac{\|x-x_0\|}{\|x-x_0\|} + o(1), \ x \rightarrow x_0  
+                    \frac{\|f(x)-f(x_0)\|}{\| x-x_0 \|} = \frac{\|x-x_0\|}{\|x-x_0\|} + o(1), \ x \rightarrow x_0  
                 \]
                 $\exists$ окрестность, в которой $\|o(1)\| < \frac12 \Rightarrow f(x)-f(x_0) \not= 0$
             \item $f \in C^1(D, \R^n) \Rightarrow f'(x) \xrightarrow[x \rightarrow x_0]{} I$
