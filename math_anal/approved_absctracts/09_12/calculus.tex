@@ -85,7 +85,7 @@
     \begin{theorem}
         $D \subset \R^{n+m}$, открыто, $\Phi \in C^1(D, \R^m)$
         \par $\Phi(x_0, y_0) = 0 \ (x_0, y_0) \in D, \ \Phi'_y(x_0, y_0)$ -- обратимо. Тогда
-        \par $\exists U$ -- окр. $x_0$, $V$ -- окр. $y_0$, $U \times V  = D$
+        \par $\exists U$ -- окр. $x_0$, $V$ -- окр. $y_0$, $U \times V  \subset D$
         \begin{enumerate}
             \item $\forall x \in U \ \exists! y \in V : \Phi(x, y) = 0$
             \par (это задает отображение $\phi : U \rightarrow V, \ y = \phi(x)$)
@@ -117,15 +117,16 @@
                 Th. о локальном обращении
                 \par $\exists \hat U$ -- окрестность $(x_0, y_0) : F(\hat U) = \hat V$ открытое,
                 \par $F\big|_{\hat U}$ -- биекция, $F^{-1} \in C^1(\hat V, \hat U), \ F(x_0, y_0) = (x_0, 0)$
-                \par $\exists \delta > 0 \ \hat{\hat U} = B_\delta^n(x_0) \times B_\delta^m(y_0) \subset U$
-                \par $\hat{\hat U} \subset B_{\sqrt{2}\delta}^{n + m} \subset U, \quad$ $n, \ m$ -- размерности
+                \par $\exists \delta > 0 \ \hat{\hat U} = B_\delta^n(x_0) \times B_\delta^m(y_0) \subset \hat U$
+                \par $\hat{\hat U} \subset B_{\sqrt{2}\delta}^{n + m} \subset \hat{U}, \quad$ $n, \ m$ -- размерности
+                \par Тогда $F(\hat{\hat U}) \subset F(\hat U) = \hat V$
                 \par $(x_0, 0) \in F(\hat{\hat U}) \subset \hat V$
-                \par $\exists \epsilon > 0 : B_\epsilon^{n+m}(x_0, 0) \subset F(\hat{\hat U})$
+                \par $\exists \epsilon > 0 : B_\epsilon^{n+m}(x_0, 0) \subset F(\hat{\hat U})$ - так как $\hat V$ открыто
                 \par $\underbrace{B^n_\epsilon(x_0)}_{= \hat{\hat V}} \times \{0\} \subset F(\hat{\hat U})$
-                \par $\forall x \in \hat{\hat V} \quad F^{-1}(x, 0) =: (x_1. y)$
+                \par $\forall x \in \hat{\hat V} \quad F^{-1}(x, 0) =: (x_1, y)$
                 \par Это означает
                 \[
-                      (x, \Phi(x, y)) = F(x, y) = (x, 0)
+                      (x_1, \Phi(x, y)) = F(x_1, y) = (x, 0)
                 \]
                 \par $\Rightarrow x_1 = x, \ \Phi(x, y) = 0 \quad$ (отсюда следует $\epsilon < \delta$)
                 \[
@@ -139,8 +140,8 @@
                 \par $F^{-1} \in C^1(\hat V, \hat U)$
                 \par $E  : x \mapsto (x, 0) \in C^1(\R^n, \R^{n+m}) \quad EU = U \times \{0\} \subset \hat V$
             \item $\Phi(x, \phi(x)) = 0$
-                \par $0 = \Phi'(x, \phi(x)) = \Phi'(x, \phi(x)), \quad \begin{pmatrix}I \\ \phi'(x)\end{pmatrix} =$
-                \par $= \Phi'(x, \phi(x)) + \underbrace{\Phi'_y(x, \phi(x))}_{\text{обр.}} - \phi'(x)$ % ТУТ - У \phi??
+                \par $0 = \Phi'(x, \phi(x))$ % дичь какая-то хз...
+                \par $\Phi'(x, \phi(x)) = \quad \begin{pmatrix}I \\ \phi'(x)\end{pmatrix} = \Phi'(x, \phi(x)) + \underbrace{\Phi'_y(x, \phi(x))}_{\text{обр.}} - \phi'(x)$ % ТУТ - У \phi??
         \end{enumerate}
     \end{proof}
 
