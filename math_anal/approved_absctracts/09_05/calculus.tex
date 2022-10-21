@@ -258,7 +258,7 @@
         \begin{enumerate}
             \item Пусть $f'(x_0) = I$. При $x$, близких к $x_0$, $f(x) \not= f(x_0)$
                 \[
-                    f'(x) = f(x_0) + (x-x_0) + o(\|x-x_0\|)    
+                    f(x) = f(x_0) + (x-x_0) + o(\|x-x_0\|)    
                 \]
                 \[
                     \frac{\|f(x)-f(x_0)\|}{\| x-x_0 \|} = \frac{\|x-x_0\|}{\|x-x_0\|} + o(1), \ x \rightarrow x_0  
@@ -268,7 +268,7 @@
                 \par $\exists r > 0, \ x_0 : \|f'(x) - I\| < \frac12$ для $\forall x \in B_r(x_0)$
                 \par $K = B_{\frac{r}{2}}[x_0] \subset B_r(x_0)$
             \item $g(x) = f(x) - x$
-                \par $g'(x_0) = f'(x_0) - I \quad \|g'(x)\| < \frac12, \ x \in K$
+                \par $g'(x) = f'(x) - I \quad \|g'(x)\| < \frac12, \ x \in K$
                 \[
                     \|g(x_1) - g(x_2)\| \le \frac12 \|x_1-x_2\| \quad \text{(т. Лагранжа)}
                 \]
@@ -278,10 +278,10 @@
                 \]
                 \[
                     \frac12 \|x_1 - x_2\| \le \|f(x_1) - f(x_2)\| 
-                    \le \frac32 \|x_1 - x_2\| \quad \text{(нер-во треуг.)}   
+                    \le \frac32 \|x_1 - x_2\| \quad \text{(нер-во треуг., из этого следует инъективность)}   
                 \]
                 \[
-                    \|f(x_1) - f(x_2)\| \le C - \|x_1 - x_2\|    
+                    0 \le \|f(x_1) - f(x_2)\| \le C \cdot \|x_1 - x_2\| - \text{из этого следует непрерывность} 
                 \]
                 $f$ -- биекция из $K$ в $f(K)$
                 \par $f^{-1}$ -- из $f(K)$ в $K$ непр.
