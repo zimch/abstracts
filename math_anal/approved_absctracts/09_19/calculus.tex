@@ -232,7 +232,7 @@
         \end{cases}$
         \par Рассмотрим $p_{\epsilon, k} := \{\pi_1 \cap \pi_2, \ \pi_1 \in p_k, \pi_2 \in p_\epsilon\}$
         \[
-            L(f,p_k) - L(f, p_{\epsilon, k} = \sum_{\pi'' \in p_k''} \inf_{\pi''} f v(\pi'') - \sum_{\begin{split}
+            L(f,p_k) - L(f, p_{\epsilon, k}) = \sum_{\pi'' \in p_k''} \inf_{\pi''} f v(\pi'') - \sum_{\begin{split}
                 \pi \in p_{\epsilon, k} \\
                 \pi \in \bigcup_{\pi'' \in p_k} \pi''
             \end{split}} \inf_\pi f v(\pi) % ЧЕСТНО Я ХЗ КАК СДЕЛАТЬ ИНАЧЕ КРАСИВО ;(
@@ -250,11 +250,11 @@
             \end{split}} \inf_\pi f v(\pi) \right| \le
         \]
         \[
-            \sup_\pi |f| \cdot \sum_{\pi'' \in p_k''} v(\pi'') \le 2S(p_\epsilon) \cdot \sup_\pi |f| \cdot d(p_k) \xrightarrow[k \rightarrow 0]{} 0   
+            \sup_\pi |f| \cdot \sum_{\pi'' \in p_k''} v(\pi'') \le 2S(p_\epsilon) \cdot \sup_\pi |f| \cdot d(p_k) \xrightarrow[k \rightarrow \infty]{} 0   
         \]
         $\exists K \ \forall k > K \quad L(f, p_{\epsilon, k}) - L(f, p_k) < \frac \epsilon 2$
         \[
-            \underset{\Pi}{\underline{\int}} f - \frac \epsilon 2 < L(f, p_\epsilon) - \frac \epsilon 2 \le L(f, p_{\epsilon, k}) - \frac \epsilon 2 < L(f, p_k) < \underset{\Pi}{\underline{\int}} f \Rightarrow L(f, p_k) \xrightarrow[k \rightarrow 0]{} \underset{\Pi}{\underline{\int}} f
+            \underset{\Pi}{\underline{\int}} f - \frac \epsilon 2 < L(f, p_\epsilon) - \frac \epsilon 2 \le L(f, p_{\epsilon, k}) - \frac \epsilon 2 < L(f, p_k) < \underset{\Pi}{\underline{\int}} f \Rightarrow L(f, p_k) \xrightarrow[k \rightarrow \infty]{} \underset{\Pi}{\underline{\int}} f
         \]
     \end{proof}
 
