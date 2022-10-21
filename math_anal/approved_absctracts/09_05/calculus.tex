@@ -38,7 +38,7 @@
     \begin{illustration}
         Неполное нормированное пространство:
         \[
-            C([0; 1]), \quad \| f \|_< = \int_0^1 |f(x)| dx
+            C([0; 1]), \quad \| f \|_L = \int_0^1 |f(x)| dx
         \]
         \[
             \int_0^\frac12 f_n(x) dx \rightarrow 0 \quad \exists N: n > N < \frac \epsilon 2
@@ -49,9 +49,11 @@
         \[
             \forall \epsilon \ \exists N \ \forall n, m > \int_0^1 |f_n(x) - f_m(x)| dx < \epsilon   
         \]
+        Можно дополнить его до полного, получится:
         \[
-            \mathit{L}(0, 1) = \{ f : [0, 1] \rightarrow \R : \int_0^1 |f_n(x)| dx < \infty \}    
+            \mathit{L}_1(0, 1) = \{ f : [0, 1] \rightarrow \R : \int_0^1 |f_n(x)| dx < \infty \}    
         \]
+        $C([0,1])$ будет полным по другой норме: $\| f \| = \max_{x\in[0,1]} |f(x)|$
     \end{illustration}
 
     \subsection*{Линейные операторы}
@@ -59,13 +61,15 @@
     \begin{definition}
         Линейный оператор
         \[
-            A(\alpha x + \beta y) = \alpha Ax + \beta Ay \quad A : L \rightarrow M \quad \text{, где } M = \R \setminus \C, A \text{ - функционал(?)}    
+            A(\alpha x + \beta y) = \alpha Ax + \beta Ay \quad A : L \rightarrow M, \quad \text{ где } M = \R / \C,\quad A \text{ - функционал(?)}    
         \]
     \end{definition}
 
     \begin{remark}
         Операторы из $\R^m$ в $\R^n$ $\leftrightarrow$ матрицы $\Mat^{m, n}$ 
     \end{remark}
+
+    \subsection*{Норма оператора}
 
     \[
         \| A \| = \sup_{x \not= 0} \frac{\| Ax \|_\mathit{M}}{\| x \|_\mathit{L}}, \quad M, L \text{ - нормированные пространства}
@@ -77,7 +81,7 @@
             L = C^1([0, 1]), \quad M = C([0, 1]) \quad \| f \| = \sup_{[0, 1]} |f|    
         \]
         \[
-            \| f \| = \max_{[0,1]} |f|    
+            \| f \| = \max_{[0,1)} |f|    
         \]
         \[
             (Af)(x) = f'(x)     
@@ -98,7 +102,10 @@
 
     \begin{proposition}
         \[
-            \| A \| = \sup_{x \in B_1(x) \setminus \{ 0 \}} \|Ax \| = \sup_{a \in S_1(0)} \| Ax \| = \sup_{x \in B_1(0) \setminus \{ x \}} = \inf \{c : \| Ax \| \le c \| x \|\} \quad \forall x \in L
+            \| A \| = \sup_{x \in B_1(x) \setminus \{ 0 \}} \|Ax \| = 
+            \sup_{a \in S_1(0)} \| Ax \| = 
+            \sup_{x \in B_1(0) \setminus \{ x \}} \frac{\|Ax\|}{\|x\|} = 
+            \inf \{c : \| Ax \| \le c \| x \|\} \quad \forall x \in L
         \]
         \par$B_r(x) = \{ y \in L  : \| y - x \| < r\}$ -- открытый шар радиуса $r$
         \par$B_r[x] = \{ y \in L  : \| y - x \| \le r\}$ -- замкнутый шар радиуса $r$
@@ -129,10 +136,10 @@
 
     \begin{remark}
         \[
-            A : \R^n  \rightarrow \R \ \exists a \in \R^n \ \forall x \in \R^n : Ax = (a; x) \quad \| A \| \underset{B(\R^n, \R)}{=} \| a \|_{\R^n}   
+            A : \R^n  \rightarrow \R \ \exists a \in \R^n \ \forall x \in \R^n : Ax = (a, x) \quad \| A \|_{B(\R^n, \R)} = \| a \|_{\R^n}  %\underset{B(\R^n, \R)}{=} \| a \|_{\R^n}   
         \]
         \[
-            A : \R \rightarrow \R^n \ \exists a \in \R^n \ \exists x \in \R : Ax = a \cdot x \quad \| A \| \underset{B(\R, \R^n)}{=} \| a \|_{\R^n}  
+            A : \R \rightarrow \R^n \ \exists a \in \R^n \ \exists x \in \R : Ax = a \cdot x \quad \| A \|_{B(\R, \R^n)} = \| a \|_{\R^n}  
         \]
     \end{remark}
 
@@ -143,7 +150,7 @@
     \begin{enumerate}
         \item $\exists B : M \rightarrow L \ : \ AB = I_M$ -- ед. оператор в пространстве $M$
         \par $B \leftrightharpoons$ правый обратный
-        \item $\exists C : M \rightarrow L \ : \ CA = I_l$ -- ед. оператор в пространстве $L$
+        \item $\exists C : M \rightarrow L \ : \ CA = I_L$ -- ед. оператор в пространстве $L$
         \par $C \leftrightharpoons$ левый обратный
         \item $\exists$ оба и равны, $A^{-1} \leftrightharpoons$ обратный оператор
     \end{enumerate}
@@ -161,7 +168,7 @@
     \begin{proof}
         $x \in \R^n$
         \[
-            \| Bx \| = \| Ax - (A-B)x \| \ge \| Ax \| - \| (B-A)x \| \ge \frac{\| x \|}{\| A^{-1} \|} - \| B-A \| \cdot \| x \| = (\frac{1}{\|A^{-1}\|} - \|B-A\|) \|x\|
+            \| Bx \| = \| Ax - (A-B)x \| \ge \| Ax \| - \| (B-A)x \| \ge \frac{\| x \|}{\| A^{-1} \|} - \| B-A \| \cdot \| x \| = \left(\frac{1}{\|A^{-1}\|} - \|B-A\|\right) \|x\|
         \]
         \par Так как:
         \[
@@ -171,22 +178,22 @@
             $Bx = 0 \Rightarrow \|x\| = 0$, так как  $(\|Bx\| \ge \|x\| \cdot \underbrace{(..)}_{>0}) \Rightarrow x = 0 \quad \Kerr B = \{0\} \Rightarrow \exists B^{-1}$  
         
         \[
-            \begin{matrix} y = Bx \\ x = B^{-1}y \end{matrix} \quad \|y\| \ge (\frac{1}{\|A^{-1}\|} - \|B-A\|)\|B^{-1}y\|, \ \forall y \in \R^n  
+            \begin{matrix} y = Bx \\ x = B^{-1}y \end{matrix} \quad \|y\| \ge \left(\frac{1}{\|A^{-1}\|} - \|B-A\|\right)\|B^{-1}y\|, \ \forall y \in \R^n  
         \]
         \[
             \Rightarrow \|B^{-1}\| \le \frac{1}{\frac{1}{\|A^{-1}\|} - \|B-A\|}    
         \]
         \[
-            B^{-1}A^{-1} = B^{-1}(I-BA^{-1}) = B^{-1}(A-B)A^{-1}
+            B^{-1} - A^{-1} = B^{-1}(I-BA^{-1}) = B^{-1}(A-B)A^{-1}
         \]
         \[
-            \|B^{-1}-A^{-1}\| \le \frac{\|A^{-1}\| \cdot \|B-A\|}{\frac{1}{\|A^{-1}\|} - \|B-A\|}
+            \|B^{-1}-A^{-1}\| \le \|B^{-1}\| \cdot \|A - B\| \cdot \|A^{-1}\| \le \frac{\|A^{-1}\| \cdot \|B-A\|}{\frac{1}{\|A^{-1}\|} - \|B-A\|}
         \]
     \end{proof}
 
     \begin{remark}\leavevmode
         \begin{enumerate}
-            \item Множество операторов открыто
+            \item Множество обратимых операторов открыто
             \item Отображение $A \mapsto A^{-1}$ непрерывно
         \end{enumerate}
     \end{remark}
@@ -218,14 +225,14 @@
 
     Пусть теперь есть функция на открытом множестве:
 
-    $D$ открыто $\quad f \in C'(D, \R^n) \quad x _0 \in D \ f'(D_0)$ обратима
+    $D$ открыто $\quad f \in C'(D, \R^n) \quad x _0 \in D \ f'(x_0)$ обратима
 
     \begin{illustration}\leavevmode
         \begin{enumerate}
             \item $f(x, y) = \begin{pmatrix}e^x \cos y \\ e^x \sin y \end{pmatrix}$
             \par $f : \R^2 \rightarrow \R^2$
             \[
-                f'(x, y) = \begin{pmatrix} e^x\cos y - e^x\sin y \\ e^x\sin y + e^x\cos y \end{pmatrix}    
+                f'(x, y) = \begin{pmatrix} e^x\cos y & - e^x\sin y \\ e^x\sin y & e^x\cos y \end{pmatrix}    
             \]
             \item $n = 1 \quad f \in C^1(D, \R)$
             \par $f'(x_0) \not= 0$
@@ -258,28 +265,33 @@
                 \]
                 $\exists$ окрестность, в которой $\|o(1)\| < \frac12 \Rightarrow f(x)-f(x_0) \not= 0$
             \item $f \in C^1(D, \R^n) \Rightarrow f'(x) \xrightarrow[x \rightarrow x_0]{} I$
-                \par $\exists r > 0 \ x_0 : \|f'(x) - I\| < \frac12$ для $\forall x \in B_r(x_0)$
+                \par $\exists r > 0, \ x_0 : \|f'(x) - I\| < \frac12$ для $\forall x \in B_r(x_0)$
                 \par $K = B_{\frac{r}{2}}[x_0] \subset B_r(x_0)$
             \item $g(x) = f(x) - x$
-                \par $g'(x) - f'(x) - I \quad \|g'(x)\| < \frac12, \ x \in K$
+                \par $g'(x_0) = f'(x_0) - I \quad \|g'(x)\| < \frac12, \ x \in K$
                 \[
                     \|g(x_1) - g(x_2)\| \le \frac12 \|x_1-x_2\| \quad \text{(т. Лагранжа)}
                 \]
                 \[
-                    \|f(x_1) - f(x_2) - (x_1 - x_2)\| \le \frac12 \|x_1 - x_2\| \Rightarrow \|f(x_1) - f(x_2)\| \le \frac32 \|x_1 - x_2\| \quad \text{(нер-во треуг.)}   
+                    \|f(x_1) - f(x_2) - (x_1 - x_2)\| 
+                    \le \frac12 \|x_1 - x_2\| \Rightarrow 
+                \]
+                \[
+                    \frac12 \|x_1 - x_2\| \le \|f(x_1) - f(x_2)\| 
+                    \le \frac32 \|x_1 - x_2\| \quad \text{(нер-во треуг.)}   
                 \]
                 \[
                     \|f(x_1) - f(x_2)\| \le C - \|x_1 - x_2\|    
                 \]
                 $f$ -- биекция из $K$ в $f(K)$
                 \par $f^{-1}$ -- из $f(K)$ в $K$ непр.
-            \item $\delta(K)$ компактно, поскольку это сфера, сфера замкнута, сферу можно вписать в куб, куб - компакт, сфера - его закмкнутое подмножество, значит тоже компакт.
+            \item $\delta(K)$ компактно, поскольку это сфера, сфера замкнута, сферу можно вписать в куб, куб - компакт, сфера - его замкнутое подмножество, значит тоже компакт.
                 \[
-                    \|f(\cdot) - f(x_0)\|_{\ge 0} \in C(\delta(K), \R), \ x_0 \not\in \delta(K) 
+                    \|f(\cdot) - f(x_0)\|_{\ge 0} \in C(\delta(K), \R), \ x_0 \not\in \delta(K) \quad\text{(вместо точки подставляем x)}
                 \]
                 Если $\inf_{x \in \delta(K)} \|f(x) - f(x_0)\| = 0$, то $\exists x' \in \delta(K) : f(x') = f(x_0)$.
                 \par Это означало бы, что $x' = x_0 \in \delta(K)$ (т. к. $f\big|_K$ биекция)
-                \par Значит, $\inf_{x \in \delta(K)} \|f(x) - f(x_0)\| > 0. \ \exists d > 0 \ B_d(f(x_0)) \cap f(\delta(K)) = \emptyset$
+                \par Значит, $\inf_{x \in \delta(K)} \|f(x) - f(x_0)\| > 0. \ \exists d > 0 \ B_d(f(x_0)) \cap f(\delta(K)) = \varnothing$
             \item $V = B_{\frac{d}{2}}(f(x_0))$
                 \par $x \in \delta(K), \ y \in V$
                 \[
