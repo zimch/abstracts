@@ -1,0 +1,298 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+\usepackage{amsfonts, amssymb, amsmath}  %% for math symbs
+\usepackage{mathrsfs}
+\usepackage{float}  %% for table floating
+\usepackage{enumerate} %% for lists
+
+\usepackage{fullpage}  %% less margin 
+
+\usepackage{graphicx} %% for pics
+\usepackage{amsthm, amsmath, amsfonts, amssymb, mathtools}
+% \usepackage{geometry}
+% \usepackage{indentfirst}
+% \usepackage{titleps}
+% \usepackage{soulutf8}
+% \usepackage{multicol}
+% \usepackage{tabularx}
+% \usepackage{pgfplots}
+% \usepackage{cancel}
+% \usepackage{import}
+% \usepackage{xifthen}
+% \usepackage{pdfpages}
+% \usepackage{transparent}
+% \usepackage{wrapfig}
+% \usepackage{setspace}
+
+\parindent 0px  % no white space in new lines
+% \baselinestretch{1.5}
+\renewcommand{\baselinestretch}{1.3} 
+
+%% titling
+\title{Hello world} 
+\author{Lindy2076}
+\date{22.22.2} %%\today
+\begin{document}
+    Остановились на формуле Лиувилля для однородной системы.
+    
+    \par $ $
+
+    $\dot{\vec{X}} = \dot A(t)\vec{X} \implies W(t) = \det \Phi (T) : 
+    \dot{W}(t) = (\text{Tr}A(t))W
+    $
+    $W(t) = W(t_0)e^{\int_{t_0}^t \text{Tr}A(\tau)d\tau}$
+
+    \par $ $
+
+    $L_n[y] = y^{(n)} + a_{n-1}(t)y^{(n-1)} + \dotsc + a_0(t) y = 0$
+
+    $x_1(t) = y(t)$
+
+    $x_2(t) = y'(t)$
+
+    $x_n(t) = y^{(n-1)}(t)$
+
+    $A(t) = \begin{pmatrix}
+        0  & 1 & \\
+        & \ddots \\
+        & & 0 & 1 \\ 
+        -a_0 &\dotsc& &-a_{n-1}
+    \end{pmatrix} \implies \text{Tr}A(t) = -a_{n-1}(t)$
+
+    $\implies W(t) = W(t_0)e^{\int_{t_0}^ta_{n-1}(\tau)d\tau}$
+
+    \par $ $
+
+    $y'' + a_1(t)y' + a_0(t)y(t) = 0$. Знаем $\phi_1(t)$ - нетривиальное решение.
+    Не знаем $\phi_2$
+
+    $W(t) = 
+    \left|\begin{matrix}
+        \phi_1(t) & \phi_2(t) \\
+        \dot \phi_1(t) & \dot \phi_2(t)
+    \end{matrix}\right| = 
+    \phi_1(t) \dot\phi_2(t) - \dot\phi_1(t)\phi_2(t) = 
+    \underbrace{A}_{\neq 0}e^{-\int a_1(\tau)d\tau}$
+
+    $\phi_2' - \frac{\phi_1'(t)}{\phi_1(t)}\phi_2 = e^{-\int a_1(\tau)d\tau}$
+    
+    \par $ $
+    
+    \textbf{ЛНСДУ}
+    
+    $\dot{\vec{x}} = A(t)\vec{x} + \vec{b}(t) \quad \vec{x_\text{ч}} = ?$
+
+    Матрица Коши:
+
+    $\begin{rcases}
+        K(t, \tau) = \Phi(t)\Phi^{-1}(t) \\
+        \begin{cases}
+            \dot{\Phi} = A(t)\Phi \\
+            \Phi(\tau) = I \text{(единичная)}
+        \end{cases}
+    \end{rcases} \implies$
+
+    $\implies \vec{x_\text{ч}}(t) = \int^t_{t_0} K(t, \tau)\vec{b}(\tau)d\tau = 
+    \int^t_{t_0}\Phi(t)\Phi^{-1}(\tau)\vec{b}(\tau)d\tau$
+
+    $\underline{\dot{\vec{x}}} = \Phi(t)\Phi^{-1}(t)\vec{b}(t) + 
+    \int^t_{t_0} \dot \Phi(t) \Phi^{-1}(\tau)\vec{b}(\tau)d\tau = 
+    \vec{b}(t) + \int^t_{t_0}A(t)\Phi(t)\Phi^{-1}(\tau)\vec{b}(\tau)d\tau = \\
+    \underline{\vec{b}(t) + A(t)\vec{x}}$
+
+    \par $ $
+
+    $A(t) \equiv A \implies K(t, \tau) = e^{A(t-\tau)}$
+
+    $\Phi(t) =e^{At} \quad x_{\text{ч}}(t) = \int^t_{t_0}e^{A(t-\tau)}\vec{b}(\tau)d\tau$
+
+    \par $ $
+    $\begin{cases}
+        \dot{\vec{x}} = A(t)\vec{x} + b(\tau) \\
+        \vec{x}(t_0) = \vec{C_0}
+    \end{cases}$
+
+    
+    $\widetilde{\Phi}(t) = \Phi(t)\Phi^{-1}(t_0) = K(t, t_0) = 
+    K(t, t_0)\vec{C_0} + \int^t_{t_0}\vec{b}(\tau)d\tau$
+    
+    $\widetilde{\Phi}(t_0) = I$
+
+    Ответ: $x(t) = \widetilde{\Phi}(t)\vec{C_0} + 
+    \int^t_{t_0}K(t, \tau)\vec{b}(\tau)d\tau$
+
+    \par $ $
+
+    \textbf{Периодическая задача}
+
+    Коэффициенты - периодические функции
+
+    $P = P(t) \in \mathbb{C}^{n\times n}\quad w $ - период, $P(t+w) = P(t)$
+
+    $\dot{\vec{x}} = P(t)x$
+
+    % \begin{theorem}
+    %     s
+    % \end{theorem}
+    \textbf{Theorem}. o $\Phi(t)$ sistemy s period koeff.
+
+    $\Phi(t) = G(t)e^{tR} \quad R \in \mathbb{R}^{n\times n}$
+
+    $G(t) - w$-Периодическая, $\det G(t) \neq 0$
+
+    Proof. $\dot\Phi = P(t)\Phi \implies \Psi(t) = \Phi(t + w)$ - тоже
+    фундаментальная матрица
+
+    $\dot\Psi = \dot\Phi(t + w) = P(t + w) \Phi(t + w) = P(t)\Psi(t)$
+
+    $\Psi(t) = \Phi(t+w) = \Phi(t)B, \det B \neq 0, B$ - какая-то матрица,
+    которая называется матрицой МонодромиИ.
+
+    $B = \Phi^{-1}(t)\Phi(t+w)$
+
+    $B = \Phi^{-1}(0)\Phi(w)$
+
+    Положим $R = \frac{1}{w}\ln B, \quad B = e^{wR}$
+
+    \fbox{
+        \begin{minipage}{\textwidth}
+            Если $\det B \neq 0 \implies \exists \ln B$ \\ 
+        $\ln z = \ln |z| + i \text{arg} z + 2\pi k i$
+        \end{minipage}
+    }
+
+    $\ln J_{r} = \ln \lambda I_r + \sum^\infty_{k=1}\frac{(-1)^{k-1}}{k} (
+        \frac{1}{\lambda}z_r
+    )^k$
+    
+    \par $ $
+
+    $\boxed {\Phi_1(t+ w) = \Phi_1(t)B_1}$
+
+    $\Pi_1(t+w) = \begin{array}{ll}
+        \Phi(t) S B_1  = \Phi_1(t)BS\\
+        \Phi_1(t)B_1 = \Phi(t+w)S = \Phi_1(t)BS
+    \end{array}$ 
+
+    $S^{-1}|SB_1 = BS \\ 
+    B_1 = S^{-1}BS$
+
+    $B_1 \sim B$
+
+    $\widetilde{\Phi}(0) = I $
+
+    $\widetilde{\Phi}(w) = \widetilde{\Phi}(0)B$
+
+    $B = \widetilde{\Phi}(w)$
+
+    $\mu_1, \dotsc, \mu_n$ - собственные числа $B$, мультипликаторы
+
+    $\lambda_1, \dotsc, \lambda_n$ собственные числа $R$ (характеристические показатели)
+
+    $\boxed{\lambda_j = \frac{1}{w}\ln \mu_j}$
+
+    $\det B = \det \widetilde{\Phi}(w) \overset{\text{лиувиль}}{=} 
+    e^{\int^w_0 \text{Tr}P(\tau)d\tau} = \mu_1 \dotsc \mu_n$
+
+    \par $ $
+
+    $y'' + P(t)y = 0$
+
+    $y = x_1, y' = x_2$
+
+    $\implies \begin{cases}
+        \dot{x_1} = x_2 \\ \dot{x_2} = -P(t)x_1
+    \end{cases}, P(t) = \begin{pmatrix}
+        0 & 1 \\ -P(t) & 0 
+    \end{pmatrix}$ 
+
+    $\text{Tr}P(t) = 0 \overset{\text{liuville}}{\implies} \mu_1 \mu_2 = 1$
+
+    $\mu_2 - 2a\mu + 1 = 0$ - характеристический полином
+
+    $\Phi(w) = \begin{pmatrix}
+        \phi_1(w) & \phi_2(w) \\ \dot{\phi_1}(w) & \dot{\phi_2}(w)
+    \end{pmatrix}$
+
+    Условия 
+
+    $\begin{cases}
+        \phi_1(t) = 1 \\ \dot{\phi_1}(0) = 0 
+    \end{cases}
+    \begin{cases}
+        \phi_2(0) = 0 \\ \dot{\phi_2}(0) = 1
+    \end{cases}$
+
+    $a = \frac{1}{2}(\phi_1(w) + \dot{\phi_2}(w))$
+
+    \par $ $
+
+    \textbf{Theorem}. $\mu$ - мультипликатор $\iff$
+
+    $\exists \vec{\phi}$ решение $\dot{\vec{\phi}} = \Phi(t)\vec{\phi} :
+    \forall t \quad \phi(t+w) = \mu\phi(t)$
+
+    Proof. $\mu$ - мультипликатор $\exists \vec{x_\mu}$ собственный вектор,
+    $\widetilde{\Phi}(w)\vec{x_\mu} = \mu\vec{x_\mu}$
+
+    $\begin{cases}
+        \dot{\vec{\pi}} = P(t)\vec{\phi} \\ 
+        \overline{\phi}(0) = \vec{x_\mu}
+    \end{cases} \implies 
+    \begin{matrix*}[l]
+        \overline{\phi}(t) = \widetilde{\Phi}(t)\vec{x_\mu} \\ 
+        \vec{\phi}(t+w) = \underset{=\widetilde{\Phi}(t)B = \widetilde{\Phi}(w)}{\widetilde{\Phi}(t+w)x_\mu} = \widetilde{\Phi}(t)\boxed{\widetilde{\Phi}(w)\vec{x_\mu}}
+        = \mu\widetilde{\Phi}(t)\vec{x_\mu} = \mu \vec{\phi}(t)
+    \end{matrix*}$
+
+    \par $ $
+    
+    \par $ $
+
+    \textbf{Замена переменных в $x' = P(t)x$}
+
+    $\Phi(t) = G(t)e^{tR} = \underbrace{G(t)S}_{=G_1(t)\implies \Phi_1(t)e^{tJ}}e^{tJ}S^{-1} \mid \cdot S$
+
+    $R = Se^{tJ}S^{-1}$
+
+    $G_1(t) = \{ \vec{g_1}(t) \dotsc \vec{g_n}(t)\}$
+
+    $\vec{g_j}(t+w) = \vec{g}(t)$ лин. незав.
+
+    $\Phi_1(t) = \{ \vec{\phi_1}(t) \dotsc \vec{\phi_n}(t) \}, 
+    e^{tJ} = \text{diag} \{ e^{tJ_0} \dotsc e^{tJ_a} \}
+    $
+
+    $J_k = \lambda_{p+k}I + Z_{rk} \quad \lambda_{p+k} = \frac{1}{w}\ln \mu_{p+k}$
+
+    $\vec{\phi_j}(t) = \vec{g_j}(t)e^{t\lambda_j} \quad j = 1, \dotsc,  $
+
+    $\vec{\phi}_{p+r_1 + \dotsc + r_{p-1}}(t) = g_{-||-}(t)e^{t\lambda_{p+k}}$
+
+    $\vec{\phi}_{p+r_1+ \dotsc + r_k}(t) = 
+    (\frac{t^{r_n-1}}{(r_k - 1)!}\vec{g}_{p+r_1+\dotsc+r_{k-1} + 1}(t) + 
+    \dotsc + \vec{g}_{p+r_1+\dotsc+r_{k-1}+r_k}(t))e^{t\lambda_{p+k}}$
+
+    \par $ $
+
+    Приводимость
+
+    $\Phi(t) = G(t)e^{tK} \mid \cdot e^{-tK} \quad G(t) = 
+    \Phi e^{-tK} \mid \cdot \frac{d}{dt}$
+
+    $\implies \dot{G}(t) = P(t)\Phi(t)e^{-tR} - \Phi(t)e^{-tR}R = 
+    P(t)G(t) - G(t)R$
+
+    $\dot{\vec{x}} = P(t)x \quad x(t) = G(t)\vec{y}(t) \mid \cdot \frac{d}{dt}$
+
+    $\dot{G}(t)\vec{y}(t) + G(t) \dot{\vec{y}}(t) = 
+    P(t)G(t)y(t) - G(t)Ry(t) + G(t)\dot y(t) = 
+    P(t)G(t)y(t)$
+
+    $\implies G(t)\dot{\vec{y}}(t) = G(t) R \vec{y}(t)$
+
+    $\implies \dot{\vec{y}} = R \vec{y}$ существует линейная периодическая замена
+\end{document}
