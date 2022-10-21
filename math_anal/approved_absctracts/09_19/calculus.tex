@@ -206,7 +206,7 @@
         \begin{enumerate}
             \item[$\boxed{\Leftarrow}$] $\underset{\Pi}{\overline{\int}} f - \underset{\Pi}{\underline{\int}} f \le U(f, p) - L(f, p)$
                 \par $\forall \epsilon \ \exists p : U(f, p) - L(f, p) < \epsilon \Rightarrow = 0$
-            \item[$\boxed{\Leftarrow}$] $\sup_p L(f, p) = \inf_p U(f, p) \Rightarrow \exists p_2 : U(f, p_2) - \inf_p U(f, p) < \frac \epsilon 2 \ \exists p_1 : \sup_p L(f, p) - L(f, p_1) < \frac \epsilon 2$
+            \item[$\boxed{\Rightarrow}$] $\sup_p L(f, p) = \inf_p U(f, p) \Rightarrow \exists p_2 : U(f, p_2) - \inf_p U(f, p) < \frac \epsilon 2 \ \exists p_1 : \sup_p L(f, p) - L(f, p_1) < \frac \epsilon 2$
                 \par Рассмотрим $p_3 = \{\pi_1 \cap \pi_2, \ \pi_1 \in p_1, \pi_2 \in p_2\}$
                 \par $U(f, p_2) - L(f, p_1) < \epsilon$
                 \par $U(f, p_3) - L(f, p_3) \le U(f, p_2) - L(f, p_1) < \epsilon$ % ВОТ ТУТ НАДА ПРОВЕРИТЬ!!
@@ -241,7 +241,7 @@
         $S(p_\epsilon)$ -- сумма площадей всех граней п-ов из $p_\epsilon$
         
         \[
-            \sum_{\pi'' \in p_k''} v(\pi'') \le 2 - S(p_\epsilon) \cdot d(p_k) % ПЕРЕПРОВЕРИТЬ ПЖПЖ!    
+            \sum_{\pi'' \in p_k''} v(\pi'') \le \mycontour{2} \cdot S(p_\epsilon) \cdot d(p_k) % ПЕРЕПРОВЕРИТЬ ПЖПЖ!    
         \]
         \[
             \left|\sum_{\pi'' \in p_k''} v(\pi'')\right|, \left|\sum_{\begin{split}
