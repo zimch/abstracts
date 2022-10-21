@@ -19,32 +19,32 @@
     \begin{definition}
         Если $\exists I \in \R : \forall \{p_k\}_{k=1}^\infty : d(p_k) \xrightarrow[k \rightarrow]{} 0 \ \forall \{\Xi\}_{k=1}^\infty$
         \[
-            \sum(f, p_k, \Xi_k) \xrightarrow[k \rightarrow \infty]{} I, \ \text{ то } f \text{ интегрируема по Риману и } I = \rhimani f    
+            \sum(f, p_k, \Xi_k) \xrightarrow[k \rightarrow \infty]{} I, \ \text{ то } f \text{ интегрируема по Риману и } I = \rhimani \Pi    
         \]
     \end{definition}
 
     \begin{theorem}
         $ $
-        \par $\exists I \ \forall \{p_k\} : d(p_k) \xrightarrow[k \rightarrow \infty]{} 0 \ \forall \{\Xi\} \ \sum(f, p_k, \Xi_k) \xrightarrow[k \rightarrow \infty]{} I \Leftrightarrow \lrhimani f = \urhimani f = \rhimani f$
+        \par $\exists I \ \forall \{p_k\} : d(p_k) \xrightarrow[k \rightarrow \infty]{} 0 \ \forall \{\Xi\} \ \sum(f, p_k, \Xi_k) \xrightarrow[k \rightarrow \infty]{} I \Leftrightarrow \lrhimani \Pi = \urhimani \Pi = \rhimani \Pi$
     \end{theorem}
     
     \begin{proof}
         $ $
         \begin{enumerate}
-            \item[$\boxed{\Rightarrow}$] $\epsilon, p_k : d()p_k \xrightarrow[k \rightarrow \infty]{} 0 \ \forall \pi \in p_k \ \exists \xi \in \pi:$
+            \item[$\boxed{\Rightarrow}$] $\epsilon, p_k : d(p_k) \xrightarrow[k \rightarrow \infty]{} 0 \ \forall \pi \in p_k \ \exists \xi \in \pi:$
                 \[
                     f(\xi) - \inf_\pi f < \epsilon
                 \]
-                Получим $\Xi_k \ \sum(f, p_K, \Xi_k) - L(f, p_k) = \sum_{\pi \in p_k}(f(\xi(\pi)) - \inf_\pi f) \cdot v(\pi) \le$
-                \par \quad $\le \epsilon \cdot \sum_{\pi \in p} v(\pi) = \epsilon \cdot v(\pi)$
-                \par По \textit{Л. 3} $L(f, p_k) \xrightarrow[k \rightarrow 0]{} \lrhimani f \Rightarrow 0 \le I - \lrhimani f \le \epsilon \cdot v(\pi)$
+                Получим $\Xi_k \ \sum(f, p_K, \Xi_k) - L(f, p_k) = \sum_{\pi \in p_k}(f(\xi(\pi)) - \inf_\pi f) \cdot v(\pi) <$
+                \par \quad $< \epsilon \cdot \sum_{\pi \in p} v(\pi) = \epsilon \cdot v(\pi)$
+                \par По \textit{Л. 3} $L(f, p_k) \xrightarrow[k \rightarrow \infty]{} \lrhimani \Pi \Rightarrow 0 \le I - \lrhimani \Pi \le \epsilon \cdot v(\pi)$
                 \[
                     \begin{rcases}
-                        \forall \epsilon \Rightarrow \lrhimani f = I \\
-                        \text{Аналогично } \urhimani f = I
-                    \end{rcases} \Rightarrow \exists \rhimani f = i
+                        \forall \epsilon \Rightarrow \lrhimani \Pi = I \\
+                        \text{Аналогично } \urhimani \Pi = I
+                    \end{rcases} \Rightarrow \exists \rhimani \Pi = I
                 \]
-            \item[$\boxed{\Leftarrow}$] Пусть $\lrhimani f = \urhimani f = \rhimani f$. Возьмем произвольные
+            \item[$\boxed{\Leftarrow}$] Пусть $\lrhimani \Pi = \urhimani \Pi = \rhimani \Pi$. Возьмем произвольные
                 \[
                     \{p_k\}, \ d(p_k) \rightarrow 0, \ \{\Xi_k\} \quad _{(*)}:    
                 \]
@@ -55,7 +55,7 @@
                     _{(*)} \quad \inf_\pi \le \dots \le \sup_\pi f    
                 \]
                 \[
-                    L(f, p_k) \xrightarrow[\text{Л. 3, } k \rightarrow \infty]{} \lrhimani f = \urhimani f \xleftarrow[\text{Л. 3, } k \rightarrow \infty]{} U(f, p_k)    
+                    L(f, p_k) \xrightarrow[\text{Л. 3, } k \rightarrow \infty]{} \lrhimani \Pi = \urhimani \Pi \xleftarrow[\text{Л. 3, } k \rightarrow \infty]{} U(f, p_k)    
                 \]
                 \[
                     \Rightarrow \sum(f, p_k, \Xi_k) \xrightarrow[k \rightarrow \infty]{} I
@@ -194,7 +194,7 @@
     \par \quad $x \in \bar E, \quad \delta > 0$
     \par $M_\delta(f, x) := \sup_{B_\delta(x)} f, \quad m_\delta (f, x) := \inf_{B_\delta(x)} f$
     \par $M_\delta (f, x) \uparrow, \quad m_\delta (f, x) \uparrow$ - имеется в виду возрастание и убывание при росте $\delta$
-    \par $M_\delta(f, x) - m_\delta(f, x) \ \uparrow$ по $\delta$ \mycontour{$\Rightarrow E : \ \downarrow$}
+    \par $M_\delta(f, x) - m_\delta(f, x) \ \uparrow$ по $\delta$ 
     
 
 
