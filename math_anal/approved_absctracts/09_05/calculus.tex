@@ -293,7 +293,7 @@
                 \par $V \subset f(K) \Rightarrow f(x_y) = y \Rightarrow y \in f(K)$
             \item $x \in U$
                 \[
-                    \underbrace{\underbrace{f(x + h)}_{y+k} - \underbrace{f(h)}_y}_k = f'(x)h + \phi(x, h) \quad \frac{\|\phi(x, h)\|}{\|h\|} \xrightarrow[\|h\| \rightarrow 0]{} x
+                    \underbrace{\underbrace{f(x + h)}_{y+k} - \underbrace{f(h)}_y}_k = f'(x)h + \phi(x, h) \quad \frac{\|\phi(x, h)\|}{\|h\|} \xrightarrow[\|h\| \rightarrow 0]{} 0
                 \]
                 \[
                     \rotatebox[]{90}{\text{\scriptsize В силу биекции}} \begin{cases}
@@ -318,7 +318,7 @@
                     \frac12\underbrace{\|x_1 - x_2\|}_{h} \le \underbrace{\|f(x_1) - f(x_2)\|}_{k} \le \frac32\underbrace{\|x_1 - x_2\|}_{h}   
                 \]
                 \[
-                    ^{(*)} \le \|(f'(x))^{-1}\| \cdot \underbrace{\frac{\|\phi(f^{-1}(y), f^{-1}(y + k) - f^{-1}(y))\|}{\|f^{-1}(y + k) - f^{-1}(y)\|}}_{\xrightarrow[n \rightarrow 0 \newline (k \rightarrow 0)]{} 0} \cdot \frac{\|f^{-1}(y+k) - f^{-1}(y)\|}{\|k\|}
+                    ^{(*)} \le \|(f'(x))^{-1}\| \cdot \underbrace{\frac{\|\phi(f^{-1}(y), f^{-1}(y + k) - f^{-1}(y))\|}{\|f^{-1}(y + k) - f^{-1}(y)\|}}_{\xrightarrow[h \rightarrow 0 \newline (k \rightarrow 0)]{} 0} \cdot \frac{\|f^{-1}(y+k) - f^{-1}(y)\|}{\|k\|}
                 \]
                 \[
                     \Rightarrow \exists (f^{-1})'(f(x)) = (f'(x))^{-1}    
@@ -328,7 +328,7 @@
                 \par $f' : f^{-1}(y) \mapsto f'(f^{-1}(y)) \quad f' \in C(D, \R^n)$
                 \par $A \mapsto A^{-1} \quad$ непрерывное отображение
                 \par $\quad \Rightarrow f^{-1} \in C^1(V, U)$
-            \item Общий случай $\quad f^{-1}(x_0) = A, \ \det A \not= 0$
+            \item Общий случай $\quad f'(x_0) = A, \ \det A \not= 0$
                 \par $\tilde f(x) := A^{-1}f(x)$
                 \par $\tilde f'(x) = A^{-1}f'(x)$
                 \par $\tilde f'(x_0) = A^{-1}A = I$
