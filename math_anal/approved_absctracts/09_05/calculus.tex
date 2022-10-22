@@ -297,11 +297,13 @@
                 \[
                     \|f(x) - y\| = \|\underbrace{f(x) - f(x_0)}_{\|\cdot\| > d} - \underbrace{(y - f(x_0))}_{\|\cdot\| < \frac{d}{2}}\| > d - \frac{d}{2} = \frac{d}{2}
                 \]
-                $h_y(x) = \|f(x) - y\|^2 \in C^1(K, \R_+)$ - производная скалярного произведения
+                $h_y(x) = \|f(x) - y\|^2 \in C^1(K, \R_+)$ 
+                \par $h_y$ достигает минимума - $x_y$
                 \par $x \in \delta(K) \quad h_y(x) > \frac{d^2}{4}$
                 \par $x = x_0 \quad h_y(x_0) = \|f(x_0)-y\|^2 < \frac{d^2}{4}$
                 \par $\Rightarrow x_y \not\in \delta(K), \ x_y \in \Int K$
-                \par $h_y'(x_y) = (f(x) - y, f(x) - y)'_{\big|_{x=x_y}} = 2 (f(x) - y)^T \cdot f'(x)\big|_{x=x_y} = 0$
+                \par Производная скалярного произведения:
+                \par $h_y'(x_y) = (f(x) - y, f(x) - y)'_{\big|_{x=x_y}} = 2 (f(x) - y)^T \cdot f'(x)\big|_{x=x_y} = 0$ 
                 \par $V \subset f(K) \Rightarrow f(x_y) = y \Rightarrow y \in f(K)$
             \item $x \in U$
                 \[
