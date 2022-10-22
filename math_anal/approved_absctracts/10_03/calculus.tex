@@ -1,0 +1,68 @@
+\input{../../../preamble.tex}
+
+
+\begin{document}
+
+    \title{Математический анализ}
+    \date{3 октября 2022}
+    \maketitle
+
+    \pagebreak
+
+    \subsection*{Характеристическая функция множества}
+
+    \begin{definition}
+        Характеристическая функция множества 
+        \begin{equation*}
+            \chi_{E}(x) = 
+             \begin{cases}
+               1 & x \in E \\
+               0 & x \not \in E
+             \end{cases}
+            \end{equation*}
+    \end{definition}
+
+
+    \begin{lemma}
+        $\{\text{Точки разрыва} \ \chi_{E}(x)\} = \delta E$ 
+    \end{lemma}
+
+    \begin{proof}
+       \par $x \in \Int E \cup \Ext E $
+       \par На внутренних точках $\lim \chi_{E}(x) = 1 = \chi_{E}(x)$
+       \par На внешних точках $\lim \chi_{E}(x) = 0 = \chi_{E}(x)$
+       \bigskip
+       \par На границе разрывна - очев
+
+    \end{proof}
+
+    \begin{definition}
+        \par $E \in \Pi$, $\Pi$ - п/п, $f: E \rightarrow \R$ - ограничена
+        \bigskip
+        \par $\rhimani E f = \rhimani \Pi f\cdot \chi_{E}$
+        \bigskip
+        \par $\tilde f = f \cdot \charf{E}$
+
+    \end{definition}
+
+    \begin{lemma}
+        \par $\mu(\delta E) = 0$, $f: E \rightarrow \R$ - почти везде непрерывна на $E$
+        \bigskip
+        \par Тогда $\exists \rhimani E f$
+    \end{lemma}
+
+    \begin{proof}
+        \par Необходимо доказать, что $\exists \rhimani \Pi \tilde{f}$
+        \par $\{\text{Точки разрыва} \ \tilde{f} \ \text{на} \ \Pi \} = \{\text{Точки разрыва} \ \tilde{f} \ \text{на} \ \Int E \} \cup \{\text{Точки разрыва} \ \tilde{f} \ \text{на} \ \delta E \} \cup \underbrace{\{\text{Точки разрыва} \ \tilde{f} \ \text{на} \ \Ext E \}}_{\emptyset}$
+        \par $\{\text{Точки разрыва} \ \tilde{f} \ \text{на} \ \Pi \} \subset \{\text{Точки разрыва} \ f \ \text{на} \ \Int E \} \cup \delta E$
+        \par $\mu(\{\text{Точки разрыва} \ \tilde{f} \ \text{на} \ \Pi \}) = 0$ - по критерию Лебега существует интеграл 
+    \end{proof}
+
+    \begin{definition}
+        \par $E$ - ограничено, $\mu(\delta E) = 0$
+        \par $\exists \Pi \in \R^n$ - п/п: $E \in \Pi$
+        \par $\upsilon(E) = \rhimani E 1 = \rhimani \Pi \charf{E}$ - Жорданов объём
+
+    \end{definition}
+
+\end{document}
