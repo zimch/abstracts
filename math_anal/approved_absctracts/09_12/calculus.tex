@@ -50,9 +50,9 @@
     \par $D \ni a = (x, y)$, задана $\quad \Phi(x, y) = 0$
     \[
         \Phi'(a) = \left(\begin{array}{c c c | c c c}
-            \dfrac{\partial \Phi_1}{\partial x_1} & \dots & \dfrac{\partial \Phi_1}{\partial x_n} & \dfrac{\partial \Phi_1}{\partial y_1} & \dots & \dfrac{\partial \Phi_1}{\partial y_n} \\
+            \dfrac{\partial \Phi_1}{\partial x_1} & \dots & \dfrac{\partial \Phi_1}{\partial x_n} & \dfrac{\partial \Phi_1}{\partial y_1} & \dots & \dfrac{\partial \Phi_1}{\partial y_m} \\
             \vdots & & \vdots & \vdots & & \vdots \\
-            \dfrac{\partial \Phi_m}{\partial x_1} & \dots & \dfrac{\partial \Phi_m}{\partial x_n} & \dfrac{\partial \Phi_m}{\partial y_1} & \dots & \dfrac{\partial \Phi_m}{\partial y_n} \\
+            \dfrac{\partial \Phi_m}{\partial x_1} & \dots & \dfrac{\partial \Phi_m}{\partial x_n} & \dfrac{\partial \Phi_m}{\partial y_1} & \dots & \dfrac{\partial \Phi_m}{\partial y_m} \\
         \end{array}\right)
     \]
 
@@ -90,7 +90,7 @@
             \item $\forall x \in U \ \exists! y \in V : \Phi(x, y) = 0$
             \par (это задает отображение $\phi : U \rightarrow V, \ y = \phi(x)$)
             \item $\phi \in C^1(U, V), \ \forall x \in U, y \in V \quad \Phi'_y(x, \phi(x))$ обратимо
-            \item $\phi'(x) = -(\Phi_y(x, \phi(x)))^{-1} \Phi'_x(x, \phi(x)) = -(\Phi'_y(x, \phi(x)))^{-1} \Phi_x(x, \phi(x))$
+            \item $\phi'(x) = -(\Phi'_y(x, \phi(x)))^{-1} \Phi'_x(x, \phi(x))$
         \end{enumerate}
     \end{theorem}
 
@@ -118,10 +118,10 @@
                 \par $\exists \hat U$ -- окрестность $(x_0, y_0) : F(\hat U) = \hat V$ открытое,
                 \par $F\big|_{\hat U}$ -- биекция, $F^{-1} \in C^1(\hat V, \hat U), \ F(x_0, y_0) = (x_0, 0)$
                 \par $\exists \delta > 0 \ \hat{\hat U} = B_\delta^n(x_0) \times B_\delta^m(y_0) \subset \hat U$
-                \par $\hat{\hat U} \subset B_{\sqrt{2}\delta}^{n + m} \subset \hat{U}, \quad$ $n, \ m$ -- размерности
+                \par $\hat{\hat U} \subset B_{\sqrt{2}\delta}^{n + m}(x_0, y_0) \subset \hat{U}, \quad$ $n, \ m$ -- размерности
                 \par Тогда $F(\hat{\hat U}) \subset F(\hat U) = \hat V$
                 \par $(x_0, 0) \in F(\hat{\hat U}) \subset \hat V$
-                \par $\exists \epsilon > 0 : B_\epsilon^{n+m}(x_0, 0) \subset F(\hat{\hat U})$ - так как $\hat V$ открыто
+                \par $\exists \epsilon > 0 : B_\epsilon^{n+m}(x_0, 0) \subset F(\hat {\hat U})$ - так как $\hat {\hat U} $ открыто
                 \par $\underbrace{B^n_\epsilon(x_0)}_{= \hat{\hat V}} \times \{0\} \subset F(\hat{\hat U})$
                 \par $\forall x \in \hat{\hat V} \quad F^{-1}(x, 0) =: (x_1, y)$
                 \par Это означает
@@ -135,13 +135,13 @@
                 Если $\exists x \in U, y_1, y_2 \in V : \Phi(x, y_1) = \Phi(x, y_2) = 0$
                 \par \quad то $F(x, y_1) = (x, 0) = F(x, y_2)$
                 \par \quad \quad $F$ биект. и $\hat{\hat U} \Rightarrow y_1 = y_2$ % и???
-            \item $y = \pi_2(x, y) = \pi_2 \circ F^{-1}(x, 0)$
+            \item $\phi = \pi_2(x, y) = \pi_2 \circ F^{-1}(x, 0) = \pi_2 \circ F^{-1} \circ E(x)$
                 \par $\pi_2 : (x, y) \mapsto y \in C^1(\R^{m+n}, \R^m)$
                 \par $F^{-1} \in C^1(\hat V, \hat U)$
-                \par $E  : x \mapsto (x, 0) \in C^1(\R^n, \R^{n+m}) \quad EU = U \times \{0\} \subset \hat V$
+                \par $E  : x \mapsto (x, 0) \in C^1(\R^n, \R^{n+m}) \quad E(U) = U \times \{0\} \subset \hat V$
             \item $\Phi(x, \phi(x)) = 0$
                 \par $0 = \Phi'(x, \phi(x))$ % дичь какая-то хз...
-                \par $\Phi'(x, \phi(x)) = \quad \begin{pmatrix}I \\ \phi'(x)\end{pmatrix} = \Phi'(x, \phi(x)) + \underbrace{\Phi'_y(x, \phi(x))}_{\text{обр.}} - \phi'(x)$ % ТУТ - У \phi??
+                \par $\Phi'(x, \phi(x)) = \Phi'(x, \phi(x)) + \underbrace{\Phi'_y(x, \phi(x))}_{\text{обр.}} \cdot \phi'(x)$ 
         \end{enumerate}
     \end{proof}
 
