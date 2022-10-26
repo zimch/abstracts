@@ -1,0 +1,318 @@
+\input{../../../preamble.tex}
+\parindent 0px
+
+\usepackage{amsfonts, amssymb, amsmath, mathtools, amsthm}  %% for math symbs
+\usepackage{mathrsfs}
+
+
+\renewcommand{\baselinestretch}{1.3} 
+\setcounter{lemma}{14}
+
+\begin{document}
+    Додокажем теорему
+
+    Доказали в случае, когда ж - простейший диффеоморфизм 
+    
+    Докажем в случае, когда ж - композиция н простейших диффеоморфизмов
+    
+    \begin{proof} (продолжение)
+        
+        2.Пусть $g: G \to \R^n$ - композиция простейших диффеоморфизмов
+        
+        Индуция. Количество композиций: 
+        
+        $k=1$ - доказано на первом шаге
+
+        Переход: верно для $k$, докажем для $k+1$
+
+        $g = g_{k+1}\circ \underbrace{g_k \circ \dotsc \circ g_2 \circ g_1}_{h - \text{диффеоморфизм G и h(G)}}$
+
+        $g_{k+1}$ - диффеоморфизм $h(G)$ и $g(G)$
+
+        \par $ $
+
+        $f: g(G) \to \R $ огр. и п.в. непр.
+
+        $f\circ g_{k+1}:h(G) \to \R$ огр и (по первой лемме о мере ноль под диффеоморфизмом) и.в. непр.
+
+        $f\circ g_{k+1} |\det g_{k+1}'|$
+
+        $$\int_{g(G)} f \overset{1.}{=} \int_{h(G)} f \circ g_{k+1} | \det g_{k+1}'| \overset{\text{инд. предп.}}{=} $$
+
+        $$\int_G (f\circ g_{k+1} | \det g_{k+1}'|) \circ h |\det h'|$$
+
+        $$= \int_G \underbrace{f\circ g_{k+1}\circ h}_{f \circ g} \cdot | (\det g_{k+1}') \cdot h\det h'|$$
+
+        $$=\int_G f \circ g |\det g'|$$
+
+        \par $ $
+
+        3. Общий случай
+
+        $K = \text{supp}(f\circ g | \det g'|) \subset G \quad $
+        $\text{dist}(\delta G, K) > 0$
+
+        $\forall x \in K \exists \varepsilon_x > 0: B_{\varepsilon_x}(x) \subset G$
+
+        По лемме 15 $g|\underset{B_{\varepsilon_x}(x) }{}$ раслкадывается в композицию простейших диффеоморфизмов
+        
+        $$K \subset \bigcup_{x\in K} B_{B_{\varepsilon_x/2}(x) }, 
+        K \subset \bigcup^N_{i=1} B_{B_{\varepsilon_{x_i}/2}(x_i) }$$
+        т.к. $K$ - компакт.
+
+        $\displaystyle\delta := \min_{i=1,\dotsc,N} \frac{\varepsilon_{x_i}}{2}$
+
+        $\forall E \subset \R^n: E \cap K \neq \varnothing $ и $\text{diam}E < \delta$ 
+        верно $E \subset G$ и $g | \underset{E}{ }$ раскладывается в композицию
+    
+        $\left(\exists x \in K \cap E, \exists i: x \in B_{\varepsilon_{x_i}/2}(x_i)
+        E \subset (B_{\varepsilon_{x_i}/2}(x_i)) \subset B_{\varepsilon_{x_i}}(x_i) \subset G
+        \right)$
+
+        foto 1
+
+        Пусть $G \subset \Pi$ - п/п, $P$ - разбиение $\Pi, d(P) < \min \{
+            \delta, \text{dist}(\delta G, K)\}$
+            
+        $P_1 = \{ \pi \in P | \pi \cap K \neq \varnothing\}$
+
+        Если $\pi \notin P_1$, то $(f \circ g |\det g'|) | \underset{\pi}{ } \equiv 0$
+
+        Если $\pi \in P_1$, то $\pi \subset G$ и $g|\underset{\pi}{ }$ раскладывается в композицию
+
+        $K \subset \bigcup_{\pi \in P_1} \pi$
+
+        \par $ $
+
+        $$\int_{G} f\circ g |\det g'| = \int_\Pi f\circ g |\det g'| \cdot \chi_G = 
+        \sum_{\pi \in P} \int_\pi f\circ g |\det g'| \cdot \chi_G$$
+
+        $$=\sum_{\pi \in P_1} \int_\pi f \circ g |\det g'| \chi_G =  
+        \sum_{\pi \in P_1} \int_\pi f\circ g |\det g'| = 
+        \sum_{\pi \in P_1}\int_{\text{Int}\pi} f\circ g | \det g'| =$$
+
+        $$
+        = \sum_{\pi \in P_1} \int_{g(\text{Int}\pi)} f =
+        f\int_{g(\bigcup_{\pi\in P_1}\text{Int}\pi)}f = (*)$$
+
+        $v(\delta\pi) = 0\implies \mu(\delta\pi) = 0 \implies \mu(g(\delta\pi)) = 0 \implies v(g(\delta\pi))=0$
+
+        $\text{supp}f = g(K) \subset g(\bigcup_{\pi\in P_1}\pi) \subset g(G)$
+
+        $\text{supp}(f\circ g) = K \subset \bigcup_{\pi\in P_1}\pi$
+
+        $$(*) = \int_{g(\bigcup_{\pi\in P_1}\Pi)}f = \int_{\Pi_x}f\circ \chi_{g(\bigcup_{\pi \in P_1}\pi)} = 
+        \int_{\Pi_x}f\cdot \chi_{g(G)} = \int_{g(G)}f$$
+        
+    \end{proof}
+
+    Это к ласт лекции:
+
+    $v(\pi_y) = |g'(\xi)| \cdot v(\pi_x)$
+
+    $\sum_{\pi_y}\sup_{\pi_y} f v(\pi_y) = \sum_{\pi_x}(\sup_{\pi_x})|g'(\xi(\pi_x))|\cdot v(\pi_x)$
+
+    оценим точнее разность супремумов
+
+    $\left|sup_{\pi_x} (f\circ g)\cdot|g'(\xi(\pi_x))| - \sup_{\pi_x}(f\circ g|g'|)\right|=
+    |\sup_{\pi_x}(f\circ g)(x)(|g'(\xi(\pi_x))| - | g'(x) |) | \le \underbrace{\sup_{\pi_x} |f\circ g|}_{<M}
+    \cdot \underbrace{\sup_{x\in \pi_x} | (g'(\xi(\pi_x))|g'(x)| |}_{w_{|g'|}(d(P_x))}
+    $
+
+    $\sup_{g([a,b])} f = M < \infty$ \quad $+ M \cdot \frac{w_{|g'|}(d(P_x))}{d(P_x)\to 0}(b-a)$  %CHE verh int fog|g'| sum sup fog|g'|v(p_x) foto 2
+
+    \par $ $
+    \pagebreak
+
+    \begin{corollary}
+        Жорданов объем не меняется при движениях и поворотах и не зависит от выбора координат
+
+        Переход к новому базису $g(X) = a + Ux \quad U^TU = UU^T = I$ - ортогональная матрица
+
+        $\det U = \pm 1$
+
+        $g'(x) = U \quad |\det g'(x)| = 1$
+
+        $$\int_{(g(E))} 1 = \int_E 1$$
+    \end{corollary}
+
+    А как посчитать объем шара?
+
+    $v(B_R(0)) - ?$
+
+    $\begin{pmatrix}
+        x \\ y \\ z
+    \end{pmatrix} = g(r, \theta, \varphi) \quad g: (0, +\infty)\times(0, \pi)\times(0, 2\pi)$
+
+    $x = r\sin\theta\sin\varphi$  %%mb sin cos
+
+    $y = r\sin\theta\cos\varphi$  %mb sin sin
+
+    $z = r\cos\theta$
+
+    $\det g' = r^2 \sin\theta$
+    
+    $B_R(0) = g\overbrace{((0, R)\times(0, \Pi)\times(0,2\pi))}^{=\Pi_R}$
+
+    $\{ x \ge 0, y = 0, z \in \R \}$
+
+    $$v\big(B_R(0)\big) = \int_C \chi_{B_R(0)} = \int_{B_R(0)} 1 = \int_{g(\Pi_R)} 1 = \iiint_{\Pi_R}1 \cdot r^2 \sin\theta drd\theta d\varphi$$
+
+    $$=\int^R_0 r^2dr\int^\pi_0 \sin\theta d\theta \int^{2\pi}_0 d\varphi = \frac{R^3}{3} \cdot 2 \cdot 2\pi = \frac{4\pi R^3}{3}$$
+
+    \subsection*{Несобственные кратные собиратели}  % ну интегралы да
+
+    \begin{definition}
+        $E \subset \R^n \quad \{ E_k\}_k^{\infty}, E_k \subset E_{k+1} \subset E, \forall k: E = \bigcup^\infty_{k=1} E_k$, измеримы по жордану.
+
+        Такая последовательность называется \textbf{исчерпанием} множества $E$
+
+    \end{definition}
+    \begin{lemma} %15
+        $E\subset \R^n$ измеримо по Жордану, % $f: E \to \R$ огр и п.в. непр.
+        
+        $\{E_k\}_{k=1}^\infty$ - исчерпание $E$. Тогда
+
+        %$$\int_{E_k} f \underset{k\to\infty}{\to} \int_E f$$
+        $$v(E_k) \underset{k\to\infty}{\to} v(E)$$
+
+        И для любой $f: E \to \R$ огр и п.в. непр. :
+
+        $$\int_{E_k} f \underset{k\to\infty}{\to} \int_E f$$
+        
+    \end{lemma}
+    \begin{proof}
+        $v(E_k) \le v(E)\qquad v(E_k) \le v(E_{k+1})$
+
+        $\implies \exists \lim_{k\to\infty} v(E_k) \le v(E)$
+
+        $E$ измеримо по Ж. $\implies \overline{E}, \delta E$ огр., компактно, 
+        $\mu(\delta E) = 0 \implies v(\delta E) = 0$
+
+        $\forall \varepsilon \exists C_1, \dotsc, C_k$  октрытые кубы, 
+        $\delta E \subset \underbrace{\bigcup^N_{i=1}C_i}_{=\Delta}, \sum^N_{i=1}v(C_i) < \varepsilon$
+
+        $\overline{E} \subset E \cup \bigcup^N_{i=1}C_i = E \cup \Delta$ - откр множество
+
+        $\forall k: \overline{E_k} \subset \underbrace{E_k \cup \Delta_k}_{\text{откр}},  v(\Delta_k) < \frac{\varepsilon}{2^k}$
+
+        компакт $\overline{E} \subset E \cup \Delta = (\bigcup^\infty_{k=1}E_k)\cup \Delta \subset \bigcup^\infty_{k=1}(E_k \cup \Delta_k)\cup \Delta$ - открытое покрытие
+
+        $\overline{E} \subset (\bigcup^N_{i=1}E_{k_i}\cup \Delta_{k_i}) \cup \Delta = 
+        E_{k_N}\cup (\bigcup^N_{i=1}\Delta_{k_i})\cup \Delta$
+
+        $\displaystyle v(E) = v(\overline{E}) \le v(E_{k_N}) + \sum^N_{i=1}v(\Delta_{k_i}) + v(\Delta) \le
+        \lim_{k\to\infty} v(E_k) + \sum^\infty_{k=1}\frac{\varepsilon}{2^k} + \varepsilon = 
+        \lim_{k\to\infty} v(E_k) + 2\varepsilon$
+
+        $\implies v(E) \le \lim_{k \to \infty} v(E_k)$
+
+        Значит, $\lim_{k\to\infty}v(E_k) = v(E)$
+
+        $f: E \to \R$ огр и п.в. непр.
+
+        $| \int_E f - \int_{E_k} f | = | \int_{E\setminus E_k} f | \le 
+        \sup_E |f| \cdot v(E\setminus E_k) = (\sup_E |f |) \underbrace{(v(E) - v(E_k))}_{\to 0}$
+
+        $\implies \int_{E_k} f \underset{k\to\infty}{\to} \int_E f$
+    \end{proof}
+
+    \begin{definition}
+        $E \subset \R^n, f: E \to \R$
+
+        Если $\exists I \in \R \quad \forall \{ E \}^\infty_{k=1}$ - исчерпание $E: \forall k f|\underset{E_k}{ }$ огр. и п.в. непр.
+
+        $\int_{E_k} f \underset{k\to\infty}{\to} I$, то $\exists$ несобств. собиратель $\int_E f = I$
+    \end{definition}
+
+    \begin{illustration}
+        $\displaystyle \iint_{\R^2} e^{-(x^2+y^2)} dxdy= \lim_{n\to\infty} \iint_{B_n(0)} e^{-(x^2+y^2)}dxdy = $
+        $\displaystyle
+        \lim_{n\to\infty} \int^n_0 dr \int^{2\pi}_0 e^{-r^2}rdy = 
+        \lim_{n\to\infty} \frac{2\pi}{2} \int^n_0 de^{-r^2} = \lim_{n\to\infty}\Pi(1-e^{-n^2}) = \pi$
+
+        $\int_\R e^{-x^2}dx = \sqrt{\pi}$
+    \end{illustration}
+
+    \begin{lemma}
+        Если $f \ge 0$ и $\exists \{ E_k\}^\infty_{k=1}$ - исчерпание $E$
+
+        $\displaystyle\exists \lim_{k\to\infty} \int_{E_k}f$, то $\exists$ несобств. собиратель $\int_E f$
+
+    \end{lemma}
+    \begin{proof}
+        нужно д-ть, что для любого другого исчерпания 
+        $\{\widetilde{E_l}\}^\infty_{k=1}: \int_{\widetilde{E_l}}f \to \lim_{k\to\infty}\int_{E_k}f$
+        
+        $f|\underset{\widetilde{E_l}}{ }$ огр. и п.в. непр.
+
+        $\int_{\widetilde{E_l}\cap E_k} \le \int_{E_k}f \le \lim_{k\to\infty} \int_{E_k} f$
+        $\qquad \{\widetilde{E_l}\cap E_k\}^\infty_{l=1}$ - исчерпание $E_k$
+
+        $\qquad \{\widetilde{E_l}\cap E_k\}^\infty_{k=1}$ - исчерпание $E_l$
+
+        $\overset{\text{лемма}}{\implies} \lim_{l \to \infty} \int_{\widetilde{E_l} \cap E_k}f = \int_{E_k} f \le \lim_{l\to\infty} \int_{\widetilde{E_l}} f$ % fuck propustil implies \lim k \int E_k f \le \lim l \int E_l f
+
+        $\lim_{k\to\infty} \int_{\widetilde{E_l}\cap E_k} f= \int_{\widetilde{E_l}} f \le \lim_{k\to\infty} \int_{E_k}f$
+
+        $\implies \exists \lim_{l\to\infty}\int_{\widetilde{E_l}} f \le \lim_{k\to\infty}\int_{E_k} f$
+
+        $$\implies \lim_{l\to\infty} \int_{\widetilde{E_l}} f = \lim_{k\to\infty} \int_{E_k} f$$
+    \end{proof}
+
+    \begin{lemma}
+        $E \subset \R^n, f: E \to \R,\quad g: E \to [0, + \infty),\quad |f| \le g$
+
+        $\forall \widetilde{E} \subset E$ изм. по Ж. $f| \underset{\widetilde{E}}{ }$ огр и п.в. непр.
+        $\iff g|\underset{\widetilde{E}}{ }$ огр. и п.в. непр.
+
+        $\exists $ несобств. $\int_E g \implies \exists $ несобств. $\int_E |f|$ и $\int_E f$
+
+        $g$ - складываемая мажоранта % суммируемая
+    \end{lemma}
+
+    \begin{proof}
+        $\{E_k\}^\infty_{k=1}$ - исчерпание $E: \forall k f|\underset{E_k}{ }, g| \underset{E_k}{ }$ огр. и п.в. непр.
+
+        по кр. Коши $n>K: \int_{E_n} |f| = \int_{E_k} |f| = \int_{E_n\setminus E_k} |f| \le
+        \int_{E_n \setminus E_k} g = \int_{E_n} g - \int_{E_k}g$
+
+        $\exists\lim_{k\to\infty} \int_{E_k} g \overset{\text{кр.коши}}{=} \exists \lim_{k\to\infty} \int_{E_k}|f| \overset{\text{лемма}}{\implies} \exists$ несобств. $\int_E |f|$
+
+        $|\int_{E_n} - \int_{E-k}f|\le \int_{E_n\setminus E_k} |f| \le \int_{E_k}g - \int_{E_n} g$
+
+        $f = f_r - f$
+
+        $f_r = \frac{f + |f|}{2} \ge 0 \quad f_-= \frac{|f| - f}{2} \ge 0$
+
+        $0 \le f_\pm \le |f| \le g$
+        
+        $f_\pm = |f_\pm |$
+
+        $\exists$ несобств. $\int_E |f\pm| = \int_E f_\pm$
+
+        $\forall \{E_k\}^\infty_{k=1}$
+
+        $$\lim_{k\to\infty} \int_{E_k}f = \lim_{k\to\infty} \int_{E_k}f_+ - \int_{E_k} f_- = 
+        \int_E f_+ - \int_E f_- \implies \exists \int_E f$$
+    \end{proof}
+
+    $f(x) - \frac{(-1)^{n-1}}{n}, \quad x \in [n-1, n) \quad [0, +\infty] \to \R$
+
+    $[0, +\infty) = \bigcup^\infty_{n=1}[0, n)$
+
+    $\int_{[0, n)} f = \sum^n_{k=1} \frac{(-1)^{k-1}}{k} \underset{n\to\infty}{\to} \sum^\infty_{k=1} \frac{(-1)^{k-1}}{k}$
+
+    $\lim_{k\to\infty} \int^R_0 f(x)dx = \sum^\infty_{k=1}\frac{(-1)^{k-1}}{k}$
+
+    \par $ $
+
+    $\forall I \in \R \exists \varphi$ - биекция между $\N$ и $\N$
+
+    $\sum^\infty_{k=1}\frac{(-1)^{\varphi(k)-1}}{\varphi(k)}= I$
+
+    $E = \bigcup^n_{k=1}[\varphi(k) - 1, \varphi(k))$
+
+    $\int_{E_n} f = \sum^n_{k=1} \frac{(-1)^{\varphi(k)-1}}{\varphi(k)} \underset{n\to\infty}{\to} I$
+
+\end{document}
