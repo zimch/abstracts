@@ -1,0 +1,217 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+\usepackage{amsfonts, amssymb, amsmath}  %% for math symbs
+\usepackage{mathrsfs}
+\usepackage{float}  %% for table floating
+\usepackage{enumerate} %% for lists
+
+\usepackage{fullpage}  %% less margin 
+
+\usepackage{graphicx} %% for pics
+\usepackage{amsthm, amsmath, amsfonts, amssymb, mathtools}
+
+\parindent 0px  % no white space in new lines
+% \baselinestretch{1.5}
+\renewcommand{\baselinestretch}{1.3} 
+
+%% titling
+\title{Hello world} 
+\author{Lindy2076}
+\date{22.22.2} %%\today
+
+\begin{document}
+    я опоздал на минуту, не знаю о чем речь
+
+    $\dot{\vec{x}} = P(t)\vec{x} \mapsto \dot{\vec{y}} = R\vec{y} \quad \exists G(t) : \det G(t) \neq 0, G(t+w) = G(t)$
+
+    $\vec{x}(t) = G(t)\vec{y}(t)$
+
+    А когда у нас появляются периодические решения, когда у нас неоднородное уравнение?
+
+    $\dot{\vec{x}} = P(t)\vec{x} + \vec{q}(t), \quad P(t+w) = P(t), \vec{q}(t+w) = q(t)$
+
+    $? \varphi(t)$ - периодическое решение
+    
+    \par $ $
+
+    \textbf{T1.} $\dot{\vec{\varphi}}(t) = P(t)\vec{\varphi}(t) + q(t),\quad \varphi(t+w) = \varphi(t) \iff \vec\varphi(0) = \vec{\varphi}(w)$
+
+    D.$\Rightarrow$ очевидно
+
+    $\Leftarrow$ Построим задачу Коши.
+
+    $\begin{cases}
+        \dot{\vec{\varphi}}(t) = P(t) \vec{\varphi}(t) + q(t) &t \mapsto t+w\\
+        \vec{\varphi}(0) = \varphi_0
+    \end{cases}$
+
+    $\begin{cases}
+        \dot{\vec{\varphi}}(t+w) = P(t+w)\vec{\varphi}(t+w) + \vec{q}(t+w) = P(t)\vec{\varphi}(t+w) = \vec{q}(t)\\
+        \vec{\varphi}(w) = \vec{\varphi}(0) = \varphi_0
+    \end{cases}$
+
+    $\implies \exists!$ решение задачи Коши $\implies \vec{\varphi}(t+w) = \vec{\varphi}(t)$
+
+    \par $ $
+    
+    \textbf{Т.2 Достаточное условие разрешимости}
+
+    Если $\mu_1\neq 0, \dotsc, \mu_n \neq 1$ - мультипликаторы $\implies \exists! 
+    \text{ решение } \varphi(t) = \varphi(t+w)=\varphi(t)$
+
+    D. Выберем фундаметальную матрицу однородной системы, с помощью которой мы выделяли матрицу МонодромиИ
+
+    $\widetilde{\Phi}(t): \begin{cases}
+        \dot{\widetilde{\Phi}} = P(t)\widetilde{\Phi} \\
+        \widetilde{\Phi}(0) = I
+    \end{cases}$
+
+    $U(t, \tau) = \widetilde{\Phi}(t) = \widetilde{\Phi}^{-1}(\tau)$
+
+    $\begin{cases}
+        \dot{\vec{\varphi}} = P(t)\vec{\varphi} + q(t) \\
+        \vec{\varphi}(0) = \vec{\varphi}(w) = \vec{\varphi}_0
+    \end{cases} \iff \vec{\varphi}(t) |\underset{ t=w}{ } = 
+    \widetilde{\Phi}(t)\vec{\varphi}_0 + \int^t_0\widetilde{\Phi}(t)\widetilde{\Phi}^{-1}(\tau)\vec{q}(\tau)dtd\tau$
+
+    $\vec\varphi_0 = \vec{\varphi}(w) = \underbrace{\widetilde{\Phi}(w)}_{=B}\vec{\varphi_0} +
+    \int^w_0\widetilde{\Phi}(w)\widetilde{\Phi}^{-1}(\tau)\vec{q}(\tau)dtd\tau$
+
+    $(I - \widetilde{\Phi}(w))\vec{\varphi}_0 = \int^w_0 \widetilde{\Phi}(w)\widetilde{\Phi}^{-1}(\tau)\vec{q}(\tau)d\tau$
+
+    \textit{$\exists(I - \widetilde{\Phi}(w))^{-1} \iff \det(I-B)\neq 0$} % hz
+
+    \par $ $
+
+    \textbf{Сл.} $P(t) = P \equiv const, \vec{q}(t+w) = q(t) \implies \exists!\vec{\varphi}$ периодич.
+
+    Если $\forall \lambda_j$ - собственные числа $P: \lambda_j \neq \frac{i2\pi k}{w}$ - отсутствие резонанса
+
+    D. $\widetilde{\Phi}(t) = e^{tp}, \quad \vec{\varphi}_0 = (I - e^{wp})^{-1}$
+    $\int^w_0 e^{(w-\tau)p}q(\tau)d\tau$ - дост. усл.
+
+    $e^{w\lambda_j}\neq 1$ - тоже самое что и в условии
+
+    $\vec{\varphi}(t) = e^{tp}(I - e^{wp})^{-1}\int^w_0 e^{(w-\tau)p}\vec{q}\tau d\tau + \int^t_0 e^{(t-\tau)p}q(t)d\tau$
+    $\\= e^{tp}( (I - e^wp)^{-1} \int^w_0 e^{(w-\tau)p}\vec{q}(\tau)d\tau + \int^t_0 e^{-\tau p}q(\tau)d\tau )$
+
+    $(I - e^{wp})\vec{\varphi}(t) = e^{tp}(\int^w_0 e^{(w-\tau)p}q(\tau)d\tau + \int^t_0 e^{-\tau p}q(\tau) - \int^t_0 e^{(w-\tau)p}q(\tau)d\tau) =$
+
+    $= e^{tp}(\int_0^t e^{-\tau p}\vec{q}(\tau)d\tau - \int^t_w e^{(w-\tau)p}\vec{q}(\tau)d\tau ) = e^{tp} \int^t_{t-w} e^{-\tau p}q(\tau)d\tau$% замена tau = w + \widetilde tau \int_0^{t-w} e^{-\tau p} q(\tau)d\tau
+
+    $\boxed{\vec\varphi(t) = (1 - e^{wp})^{-1}\int^t_{t-w} e^{(t-\tau)p}q(\tau)d\tau}$
+
+    \par $ $
+
+    \par $ $
+    
+    {\large\textbf{Краевая задача}}
+    
+    Есть отрезок $[a,b]$
+    
+    $\begin{cases}
+        \dot{\vec{x}} = P(t)\vec{x}  & P(t):[a,b]\to \mathbb{C}^{n\times n}\\
+        A\vec{x}(\alpha) + B\vec{x}(\beta) = 0 & \alpha, \beta \in [a,b]
+    \end{cases}$
+
+    $?\exists \vec{x}(t) \not\equiv 0$
+
+    $\begin{cases}
+        \dot\Phi(t) = P(t)\Phi(t) \\
+        \Phi(\alpha) = I
+    \end{cases}\vec{x} = \Phi(t)\vec{C} \implies (A + B\Phi(\beta))\vec{C} = 0
+    \\\exists \vec{c}\not\equiv 0 \iff \det(A+B\Phi(\beta)) = 0$ 
+
+    Иначе  пусть $\det(A + B\Phi(\beta)) \neq 0$
+
+    \textbf{Функция Грина}
+
+    Нарисуем картинку, двумерная плоскость, альфа и бета симметрично расположены на обеих осях, образуют квадрат,
+    у него есть диагональ. Фунцкия грина:
+
+    $G(t, \tau): t\in [\alpha, \beta], \tau \in [\alpha, \beta], t\neq \tau$
+
+    1. $\frac{d}{dt} G(t, \tau) = P(t) G(t, \tau)$
+
+    2. $AG(\alpha, \tau) + BG(\beta, \tau) = 0, \forall \tau \in (\alpha, \beta)$
+
+    3. $G(\tau + 0, \tau) - G(\tau - 0, \tau) = I$
+
+    \par $ $
+
+    1. $G(t, \tau) = \begin{cases}
+        \Phi(t)S(\tau) & t \in [\alpha, \tau)\\
+        \Phi(t)T(\tau) & t \in (\tau, \beta]
+    \end{cases}$
+
+    2. $AS(\tau) + B\Phi(\beta)T(\tau) = 0$
+
+    3. $\Phi(\tau)S(\tau) - \Phi(\tau)T(\tau) = - I$
+
+    слау 2 3 
+
+    $\Phi^{-1}(\tau) \cdot \mid \implies
+    \begin{cases}
+        AS(\tau) + B\Phi(\beta)T(\tau) = 0 \implies A(\Phi^{-1}(\tau) + T(\tau)) + B\Phi(\beta)T(\tau) = 0\\
+        S(\tau) - T(\tau) = \Phi^{-1}(\tau) \implies S(\tau) = T(\tau) + \Phi^{-1}(\tau)
+    \end{cases}$
+
+    $\implies (A+ B\Phi(\beta))T(\tau) = -A\Phi^{-1}(\tau)$ домножим на обратное к левой части без Т
+    
+    $\implies T(\tau) = -(A + B\Phi(\beta))^{-1}A\Phi^{-1}(\tau)$
+
+    $= -(A + B\Phi(\beta))^{-1}(A \pm B\Phi(\beta))\Phi^{-1}(\tau) = 
+    -(A + B\Phi(\beta))^{-1}((A + B\Phi(\beta)) - B\Phi(\beta))\Phi^{-1}(\tau)$
+
+    $= -(I - (A + B\Phi(\beta))^{-1}B\Phi(\beta))\Phi^{-1}(\tau)$
+
+    Ответ: $G(t, \tau) = \begin{cases}
+        -\Phi(t)(A + B\Phi(\beta))^{-1}B\Phi(\beta)\Phi^{-1}(\tau) & t \in [\alpha, \tau)\\
+        \Phi(t)(I - (A + B\Phi(\beta))^{-1}B\Phi(\beta))\Phi^{-1}(\tau) & t \in (\tau, \beta]
+    \end{cases}$
+
+    \par $ $
+
+    {\large\textbf{Неоднородная краевая задача}}
+
+    $\begin{cases}
+        \dot{\vec{x}} = P(t)\vec{x} + q(t)\\
+        A\vec{x}(\alpha) + B\vec{x}(\beta) = 0
+    \end{cases}$
+
+    \textbf{Т.} Пусть $\Phi(\alpha) = I \land \det(A + B\Phi(\beta))\neq 0$
+
+    $\implies \exists ! $ решение краевой задачи $\vec{x}(t) = \int^\beta_\alpha G(t, \tau)\vec{q}(\tau)d\tau$
+
+    D. Разобъем наше решение в сумму двух инт
+
+    $\vec{x}(t) = \int^t_\alpha G(t, \tau)q(\tau)d\tau + \int^\beta_t G(t, \tau)q(\tau)d\tau$
+
+    дифф по иксу
+
+    $\dot{\vec{x}}(t) = (G(t, \tau - 0) - G(t, t+0))q(t) + P(t)\int_\alpha^t G(t, \tau)q(\tau)d\tau + P(t)\int\int_t^\beta G(t, \tau)q(\tau)d\tau= 
+    Iq(t)  + P(T)\int^\beta_\alpha G(t, \tau)q(\tau) d\tau = P(t)\vec{x} + q(t)$
+
+    $A\vec{x}(\alpha) + Bx(\beta) = \int^\beta_\alpha (AG(\alpha, \tau) + BG(\beta, \tau))\vec{q}(\tau)d\tau = 0$
+
+    Существенность
+
+    Пусть есть два реш
+
+    $x_1, x_2$
+
+    $\vec{\varphi} = \vec{x_1} - \vec{x_2}$
+
+    $\implies 
+    \begin{cases}
+        \dot{\vec\varphi} = P(t)\vec{\varphi}\\
+        A\vec{\varphi}(\alpha) + B\vec{\varphi}(\beta) = 0
+        
+    \end{cases}\implies\vec{\varphi} \equiv 0$
+
+    
+    
+\end{document}
