@@ -9,13 +9,13 @@
     
     \begin{corollary}
         (th. о производной обратной функции) \hfill \boxed{\textup{\textbf{12 сентября 2022}}}
-        \par $D \subset \R^n$,  открыто, $f \in C^1(D, \R^n), \ f'(x)$ обратима при $\forall x \in D$
-        \par Тогда для $\forall$ открытого $G \subset D \quad f(G)$ открыто
+        \par $D \subset \R^n$ открыто, $f \in C^1(D, \R^n), \ f'(x)$ обратима $\forall x \in D$
+        \par Тогда $\forall$ открытого $G \subset D \quad f(G)$ открыто
     \end{corollary}
     \begin{proof}
         Докажем сначала для $G = D$
-        \[ \forall y \in f(D) \quad f^{-1}(y) := x \quad f(x) \text{ обр.,} \]
-        \[ \exists U \text{ крестность } x : f(U) \text{ открыто} \]
+        \[ \forall y \in f(D) \quad f^{-1}(y) := x \quad f'(x) \text{ обр.,} \]
+        \[ \exists U \text{ окрестность } x : f(U) \text{ открыто} \]
         \[ y \in f(U) \subset f(D) \]
         \[ \Rightarrow f(U) \text{ - окр-ть } y \]
         \[\text{т. о. } f(D) \text{ открыто}\]
@@ -27,11 +27,11 @@
     $ $
     \linebreak
     \par $f$ -- биекция
-    \par образ $\forall$ открытого множества открыт $\quad f$ -- окрытое отображение
-    \par прообраз $\forall$ открытого множества открыт, $\quad f$ -- непрерывное отображение
+    \par образ любого открытого множества открыт $\quad f$ -- окрытое отображение
+    \par прообраз любого открытого множества открыт, $\quad f$ -- непрерывное отображение
 
     \begin{definition}
-        Если и то, и другое, то $f$ -- гомеоформизм
+        Если $f$ непрерывна и биективна, то $f$ -- гомеоформизм
     \end{definition}
 
     $ $
@@ -46,13 +46,16 @@
 
     \subsection*{Неявно заданные отображения}
 
-    $D \subset \R^{n+m}$, открытое $\quad \Phi \in C^1(D, \R^m)$
-    \par $D \ni a = (x, y)$, задана $\quad \Phi(x, y) = 0$
+    $D \subset \R^{n+m}$, открытое, $\quad \Phi \in C^1(D, \R^m)$
+    \par $x \in \R^n, y \in \R^m; \quad 
+    D \ni a = (x, y)$, задана $\quad \Phi(x, y) = 0$
     \[
         \Phi'(a) = \left(\begin{array}{c c c | c c c}
             \dfrac{\partial \Phi_1}{\partial x_1} & \dots & \dfrac{\partial \Phi_1}{\partial x_n} & \dfrac{\partial \Phi_1}{\partial y_1} & \dots & \dfrac{\partial \Phi_1}{\partial y_m} \\
             \vdots & & \vdots & \vdots & & \vdots \\
             \dfrac{\partial \Phi_m}{\partial x_1} & \dots & \dfrac{\partial \Phi_m}{\partial x_n} & \dfrac{\partial \Phi_m}{\partial y_1} & \dots & \dfrac{\partial \Phi_m}{\partial y_m} \\
+        \end{array}\right) = \left(\begin{array}{c | c}
+            \Phi_x'(a) & \Phi_y'(a)
         \end{array}\right)
     \]
 
@@ -60,15 +63,15 @@
     \par Ищем такую $y = \phi(k)$, что $\Phi(x, \phi(x)) = 0$
 
     \begin{illustration}
-        $x^2 + y^2 = 1 \quad y = \sqrt{1 - x^2}$
+        $x^2 + y^2 = 1 \quad y = \pm \sqrt{1 - x^2}$
         \par $\quad \Phi(x, y) = x^2 + y^2 + 1$
-        \par $\quad \Phi'(x, y) = (2x \ 2y)$
+        \par $\quad \Phi'(x, y) = (2x, 2y)$
         \par $\quad \Phi'_x = 2x$
         \par $\quad \Phi'_y = 2y$
     \end{illustration}
 
     \begin{illustration}
-        $\Phi(x, y) = Ax + By \quad B$ -- квадратная
+        $\Phi(x, y) = Ax + By = 0 \quad B$ -- квадратная
         \par \quad $B$ обратима $\Leftrightarrow$ уравнение разрешимо
         \[
             \Phi'_x = A \quad \Phi'_y = B    
@@ -115,18 +118,18 @@
                       \Phi'_y(x_0, y_0) \text{ обратимо} \Rightarrow F'(x_0, y_0) \text{ обратимо}
                 \]
                 Th. о локальном обращении
-                \par $\exists \hat U$ -- окрестность $(x_0, y_0) : F(\hat U) = \hat V$ открытое,
-                \par $F\big|_{\hat U}$ -- биекция, $F^{-1} \in C^1(\hat V, \hat U), \ F(x_0, y_0) = (x_0, 0)$
-                \par $\exists \delta > 0 \ \hat{\hat U} = B_\delta^n(x_0) \times B_\delta^m(y_0) \subset \hat U$
-                \par $\hat{\hat U} \subset B_{\sqrt{2}\delta}^{n + m}(x_0, y_0) \subset \hat{U}, \quad$ $n, \ m$ -- размерности
-                \par Тогда $F(\hat{\hat U}) \subset F(\hat U) = \hat V$
-                \par $(x_0, 0) \in F(\hat{\hat U}) \subset \hat V$
-                \par $\exists \epsilon > 0 : B_\epsilon^{n+m}(x_0, 0) \subset F(\hat {\hat U})$ - так как $\hat {\hat U} $ открыто
-                \par $\underbrace{B^n_\epsilon(x_0)}_{= \hat{\hat V}} \times \{0\} \subset F(\hat{\hat U})$
-                \par $\forall x \in \hat{\hat V} \quad F^{-1}(x, 0) =: (x_1, y)$
+                \par $\exists \widehat U$ -- окрестность $(x_0, y_0) : F(\widehat U) = \widehat V$ открытое,
+                \par $F\big|_{\widehat U}$ -- биекция, $F^{-1} \in C^1(\widehat V, \widehat U), \ F(x_0, y_0) = (x_0, 0)$
+                \par $\exists \delta > 0 \ \widehat{\widehat U} = B_\delta^n(x_0) \times B_\delta^m(y_0) \subset \widehat U$
+                \par $\widehat{\widehat U} \subset B_{\sqrt{2}\delta}^{n + m}(x_0, y_0) \subset \widehat{U}, \quad$ $n, \ m$ -- размерности
+                \par Тогда $F(\widehat{\widehat U}) \subset F(\widehat U) = \widehat V$
+                \par $(x_0, 0) \in F(\widehat{\widehat U}) \subset \widehat V$
+                \par $\exists \epsilon > 0 : B_\epsilon^{n+m}(x_0, 0) \subset F(\widehat {\widehat U})$ - так как $\widehat {\widehat U} $ открыто
+                \par $\underbrace{B^n_\epsilon(x_0)}_{= \widehat{\widehat V}} \times \{0\} \subset F(\widehat{\widehat U})$
+                \par $\forall x \in \widehat{\widehat V} \quad F^{-1}(x, 0) =: (x_1, y)$
                 \par Это означает
                 \[
-                      (x_1, \Phi(x, y)) = F(x_1, y) = (x, 0)
+                      (x_1, \Phi(x_1, y)) = F(x_1, y) = (x, 0)
                 \]
                 \par $\Rightarrow x_1 = x, \ \Phi(x, y) = 0 \quad$ (отсюда следует $\epsilon < \delta$)
                 \[
@@ -134,11 +137,11 @@
                 \]
                 Если $\exists x \in U, y_1, y_2 \in V : \Phi(x, y_1) = \Phi(x, y_2) = 0$
                 \par \quad то $F(x, y_1) = (x, 0) = F(x, y_2)$
-                \par \quad \quad $F$ биект. и $\hat{\hat U} \Rightarrow y_1 = y_2$ % и???
+                \par \quad \quad $F$ биект. на $\widehat{\widehat U} \Rightarrow y_1 = y_2$ % и???
             \item $\phi = \pi_2(x, y) = \pi_2 \circ F^{-1}(x, 0) = \pi_2 \circ F^{-1} \circ E(x)$
                 \par $\pi_2 : (x, y) \mapsto y \in C^1(\R^{m+n}, \R^m)$
-                \par $F^{-1} \in C^1(\hat V, \hat U)$
-                \par $E  : x \mapsto (x, 0) \in C^1(\R^n, \R^{n+m}) \quad E(U) = U \times \{0\} \subset \hat V$
+                \par $F^{-1} \in C^1(\widehat V, \widehat U)$
+                \par $E  : x \mapsto (x, 0) \in C^1(\R^n, \R^{n+m}) \quad E(U) = U \times \{0\} \subset \widehat V$
             \item $\Phi(x, \phi(x)) = 0$
                 \par $0 = \Phi'(x, \phi(x))$ % дичь какая-то хз...
                 \par $\Phi'(x, \phi(x)) = \Phi'(x, \phi(x)) + \underbrace{\Phi'_y(x, \phi(x))}_{\text{обр.}} \cdot \phi'(x)$ 
