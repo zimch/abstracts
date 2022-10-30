@@ -124,7 +124,7 @@
             \| A_1 \cdot A_2 \| \le \| A_1 \| \cdot \| A_2 \|   
         \]
         \[
-            A : \R^n \rightarrow \R^n, \ \texttt{A} \in \Mat^{n, n} \quad \| A \| \leq \sqrt{\sum_{i, k = 1}^n |a_{i, k}^2|}
+            A : \R^n \rightarrow \R^n, \ A \in \Mat^{n, n} \quad \| A \| \leq \sqrt{\sum_{i, k = 1}^n |a_{i, k}^2|}
         \]
     \end{remark}
 
@@ -163,7 +163,7 @@
         $A \in B(\R^n), \exists A^{-1}, B \in B(\R^n), \| B - A \| < \frac{1}{\| A^{-1} \|}$
         \par Тогда $B$ обратим,
         \[
-            \| B^{-1} \| \le \frac{1}{\frac{1}{\| A^{-1} \|}  - \| B - A \|}, \| B^{-1} - A^{-1} \| \le \frac{\| A^{-1} \| \cdot \| B - A \|}{\frac{1}{\| A^{-1} \|} - \| B - A \|}  
+            \| B^{-1} \| \le \frac{1}{\frac{1}{\| A^{-1} \|}  - \| B - A \|},\quad \| B^{-1} - A^{-1} \| \le \frac{\| A^{-1} \| \cdot \| B - A \|}{\frac{1}{\| A^{-1} \|} - \| B - A \|}  
         \]
     \end{theorem}
 
@@ -174,7 +174,7 @@
         \]
         \par Так как:
         \[
-            \|Ax\| \ge \frac{\|x\|}{\|A^{-1}\|} \quad x = (A^{-1})(Ax) \quad \|x\| \le \|A^{-1}\| \cdot \|Ax\|  
+            \|Ax\| \ge \frac{\|x\|}{\|A^{-1}\|} \impliedby x = (A^{-1})(Ax) \quad \|x\| \le \|A^{-1}\| \cdot \|Ax\|  
         \]
         
             $Bx = 0 \Rightarrow \|x\| = 0$, так как  $(\|Bx\| \ge \|x\| \cdot \underbrace{(..)}_{>0}) \Rightarrow x = 0 \quad \Kerr B = \{0\} \Rightarrow \exists B^{-1}$  
@@ -202,7 +202,7 @@
     
     \section*{Дифференцирование обратной функции}
 
-    $D \subset \R^n \quad f : D \rightarrow \R^n \quad x \in \Int D \quad \exists A \in B(\R^n. \R)$
+    $D \subset \R^n \quad f : D \rightarrow \R^n \quad x \in \Int D \quad \exists A \in B(\R^n, \R^n)$
     
     \begin{definition}
         Если $f(x + h) = f(x) + Ah + o(\|h\|), \quad h \rightarrow 0$, тогда говорят $A$ -- производная $f$ в точке $x$.
@@ -251,7 +251,7 @@
         \par Тогда $\exists$ окрестность $x_0, \> U \subset D$
         \par $V := f(U)$ открыто и $f\big|_U$ -- биекция между $U$ и $V$, $f^{-1} \in C^1(V, U)$
         \[
-            (f^{-1})'(f(x_0)) = (f'(x_0))^{-1}, \ \forall x \in U \quad f'(x_0) \in I    
+            (f^{-1})'(f(x)) = (f'(x))^{-1}, \ \forall x \in U %\quad f'(x_0) \in I    
         \]
     \end{theorem}
 
