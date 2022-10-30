@@ -42,13 +42,13 @@
             C([0; 1]), \quad \| f \|_L = \int_0^1 |f(x)| dx
         \]
         \[
-            \int_0^\frac12 f_n(x) dx \rightarrow 0 \quad \exists N: n > N < \frac \epsilon 2
+            \int_0^\frac12 f_n(x) dx \rightarrow 0 \implies \exists N: n > N, \int_0^\frac{1}{2} (...) < \frac \epsilon 2
         \]
         \[
-            \int_\frac12^1 (1 - f_n(x)) dx \rightarrow 0 \quad \exists N: n > N < \frac \epsilon 2
+            \int_\frac12^1 (1 - f_n(x)) dx \rightarrow 0 \implies \exists N: n > N, \int^1_\frac{1}{2} (...) < \frac \epsilon 2
         \]
         \[
-            \forall \epsilon \ \exists N \ \forall n, m > \int_0^1 |f_n(x) - f_m(x)| dx < \epsilon   
+            \forall \epsilon \ \exists N \ \forall n, m > N: \int_0^1 |f_n(x) - f_m(x)| dx < \epsilon \text{ -- пос-ть Коши, но нет предела}  
         \]
         Можно дополнить его до полного, получится:
         \[
@@ -62,8 +62,9 @@
     \begin{definition}
         Линейный оператор
         \[
-            A(\alpha x + \beta y) = \alpha Ax + \beta Ay \quad A : L \rightarrow M, \quad \text{ где } M = \R / \C,\quad A \text{ - функционал(?)}    
+            A(\alpha x + \beta y) = \alpha Ax + \beta Ay \quad A : L \rightarrow M, \quad L, M - \text{ любые пространства}
         \]
+        Если $M = \R / \C,$ то $A$ - функционал
     \end{definition}
 
     \begin{remark}
@@ -103,10 +104,10 @@
 
     \begin{proposition}
         \[
-            \| A \| = \sup_{x \in B_1(x) \setminus \{ 0 \}} \|Ax \| = 
-            \sup_{a \in S_1(0)} \| Ax \| = 
-            \sup_{x \in B_1(0) \setminus \{ x \}} \frac{\|Ax\|}{\|x\|} = 
-            \inf \{c : \| Ax \| \le c \| x \|\} \quad \forall x \in L
+            \| A \| = \sup_{x \in B_1[0] \setminus \{ 0 \}} \|Ax \| = 
+            \sup_{x \in S_1(0)} \| Ax \| = 
+            \sup_{x \in B_1(0) \setminus \{ 0 \}} \|Ax\| = 
+            \inf \{c : \| Ax \| \le c \| x \| \quad \forall x \in L \}
         \]
         \par$B_r(x) = \{ y \in L  : \| y - x \| < r\}$ -- открытый шар радиуса $r$
         \par$B_r[x] = \{ y \in L  : \| y - x \| \le r\}$ -- замкнутый шар радиуса $r$
@@ -123,7 +124,7 @@
             \| A_1 \cdot A_2 \| \le \| A_1 \| \cdot \| A_2 \|   
         \]
         \[
-            A : \R^n \rightarrow \R^n, \ A \in \Mat^{n, n} \quad \| A \| \leq \sqrt{\sum_{i, k = 1}^n |a_{i, k}^2|}
+            A : \R^n \rightarrow \R^n, \ \texttt{A} \in \Mat^{n, n} \quad \| A \| \leq \sqrt{\sum_{i, k = 1}^n |a_{i, k}^2|}
         \]
     \end{remark}
 
