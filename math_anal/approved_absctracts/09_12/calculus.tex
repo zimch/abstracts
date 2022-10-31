@@ -60,7 +60,7 @@
     \]
 
     \par $\Phi'(a)(h, k) = \Phi'_x(a)h + \Phi'_y(a)k$
-    \par Ищем такую $y = \phi(k)$, что $\Phi(x, \phi(x)) = 0$
+    \par Ищем такую $y = \phi(x)$, что $\Phi(x, \phi(x)) = 0$
 
     \begin{illustration}
         $x^2 + y^2 = 1 \quad y = \pm \sqrt{1 - x^2}$
@@ -143,8 +143,9 @@
                 \par $F^{-1} \in C^1(\widehat V, \widehat U)$
                 \par $E  : x \mapsto (x, 0) \in C^1(\R^n, \R^{n+m}) \quad E(U) = U \times \{0\} \subset \widehat V$
             \item $\Phi(x, \phi(x)) = 0$
-                \par $0 = \Phi'(x, \phi(x))$ % дичь какая-то хз...
-                \par $\Phi'(x, \phi(x)) = \Phi'(x, \phi(x)) + \underbrace{\Phi'_y(x, \phi(x))}_{\text{обр.}} \cdot \phi'(x)$ 
+                \par $\Phi'(x, \phi(x)) = \Phi'(x, \phi(x)) \begin{pmatrix}
+                    I \\ \varphi'(x)\end{pmatrix} = $ % дичь какая-то хз...
+                \par $\Phi'(x, \phi(x)) = \Phi_x'(x, \phi(x)) + \underbrace{\Phi'_y(x, \phi(x))}_{\text{обр.}} \cdot \phi'(x)$ 
         \end{enumerate}
     \end{proof}
 
