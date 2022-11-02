@@ -17,20 +17,20 @@
         \par \quad $f : g(G) \rightarrow \R$ огр., п. в. непрерывно, $\supp f \subset g(G)$
         \par Тогда
         \[
-            \exists \rhimani{G} f \circ g |\det g'| = \rhimani{g(G)} % ДОМНОЖЕННОЕ??    
+            \exists \rhimani{G} f \circ g |\det g'| = \rhimani{g(G)} f% ДОМНОЖЕННОЕ??    
         \]
     \end{theorem}
 
-    \begin{lemma} % тут нужно \bar сделать длинными%
+    \begin{lemma} % тут нужно \overline сделать длинными%
         Пусть $G \subset \R^n$ открыто, $g : G \rightarrow \R^n$ гомеоморфизм
-        \par $E \subset G \ \bar E \subset G$. Тогда
-        \par $g(\bar E) = \bar {g(E)}$
+        \par $E \subset G : \overline E \subset G$. Тогда
+        \par $g(\overline E) = \overline {g(E)}$
         \par $g(\Int) = \Int g(E)$
-        \par $g(G \setminus \bar E) = g(G) \setminus \bar {g(E)}$
+        \par $g(G \setminus \overline E) = g(G) \setminus \overline {g(E)}$
         \par $g(\delta E) = \delta g(E)$
         \par Если $G, \ g(G)$ огр., $g$ -- диффеоморфизм, то
         \[
-            \mu(E) = 0 \Leftrightarrow \mu(g(E)) = 0    
+            \mu(E) = 0 \Leftrightarrow \mu\big(g(E)\big) = 0    
         \]
     \end{lemma}
     \begin{proof}
@@ -38,7 +38,7 @@
             G \ni x_n \xrightarrow[n \rightarrow \infty]{} x \in G \Leftrightarrow g(G) \ni g(x_k) \xrightarrow[n \rightarrow \infty]{} g(x) \in g(G)   
         \]
         \[
-            g(x) \in g(\bar E) \Leftrightarrow x \in \bar E \Leftrightarrow g(x) \in g(\bar E)   
+            g(x) \in g(\overline E) \Leftrightarrow x \in \overline E \Leftrightarrow g(x) \in \overline{g(E)}   
         \]
         \[
             x \in \Int E \Leftrightarrow \exists \epsilon > 0 \ B_\epsilon(x) \subset E \Leftrightarrow \exists \delta > 0 : B_\delta(g(x)) \subset g(E) \Leftrightarrow   
@@ -51,12 +51,12 @@
                 x \in \delta E \Leftrightarrow E \ni y_n \xrightarrow[n \rightarrow \infty]{} x \\
                 G \setminus \ni x_n \xrightarrow[n \rightarrow \infty]{} x
             \end{rcases} \Leftrightarrow \begin{cases}
-                g(E) \ni g(E) \ni g(y_n) \xrightarrow[n \rightarrow \infty]{} g(x) \\
+                g(E) \ni g(y_n) \xrightarrow[n \rightarrow \infty]{} g(x) \\
                 g(G \setminus E) \ni g(z_n) \xrightarrow[n \rightarrow \infty]{} g(x)
-            \end{cases} \Leftrightarrow g(x \in \delta g(E))
+            \end{cases} \Leftrightarrow g(x) \in \delta g(E)
         \]
         \[
-            x \in G \setminus \bar E - \Int (G \setminus E) \Leftrightarrow g(x) \in \Int (g(G) \setminus g(E)) = g (G) \setminus g(\bar E)    
+            x \in G \setminus \overline E = \Int (G \setminus E) \Leftrightarrow g(x) \in \Int \big(g(G) \setminus g(E)\big) = g (G) \setminus \overline{g(E)}    
         \]
         $ $
         \par $\forall \epsilon \ \exists C_l, \ l = 1, \dots, N$ -- открытые кубы
@@ -67,20 +67,20 @@
             l(C) \text{ -- длина ребра куба } C \quad v(C) = (l(C))^n \quad \diam C = l(C) \sqrt n    
         \]
         $ $
-        \par  Если $\epsilon < {\frac{\delta}{2\sqrt n}}^n$, $\forall l v(C_l) < \epsilon$ $\Rightarrow l(C_1) < \frac{\delta}{2\sqrt n}$
-        \par $\diam C_l < \frac{\delta}{2}$ \quad $\dist (\bar E, \delta G) = \delta$
+        \par  Если $\epsilon < {\frac{\delta}{2\sqrt n}}^n$, $\forall l \quad v(C_l) < \epsilon$ $\Rightarrow l(C_1) < \frac{\delta}{2\sqrt n}$
+        \par $\diam C_l < \frac{\delta}{2}$ \quad $\dist (\overline E, \delta G) = \delta$
 
         \[
-            \bigcup_{l=1}^N C_l \subset E^{\frac{\delta}{2}} = \{x \in \R^n \ | \ \dist (x, E) < \frac{\delta}{2}\} \subset \bar {E^{\frac{\delta}{2}}} \subset G  
+            \bigcup_{l=1}^N C_l \subset E^{\frac{\delta}{2}} = \{x \in \R^n \ | \ \dist (x, E) < \frac{\delta}{2}\} \subset \overline {E^{\frac{\delta}{2}}} \subset G  
         \]
         \[
-            \forall x_1, x_2 \in E^{\frac{\delta}{2}} \ \|g(x_1) - g(x_2)\| \le M \cdot \|x_1 - x_2\| \quad \max_{\bar{E^{\frac{\delta}{2}}}} \|g'\| = M   
+            \forall x_1, x_2 \in E^{\frac{\delta}{2}} \ \|g(x_1) - g(x_2)\| \le M \cdot \|x_1 - x_2\| \quad \max_{\overline{E^{\frac{\delta}{2}}}} \|g'\| = M   
         \]
         \[
             g(C_l) \subset B_{\frac{M \cdot \diam C_l}{2}} (g(x_l)) \subset \tilde C_l, \ l(\tilde C_l) = M \cdot \diam C_l    
         \]
         \[
-            v(\tilde C_l) = (l(\tilde C_l))^n = M^n \cdot (\diam C_l)^n = M^n (\frac{\diam C_l}{\sqrt{n}})^n (\sqrt{n})^n = (M\sqrt{n})^n v (C_l)    
+            v(\tilde C_l) = (l(\tilde C_l))^n = M^n \cdot (\diam C_l)^n = M^n \Big(\frac{\diam C_l}{\sqrt{n}}\Big)^n (\sqrt{n})^n = (M\sqrt{n})^n v (C_l)    
         \]
         \[
             g(E) \subset \bigcup_{l=1}^N \tilde C_l, \quad \sum_{l=1}^N \tilde C_l = (M\sqrt{n})^n \cdot \epsilon   
@@ -94,10 +94,10 @@
     \begin{proof}
         $\supp f = \overline{\{y \in g(G) \ | \ f(y) \not = 0\}}$
         \par $\supp (f \circ g |\det g'|) = \supp f \circ g = \overline{\{x \in G \ | \ (f \circ g) (x) \not= 0\}}$
-        \par $g(\{x \in G \ | \ f \circ g \not = 0\}) - \{y \in g(G) \ | \ f(y) \not = 0\}$
+        \par $g(\{x \in G \ | \ f \circ g \not = 0\}) = \{y \in g(G) \ | \ f(y) \not = 0\}$
         \par $\xRightarrow[\text{л. 12}]{}$ замыкание совпалает
         \par $\supp (f \circ g |\det g'|)$ компактен
-        \par $\sup_{\supp (f \circ g |\det g'|)} < \infty \Rightarrow f \circ g \cdot |\det g'|$ огр.
+        \par $\sup_{\supp (f \circ g |\det g'|)} |\det g'| < \infty \Rightarrow f \circ g \cdot |\det g'|$ огр.
         \par $f$ п. в. непрерывно на $g(G) \xRightarrow[\text{л. 12}]{} f \circ g$ п. в. непрерывно на $G$
         \par $|\det g'| \in C(G) \Rightarrow f \circ g |\det g '|$ п. в. непрерывно на $G$
         \par Значит, $\exists \rhimani{G} f \circ g |\det g'|$
@@ -117,7 +117,7 @@
     \begin{proof}
         Индукция
         \par База $k=1$ : уже простейший
-        \par Переход \quad $(g(x))_i = x_i , \quad i \ge k+1 \quad x = (y, z)$ % y, z - vectors (photo)
+        \par Переход \quad $\big(g(x)\big)_i = x_i , \quad i \ge k+1 \quad x = \big(y = (x_1, \dotsc, x_k), z\big)$ % y, z - vectors (photo)
         \par $ $
         \par Пусть $x_0 \in G \quad g'(x_0) = \begin{pmatrix}
             \frac{\partial g}{\partial y} & \frac{\partial g}{\partial z} \\
@@ -141,10 +141,10 @@
             \det f'(x_0) = \left(\frac{\partial g}{\partial y}\right)_{k-1} \not= 0    
         \]
 
-        \par $f \in C^1(G) \quad \exists окрестность U \ni x_0 \quad f\big|_{U} -- диффеоморфизм$
-        \par Положим $h = h \circ (f\big|_{U})^{-1}$ -- диффеоморфизм $f(U) \rightarrow g(U)$
+        \par $f \in C^1(G) \quad \exists окрестность U \ni x_0 \quad f\big|_{U} \text{-- диффеоморфизм}$
+        \par Положим $h = g \circ (f\big|_{U})^{-1}$ -- диффеоморфизм $f(U) \rightarrow g(U)$
         \[
-            sg\big|_U = h \circ f\big|_U
+            g\big|_U = h \circ f\big|_U
         \]
         \par Для $f \ \exists$ окрестность $x_0$, в которой $f$ раскладывается в композицию простейших
         \par $u \in f(U)$
@@ -155,7 +155,7 @@
             i \ge k \quad (h(u))_i = (g \circ f^{-1}(u))_i = (f^{-1}(u))_i = u_i    
         \]
         \[
-            (\underbrace{f(x)}_{=u})_i = \underbrace{x_i}_{(f^{-1}(u))_i}, \quad i > k    
+            (\underbrace{f(x)}_{=u})_i = x_i = (f^{-1}(u))_i, \quad i > k    
         \]
     \end{proof}
 
@@ -191,12 +191,43 @@
             \rhimani{g([a, b])} g = \rhimani{[a, b]} f \circ g |g'|    
         \]
         \[
-            g' > 0 \quad \int_{g(a)}^{g(b)} f(y)dy = \int_a^b f(g(x))g'(x)dx    
+            g' > 0 \quad \int_{g(a)}^{g(b)} f(y)dy = \int_a^b f\big(g(x)\big)g'(x)dx    
         \]
         \[
-            g' < 0 \quad \int_{g(b)}^{g(a)} f(y)dy = \int_a^b f(g(x)) |g'(x)|dx
+            g' < 0 \quad \int_{g(b)}^{g(a)} f(y)dy = \int_a^b f\big(g(x)\big) |g'(x)|dx
         \]
+        \textit{(тут гри уснул поетому я вставил свой кусок)}
+
         % ТУТ Я УСНУЛ
+        $P_y$ - разбиение $g([a,b]) \quad P_x = g^{-1}(P_y)'' = \{ g^{-1}(\pi) | \pi \in P_y\}$
+
+        $\max_{[a,b]} | g'| \cdot d(P_y) \le d(P_x) \le \max_{g([a,b])} | (g^{-1})'| \cdot d(P_y)$
+        
+        $\sum_{\pi_y \in P_y}\sup_{\pi_y}f \cdot v(\pi_y) = 
+        \sum_{\pi_x \in P_x}\sup_{\pi_x} (f \circ g) |g'(\xi(\pi_x))| \cdot v(\pi_x)$
+
+        $\pi_y = g(\pi_x)$   
+
+        $v(\pi_y) = |g(\beta) - g(\alpha)| = |g'(\xi)| \cdot (\beta\alpha)$
+
+        прадалжаем неравенство (не правильное все стёр....) $\displaystyle\le \underbrace{\sup_{[a,b]}|g'|}_{<\infty} \sum_{\pi_x \in P_x}\sup_{\Pi_x}f\circ g \cdot v(\pi_x)$
+
+        $P_{x,k}:d(P_{x,k}) \to 0, k \to \infty$
+
+        $P_{y,k}:d(P_{y,k}) \to 0, k \to \infty$
+
+        $\forall \pi_x \exists \xi(\pi_x) < \pi_x \quad v(\pi_y) = |g'(\xi(\pi_x))|\cdot v(\pi_x)$
+        
+        $U(f, P_{y,k}) \le \sum_{\pi_x \in P_x}\sup_{\pi_x}f\circ g |g'| \cdot v(\pi_x)
+        = U(f\circ g |g'|, P_{x,k})
+        $
+
+        слева $\overline\int_{g([a,b])}f \le$ справа $\int_{[a,b]}f\circ g |\det g' |$
+
+        $\overline\int_{g^{-1}g([a,b])}f\circ g |g'| \le \overline\int_{g([a,b])}f\circ g
+        \circ g^{-1} | g' \circ g^{-1}|\cdot |g^{-1}|$
+        
+        $\implies \overline\int_{g([a,b])}f = \overline\int_{[a,b]}f\circ g |g'|$
     \end{proof}
 
     \begin{proof}{(Теоремы)}
@@ -204,19 +235,22 @@
         \begin{enumerate}
             \item Простейший диффеоморфизм $(g(x))_i = x_i , \ i < n$
                 \[
-                    g(G) = \Pi_y = \Pi_1 \times \Pi_{y_n} \quad \Pi_1 \subset \R^{n-1}, \Pi_{y_n \subset \R}    
+                    g(G) = \Pi_y = \Pi_1 \times \Pi_{y_n} \quad \Pi_1 \subset \R^{n-1}, \Pi_{y_n} \subset \R    
                 \]
                 \[
                     G = \Pi_x = \Pi_1 \times \Pi_{x_n} \quad \Pi_{x_n} \subset \R    
                 \]
                 \[
-                    \rhimani{g(G)} = \rhimani{\Pi_y} f \chi_{g(G)} \overset{Фубинни}{=} \rhimani{\Pi_1} dy_1 \dots dy_{n-1} \lrhimani{\Pi_{y_n}}  f \chi_{g(G)} = 
+                    \rhimani{g(G)} = \rhimani{\Pi_y} f \chi_{g(G)} \overset{\text{Фубинни}}{=} \rhimani{\Pi_1} dy_1 \dots dy_{n-1} \lrhimani{\Pi_2} dy_n f \chi_{g(G)} = 
                 \]
                 \[
-                    \rhimani{\Pi_1} dy_1 \dots dy_{n-1} \lrhimani{\pi_n[g(G) \cap (y_1, \dots, y_{n-1} \times \R)]} f(y)dy_n \overset{Лемма}{=} \rhimani{\Pi_1}dx_1 \dots dx_{n-1} \lrhimani{\pi_n[G \cap (y_1, \dots, y_{n-1} \times \R)]} (f \circ g)(x) \underbrace{\left|\frac{\partial g_n}{\partial x_n} (x)\right|}_{=|\det g'|} 
+                    = \rhimani{\Pi_1} dy_1 \dots dy_{n-1} \lrhimani{\pi_n[g(G) \cap (y_1, \dots, y_{n-1}) \times \R]} f(y)dy_n \overset{\text{Лемма 14}}{=} 
                 \]
                 \[
-                    \rhimani{\Pi_1} dx_1 \dots dx_{n_1} \lrhimani{\Pi_{x_n}} f \circ g |\det g'| \chi_G  =   
+                    = \rhimani{\Pi_1}dx_1 \dots dx_{n-1} \lrhimani{\pi_n[G \cap (y_1, \dots, y_{n}) \times \R]} (f \circ g)(x) \underbrace{\left|\frac{\partial g_n}{\partial x_n} (x)\right|}_{=|\det g'|}dx_n =    
+                \]
+                \[
+                    = \rhimani{\Pi_1} dx_1 \dots dx_{n-1} \lrhimani{\Pi_{x_n}} f \circ g |\det g'| \chi_G  =   
                 \]
                 \[
                     = \rhimani{\Pi_x} f \circ g |\det g'| \chi_G  = - \rhimani{G} f \circ g |\det g'|   

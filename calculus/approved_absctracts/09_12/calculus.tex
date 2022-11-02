@@ -92,15 +92,15 @@
         \begin{enumerate}
             \item $\forall x \in U \ \exists! y \in V : \Phi(x, y) = 0$
             \par (это задает отображение $\phi : U \rightarrow V, \ y = \phi(x)$)
-            \item $\phi \in C^1(U, V), \ \forall x \in U, y \in V \quad \Phi'_y(x, \phi(x))$ обратимо
-            \item $\phi'(x) = -(\Phi'_y(x, \phi(x)))^{-1} \Phi'_x(x, \phi(x))$
+            \item $\phi \in C^1(U, V), \ \forall x \in U, y \in V \quad \Phi'_y\big(x, \phi(x)\big)$ обратимо
+            \item $\phi'(x) = -\Big(\Phi'_y\big(x, \phi(x)\big)\Big)^{-1} \Phi'_x\big(x, \phi(x)\big)$
         \end{enumerate}
     \end{theorem}
 
     \begin{proof}
         $ $
         \begin{enumerate}
-            \item $F(x, y) = (x, \Phi(x, y)) : D \rightarrow \R^{n + m}$
+            \item $F(x, y) = \big(x, \Phi(x, y)\big) : D \rightarrow \R^{n + m}$
                 \[
                     F'(x, y) = \left(\begin{array}{@{}c|c@{}}
                         I & 0 \\
@@ -129,7 +129,7 @@
                 \par $\forall x \in \widehat{\widehat V} \quad F^{-1}(x, 0) =: (x_1, y)$
                 \par Это означает
                 \[
-                      (x_1, \Phi(x_1, y)) = F(x_1, y) = (x, 0)
+                      \big(x_1, \Phi(x_1, y)\big) = F(x_1, y) = (x, 0)
                 \]
                 \par $\Rightarrow x_1 = x, \ \Phi(x, y) = 0 \quad$ (отсюда следует $\epsilon < \delta$)
                 \[
@@ -142,10 +142,10 @@
                 \par $\pi_2 : (x, y) \mapsto y \in C^1(\R^{m+n}, \R^m)$
                 \par $F^{-1} \in C^1(\widehat V, \widehat U)$
                 \par $E  : x \mapsto (x, 0) \in C^1(\R^n, \R^{n+m}) \quad E(U) = U \times \{0\} \subset \widehat V$
-            \item $\Phi(x, \phi(x)) = 0$
-                \par $\Phi'(x, \phi(x)) = \Phi'(x, \phi(x)) \begin{pmatrix}
+            \item $\Phi\big(x, \phi(x)\big) = 0$
+                \par $\Phi'\big(x, \phi(x)\big) = \Phi'\big(x, \phi(x)\big) \begin{pmatrix}
                     I \\ \varphi'(x)\end{pmatrix} = $ % дичь какая-то хз...
-                \par $\Phi'(x, \phi(x)) = \Phi_x'(x, \phi(x)) + \underbrace{\Phi'_y(x, \phi(x))}_{\text{обр.}} \cdot \phi'(x)$ 
+                \par $\Phi'\big(x, \phi(x)\big) = \Phi_x'\big(x, \phi(x)\big) + \underbrace{\Phi'_y\big(x, \phi(x)\big)}_{\text{обр.}} \cdot \phi'(x)$ 
         \end{enumerate}
     \end{proof}
 
