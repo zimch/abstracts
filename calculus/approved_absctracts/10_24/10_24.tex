@@ -41,7 +41,7 @@
 
         $$\int_G (f\circ g_{k+1} | \det g_{k+1}'|) \circ h |\det h'|$$
 
-        $$= \int_G \underbrace{f\circ g_{k+1}\circ h}_{f \circ g} \cdot | (\det g_{k+1}') \cdot h\det h'|$$
+        $$= \int_G \underbrace{f\circ g_{k+1}\circ h}_{f \circ g} \cdot | (\det g_{k+1}' \circ h |\det h')$$
 
         $$=\int_G f \circ g |\det g'|$$
 
@@ -56,8 +56,8 @@
 
         По лемме 15 $g|\underset{B_{\varepsilon_x}(x) }{}$ раслкадывается в композицию простейших диффеоморфизмов
         
-        $$K \subset \bigcup_{x\in K} B_{B_{\varepsilon_x/2}(x) }, 
-        K \subset \bigcup^N_{i=1} B_{B_{\varepsilon_{x_i}/2}(x_i) }$$
+        $$K \subset \bigcup_{x\in K} {B_{\varepsilon_x/2}(x) }, 
+        K \subset \bigcup^N_{i=1} {B_{\varepsilon_{x_i}/2}(x_i) }$$
         т.к. $K$ - компакт.
 
         $\displaystyle\delta := \min_{i=1,\dotsc,N} \frac{\varepsilon_{x_i}}{2}$
