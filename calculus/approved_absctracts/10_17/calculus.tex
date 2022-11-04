@@ -97,10 +97,10 @@
         $\supp f = \overline{\{y \in g(G) \ | \ f(y) \not = 0\}}$
         \par $\supp (f \circ g |\det g'|) = \supp f \circ g = \overline{\{x \in G \ | \ (f \circ g) (x) \not= 0\}}$
         \par $g(\{x \in G \ | \ f \circ g \not = 0\}) = \{y \in g(G) \ | \ f(y) \not = 0\}$
-        \par $\xRightarrow[\text{л. 12}]{}$ замыкание совпалает
+        \par $\xRightarrow[\text{л. 16}]{}$ замыкание совпалает
         \par $\supp (f \circ g |\det g'|)$ компактен
         \par $\sup_{\supp (f \circ g |\det g'|)} |\det g'| < \infty \Rightarrow f \circ g \cdot |\det g'|$ огр.
-        \par $f$ п. в. непрерывно на $g(G) \xRightarrow[\text{л. 12}]{} f \circ g$ п. в. непрерывно на $G$
+        \par $f$ п. в. непрерывно на $g(G) \xRightarrow[\text{л. 16}]{} f \circ g$ п. в. непрерывно на $G$
         \par $|\det g'| \in C(G) \Rightarrow f \circ g |\det g '|$ п. в. непрерывно на $G$
         \par Значит, $\exists \rhimani{G} f \circ g |\det g'|$
     \end{proof}
@@ -162,9 +162,9 @@
     \end{proof}
 
     \begin{lemma}
-        Утверждение теоремыверно при $n = 1$
+        Утверждение теоремы верно при $n = 1$
         \begin{lemma}[14']
-            В условиях теоремы на $G$ и на $g$ при $n=1$ для $\forall f : g(G) \rightarrow \R$ огр. : $\supp \subset g(G)$
+            В условиях теоремы на $G$ и на $g$ при $n=1$ для $\forall f : g(G) \rightarrow \R$ огр. : $\supp f \subset g(G)$
             \[
                 \lrhimani{G} f \circ g |\det g'| = \lrhimani{g(G)} f, \urhimani{G} f \circ g |\det g'| = \urhimani{g(G)} f    
             \]
@@ -175,7 +175,7 @@
         % ОБЩЕЕ ДОКАЗАТЕЛЬСТВО
         $\supp f$ компактен
         \[
-            \forall x \in \supp f \ \exists \epsilon_x > 0 \quad [  x - \epsilon, x + \epsilon] \subset G    
+            \forall x \in \supp f \ \exists \epsilon_x > 0 \quad [  x - \epsilon, x + \epsilon] \subset g(G)    
         \]
         \[
             \supp f \subset \bigcup_{x \in \supp f} (x - \epsilon_x, x + \epsilon_x) \Rightarrow \supp f \subset \bigcup_{i=1}^N (x_i - \epsilon_{x_i}, x_i + \epsilon_{x_i})  
@@ -190,7 +190,7 @@
             g^{-1}([x_i - \epsilon_{x_i}, x_i + \epsilon_{x_i}]) \text{ -- отрезок} \Rightarrow \text{ достаточно доказать:}    
         \]
         \[
-            \rhimani{g([a, b])} g = \rhimani{[a, b]} f \circ g |g'|    
+            \rhimani{g([a, b])} g = \rhimani{[a, b]} f \circ g |\det g'|
         \]
         \[
             g' > 0 \quad \int_{g(a)}^{g(b)} f(y)dy = \int_a^b f\big(g(x)\big)g'(x)dx    
@@ -203,7 +203,7 @@
         % ТУТ Я УСНУЛ
         $P_y$ - разбиение $g([a,b]) \quad P_x = g^{-1}(P_y)'' = \{ g^{-1}(\pi) | \pi \in P_y\}$
 
-        $\max_{[a,b]} | g'| \cdot d(P_y) \le d(P_x) \le \max_{g([a,b])} | (g^{-1})'| \cdot d(P_y)$
+        $\min_{g[a,b]} | (g^{-1})'| \cdot d(P_y) \le d(P_x) \le \max_{g([a,b])} | (g^{-1})'| \cdot d(P_y)$
         
         $\sum_{\pi_y \in P_y}\sup_{\pi_y}f \cdot v(\pi_y) = 
         \sum_{\pi_x \in P_x}\sup_{\pi_x} (f \circ g) |g'(\xi(\pi_x))| \cdot v(\pi_x)$
@@ -243,7 +243,7 @@
                     G = \Pi_x = \Pi_1 \times \Pi_{x_n} \quad \Pi_{x_n} \subset \R    
                 \]
                 \[
-                    \rhimani{g(G)} = \rhimani{\Pi_y} f \chi_{g(G)} \overset{\text{Фубинни}}{=} \rhimani{\Pi_1} dy_1 \dots dy_{n-1} \lrhimani{\Pi_2} dy_n f \chi_{g(G)} = 
+                    \rhimani{g(G)} = \rhimani{\Pi_y} f \chi_{g(G)} \overset{\text{Фубини}}{=} \rhimani{\Pi_1} dy_1 \dots dy_{n-1} \lrhimani{\Pi_{y_n}} dy_n f \chi_{g(G)} = 
                 \]
                 \[
                     = \rhimani{\Pi_1} dy_1 \dots dy_{n-1} \lrhimani{\pi_n[g(G) \cap (y_1, \dots, y_{n-1}) \times \R]} f(y)dy_n \overset{\text{Лемма 14}}{=} 
