@@ -37,7 +37,7 @@
                 \[
                     f(\xi) - \inf_\pi f < \epsilon
                 \]
-                Получим $\Xi_k \ \sum(f, p_K, \Xi_k) - L(f, p_k) = \sum_{\pi \in p_k}(f(\xi(\pi)) - \inf_\pi f) \cdot v(\pi) <$
+                Получим $\Xi_k \ \sum(f, p_K, \Xi_k) - L(f, p_k) = \sum_{\pi \in p_k}\Big(f\big(\xi(\pi)\big) - \inf_\pi f\Big) \cdot v(\pi) <$
                 \par \quad $< \epsilon \cdot \sum_{\pi \in p} v(\pi) = \epsilon \cdot v(\pi)$
                 \par По \textit{Л. 3} $L(f, p_k) \xrightarrow[k \rightarrow \infty]{} \lrhimani \Pi \Rightarrow 0 \le I - \lrhimani \Pi \le \epsilon \cdot v(\pi)$
                 \[
@@ -51,7 +51,7 @@
                     \{p_k\}, \ d(p_k) \rightarrow 0, \ \{\Xi_k\} \quad _{(*)}:    
                 \]
                 \[
-                    L(f, p_k) \le \sum(f, p_k, \Xi_k) = \sum_{\pi \in p_k}\underbrace{f(\xi(\pi))}_{(*)} v(\pi) \le U(f, p_k)    
+                    L(f, p_k) \le \sum(f, p_k, \Xi_k) = \sum_{\pi \in p_k}\underbrace{f\big(\xi(\pi)\big)}_{(*)} v(\pi) \le U(f, p_k)    
                 \]
                 \[
                     _{(*)} \quad \inf_\pi \le \dots \le \sup_\pi f    
@@ -274,7 +274,7 @@
         \]
     \end{lemma}
     \begin{proof}
-        $\forall x \in \Pi \ \lim_{\delta \rightarrow 0^+}(M_\delta(f, x) - m_\delta(f, x)) = 0 $
+        $\forall x \in \Pi \ \lim_{\delta \rightarrow 0+}\big(M_\delta(f, x) - m_\delta(f, x)\big) = 0 $
         \par $\exists \delta_\epsilon : M_{\delta_\epsilon}(f, x) - m_{\delta_\epsilon}(f, x) < \epsilon$
         \par $\forall x \ \exists \pi_x$ открытый п/п : $\underline{\sup}_{\pi_x} f - \underline{\inf}_{\pi_x} f < \epsilon$
         \par $\Pi \subset \bigcup_{x \in \Pi} \pi_x$, $\Pi$ компактен $\Rightarrow \exists$ конечное подпокрытие
@@ -284,7 +284,7 @@
         разрешем $\Pi$ гранями всех $\pi_{x_k}, \ k = 1, \dots, N$
         \par $\Rightarrow$ получаем разбиение $p$
         \[
-            U(f, p) - L(f, p) = \sum_{\pi \in p} (\sup_\pi f - \inf_\pi f) v(\pi) < \epsilon \cdot \sum_{\pi \in p} v(\pi) = \epsilon v(\pi)    
+            U(f, p) - L(f, p) = \sum_{\pi \in p} (\sup_\pi f - \inf_\pi f) \cdot v(\pi) < \epsilon \cdot \sum_{\pi \in p} v(\pi) = \epsilon v(\pi)    
         \]
         \[
             \forall \pi \in p \ \exists k \ \pi \subset \bar \pi_{x_k}    
@@ -298,13 +298,13 @@
         Критерий Лебега    
 
         \par $\Pi \in \R^n$ - п/п $f: \Pi \rightarrow \R$ - огр 
-        \par $D = \{x \in \Pi | f - \text{разрывна в x}\}$
+        \par $D = \{x \in \Pi \mid f - \text{разрывна в x}\}$
         \par Тогда:
         $$\exists \rhimani \Pi f \Leftrightarrow \mu(D)=0$$
     \end{theorem}
 
     \begin{proof}
-        \par Пусть $\Pi_\epsilon = \{x \in \Pi | w(f,x) \ge \epsilon \}$ - замкнутые по Лемме, ограниченные из ограниченности исходного п/п, значит компактные
+        \par Пусть $\Pi_\epsilon = \{x \in \Pi \mid w(f,x) \ge \epsilon \}$ - замкнутые по Лемме, ограниченные из ограниченности исходного п/п, значит компактные
         $$D \subset \bigcup_{\epsilon > 0} \Pi_\epsilon$$
         \bigskip
         \par $\boxed{\Leftarrow}$ $\mu(D) = 0$ 
@@ -312,37 +312,37 @@
         $$\Pi_\epsilon \subset \bigcup\limits_{k=1}^N \pi_k, \sum\limits_{k=1}^N < \epsilon, \pi_k \text {- открытые кубы}$$
         \par Разрежем $\Pi$ гранями $\pi_1 ... \pi_N$ - получим разбиение $P$
         \par $P = P_1 \cup P_2$, $P_1, P_2$ - не разбиения, но состоят из кубов
-        \par $P_1 = \{\pi \in P | \exists k: \pi \in \overline{\pi_k} \}$
+        \par $P_1 = \{\pi \in P \mid \exists k: \pi \in \overline{\pi_k} \}$
         \par $P_2 = P \setminus P_1$
         $$\sum\limits_{\pi \in P_1} v(\pi) \le \sum\limits_{k=1}^N v(\pi_k) < \epsilon$$
         \bigskip
         \par $f$ - огр, значит $\exists M>0: \forall x \in \Pi |f(x)| < M$
-        $$\sum\limits_{\pi \in P_1} (M_\pi(f) - m_\pi(f)) \cdot v(\pi) \le 2M \cdot \sum\limits_{\pi \in P_1} v(\pi) \le 2M \cdot \epsilon$$
+        $$\sum\limits_{\pi \in P_1} \big(M_\pi(f) - m_\pi(f)\big) \cdot v(\pi) \le 2M \cdot \sum\limits_{\pi \in P_1} v(\pi) \le 2M \cdot \epsilon$$
         \bigskip
         \par $\forall \pi \in P_2: \forall x\in \pi: w(f, x) < \epsilon$
-        $$\exists P(\pi): U(f, P(\pi)) - L(f, P(\pi)) < \epsilon \cdot v(\pi)$$
+        $$\exists P(\pi): U\big(f, P(\pi)\big) - L\big(f, P(\pi)\big) < \epsilon \cdot v(\pi)$$
         \par Разрежем $\Pi$ гранями $\pi' \in P(\pi)$ для всех $\pi \in P_2$
         \par Получим разбиение $\Pi$: $P' = P_1' \cup P_2'$, $P_1', P_2'$ - более мелкие по сравнению с $P_1, P_2$
-        $$\sum\limits_{\pi' \in P_1'} (\sup_{\pi'} f - inf_{\pi'} f)v(\pi') \le 2M \cdot \sum\limits_{\pi' \in P_1'} v(\pi') < 2M \cdot \epsilon$$
+        $$\sum\limits_{\pi' \in P_1'} (\sup_{\pi'} f - \inf_{\pi'} f)\cdot v(\pi') \le 2M \cdot \sum\limits_{\pi' \in P_1'} v(\pi') < 2M \cdot \epsilon$$
         \bigskip
-        $$\sum\limits_{\pi' \in P_2'} (\sup_{\pi'} f - inf_{\pi'} f)v(\pi') = \sum\limits_{\pi \in P_2} \sum\limits_{\pi' \in P(\pi)} (\sup_{\pi'} f - inf_{\pi'} f)v(\pi') < \sum\limits_{\pi \in P_2} \epsilon \cdot v(\pi) < \epsilon \cdot v(\Pi)$$
+        $$\sum\limits_{\pi' \in P_2'} (\sup_{\pi'} f - \inf_{\pi'} f) \cdot v(\pi') = \sum\limits_{\pi \in P_2} \sum\limits_{\pi' \in P(\pi)} (\sup_{\pi'} f - \inf_{\pi'} f) \cdot v(\pi') < \sum\limits_{\pi \in P_2} \epsilon \cdot v(\pi) < \epsilon \cdot v(\Pi)$$
         \bigskip
-        $$U(f, P') - L(f, P') = \sum\limits_{\pi' \in P'} (\sup_{\pi'} f - inf_{\pi'} f) v(\pi') < \epsilon \cdot (2M + v(\Pi)) \Rightarrow \exists \rhimani \Pi f$$
+        $$U(f, P') - L(f, P') = \sum\limits_{\pi' \in P'} (\sup_{\pi'} f - \inf_{\pi'} f) \cdot v(\pi') < \epsilon \cdot \big(2M + v(\Pi)\big) \Rightarrow \exists \rhimani \Pi f$$
         \bigskip
         \par $\boxed{\Rightarrow}$ $\exists \rhimani \Pi f$
         \par Хотим доказать, что $\mu(D) = 0$
         $$D = \bigcup\limits_{k=1}^{\infty} \Pi_{1/k}$$
         \par Если $\forall k: \mu(\Pi_{1/k}) = 0$, то по лемме о мере счётного объединения множеств меры 0 докажем необходимое
         \bigskip
-        \par Из существования интеграла: $\forall \epsilon>0 \exists P: U(f, P) - L(f, P) < \frac{\epsilon}{k}$
-        $$P_k = \{\pi \in P | \Int \pi \cap \Pi_{1/k} \not = \varnothing \}$$
+        \par Из существования интеграла: $\forall \epsilon>0 \ \exists P: U(f, P) - L(f, P) < \frac{\epsilon}{k}$
+        $$P_k = \{\pi \in P \mid \Int \pi \cap \Pi_{1/k} \not = \varnothing \}$$
         $$\Pi_{1/k} \subset \bigcup\limits_{\pi \in P_k} \pi$$
         $$\forall \pi \in P_k \ \exists x \in \Int \pi: w(f, x) \ge \frac{1}{k}$$
-        $$\exists \delta > 0: B_{\delta}(x) \in \Int  \pi \ \sup_{B_{\delta}(x)} f - inf_{B_{\delta}(x)} f \ge \frac{1}{k}$$
-        $$\sup_{\pi} - inf_{\pi} \ge \sup_{B_{\delta}(x)} f - inf_{B_{\delta}(x)} f \ge\frac{1}{k}$$
+        $$\exists \delta > 0: B_{\delta}(x) \in \Int  \pi \ \sup_{B_{\delta}(x)} f - \inf_{B_{\delta}(x)} f \ge \frac{1}{k}$$
+        $$\sup_{\pi} - \inf_{\pi} \ge \sup_{B_{\delta}(x)} f - \inf_{B_{\delta}(x)} f \ge\frac{1}{k}$$
         \bigskip
-        $$U(f, P) - L(f, P) = \sum\limits_{\pi \in P} (\sup_{\pi} f - inf_{\pi} f) v(\pi) \ge \sum\limits_{\pi \in P_k} (\sup_{\pi} f - inf_{\pi} f) v(\pi) \ge \frac{1}{k} \cdot \sum\limits_{\pi \in P_k} v(\pi)$$
-        $$\sum\limits_{\pi \in P_k} v(\pi) \le k \cdot (U(f, P) - L(f, P)) < \epsilon$$
+        $$U(f, P) - L(f, P) = \sum\limits_{\pi \in P} (\sup_{\pi} f - \inf_{\pi} f) \cdot v(\pi) \ge \sum\limits_{\pi \in P_k} (\sup_{\pi} f - \inf_{\pi} f) \cdot v(\pi) \ge \frac{1}{k} \cdot \sum\limits_{\pi \in P_k} v(\pi)$$
+        $$\sum\limits_{\pi \in P_k} v(\pi) \le k \cdot \big(U(f, P) - L(f, P)\big) < \epsilon$$
         \bigskip
         $$v(\Pi_{1/k}) = 0$$ 
 

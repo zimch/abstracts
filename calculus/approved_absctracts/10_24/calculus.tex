@@ -9,15 +9,14 @@
 \setcounter{lemma}{19}
 
 \begin{document}
-    Додокажем теорему
 
-    Доказали в случае, когда ж - простейший диффеоморфизм 
+    Доказали теорему в случае, когда ж - простейший диффеоморфизм 
     
     Докажем в случае, когда ж - композиция н простейших диффеоморфизмов
     
     \begin{proof} (продолжение)
         
-        2.Пусть $g: G \to \R^n$ - композиция простейших диффеоморфизмов
+        2. Пусть $g: G \to \R^n$ - композиция простейших диффеоморфизмов
         
         Индуция. Количество композиций: 
         
@@ -49,10 +48,10 @@
 
         3. Общий случай
 
-        $K = \text{supp}(f\circ g | \det g'|) \subset G \quad $
+        $K = \text{supp}\big(f\circ g | \det g'|\big) \subset G \quad $
         $\text{dist}(\delta G, K) > 0$
 
-        $\forall x \in K \exists \varepsilon_x > 0: B_{\varepsilon_x}(x) \subset G$
+        $\forall x \in K \ \exists \varepsilon_x > 0: B_{\varepsilon_x}(x) \subset G$
 
         По лемме 15 $g|\underset{B_{\varepsilon_x}(x) }{}$ раслкадывается в композицию простейших диффеоморфизмов
         
@@ -65,18 +64,18 @@
         $\forall E \subset \R^n: E \cap K \neq \varnothing $ и $\text{diam}E < \delta$ 
         верно $E \subset G$ и $g | \underset{E}{ }$ раскладывается в композицию
     
-        $\left(\exists x \in K \cap E, \exists i: x \in B_{\varepsilon_{x_i}/2}(x_i)
-        E \subset (B_{\varepsilon_{x_i}/2}(x_i)) \subset B_{\varepsilon_{x_i}}(x_i) \subset G
-        \right)$
+        $\Big(\exists x \in K \cap E, \exists i: x \in B_{\varepsilon_{x_i}/2}(x_i) \land
+        E \subset \big(B_{\varepsilon_{x_i}/2}(x_i)\big) \subset B_{\varepsilon_{x_i}}(x_i) \subset G
+        \Big)$
 
         foto 1
 
         Пусть $G \subset \Pi$ - п/п, $P$ - разбиение $\Pi, d(P) < \min \{
             \delta, \text{dist}(\delta G, K)\}$
             
-        $P_1 = \{ \pi \in P | \pi \cap K \neq \varnothing\}$
+        $P_1 = \{ \pi \in P \mid \pi \cap K \neq \varnothing\}$
 
-        Если $\pi \notin P_1$, то $(f \circ g |\det g'|) | \underset{\pi}{ } \equiv 0$
+        Если $\pi \notin P_1$, то $\big(f \circ g |\det g'|\big) | \underset{\pi}{ } \equiv 0$
 
         Если $\pi \in P_1$, то $\pi \subset G$ и $g|\underset{\pi}{ }$ раскладывается в композицию
 
@@ -95,7 +94,7 @@
         = \sum_{\pi \in P_1} \int_{g(\text{Int}\pi)} f =
         f\int_{g(\bigcup_{\pi\in P_1}\text{Int}\pi)}f = (*)$$
 
-        $v(\delta\pi) = 0\implies \mu(\delta\pi) = 0 \implies \mu(g(\delta\pi)) = 0 \implies v(g(\delta\pi))=0$
+        $v(\delta\pi) = 0\implies \mu(\delta\pi) = 0 \implies \mu\big(g(\delta\pi)\big) = 0 \implies v\big(g(\delta\pi)\big)=0$
 
         $\text{supp}f = g(K) \subset g(\bigcup_{\pi\in P_1}\pi) \subset g(G)$
 
@@ -110,13 +109,13 @@
 
     $v(\pi_y) = |g'(\xi)| \cdot v(\pi_x)$
 
-    $\sum_{\pi_y}\sup_{\pi_y} f v(\pi_y) = \sum_{\pi_x}(\sup_{\pi_x})|g'(\xi(\pi_x))|\cdot v(\pi_x)$
+    $\sum_{\pi_y}\sup_{\pi_y} f v(\pi_y) = \sum_{\pi_x}(\sup_{\pi_x})\big|g'\big(\xi(\pi_x)\big)\big|\cdot v(\pi_x)$
 
     оценим точнее разность супремумов
 
-    $\left|sup_{\pi_x} (f\circ g)\cdot|g'(\xi(\pi_x))| - \sup_{\pi_x}(f\circ g|g'|)\right|=
-    |\sup_{\pi_x}(f\circ g)(x)(|g'(\xi(\pi_x))| - | g'(x) |) | \le \underbrace{\sup_{\pi_x} |f\circ g|}_{<M}
-    \cdot \underbrace{\sup_{x\in \pi_x} | (g'(\xi(\pi_x))|g'(x)| |}_{w_{|g'|}(d(P_x))}
+    $\Big|sup_{\pi_x} (f\circ g)\cdot|g'\big(\xi(\pi_x)\big)| - \sup_{\pi_x}(f\circ g|g'|)\Big|=
+    \Big|\sup_{\pi_x}(f\circ g)(x)\big(|g'(\xi(\pi_x))| - | g'(x) |\big) \Big| \le \underbrace{\sup_{\pi_x} |f\circ g|}_{<M}
+    \cdot \underbrace{\sup_{x\in \pi_x} \big| g'(\xi(\pi_x))|g'(x)| \big|}_{w_{|g'|}(d(P_x))}
     $
 
     $\sup_{g([a,b])} f = M < \infty$ \quad $+ M \cdot \frac{w_{|g'|}(d(P_x))}{d(P_x)\to 0}(b-a)$  %CHE verh int fog|g'| sum sup fog|g'|v(p_x) foto 2
@@ -140,9 +139,9 @@
 
     $v(B_R(0)) - ?$
 
-    $\begin{pmatrix}
+    $\left(\begin{smallmatrix}
         x \\ y \\ z
-    \end{pmatrix} = g(r, \theta, \varphi) \quad g: (0, +\infty)\times(0, \pi)\times(0, 2\pi)$
+    \end{smallmatrix}\right) = g(r, \theta, \varphi) \qquad g: (0, +\infty)\times(0, \pi)\times(0, 2\pi)$
 
     $x = r\sin\theta\sin\varphi$  %%mb sin cos
 
@@ -152,7 +151,7 @@
 
     $\det g' = r^2 \sin\theta$
     
-    $B_R(0) = g\overbrace{((0, R)\times(0, \Pi)\times(0,2\pi))}^{=\Pi_R}$
+    $B_R(0) = g\overbrace{\big((0, R)\times(0, \Pi)\times(0,2\pi)\big)}^{=\Pi_R}$
 
     $\{ x \ge 0, y = 0, z \in \R \}$
 
@@ -160,7 +159,7 @@
 
     $$=\int^R_0 r^2dr\int^\pi_0 \sin\theta d\theta \int^{2\pi}_0 d\varphi = \frac{R^3}{3} \cdot 2 \cdot 2\pi = \frac{4\pi R^3}{3}$$
 
-    \subsection*{Несобственные кратные собиратели}  % ну интегралы да
+    \subsection*{Несобственные кратные собиратели (интрегалы)}  % ну интегралы да
 
     \begin{definition}
         $E \subset \R^n \quad \{ E_k\}_k^{\infty}, E_k \subset E_{k+1} \subset E, \forall k: E = \bigcup^\infty_{k=1} E_k$, измеримы по жордану.
@@ -198,8 +197,8 @@
 
         компакт $\overline{E} \subset E \cup \Delta = (\bigcup^\infty_{k=1}E_k)\cup \Delta \subset \bigcup^\infty_{k=1}(E_k \cup \Delta_k)\cup \Delta$ - открытое покрытие
 
-        $\overline{E} \subset (\bigcup^N_{i=1}E_{k_i}\cup \Delta_{k_i}) \cup \Delta = 
-        E_{k_N}\cup (\bigcup^N_{i=1}\Delta_{k_i})\cup \Delta$
+        $\overline{E} \subset \big(\bigcup^N_{i=1}E_{k_i}\cup \Delta_{k_i}\big) \cup \Delta = 
+        E_{k_N}\cup \big(\bigcup^N_{i=1}\Delta_{k_i}\big)\cup \Delta$
 
         $\displaystyle v(E) = v(\overline{E}) \le v(E_{k_N}) + \sum^N_{i=1}v(\Delta_{k_i}) + v(\Delta) \le
         \lim_{k\to\infty} v(E_k) + \sum^\infty_{k=1}\frac{\varepsilon}{2^k} + \varepsilon = 
@@ -212,7 +211,7 @@
         $f: E \to \R$ огр и п.в. непр.
 
         $| \int_E f - \int_{E_k} f | = | \int_{E\setminus E_k} f | \le 
-        \sup_E |f| \cdot v(E\setminus E_k) = (\sup_E |f |) \underbrace{(v(E) - v(E_k))}_{\to 0}$
+        \sup_E |f| \cdot v(E\setminus E_k) = (\sup_E |f |) \underbrace{\big(v(E) - v(E_k)\big)}_{\to 0}$
 
         $\implies \int_{E_k} f \underset{k\to\infty}{\to} \int_E f$
     \end{proof}
