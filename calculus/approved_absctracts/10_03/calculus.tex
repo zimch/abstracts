@@ -42,7 +42,7 @@
         \bigskip
         $$\rhimani E f = \rhimani \Pi f\cdot \chi_{E}$$
         \bigskip
-        $$\tilde f = f \cdot \charf{E}$$
+        $$\widetilde f = f \cdot \charf{E}$$
 
     \end{definition}
 
@@ -53,16 +53,16 @@
     \end{lemma}
 
     \begin{proof}
-        \par Необходимо доказать, что $\exists \rhimani \Pi \tilde{f}$
-        \par $\{\text{Точки разрыва} \ \tilde{f} \ \text{на} \ \Pi \} = \{\text{Точки разрыва} \ \tilde{f} \ \text{на} \ \Int E \} \cup \{\text{Точки разрыва} \ \tilde{f} \ \text{на} \ \delta E \} \cup \underbrace{\{\text{Точки разрыва} \ \tilde{f} \ \text{на} \ \Ext E \}}_{\emptyset}$
-        \par $\{\text{Точки разрыва} \ \tilde{f} \ \text{на} \ \Pi \} \subset \{\text{Точки разрыва} \ f \ \text{на} \ \Int E \} \cup \delta E$
-        \par $\mu(\{\text{Точки разрыва} \ \tilde{f} \ \text{на} \ \Pi \}) = 0$ - по критерию Лебега существует интеграл 
+        \par Необходимо доказать, что $\exists \rhimani \Pi \widetilde{f}$
+        \par $\{\text{Точки разрыва} \ \widetilde{f} \ \text{на} \ \Pi \} = \{\text{Точки разрыва} \ \widetilde{f} \ \text{на} \ \Int E \} \cup \{\text{Точки разрыва} \ \widetilde{f} \ \text{на} \ \delta E \} \cup \underbrace{\{\text{Точки разрыва} \ \widetilde{f} \ \text{на} \ \Ext E \}}_{\varnothing}$
+        \par $\{\text{Точки разрыва} \ \widetilde{f} \ \text{на} \ \Pi \} \subset \{\text{Точки разрыва} \ f \ \text{на} \ \Int E \} \cup \delta E$
+        \par $\mu(\{\text{Точки разрыва} \ \widetilde{f} \ \text{на} \ \Pi \}) = 0$ - по критерию Лебега существует интеграл 
     \end{proof}
 
     \begin{definition}
         \par $E$ - ограничено, $\mu(\delta E) = 0$
         \par $\exists \Pi \in \R^n$ - п/п: $E \in \Pi$
-        $$\upsilon(E) = \rhimani E 1 = \rhimani \Pi \charf{E} \text{- Жорданов объём}$$ 
+        $$\upsilon(E) = \rhimani E 1 = \rhimani \Pi \charf{E} \textbf{ - Жорданов объём}$$ 
 
     \end{definition}
 
@@ -76,21 +76,21 @@
         $$U_1(x) = \urhimani{\Pi_2} f(x,y)dy$$
         $$ \text{Если } \ \exists \rhimani \Pi f, \text{то } \ \exists \rhimani{\Pi_1} L_1, \rhimani{\Pi_1} U_1 \ \text{и они равны}$$
         $$\rhimani{\Pi} f(x,y) dx dy = \rhimani{\Pi_1} L_1(x) dx = \rhimani{\Pi_1} U_1(x) dx$$
-        $$\rhimani{\Pi_1} dx (\lrhimani{\Pi_2} f(x,y) dy) = \rhimani{\Pi_1} dx (\urhimani{\Pi_2} f(x,y) dy)$$
+        $$\rhimani{\Pi_1} dx \Bigg(\lrhimani{\Pi_2} f(x,y) dy\Bigg) = \rhimani{\Pi_1} dx \Bigg(\urhimani{\Pi_2} f(x,y) dy\Bigg)$$
     \end{theorem}
 
     \begin{proof}
         \par Пусть $P_1$ - разбиение $\Pi_1$, $P_2$ - разбиение $\Pi_2$
         $$P = P_1 \times P_2 \ \text{- разбиение } \Pi$$ 
-        $$P = \{\pi_1 \times \pi_2 | \pi_1 \in P_1, \pi_2 \in P_2\}$$
-        $$L(f, P) = \sum\limits_{\pi \in P} inf_{\pi} f \cdot v(\pi) = \sum\limits_{\pi_1 \in P_1 \pi_2 \in P_2} inf_{\pi_1 \times \pi_2} f \cdot v(\pi_1) \cdot v(\pi_2) = \sum\limits_{\pi_1 \in P_1} \left[ \sum\limits_{\pi_2 \in P_2} inf_{\pi_1 \times \pi_2} f \cdot v(\pi_2) \right] \cdot v(\pi_1)$$
-        $$\forall x\in \pi_1: inf_{\pi_1 \times \pi_2} \le inf_{y \in \pi_2} f(x, y)$$
-        $$\sum\limits_{\pi_2 \in P_2} inf_{\pi_1 \times \pi_2} f \cdot v(\pi_2) \le \sum\limits_{\pi_2 \in P_2} inf_{y \in \pi_2} f(x,y) \cdot v(\pi_2) = L(f(x, \cdot), P_2) \le L_1 (x) - \text{ $L_1$ - sup таких сумм} $$
-        $$\sum\limits_{\pi_2 \in P_2} inf_{\pi_1 \times \pi_2} f \cdot v(\pi_2) \le inf_{\pi_1} L_1(x) = m_{\pi_1} L_1$$
+        $$P = \{\pi_1 \times \pi_2 \mid \pi_1 \in P_1, \pi_2 \in P_2\}$$
+        $$L(f, P) = \sum\limits_{\pi \in P} \inf_{\pi} f \cdot v(\pi) = \sum\limits_{\pi_1 \in P_1, \pi_2 \in P_2} \inf_{\pi_1 \times \pi_2} f \cdot v(\pi_1) \cdot v(\pi_2) = \sum\limits_{\pi_1 \in P_1} \left[ \sum\limits_{\pi_2 \in P_2} \inf_{\pi_1 \times \pi_2} f \cdot v(\pi_2) \right] \cdot v(\pi_1)$$
+        $$\forall x\in \pi_1: \inf_{\pi_1 \times \pi_2} f \le \inf_{y \in \pi_2} f(x, y)$$
+        $$\sum\limits_{\pi_2 \in P_2} \inf_{\pi_1 \times \pi_2} f \cdot v(\pi_2) \le \sum\limits_{\pi_2 \in P_2} \inf_{y \in \pi_2} f(x,y) \cdot v(\pi_2) = L\big(f(x, \cdot), P_2\big) \le L_1 (x) - \text{ $L_1$ - sup таких сумм} $$
+        $$\sum\limits_{\pi_2 \in P_2} \inf_{\pi_1 \times \pi_2} f \cdot v(\pi_2) \le \inf_{\pi_1} L_1(x) = m_{\pi_1} L_1$$
         $$L(f, P) \le \sum\limits_{\pi_1 \in P_1} m_{\pi_1} L_1 \cdot v(\pi_1) = L(L_1, P_1)$$
         $$U(f, P) \ge U(U_1, P) - \text{ аналогично}$$
-        $$L(f, P) \le L(L_1, P_1) \le U(L_1, P_1) \le U(U_1, P_1) \le U(f, P) \text{(*)} $$
-        $$L(f, P) \le L(L_1, P_1) \le L(U_1, P_1) \le U(U_1, P_1) \le U(f, P) \text{(**)}$$
+        $$L(f, P) \le L(L_1, P_1) \le U(L_1, P_1) \le U(U_1, P_1) \le U(f, P) \text{ (*)} $$
+        $$L(f, P) \le L(L_1, P_1) \le L(U_1, P_1) \le U(U_1, P_1) \le U(f, P) \text{ (**)}$$
 
         $$\exists \rhimani{\Pi} f \Rightarrow \sup_{P} L(f, P) = \inf_{P} U(f, P)$$
         $$\sup_{P_1} L(L_1, P_1) \le \inf_{P_1} U(L_1, P_1) - \text{Всегда}$$

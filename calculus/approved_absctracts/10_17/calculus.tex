@@ -23,7 +23,7 @@
         \]
     \end{theorem}
 
-    \begin{lemma} % тут нужно \overline сделать длинными%
+    \begin{lemma} % тут нужно \overline сделать длинными% done
         Пусть $G \subset \R^n$ открыто, $g : G \rightarrow \R^n$ гомеоморфизм
         \par $E \subset G : \overline E \subset G$. Тогда
         \par $g(\overline E) = \overline {g(E)}$
@@ -43,7 +43,7 @@
             g(x) \in g(\overline E) \Leftrightarrow x \in \overline E \Leftrightarrow g(x) \in \overline{g(E)}   
         \]
         \[
-            x \in \Int E \Leftrightarrow \exists \epsilon > 0 \ B_\epsilon(x) \subset E \Leftrightarrow \exists \delta > 0 : B_\delta(g(x)) \subset g(E) \Leftrightarrow   
+            x \in \Int E \Leftrightarrow \exists \epsilon > 0 \ B_\epsilon(x) \subset E \Leftrightarrow \exists \delta > 0 : B_\delta\big(g(x)\big) \subset g(E) \Leftrightarrow   
         \]
         \[
             \Leftrightarrow g(x) \in \Int g(E)    
@@ -73,31 +73,32 @@
         \par $\diam C_l < \frac{\delta}{2}$ \quad $\dist (\overline E, \delta G) = \delta$
 
         \[
-            \bigcup_{l=1}^N C_l \subset E^{\frac{\delta}{2}} = \{x \in \R^n \ | \ \dist (x, E) < \frac{\delta}{2}\} \subset \overline {E^{\frac{\delta}{2}}} \subset G  
+            \bigcup_{l=1}^N C_l \subset E^{\frac{\delta}{2}} = \{x \in \R^n \ | \ \dist (x, E) < \delta/2\} \subset \overline {E^{\frac{\delta}{2}}} \subset G  
         \]
         \[
             \forall x_1, x_2 \in E^{\frac{\delta}{2}} \ \|g(x_1) - g(x_2)\| \le M \cdot \|x_1 - x_2\| \quad \max_{\overline{E^{\frac{\delta}{2}}}} \|g'\| = M   
         \]
         \[
-            g(C_l) \subset B_{\frac{M \cdot \diam C_l}{2}} (g(x_l)) \subset \tilde C_l, \ l(\tilde C_l) = M \cdot \diam C_l    
+            g(C_l) \subset B_{M \cdot \diam C_l/2} \big(g(x_l)\big) \subset \widetilde C_l, \ l(\widetilde C_l) = M \cdot \diam C_l    
         \]
         \[
-            v(\tilde C_l) = (l(\tilde C_l))^n = M^n \cdot (\diam C_l)^n = M^n \Big(\frac{\diam C_l}{\sqrt{n}}\Big)^n (\sqrt{n})^n = (M\sqrt{n})^n v (C_l)    
+            v(\widetilde C_l) = \big(l(\widetilde C_l)\big)^n = M^n \cdot (\diam C_l)^n = M^n \Big(\frac{\diam C_l}{\sqrt{n}}\Big)^n (\sqrt{n})^n = (M\sqrt{n})^n v (C_l)    
         \]
         \[
-            g(E) \subset \bigcup_{l=1}^N \tilde C_l, \quad \sum_{l=1}^N \tilde C_l = (M\sqrt{n})^n \cdot \epsilon   
+            g(E) \subset \bigcup_{l=1}^N \widetilde C_l, \quad \sum_{l=1}^N \widetilde C_l = (M\sqrt{n})^n \cdot \epsilon   
         \]
     \end{proof}
 
     \begin{remark}
-        В условие теоремы $\exists \rhimani{G} f \circ g |\det g'|$
+        В условии теоремы $\exists \rhimani{G} f \circ g |\det g'|$
     \end{remark}
     % ТУТ ПЕРЕДЕЛАТЬ КРАСИВО
     \begin{proof}
         $\supp f = \overline{\{y \in g(G) \ | \ f(y) \not = 0\}}$
         \par $\supp (f \circ g |\det g'|) = \supp f \circ g = \overline{\{x \in G \ | \ (f \circ g) (x) \not= 0\}}$
-        \par $g(\{x \in G \ | \ f \circ g \not = 0\}) = \{y \in g(G) \ | \ f(y) \not = 0\}$
-        \par $\xRightarrow[\text{л. 16}]{}$ замыкание совпалает
+        \par $g\big(\{x \in G \ | \ f \circ g \not = 0\}\big) = \{y \in g(G) \ | \ f(y) \not = 0\}$
+        \par $\xRightarrow[\text{л. 16}]{}$ замыкание совпадает
+        \par $ $
         \par $\supp (f \circ g |\det g'|)$ компактен
         \par $\sup_{\supp (f \circ g |\det g'|)} |\det g'| < \infty \Rightarrow f \circ g \cdot |\det g'|$ огр.
         \par $f$ п. в. непрерывно на $g(G) \xRightarrow[\text{л. 16}]{} f \circ g$ п. в. непрерывно на $G$
@@ -105,7 +106,7 @@
         \par Значит, $\exists \rhimani{G} f \circ g |\det g'|$
     \end{proof}
 
-    \begin{lemma} % ЛЕММА 13
+    \begin{lemma} % ЛЕММА 17
         $G \subset \R^n$ открыто, $g : G \rightarrow \R$ диффеоморфизм
         \par $\forall x \in G \ \exists$ окрестность $U \subset G$
         \[
@@ -113,7 +114,7 @@
         \]
         \par где $g_k$ -- простейший диффеоморфизм, т. е.
         \[
-            ((g_k)(x))_i = x_i, \quad \forall i \not= k, \quad i \text{ -- координата}  
+            \big((g_k)(x)\big)_i = x_i, \quad \forall i \not= k, \quad i \text{ -- координата}  
         \]
     \end{lemma}
     \begin{proof}
@@ -125,11 +126,11 @@
             \frac{\partial g}{\partial y} & \frac{\partial g}{\partial z} \\
             0 & I_{n-k}
         \end{pmatrix}$
-        \par $0 \not= \det g'(x_0) = \det \frac{\partial g}{\partial y} (x_O) \Rightarrow$ не все миноры порядка $k-1$ нулевые
+        \par $0 \not= \det g'(x_0) = \det \frac{\partial g}{\partial y} (x_0) \Rightarrow$ не все миноры порядка $k-1$ нулевые
         \par \quad перенумерацией компонентов добъемся того, чтобы главный минор был $\not= 0$
         \[
-            f : G \rightarrow \R^n \quad (f(x))_i = \begin{cases}
-                (g(x))_i, \ i < k \\
+            f : G \rightarrow \R^n \quad \big(f(x)\big)_i = \begin{cases}
+                \big(g(x)\big)_i, \ i < k \\
                 x_i, \ i \ge k
             \end{cases}    
         \]
@@ -151,10 +152,10 @@
         \par Для $f \ \exists$ окрестность $x_0$, в которой $f$ раскладывается в композицию простейших
         \par $u \in f(U)$
         \[
-            i < k \quad (h(u))_i = (g \circ f^{-1}(u))_i = (f \circ f^{-1}(u))_i = u_1
+            i < k \quad \big(h(u)\big)_i = \big(g \circ f^{-1}(u)\big)_i = \big(f \circ f^{-1}(u)\big)_i = u_1
         \]
         \[
-            i \ge k \quad (h(u))_i = (g \circ f^{-1}(u))_i = (f^{-1}(u))_i = u_i    
+            i \ge k \quad \big(h(u)\big)_i = \big(g \circ f^{-1}(u)\big)_i =\big(f^{-1}(u)\big)_i = u_i    
         \]
         \[
             (\underbrace{f(x)}_{=u})_i = x_i = (f^{-1}(u))_i, \quad i > k    
@@ -166,7 +167,7 @@
         \begin{lemma}[14']
             В условиях теоремы на $G$ и на $g$ при $n=1$ для $\forall f : g(G) \rightarrow \R$ огр. : $\supp f \subset g(G)$
             \[
-                \lrhimani{G} f \circ g |\det g'| = \lrhimani{g(G)} f, \urhimani{G} f \circ g |\det g'| = \urhimani{g(G)} f    
+                \lrhimani{G} f \circ g |\det g'| = \lrhimani{g(G)} f,\quad \urhimani{G} f \circ g |\det g'| = \urhimani{g(G)} f    
             \]
         \end{lemma}
     \end{lemma}
@@ -187,7 +188,7 @@
             \forall i \quad (g^{-1})'\big|_{[x_i - \epsilon_{x_i}, x_i + \epsilon_{x_i}]} \ \text{ имеет постоянный знак}    
         \]
         \[
-            g^{-1}([x_i - \epsilon_{x_i}, x_i + \epsilon_{x_i}]) \text{ -- отрезок} \Rightarrow \text{ достаточно доказать:}    
+            g^{-1}\big([x_i - \epsilon_{x_i}, x_i + \epsilon_{x_i}]\big) \text{ -- отрезок} \Rightarrow \text{ достаточно доказать:}    
         \]
         \[
             \rhimani{g([a, b])} g = \rhimani{[a, b]} f \circ g |\det g'|
@@ -201,24 +202,26 @@
         \textit{(кусок далее надо сделать красиво)}
 
         % ТУТ Я УСНУЛ
-        $P_y$ - разбиение $g([a,b]) \quad P_x = g^{-1}(P_y)'' = \{ g^{-1}(\pi) | \pi \in P_y\}$
+        $P_y$ - разбиение $g\big([a,b]\big), \quad P_x = g^{-1}(P_y)'' = \{ g^{-1}(\pi) \mid \pi \in P_y\}$
 
         $\min_{g[a,b]} | (g^{-1})'| \cdot d(P_y) \le d(P_x) \le \max_{g([a,b])} | (g^{-1})'| \cdot d(P_y)$
         
         $\sum_{\pi_y \in P_y}\sup_{\pi_y}f \cdot v(\pi_y) = 
-        \sum_{\pi_x \in P_x}\sup_{\pi_x} (f \circ g) |g'(\xi(\pi_x))| \cdot v(\pi_x)$
+        \sum_{\pi_x \in P_x}\sup_{\pi_x} (f \circ g) \cdot |g'\big(\xi(\pi_x)\big)| \cdot v(\pi_x)$
 
         $\pi_y = g(\pi_x)$   
 
         $v(\pi_y) = |g(\beta) - g(\alpha)| = |g'(\xi)| \cdot (\beta\alpha)$
 
-        прадалжаем неравенство (емае неправильное все стёр....) $\displaystyle\le \underbrace{\sup_{[a,b]}|g'|}_{<\infty} \sum_{\pi_x \in P_x}\sup_{\Pi_x}f\circ g \cdot v(\pi_x)$
+        прадалжаем неравенство (емае неправильное все стёр....) 
+        
+        $\displaystyle\le \underbrace{\sup_{[a,b]}|g'|}_{<\infty} \sum_{\pi_x \in P_x}\sup_{\Pi_x}f\circ g \cdot v(\pi_x)$
 
         $P_{x,k}:d(P_{x,k}) \to 0, k \to \infty$
 
         $P_{y,k}:d(P_{y,k}) \to 0, k \to \infty$
 
-        $\forall \pi_x \exists \xi(\pi_x) < \pi_x \quad v(\pi_y) = |g'(\xi(\pi_x))|\cdot v(\pi_x)$
+        $\forall \pi_x \ \exists \xi(\pi_x) < \pi_x \quad v(\pi_y) = |g'\big(\xi(\pi_x)\big)|\cdot v(\pi_x)$
         
         $U(f, P_{y,k}) \le \sum_{\pi_x \in P_x}\sup_{\pi_x}f\circ g |g'| \cdot v(\pi_x)
         = U(f\circ g |g'|, P_{x,k})
@@ -229,7 +232,7 @@
         $\overline\int_{g^{-1}g([a,b])}f\circ g |g'| \le \overline\int_{g([a,b])}f\circ g
         \circ g^{-1} | g' \circ g^{-1}|\cdot |g^{-1}|$
         
-        $\implies \overline\int_{g([a,b])}f = \overline\int_{[a,b]}f\circ g |g'|$
+        $\implies \overline\int_{g([a,b])}f = \overline\int_{[a,b]}f\circ g |\det g'|$
     \end{proof}
 
     \begin{proof}{(Теоремы)}

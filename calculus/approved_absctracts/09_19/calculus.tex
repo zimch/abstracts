@@ -236,10 +236,12 @@
         \end{cases}$
         \par Рассмотрим $p_{\epsilon, k} := \{\pi_1 \cap \pi_2, \ \pi_1 \in p_k, \pi_2 \in p_\epsilon\}$
         \[
-            L(f,p_k) - L(f, p_{\epsilon, k}) = \sum_{\pi'' \in p_k''} \inf_{\pi''} f v(\pi'') - \sum_{\begin{split}
-                \pi \in p_{\epsilon, k} \\
-                \pi \in \bigcup_{\pi'' \in p_k} \pi''
-            \end{split}} \inf_\pi f v(\pi) % ЧЕСТНО Я ХЗ КАК СДЕЛАТЬ ИНАЧЕ КРАСИВО ;(
+            L(f,p_k) - L(f, p_{\epsilon, k}) = \sum_{\pi'' \in p_k''} \inf_{\pi''} f v(\pi'') 
+            % - \sum_{\begin{split}
+            %     \pi \in p_{\epsilon, k} \\
+            %     \pi \in \bigcup_{\pi'' \in p_k} \pi''
+            % \end{split}} \inf_\pi f v(\pi) % ЧЕСТНО Я ХЗ КАК СДЕЛАТЬ ИНАЧЕ КРАСИВО ;(
+            - \underset{\pi \in \underset{\pi'' \in p_k}{\bigcup} \pi}{\sum_{\pi \in p_{\epsilon, k}}} \inf_\pi f v(\pi)
         \]
 
         $S(p_\epsilon)$ -- сумма площадей всех граней п-ов из $p_\epsilon$
@@ -248,10 +250,15 @@
             \sum_{\pi'' \in p_k''} v(\pi'') \le \mycontour{2} \cdot S(p_\epsilon) \cdot d(p_k) % ПЕРЕПРОВЕРИТЬ ПЖПЖ!    
         \]
         \[
-            \left|\sum_{\pi'' \in p_k''} v(\pi'')\right|, \left|\sum_{\begin{split}
-                \pi \in p_{\epsilon, k} \\
-                \pi \in \bigcup_{\pi'' \in p_k} \pi''
-            \end{split}} \inf_\pi f v(\pi) \right| \le
+            \left|\sum_{\pi'' \in p_k''} v(\pi'')\right|, 
+            % \left|\sum_{\begin{split}
+            %     \pi \in p_{\epsilon, k} \\
+            %     \pi \in \bigcup_{\pi'' \in p_k} \pi''
+            % \end{split}} \inf_\pi f v(\pi) \right| \le
+            \left|  
+                \underset{\pi \in \underset{{\pi'' \in p_k}}{\bigcup} \pi''}{\sum_{\pi \in p_{\epsilon, k}}}
+                \inf_\pi f v(\pi) 
+            \right| \le
         \]
         \[
             \sup_\pi |f| \cdot \sum_{\pi'' \in p_k''} v(\pi'') \le 2S(p_\epsilon) \cdot \sup_\pi |f| \cdot d(p_k) \xrightarrow[k \rightarrow \infty]{} 0   
