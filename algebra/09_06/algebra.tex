@@ -1,0 +1,194 @@
+\input{../../preamble.tex}
+
+\begin{document}
+    \title{Алгебра}
+    \date{6 сетнября 2022}
+    \maketitle
+
+    \pagebreak
+
+    \section*{Делимость в кольце многочленов}
+
+    $K$ -- поле
+    \par $K[x]$ -- кольцо многочленов
+
+    \subsection*{\S1 Наибольший общий делитель}
+
+    \begin{definition}
+        $f_1, \dots, f_m \in K[x]$
+        \par \quad $d \in K[x]$ -- НОД $f_1, \dots, d_m$, если выполняется 2 условия:
+        \begin{enumerate}
+            \item $d | f_1, \dots, d | f_m$
+            \item Если $\tilde d | f_1, \dots \tilde d | f_m$, то $\tilde d | d$
+        \end{enumerate}
+    \end{definition}
+
+    \begin{illustration}
+        $f_1 = \dots = f_m$
+        \par \quad Тогда $d = 0$
+    \end{illustration}
+
+    \begin{remark}[Обозначение]
+        \begin{align*}
+            d &= \text{НОД}(f_1, \dots, f_m) \\
+            &= \gcd (f_1, \dots, f_m) \\
+            &= (f_1, \dots, f_m)
+        \end{align*}
+    \end{remark}
+
+    \begin{remark}[Вопрос единственности]
+        $ $
+        \par \quad Пусть $d, \bar d$ -- два НОД$(f_1, \dots, f_m)$
+        \par \quad Тогда $\bar d | d$, но и $d | \bar d$
+        \par \quad $\Rightarrow \deg d = \deg \bar d$
+        \par \quad $\Rightarrow d = c \cdot \bar d, \ c \in K^*$
+        \par Тогда будем говорить, что $h$ и $g$ ассоциированы, если $h = cg, \ c \in K^*$
+    \end{remark}
+
+    \begin{theorem*}
+        $f_1, \dots, f_m \in K[x]$
+        \par \quad Тогда $\exists d = $ НОД$(f_1, \dots, f_m)$ и более того $\exists h_1, \dots h_m \in K[x]$:
+        \[
+            d = h_1 f_1 + \dots + h_m f_m    
+        \]
+    \end{theorem*}
+
+    \begin{proof}
+        $ $
+        \begin{enumerate}
+            \item $f_1 = \dots = f_m = 0$
+                \par Очевидно $0 = 1 \cdot 0 + \dots + 1 \cdot 0$
+            \item Среди $f_1, \dots, f_m$ есть хотя бы 1 ненулевой
+                \par Расмотрим $I = \{h_1 f_1 + \dots + h_m f_m \ | \ h_i \in K[x]\}$
+                \par Очевидно, что $f_1, \dots, f_m \in I$
+                \par $I$ содержит ненулевой многочлен наименьшей степени множества $I$
+                \par Пусть $d$ -- это ненулевой многочлен (из предположения)
+                \par Утверждается, что это и есть НОД$(f_1, \dots, f_m)$
+                \par $f_i = q_i d + r_i, \ \deg r_i < \deg d$
+                \par $r_i = f_i - q_i d$
+                \par $d = h_1 f_1 + \dots + h_m f_m, \ d \in I$
+                \par $r_i = -(h_1 q_i f_1) + \dots + (1 - h_i q_i) f_i + \dots + (-h_m q_m) f_m, \ r_i \in I$ % ВХАТАВУААК??
+                \par Так как $d$ -- ненулевой многочлен наименьшей степени в $I$
+                \par то $r_i = 0, \ f_i = q_i d, \ d | f_i$
+                \par $d = h_1 f_1 + \dots + h_m f_m$ \quad (т. к. $d \in I$)
+                \par $\tilde d | f_1, \dots, \tilde d | f_m$
+                \par $f_i = \tilde d_i \tilde q_i$
+                \par $d = \tilde d (h_1 \tilde q_1 + \dots h_m \tilde q_m)$
+                \par $\tilde d | d \Rightarrow d = $ НОД$(f_1, \dots, f_m)$
+                \par По выбору $d \in I \Rightarrow d$ допускает лин. представление
+        \end{enumerate}
+    \end{proof}
+
+    \subsection*{\S2 Алгоритм Евклида}
+
+    \begin{lemma}
+        $f, g, q \in K[x]$
+        \par \quad НОД$(f, g)$ = НОД$(f - qg, g)$
+    \end{lemma}
+
+    \begin{proof}
+        Пусть $d =$ НОД$(f, g)$
+        \par \quad $\tilde d =$ НОД$(f - qg, g)$
+        \par \quad $d | f, d | g \Rightarrow d | (f-qg)$
+        \par \quad $\Rightarrow d | \tilde d$ (т. к. $\tilde d$ -- НОД$(f - qg, g)$)
+        \par \quad $\tilde d | f - qg, \ \tilde d | f$
+        \par \quad $f = (f - qg) + qg$
+        \par \quad $\tilde d | f$
+        \par \quad $\tilde d$ -- общий делитель $f$ и $g$
+        \par \quad $\Rightarrow \tilde d | d$
+        \par \quad $\tilde d = cd, \ c \in K^*$
+    \end{proof}
+
+    \pagebreak
+    \textbf{\textit{Рассмотрим алгоритм:}}
+
+    \begin{align*}
+        &r_0 = f, \ r_1 = g \\
+        \boxed{=} \ &r_0 = q_1 r_1 + r_2, \ \deg r_2 < \deg r_1 \\
+        &\dots \\
+        &r_{i-1} = q_i r_i + r_{i+1}, \ \deg r_{i+1} < \deg r_i \\
+        &r_{n-2} = q_{n-1} r_{n-1} + r_{n}, \ \deg r_n < \deg r_{n-1} \\
+        &r_{n-1} = q_n r_n \\
+        &r_n \text{ -- последний ненулевой остаток}
+    \end{align*}
+
+    \par \quad Из $\boxed{=}$ : $r_{i+1} = r_{i-1} - q_i r_i$. По лемме: НОД$(r_{i-1}, r_i)$ = НОД$(r_{i+1}, r_i)$ = НОД$(r_i, r_{i+1})$
+
+    \begin{align*}
+        &\text{НОД}(r_0, r_1) = \\
+        &\text{НОД}(r_1, r_2) = \\
+        &\dots \\
+        &\text{НОД}(r_{n-1}, r_n) = r_n
+    \end{align*}
+
+    \subsection*{\S3 Взаимно простые}
+
+    \begin{definition}
+        $f_1, \dots, f_m \in K[x]$ взаимно простые, если
+        \[
+            \text{НОД}(f_1, \dots, f_m) = 1    
+        \]
+        \par (То есть общими делителями являются только ненулевые константы)
+    \end{definition}
+
+    \begin{remark}
+        Следует различать простоту и попарную простоту:
+        \par $f_1, \dots, f_m$ -- попарно просты, если $\forall i, \ j, \ i \not= j \ \ f_j$ и $f_i$ -- взаимно простые
+    \end{remark}
+
+    \begin{theorem}[Критерий взаимной простоты]
+        $ $
+        \par \quad $f_1, \dots, f_m \in K[x]$ взаимно просты $\Leftrightarrow$
+        \par \quad $\exists h_1, \dots, h_m \in K[x]$
+        \par \quad т. ч. $h_1 f_1 + \dots + h_m f_m = 1$
+    \end{theorem}
+
+    \begin{proof}
+        $ $
+        \begin{enumerate}
+            \item[$\Rightarrow$] 1 -- НОД. По т. \S1 допускает линейное представление
+            \item[$\Leftarrow$] $1 | f_1, \dots 1 | f_m$
+            \par Пусть $\tilde d$ -- какой-то общий делитель
+            \par $\tilde d | f_1, \dots, \tilde d | f_m$
+            \par $\Rightarrow \tilde d | 1$
+        \end{enumerate}
+    \end{proof}
+
+    \begin{theorem}
+        $f, g_1, \dots, g_m \in K[x]$
+        \par $f, g_i$ взаимно простые $\forall i = 1, \dots, m$
+        \par Тогда $f$ взаимно прост с $g_1 \cdot \ldots \cdot g_m$ % ТУТ КОМПОЗИЦИЯ или умножение ??
+    \end{theorem}
+
+    \begin{proof}
+        $f, g_1$ взаимно просты, тогда
+        \par $1 = f u_i + g_i v_i, \quad u_i, v_i \in K[x]$
+        \par $1 - f u_i = g_i v_i, \quad i = 1, \dots, m$
+        \[
+            \prod_{i=1}^m (1 - f u_i) = g_1 \cdot \ldots \cdot g_m \cdot v_1 \cdot \ldots \cdot v_m =
+        \]
+        \[
+            = 1 + f \cdot A % WHAT IS A
+        \]
+        \[
+            1 = f (-A) + g_1 \cdot \ldots \cdot g_m \cdot v_1 \cdot \ldots \cdot v_m
+        \]
+        \par $\Rightarrow$ по т. 1: $f$ и $g_1 \cdot \ldots \cdot g_m$ -- взаимно просты
+    \end{proof}
+
+    \begin{theorem}
+        $ $
+        \par \quad $f, g, h \in K[x]$
+        \par \quad $f | gh$ и $f$ и $g$ взаимно просты
+        \par \quad Тогда $f | h$
+    \end{theorem}
+
+    \begin{proof}
+        $\exists u, v \in K[x]$
+        \par \quad $f \cdot u + g \cdot v = 1$
+        \par \quad $fhu + ghv = 1$
+        \par \quad $\dots$
+        \par \quad $f \quad \quad f \Rightarrow f | h$  % Я ХЗ ЧТО У МЕНЯ ТУТ НАПИСАНО
+    \end{proof}
+
+\end{document}
