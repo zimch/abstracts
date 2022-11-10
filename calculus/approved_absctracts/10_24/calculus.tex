@@ -1,5 +1,5 @@
 \input{../../../preamble.tex}
-\parindent 0px
+% \parindent 0px
 
 \usepackage{amsfonts, amssymb, amsmath, mathtools, amsthm}  %% for math symbs
 \usepackage{mathrsfs}
@@ -9,22 +9,22 @@
 \setcounter{lemma}{19}
 
 \begin{document}
+    \null\hfill \boxed{\textbf{24 октября 2022}}
 
-    Доказали теорему в случае, когда ж - простейший диффеоморфизм 
-    
-    Докажем в случае, когда ж - композиция н простейших диффеоморфизмов
+    Мы доказали теорему в случае, когда $g$ - простейший диффеоморфизм.
+    Теперь докажем в случае, когда $g$ - композиция н простейших диффеоморфизмов.
     
     \begin{proof} (продолжение)
         
-        2. Пусть $g: G \to \R^n$ - композиция простейших диффеоморфизмов
+        \textbf{2.} Пусть $g: G \to \R^n$ - композиция простейших диффеоморфизмов
         
-        Индуция. Количество композиций: 
+        \texttt{Индукция} (количество композиций): 
         
-        $k=1$ - доказано на первом шаге
+        $k=1$  доказано на первом шаге.
 
-        Переход: верно для $k$, докажем для $k+1$
+        \texttt{Переход}: верно для $k$, докажем для $k+1$
 
-        $g = g_{k+1}\circ \underbrace{g_k \circ \dotsc \circ g_2 \circ g_1}_{h - \text{диффеоморфизм G и h(G)}}$
+        $g = g_{k+1}\circ \underbrace{g_k \circ \dotsc \circ g_2 \circ g_1}_{=h - \text{диффеоморфизм G и h(G)}}$
 
         $g_{k+1}$ - диффеоморфизм $h(G)$ и $g(G)$
 
@@ -32,13 +32,13 @@
 
         $f: g(G) \to \R $ огр. и п.в. непр.
 
-        $f\circ g_{k+1}:h(G) \to \R$ огр и (по первой лемме о мере ноль под диффеоморфизмом) и.в. непр.
+        $f\circ g_{k+1}:h(G) \to \R$ огр и (по первой лемме (№16) о мере ноль под диффеоморфизмом) п.в. непр.
 
-        $f\circ g_{k+1} |\det g_{k+1}'|$
+        $f\circ g_{k+1} |\det g_{k+1}'|$ % не пон к чему это
 
         $$\int_{g(G)} f \overset{1.}{=} \int_{h(G)} f \circ g_{k+1} | \det g_{k+1}'| \overset{\text{инд. предп.}}{=} $$
 
-        $$\int_G (f\circ g_{k+1} | \det g_{k+1}'|) \circ h |\det h'|$$
+        $$= \int_G \big(f\circ g_{k+1} | \det g_{k+1}'|\big) \circ h |\det h'|$$
 
         $$= \int_G \underbrace{f\circ g_{k+1}\circ h}_{f \circ g} \cdot | (\det g_{k+1}' \circ h |\det h')$$
 
@@ -46,7 +46,7 @@
 
         \par $ $
 
-        3. Общий случай
+        \textbf{3.} Общий случай
 
         $K = \text{supp}\big(f\circ g | \det g'|\big) \subset G \quad $
         $\text{dist}(\delta G, K) > 0$
@@ -121,7 +121,7 @@
     $\sup_{g([a,b])} f = M < \infty$ \quad $+ M \cdot \frac{w_{|g'|}(d(P_x))}{d(P_x)\to 0}(b-a)$  %CHE verh int fog|g'| sum sup fog|g'|v(p_x) foto 2
 
     \par $ $
-    \pagebreak
+    % \pagebreak
 
     \begin{corollary}
         Жорданов объем не меняется при движениях и поворотах и не зависит от выбора координат
@@ -135,9 +135,7 @@
         $$\int_{(g(E))} 1 = \int_E 1$$
     \end{corollary}
 
-    А как посчитать объем шара?
-
-    $v(B_R(0)) - ?$
+    А как посчитать объем шара? $v(B_R(0)) - ?$
 
     $\left(\begin{smallmatrix}
         x \\ y \\ z
@@ -221,7 +219,7 @@
 
         Если $\exists I \in \R \quad \forall \{ E \}^\infty_{k=1}$ - исчерпание $E: \forall k f|\underset{E_k}{ }$ огр. и п.в. непр.
 
-        $\int_{E_k} f \underset{k\to\infty}{\to} I$, то $\exists$ несобств. собиратель $\int_E f = I$
+        $\int_{E_k} f \underset{k\to\infty}{\to} I$, то $\exists$ \textbf{несобств. собиратель} $\int_E f = I$
     \end{definition}
 
     \begin{illustration}
@@ -269,7 +267,7 @@
 
         $\exists $ несобств. $\int_E g \implies \exists $ несобств. $\int_E |f|$ и $\int_E f$
 
-        $g$ - складываемая мажоранта % суммируемая
+        $g$ - \textbf{складываемая (суммируемая) мажоранта} % суммируемая
     \end{lemma}
 
     \begin{proof}
