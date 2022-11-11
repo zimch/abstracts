@@ -26,64 +26,69 @@
 	
 	$$F(x, y(x), y'(x), y''(x), \dotsc, y^{(n)}(x)) = 0$$ - обычное дифф уравнение $n$-ного порядка
 	
-	$$\frac{\delta F}{\delta y^{(n)}} \neq 0$$
+	$$\frac{\partial F}{\partial y^{(n)}} \neq 0$$
 
 Это был общий вид.\\
 Канонический вид:
 $$y^{(n)} = f(x,y,y',\dotsc,y^{(n-1)})$$
 
 второй закон ньютона: 
-\begin{align}
+
+$\begin{cases}
 m\vec{a} &= \vec{F} \\
 m\vec{X}''(t) &= \vec{F}(t, \vec{x}(t), \vec{x}'(t))
-\end{align}
+\end{cases}$
 это типичное дифф. уравнение
 
 Задача Коши:
 
 
 
-Теорема Пуанкаре: $\exists!$ решения задачи коши
-$$\begin{matrix}
-	y' = F(x,y) \text{ чета пусто непон}\\
+\textbf{Теорема Пикара:} $\exists!$ решения задачи Коши
+$$\begin{cases}
+	y' = f(x,y) \text{ чета пусто непон}\\
 	y(x_0) = y_0
-\end{matrix}$$
-$ y = \phi(x) - \text{чзх}$\\
+\end{cases}$$
+$ y = \varphi(x)$ - ищем такое решение 
+
 $(x_0, y_0) \in Int(X, Y)$\\
 1) $f \in C(\overline{X}, \overline{Y}), X, Y$ - области \\
-2) Функция Липшицева по y, равномерна по $x \in \overline{X}$
+2) Функция Липшицева по y, равномерна по $x \in \overline{X}$, если
+
 $\exists L>0: | f(x,y_1) - f(x,y_2)| \le L |y_1-y_2|$\\
 
-$$\int^{x}_{x_0} \cdot dt | y'(x) = f(x, y(x)) \implies \\ y(x)-y(x_0) = \int^x_{x_0} f(t, y(t))dt \implies y(x) = y_0 + \int^x_{x_0}f(t,y(t))dt$$
+\textit{Доказательство:}
+Возьмём интрегал от задачи Коши:
+$$\int^{x}_{x_0} y'(x) dt = \int^{x}_{x_0} f(x, y(x))dt \implies \\ y(x)-y(x_0) = \int^x_{x_0} f(t, y(t))dt \implies y(x) = y_0 + \int^x_{x_0}f(t,y(t))dt$$
 
-как решить последнюю 
-gbrfhjdtybt
-$$\{\phi_k\}^\infty_{k=0}$$
+Теперь решим после стрелочки вправо:
+
+$$\{\varphi_k\}^\infty_{k=0}$$
 $$
-\begin{matrix}
-\phi_0 =& y_0 \\
-\phi_1 =& y_0 + \int^x_{x_0}f(t, \phi_0(t))dt \\
+\begin{align}
+\varphi_0 =& y_0 \\
+\varphi_1 =& y_0 + \int^x_{x_0}f(t, \varphi_0(t))dt \\
 \dotsc \\
-\phi_m =& y_0 + \int^x_{x_0}f(t, \phi_{m-1}(t))dt \\
+\varphi_m =& y_0 + \int^x_{x_0}f(t, \varphi_{m-1}(t))dt \\
 \dotsc \\
-\end{matrix}$$
-$$ \phi_k \in C(\overline{X \sup K}), \phi_k \rightarrow^k \phi, k\to\infty
+\end{align}$$
+$$ \varphi_k \in C({\overline X \subset \overline K}), K - \text{компакт, } \varphi_k \overset{k}{\rightrightarrows } \varphi, k\to\infty
 $$
 
-$$\phi_0(x) + (\phi_1(x) - \phi_o(x)) + (\phi_2(x) - \phi_1(x)) + \dotsc = ? = \phi_0 + \sum^\infty_{k=1}(\phi_k - \phi_{k-1}) \le \text{ суммируемая мажоранта}
+$$\varphi_0(x) + \big(\varphi_1(x) - \varphi_0(x)\big) + \big(\varphi_2(x) - \varphi_1(x)\big) + \dotsc = ? = \varphi_0 + \sum^\infty_{k=1}(\varphi_k - \varphi_{k-1}) \le \text{ суммируемая мажоранта}
 $$
 чета про веерштраса и мажоранты
 посчитаем модуль разницы
 
 $$
-|\phi_m(x) - \phi_{m-1}(x)| \le \inf^x_{x_0} |f(t, \phi_{m-1}(t)) - f(t, \phi_{m-2}(t))|dt \le^{\text{липцевость} }
+\big|\varphi_m(x) - \varphi_{m-1}(x)\big| \le \int^x_{x_0} \big|f\big(t, \varphi_{m-1}(t)\big) - f\big(t, \varphi_{m-2}(t)\big)\big|dt \le^{\text{липшецевость} }
 $$
 
 $$
-x, x_o \in K - \text{ компакт}
+x, x_0 \in K - \text{ компакт}
 $$
 $$
-\le L \int^x_{x_0} |\phi{m-1}(t) - \phi_{m-2}(t) |dt \le 
+\le L \int^x_{x_0} \big|\varphi_{m-1}(t) - \varphi_{m-2}(t) \big|dt \le 
 $$
 
 по индукции предполгаем, что этот модуль не превосходит ...
@@ -92,101 +97,115 @@ $$
 M = \max_{x,y \in(\overline{X}, \overline{Y})} |f(x,y)|
 $$
 $$
-	\max_{x\in K} | \varphi_m(x) - \varphi_{m-1}(x)| \le \frac{ML^{m-1}(x-x_0)^m}{m!}
+	\max_{x\in K} \big| \varphi_m(x) - \varphi_{m-1}(x)\big| \le \frac{ML^{m-1}|x-x_0|^m}{m!}
 $$
 продолжение дела...
 $$
-\le L \int^x_{x_0}||dt \le \frac{ML^{m-2}L}{(m-1)!}\int^x_{x_0}|t-x_0|^{m-1}dt \le \frac{ML^{m-1}(x-x_0)^m}{m!}
+\le L \int^x_{x_0}\big| \varphi_m(x) - \varphi_{m-1}(x)\big|dt \le \frac{ML^{m-2}L}{(m-1)!}\int^x_{x_0}|t-x_0|^{m-1}dt \le \frac{ML^{m-1}|x-x_0|^m}{m!}
 $$
 
 База $|\varphi_1 - \varphi_0| \le \int^x_{x_0} |f(t, y_0)|dt$
 
 $$
-\varphi_0 + \sum^\infty_{k=1}(\varphi_k - \varphi{k-1}) \le \frac{M}{L}\sum^\infty_{m=1} \frac{L^m (x-x_0)^m}{m!} = |\varphi_0| + \frac{M}{L} (e^{L|x-x_0| - 1)}
+\varphi_0 + \sum^\infty_{k=1}(\varphi_k - \varphi_{k-1}) \le \frac{M}{L}\sum^\infty_{m=1} \frac{L^m |x-x_0|^m}{m!} = |\varphi_0| + \frac{M}{L} (e^{L|x-x_0|} - 1)
 $$
 
 $$
-\varphi_k(x) = y_0 + \int^x_{x_0} f(t, \varphi_{k-1}(t))dt \le M(x-x_0), k \to \infty
+\varphi_k(x) = y_0 + \int^x_{x_0} f\big(t, \varphi_{k-1}(t)\big)dt \le M|x-x_0|, k \to \infty
 $$
-перделим $\varphi_k(x)$ к $\varphi(x)$
+равномерно перделим $\varphi_k(x)$ к $\varphi(x)$:
 $$
-\varphi(x) = y_0 + \int^x_{x_0} f(t, \varphi(t))dt
+\varphi(x) = y_0 + \int^x_{x_0} f\big(t, \varphi(t)\big)dt
 $$
 чета по теореме Бэроу про переменный верхний пердел
-показали существование короче. осталась единственность.
+показали существование короче. 
+
+$y(x) = y_0 + \int^x_{x_0}f\big(t, y(t)\big)dt \mid \cdot \frac{d}{dx}$
+
+$\begin{cases}
+	y' = f\big(x, y(t)\big) \\ y(x_0) = y_0
+\end{cases}$
+
+осталась единственность.
 Положим, что есть два решения. $\varphi$  и $\psi$.
 $$
-\psi(x) = y_0 + \int^x_{x_0} f(t, \psi(t))dt
-\varphi(x) = y_0 + \int^x_{x_0} f(t, \varphi(t))dt
+\psi(x) = y_0 + \int^x_{x_0} f\big(t, \psi(t)\big)dt
+\varphi(x) = y_0 + \int^x_{x_0} f\big(t, \varphi(t)\big)dt
 $$
 
-$\displaystyle |\psi(x) - \varphi(x)| \\ |\psi(x) - \varphi_m(x)| \le \int^x_{x_0} |f(t, \psi(t)) - f(t, \varphi(t))|dt \le \frac{L^{}m-1(x-x_0)^m}{m!} \\
-база |\psi(x) - y_0| \le \int^x_{x_0}F(t, \psi(t))dt \le M|x-x_0| \to 0, m \to \infty
+$\displaystyle 
+|\psi(x) - \varphi(x)| \\
+\quad\qquad \upuparrows\\
+|\psi(x) - \varphi_m(x)| \le \int^x_{x_0} \Big|f\big(t, \psi(t)\big) - f\big(t, \varphi_{m-1}(t)\big)\Big|dt 
+\\\le L \int^x_{x_0}|\psi - \varphi_{m-1}|dt = M\frac{L^{m-1}|x-x_0|^m}{m!} \to 0 \\
+\text{база: } |\psi(x) - \varphi_0| \le \int^x_{x_0} \big| f\big(t, \psi(t)\big)dt \big| \le M|x-x_0| \to 0, m \to \infty
  $ \\
 
-докзали на комакте $K$. Он входит в некую окрестность точки $x_0$.\\
-// $M$ связно, если для любых двух открытых множеств $G_1, G_2$ и $M \in G_1 \cup G_2$ и $G_1 \cap G_2 \neq \emptyset$ 
-Следствие 1:\\ 
+ип: $| \psi - \varphi_m| \le \frac{L^m M |x-x_0|^{m+1}}{(m+1)!}$
+
+$\implies \psi = \varphi$
+
+докзали на компакте $K \subset U_\varepsilon(x_0)$. Он входит в некую окрестность точки $x_0$.\\
+// $M$ связно, если для любых двух открытых множеств $G_1, G_2$ и $M \in G_1 \cup G_2$ и $G_1 \cap G_2 \neq \varnothing$ 
+
+\textbf{Следствие 1:}\\ 
 Пусть $\overline{x} = [x_0-a, x_0+a]$, $\overline{y} = [y_0-b, y_0+b]$ - отрезки.\\
-$\exists$ пикаровский интервал $[x_0 - h, x_0 + h]$, $\varphi $ - решение задачи коши \\
+$\exists$ пикаровский интервал $[x_0 - h, x_0 + h]$, $\varphi $ - решение задачи Коши: \\
 $\forall x \in [x_0 +h, x_0-h], h = \min\{a, 
-frac{b}{M}\}$ \\
-$\varphi(x) = y_0 + \int^x_{x_0}f(t, \varphi(t))dt$\\
+\frac{b}{M}\}$ \\
+$\varphi(x) = y_0 + \int^x_{x_0}f\big(t, \varphi(t)\big)dt$\\
 
 $|\varphi(x) - y_0| \le M|x-x_0| \le b$\\\\
 
-Следствие 2:
-$\left\{
-\begin{matrix}
-\vec{y}'(x) = \vec{f}(x, \vec{y}(x))\\
+\textbf{Следствие 2:}
+
+$
+\begin{cases}
+\vec{y'}(x) = \vec{f}\big(x, \vec{y}(x)\big)\\
 \vec{y}(x_0) = \vec{y}^{(0)}
 
-\end{matrix} \right.$ \\
+\end{cases}$ \\
 
 $\vec{y}, \vec{f} \in \mathbb{R}^n$ \\
 
 $1.) \vec{f} \in C(\overline{X}, \overline{Y})\\
  2.) || \vec{f}(x, \vec{y}^{(1)} - \vec{f}(x, \vec{y}^{(2)}) || \le L|| \vec{y}^{(1)} - \vec{y}^{(2)} ||$\\\\
 
-Следствие 3:\\
-$\frac{\delta f}{\delta y}(x, y) \in C(\overline{Y}) \implies L = \max_{K \subset Y} |\frac{\delta f}{\delta y}|$\\\\
-
-Следствие 4:\\
-
-пусть условие липшевости выполнено независимо\\
+\textbf{Следствие 3:}\\
+$$\frac{\partial f}{\partial y}(x, y) \in C(\overline{Y}) \implies L = \max_{K \subset Y} \Big|\frac{\delta f}{\delta y}\Big|$$\\\\
+\textbf{Следствие 4:}\\
+пусть условие липшецевости выполнено независимо\\
 % вообще ниже три палочки мб описка хз
 
-$\forall a >0, ||\vec{y}|| < \infty \exists L_a = L$\\
+$\forall a >0, \|\vec{y}\| < \infty \ \exists L_a = L$\\
 
-$||f(x, \vec{y}^{(1)}) - f(x, \vec{y}^{(2)})|| \le L || \vec{y}^{(1)} - \vec{y}^{(2)} \implies \exists! \vec{\varphi}(x)||$, определенная на $[x_0 -a, x_0 + a]$\\
+$||f(x, \vec{y}^{(1)}) - f(x, \vec{y}^{(2)})|| \le L \| \vec{y}^{(1)} - \vec{y}^{(2)} \| \implies \exists! \vec{\varphi}(x)$, определенная на $[x_0 -a, x_0 + a]$\\
 
 Если же $L_a = L(a) \quad \forall \vec{y} \in \mathbb{R}$, то вообще говоря не всякое решение продолжимо, даже на отрезке $[x_0-a, x_0+a]$ \\
 
 
 Непрерывная зависимость решения задачи Коши
 % че бл y_m нихкиx m \implies y (x) m m 
+
 $
-\left\{
-\begin{matrix}
+\begin{cases}
 y' = f(x, y_1) \\
 y(x_0) = m
- 
-\end{matrix}
-\right.
+
+\end{cases}
 $\\
-$ z = y - m \implies \left\{
-\begin{matrix}
+$ z = y - m \implies
+\begin{cases}
 z' = f(x, z+m) \\ z(x_0) = 0
-\end{matrix} \right.
+\end{cases}
  = f(x,z,m)
 $ 
 
-Теорема:\\
-
-$\left\{
-\begin{matrix}
+\textbf{Теорема:}\\
+$
+\begin{cases}
 y' = f(x, y, m)\\ y(x_0) = y_0
-\end{matrix}\right.
+\end{cases}
 $\\
 
 1. $f(x,y,m) \in C(\overline{D}), \overline{D} = \{ |x-x_0| \le y, |y-y_0| \le b, |m - m_0 \le c| \} $\\
