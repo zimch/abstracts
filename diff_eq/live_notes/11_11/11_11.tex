@@ -1,0 +1,190 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+\usepackage{amsfonts, amssymb, amsmath}  %% for math symbs
+\usepackage{mathrsfs}
+\usepackage{float}  %% for table floating
+\usepackage{enumerate} %% for lists
+
+\usepackage{fullpage}  %% less margin 
+
+\usepackage{graphicx} %% for pics
+\usepackage{amsthm, amsmath, amsfonts, amssymb, mathtools}
+
+\parindent 0px  % no white space in new lines
+% \baselinestretch{1.5}
+\renewcommand{\baselinestretch}{1.3} 
+
+%% titling
+\title{Hello world} 
+\author{Lindy2076}
+\date{22.22.2} %%\today
+
+\begin{document}
+
+    Можно ли поставить краевую задачу на бесконечном промежутке?
+
+    \textbf{\large Краевая задача на бесконечности}
+
+    Какие же краевые условия можно поставить? Что мы хотим?
+
+    $\begin{cases}
+        \dot{\vec{x}} = P(t)\vec{x} + \vec{q}(t), & t \in (-\infty, +\infty), \quad P(t), \vec{q}(t) \in C(\mathbb{R})\\
+        \big| \vec{x}(\pm \infty) \big| \le k < \infty
+    \end{cases}$
+    
+    Какие условия разрешимости задачи???
+
+    Пусть единственным ограниченным решением однородной задачи
+
+    $\begin{cases}
+        \dot{\vec{x}} = P(t)\vec{x} \\
+        \big| \vec{x}(\pm\infty) \big| < \infty
+    \end{cases}$
+
+    является $\vec{x} \equiv 0$.
+
+    Подпространства пространства решений:
+
+    $X_1 = \{ \dot{\vec{\phi}}(t) : \dot{\vec{\phi}}= P(t)\vec{\phi}, \, |\vec{\phi}(-\infty)| \le k \}$
+
+    $X_2 = \{\dot{\vec{\phi}}(t): \dot{\vec{\phi}} = P(t) \vec{\phi}, \, |\vec\phi(+\infty) | \le k\}$
+    
+    {\small\textit{(Это условие исключает рисунок центр)}}
+
+    $\implies$ любое решение $\vec{x} = \vec{\Phi}(t)\vec{c} \in X_1 \oplus X_2, X_1 \cap X_2 = \varnothing $
+
+    $\implies \dim X_1 + \dim X_2 = n$  - дихотомия \big($P(t) = A \iff \mathbb{R}\lambda_j \neq 0$\big)
+
+    $\dim X_1 = m$
+    
+    Вектор начальных условий можно разбить: $\vec{c} = \vec{c_1} + \vec{c_2}$
+
+    Введём линейный оператор $\Gamma: \Phi(t)C \to \Phi(t)C_1$ -- проектор($\Gamma|_{x_1} = I, \Gamma|_{x_2} = 0$)
+
+    $\Gamma^2 = I$
+
+    $\Gamma(\vec{c}) = \vec{c_1}$
+
+    $(I - \Gamma)(\vec{c}) = \vec{c_2} \qquad (I - \Gamma)|_{x_2} = I, (I - \Gamma)|_{x_1} = 0$
+
+    \par $ $
+
+    \textbf{\large Функция Грина, заданная на $(-\infty, +\infty)$:}
+    
+    $G(t,S) = \begin{cases}
+        -\Phi(t)\Gamma\Phi^{-1}(S), & t < S \\
+        \Phi(t)(I-\Gamma)\Phi^{-1}(S) & S < t
+    \end{cases}$  
+
+    {\tiny(тут рисунок диагонали какой-то(видимо третье свойство))}
+
+    3 условие: $G(s + o, s) - G(s-0, s) = \Phi(s)(I-\Gamma)\Phi^{-1}(s) - \big( -\Phi(s)\Gamma\Phi^{-1}(s) \big) = \Phi(s)\Phi^{-1}(s) = I$
+
+    Наша функция Грина удовлетворяет условиям функции Грина. Надо писать ответ.
+    
+    * Кстати, частный случай. Пусть $\dim X_1 = n, \dim X_2 = 0$. Тогда функция Грина выглядит так:
+    $G(t, s) = \begin{cases}
+        -\Phi(t)\Phi^{-1}(s), & t < s \\
+        0, & s < t
+    \end{cases}$
+
+    * $P(t) = A, A = S \text{diag}\{A^-, A^+\}S, \quad A^-: \mathbb{R}\lambda_j < 0, \ A^+: \mathbb{R}\lambda_j > 0$
+
+    $m$ - число $\lambda_j, \mathbb{R}\lambda_j > 0$
+
+    % $X_1 = \begin{bordermatrix}
+    %     \vdots \ m \cr 0\ n-m
+    % \end{bordermatrix}$
+    $X_2 = \begin{pmatrix}
+        0 \ m \\ \vdots\ n-m
+    \end{pmatrix}$
+
+    % $\Gamma = \begin{pmatrix}[ccc|c]
+    %     1 & & 0 & 0\\ 0 & \ddots & \vdots & 0\\ 0 &\cdots & 1 & 0
+    % \end{pmatrix}$ %пизд верхний левый блок - единичная матрица, остальные три - нули
+
+    $\Gamma$ - блочная матрица из 4 блоков с левым верхним единицей. 
+
+    $S^{-1}G(t, s)S =\begin{cases}
+        \text{diag}\{ 0_{n-m}, -e^{(t-s)A^+} \} \\ 
+        \text{diag}\{e^{(t-s)A^-, 0_m}\}
+    \end{cases} $
+    
+    \par $ $
+    
+    \textbf{Теорема о существовании ограниченного решения}
+
+    $A = \text{diag}\{A^-, A^+\}, \quad \| \vec{q}(t) \| \le k < \infty, \ \forall t \in \mathbb{R} $
+
+    $\implies \exists!$ ограниченное решение $\vec{x}(t) = \int^{+\infty}_{-\infty}G(t,s)\vec{q}(s)ds$
+
+    \textit{D.} $\vec{x}(t) = \int^t_{-\infty} G(t,s)\vec{q}(s)ds + \int^{+\infty}_t G(t,s)\vec{q}(s)ds$
+
+    Первый интрегал живёт в $X_2$, второй в $X_1$
+
+    $\vec{x}(t) = \vec{y}(t) + \vec{z}(t), \quad \vec{y} = \left(\begin{smallmatrix}
+        y_1 \\ \vdots \\ y_m \\ 0 \\ \vdots \\ 0
+    \end{smallmatrix}\right), \vec{z} = \left(\begin{smallmatrix}
+        0 \\ \vdots \\ 0 \\ z_{n-m+1} \\ \vdots \\ z_n
+    \end{smallmatrix}\right)$
+
+    Первый интрегал равен $\vec y(t)$, второй $\vec{z}(t)$
+
+    $\|y\| = \| \int^t_{-\infty}G(t,s)\vec{q}(s)ds \| \le k \int^t_{-\infty} \| e^{(t-s)A^-} \| ds \le (*) $
+
+    $\| A \| = \max_{\lambda \in \sigma(A)} |\lambda_j|$
+
+    $\| e^A \| =\max |e^{\lambda_j}|$
+
+    $\| e^{sA^-} \| \le e^{-\rho \min |\mathbb{R}\lambda_j|}, \quad \min |\mathbb{R}\lambda_j| = \widehat{\lambda}$
+
+    $\le (*) = k\int^t_{-\infty}e^{-(t-s)\widehat{\lambda}}ds = \frac{k}{\widehat{\lambda}}e^{-(t-s)\widehat{\lambda}} \Big|^{s=t-0}_{s=\infty} = \frac{k}{\widehat{\lambda}} < \infty \ \forall t$
+
+    $\implies \| y(t) \| < \infty$ 
+
+    \par $ $
+
+    \textbf{\large Устойчивость}
+
+    Дифференцируемость решения по начальным данным и параметрам (непрерывность уже есть)
+
+    Пусть есть линейная система $\dot{\vec{x}} = \vec f(t,\vec{x}, \vec{\mu})$
+
+    Должны существовать производные по правой части $\exists \frac{\partial F}{\partial \vec x}, \frac{\partial F}{\partial \vec\mu} \in C(G_\mu)$
+
+    $G_\mu = \{ \text{прям произв области разрешимости }D_\mu \times \Omega_\mu \}$
+
+    $G_i = \{ (t,x): (t,x, \mu) \in G_\mu \}$ область однозначной разрешимости 
+
+    $D_\mu = \{(t, t_0, \vec{x_0}, \mu) : (t_0, x_0, \mu) \in G_\mu, t \in I(t_0, x_0, \mu)\}$
+
+    Существует решение $X$, т.к. начальные данные из области разрешимости:
+
+    1. $X(t, t_0, \vec{x_0}, \mu) : D_\mu \to \mathbb{R}, \vec{x} \in C(D_\mu)$
+    
+    2. $\exists \frac{\partial x}{\partial t}, \frac{\partial x}{\partial t_0}, \frac{\partial x}{\partial \vec{x_0}}, \frac{\partial x}{\partial \mu} \in C(D_\mu)$
+
+    3. При этом по $t \frac{\partial x}{\partial \vec{x_0}}$ является нормированной по I при $t=t_0$ фундаментальной матрицы следующей системы лду:
+
+    $\dot{\vec{y}} = \frac{\partial \vec F}{\partial \vec{x}}\big(t, X(t, t_0, x_0, \mu), \mu\big)\vec{y}$
+
+    4. $\frac{\partial x}{\partial \mu}$ по $t$ тоже решение неоднородной системы лду следующего вида:
+
+    $\dot{\vec{y}} = \frac{\partial \vec{F}}{\partial \vec{x}}\big(t, \vec{x}(t, t_0, x_0, \mu), \mu\big)\vec{y} + \frac{\partial F}{\partial \mu}\big(t, \vec{x}(t, t_0, x_0, \mu), \mu\big)$
+
+    \textit{Замечание 1:} условия 3., 4. имеют собственные имена: дифф уравнения в вариациях.
+    
+    \textit{Замечание 2:} $\dot{\vec{x}} \equiv f(t, \vec{x}(t, t_0, x_0, \mu),\mu) \big | \cdot \frac{\partial }{\partial \vec{x}}$ 
+
+    $\frac{\partial \dot{\vec{x}}}{\partial \vec{x_0}} = \frac{\partial f }{\partial \vec{x}}\cdot \frac{\partial \vec{x}}{\partial \vec{x_0}} \implies 3.$ % на что-то дейтвует д по д мю
+
+    $\frac{\partial \dot{\vec{x}}}{\partial \mu} = \frac{\partial f}{\partial \vec{x}} \frac{\partial \vec{x}}{\partial \mu} + \frac{\partial F}{\partial \mu}$ 4.
+    
+
+
+
+
+\end{document}
