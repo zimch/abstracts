@@ -71,20 +71,20 @@ $$
 \varphi_m =& y_0 + \int^x_{x_0}f(t, \varphi_{m-1}(t))dt \\
 \dotsc \\
 \end{align}$$
-$$ \varphi_k \in C({\overline X \subset \overlineK}), K - \text{компакт, } \varphi_k \overset{k}{\rightrightarrows } \varphi, k\to\infty
+$$ \varphi_k \in C({\overline X \subset \overline K}), K - \text{компакт, } \varphi_k \overset{k}{\rightrightarrows } \varphi, k\to\infty
 $$
 
-$$\varphi_0(x) + (\varphi_1(x) - \varphi_o(x)) + (\varphi_2(x) - \varphi_1(x)) + \dotsc = ? = \varphi_0 + \sum^\infty_{k=1}(\varphi_k - \varphi_{k-1}) \le \text{ суммируемая мажоранта}
+$$\varphi_0(x) + \big(\varphi_1(x) - \varphi_0(x)\big) + \big(\varphi_2(x) - \varphi_1(x)\big) + \dotsc = ? = \varphi_0 + \sum^\infty_{k=1}(\varphi_k - \varphi_{k-1}) \le \text{ суммируемая мажоранта}
 $$
 чета про веерштраса и мажоранты
 посчитаем модуль разницы
 
 $$
-|\varphi_m(x) - \varphi_{m-1}(x)| \le \inf^x_{x_0} |f(t, \varphi_{m-1}(t)) - f(t, \varphi_{m-2}(t))|dt \le^{\text{липцевость} }
+|\varphi_m(x) - \varphi_{m-1}(x)| \le \int^x_{x_0} |f(t, \varphi_{m-1}(t)) - f(t, \varphi_{m-2}(t))|dt \le^{\text{липшецевость} }
 $$
 
 $$
-x, x_o \in K - \text{ компакт}
+x, x_0 \in K - \text{ компакт}
 $$
 $$
 \le L \int^x_{x_0} |\varphi{m-1}(t) - \varphi_{m-2}(t) |dt \le 
