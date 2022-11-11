@@ -33,10 +33,11 @@
 $$y^{(n)} = f(x,y,y',\dotsc,y^{(n-1)})$$
 
 второй закон ньютона: 
-\begin{align}
+
+$\begin{cases}
 m\vec{a} &= \vec{F} \\
 m\vec{X}''(t) &= \vec{F}(t, \vec{x}(t), \vec{x}'(t))
-\end{align}
+\end{cases}$
 это типичное дифф. уравнение
 
 Задача Коши:
@@ -149,7 +150,7 @@ $\implies \psi = \varphi$
 
 \textbf{Следствие 1:}\\ 
 Пусть $\overline{x} = [x_0-a, x_0+a]$, $\overline{y} = [y_0-b, y_0+b]$ - отрезки.\\
-$\exists$ пикаровский интервал $[x_0 - h, x_0 + h]$, $\varphi $ - решение задачи коши: \\
+$\exists$ пикаровский интервал $[x_0 - h, x_0 + h]$, $\varphi $ - решение задачи Коши: \\
 $\forall x \in [x_0 +h, x_0-h], h = \min\{a, 
 \frac{b}{M}\}$ \\
 $\varphi(x) = y_0 + \int^x_{x_0}f\big(t, \varphi(t)\big)dt$\\
@@ -171,44 +172,40 @@ $1.) \vec{f} \in C(\overline{X}, \overline{Y})\\
  2.) || \vec{f}(x, \vec{y}^{(1)} - \vec{f}(x, \vec{y}^{(2)}) || \le L|| \vec{y}^{(1)} - \vec{y}^{(2)} ||$\\\\
 
 \textbf{Следствие 3:}\\
-$$\frac{\delta f}{\delta y}(x, y) \in C(\overline{Y}) \implies L = \max_{K \subset Y} |\frac{\delta f}{\delta y}|$$\\\\
-
+$$\frac{\partial f}{\partial y}(x, y) \in C(\overline{Y}) \implies L = \max_{K \subset Y} \Big|\frac{\delta f}{\delta y}\Big|$$\\\\
 \textbf{Следствие 4:}\\
-
-пусть условие липшевости выполнено независимо\\
+пусть условие липшецевости выполнено независимо\\
 % вообще ниже три палочки мб описка хз
 
-$\forall a >0, ||\vec{y}|| < \infty \exists L_a = L$\\
+$\forall a >0, \|\vec{y}\| < \infty \ \exists L_a = L$\\
 
-$||f(x, \vec{y}^{(1)}) - f(x, \vec{y}^{(2)})|| \le L || \vec{y}^{(1)} - \vec{y}^{(2)} \implies \exists! \vec{\varphi}(x)||$, определенная на $[x_0 -a, x_0 + a]$\\
+$||f(x, \vec{y}^{(1)}) - f(x, \vec{y}^{(2)})|| \le L \| \vec{y}^{(1)} - \vec{y}^{(2)} \| \implies \exists! \vec{\varphi}(x)$, определенная на $[x_0 -a, x_0 + a]$\\
 
 Если же $L_a = L(a) \quad \forall \vec{y} \in \mathbb{R}$, то вообще говоря не всякое решение продолжимо, даже на отрезке $[x_0-a, x_0+a]$ \\
 
 
 Непрерывная зависимость решения задачи Коши
 % че бл y_m нихкиx m \implies y (x) m m 
+
 $
-\left\{
-\begin{matrix}
+\begin{cases}
 y' = f(x, y_1) \\
 y(x_0) = m
- 
-\end{matrix}
-\right.
+
+\end{cases}
 $\\
-$ z = y - m \implies \left\{
-\begin{matrix}
+$ z = y - m \implies
+\begin{cases}
 z' = f(x, z+m) \\ z(x_0) = 0
-\end{matrix} \right.
+\end{cases}
  = f(x,z,m)
 $ 
 
-Теорема:\\
-
-$\left\{
-\begin{matrix}
+\textbf{Теорема:}\\
+$
+\begin{cases}
 y' = f(x, y, m)\\ y(x_0) = y_0
-\end{matrix}\right.
+\end{cases}
 $\\
 
 1. $f(x,y,m) \in C(\overline{D}), \overline{D} = \{ |x-x_0| \le y, |y-y_0| \le b, |m - m_0 \le c| \} $\\
