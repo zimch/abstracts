@@ -43,47 +43,49 @@ m\vec{X}''(t) &= \vec{F}(t, \vec{x}(t), \vec{x}'(t))
 
 
 
-Теорема Пикара: $\exists!$ решения задачи коши
+Теорема Пикара: $\exists!$ решения задачи Коши
 $$\begin{cases}
-	y' = F(x,y) \text{ чета пусто непон}\\
+	y' = f(x,y) \text{ чета пусто непон}\\
 	y(x_0) = y_0
 \end{cases}$$
-$ y = \phi(x) - \text{чзх}$\\
+$ y = \varphi(x)$ - ищем такое решение 
+
 $(x_0, y_0) \in Int(X, Y)$\\
 1) $f \in C(\overline{X}, \overline{Y}), X, Y$ - области \\
-2) Функция Липшицева по y, равномерна по $x \in \overline{X}$
+2) Функция Липшицева по y, равномерна по $x \in \overline{X}$, если
+
 $\exists L>0: | f(x,y_1) - f(x,y_2)| \le L |y_1-y_2|$\\
 
 $$\int^{x}_{x_0} \cdot dt | y'(x) = f(x, y(x)) \implies \\ y(x)-y(x_0) = \int^x_{x_0} f(t, y(t))dt \implies y(x) = y_0 + \int^x_{x_0}f(t,y(t))dt$$
 
 как решить последнюю 
 gbrfhjdtybt
-$$\{\phi_k\}^\infty_{k=0}$$
+$$\{\varphi_k\}^\infty_{k=0}$$
 $$
 \begin{matrix}
-\phi_0 =& y_0 \\
-\phi_1 =& y_0 + \int^x_{x_0}f(t, \phi_0(t))dt \\
+\varphi_0 =& y_0 \\
+\varphi_1 =& y_0 + \int^x_{x_0}f(t, \varphi_0(t))dt \\
 \dotsc \\
-\phi_m =& y_0 + \int^x_{x_0}f(t, \phi_{m-1}(t))dt \\
+\varphi_m =& y_0 + \int^x_{x_0}f(t, \varphi_{m-1}(t))dt \\
 \dotsc \\
 \end{matrix}$$
-$$ \phi_k \in C(\overline{X \sup K}), \phi_k \rightarrow^k \phi, k\to\infty
+$$ \varphi_k \in C(\overline{X \sup K}), \varphi_k \rightarrow^k \varphi, k\to\infty
 $$
 
-$$\phi_0(x) + (\phi_1(x) - \phi_o(x)) + (\phi_2(x) - \phi_1(x)) + \dotsc = ? = \phi_0 + \sum^\infty_{k=1}(\phi_k - \phi_{k-1}) \le \text{ суммируемая мажоранта}
+$$\varphi_0(x) + (\varphi_1(x) - \varphi_o(x)) + (\varphi_2(x) - \varphi_1(x)) + \dotsc = ? = \varphi_0 + \sum^\infty_{k=1}(\varphi_k - \varphi_{k-1}) \le \text{ суммируемая мажоранта}
 $$
 чета про веерштраса и мажоранты
 посчитаем модуль разницы
 
 $$
-|\phi_m(x) - \phi_{m-1}(x)| \le \inf^x_{x_0} |f(t, \phi_{m-1}(t)) - f(t, \phi_{m-2}(t))|dt \le^{\text{липцевость} }
+|\varphi_m(x) - \varphi_{m-1}(x)| \le \inf^x_{x_0} |f(t, \varphi_{m-1}(t)) - f(t, \varphi_{m-2}(t))|dt \le^{\text{липцевость} }
 $$
 
 $$
 x, x_o \in K - \text{ компакт}
 $$
 $$
-\le L \int^x_{x_0} |\phi{m-1}(t) - \phi_{m-2}(t) |dt \le 
+\le L \int^x_{x_0} |\varphi{m-1}(t) - \varphi_{m-2}(t) |dt \le 
 $$
 
 по индукции предполгаем, что этот модуль не превосходит ...
