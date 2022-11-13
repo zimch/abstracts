@@ -240,8 +240,36 @@
             \par Индукция по $m$:
             \par \quad База $m = 0 \quad f = c = eg_1 \dots g_m \quad \deg f = 0 \Rightarrow n = 0 \Rightarrow c = e$
             \par \quad Индкционный переход: $m \ge 1$ \quad $h_m | eg_1 \dots g_m \quad \boxed{*}$
+            \par \quad Неприводимые либо ассоциированы, либо взаимно простые.
+            \par \quad Если $h_m$ не ассоциирован ни с одним из $g_1, \dots, g_m$, то $h_m$ взаимно прост с $g_1, \dots, g_m$,
+            а значит $h_m$ взаимно прост с $eg_1 \cdot \ldots \cdot g_m$ (Т. 2)
+            \par \quad $\rightarrow$ но многочлен не может делить и быть взаимно простым $\rightarrow$ что противоречит $\boxed{*}$ % ВОТ ТУТ Я ЧЕТА НИПООН
+            \par \quad (т. к. из $\boxed{*}$ следует, что $K^* \not \ni h_m = $ НОД$(h_m, eg_1 \cdot \ldots \cdot g_m)$)
+            \par \quad $\Rightarrow \exists i : h_m$ ассоциируется с $g_i$. НУО $i = n$
+            \par \quad т. к. $h_m, g_n$ со старшем коэффициентом $1$, из ассоциированности следует, что $h_m = g_n$
+            \[
+                ch_1 \cdot \ldots \cdot h_m = eg_1 \cdot \ldots \cdot g_n    
+            \]
+            \[
+                ch_1, \cdot \ldots \cdot h_{m-1} = eg_1 \cdot \ldots \cdot g_{n-1}
+            \]
+            \par \quad По индукционному предположению: $m-1 = n-1, \ c = e$ и после перенумерации:
+            \[
+                g_1 = h_1, \dots, = g_{m-1} = h_{m-1} \Rightarrow m = n \text{ и } g_m = h_m    
+            \]
         \end{enumerate}
     \end{proof}
 
+    \subsection*{\S5 Алгебраически замкнутые поля}
+
+    \par $K[x]$
+    \par $x - a, \ a \in K$ всегда неприводимые
+
+    \begin{illustration*}
+        $x^2 + 1$ неприводим над $\R$
+        \par \quad $x^3 + x^2 + 1, \ x^3 + x + 1, \ x^2 + x + 1$ неприводимы над $\mathbb{F}_2$
+    \end{illustration*}
+
+    \par Для многочленов степени $2$ и $3$ из отсутствия корней следует неприводимость
 
 \end{document}
