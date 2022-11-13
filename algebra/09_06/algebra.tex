@@ -209,8 +209,39 @@
     \par \quad $f$ неприводим, если его делители -- это в точности константы и ассоциированные с $f$ (полный аналог простых)
 
     \begin{theorem}[ОТА]
-        
+        $ $
+        \par \quad $0 \not = f \in K[x]$
+        \par \quad Тогда $\exists c \in K^*$ и неприводимые $h_1, \dots, h_m$ со старшим коэффициентом $1$ таким, что
+        \[
+            f = c \cdot h_1 \cdot \ldots \cdot h_m \quad (m \ge 0)    
+        \]
+        \par \quad $c$ совпадает со старшим коэффициентом $f$ и тогда разложение единственно с точностью до порядка сомножителя
     \end{theorem}
+
+    \begin{proof}
+        $ $
+        \begin{enumerate}
+            \item Существование:
+            \begin{enumerate}
+                \item[a)] $f \in K^*$ -- очевидно \quad $c = f, \ m = 0$
+                \item[б)] $\deg f > 0$
+                \par \quad Если $f$ неприводим, то остановимся
+                \par \quad Если $f$ составной, то разложим $f = u \cdot v, \ \deg u < \deg v < \deg f$
+                \par \quad Дальше так же поступим с каждым из сомножителей
+                \par \quad Процесс оборвется за конечное число шагов
+                \par \quad $f = \tilde h_1 \cdot \ldots \cdot \tilde h_m, \ \tilde h_i$ -- неприводимый
+                \par \quad $\tilde h_i = c_i h_i, \ h_i$ -- неприводимый, старший коэффициент $1$
+                \par \quad $f = (\underbrace{c_1 \cdot \ldots \cdot c_m}_{=m}) \cdot h_1 \cdot \ldots \cdot h_m$
+            \end{enumerate}
+            \item Единственность:
+            \par \quad $f = c h_1 \cdot \ldots \cdot h_m = e \cdot g_1 \cdot \ldots \cdot g_n, \quad h_i, g_i$ -- неприв., ст. коэфф. $1$
+            \par \quad $\Rightarrow c = e, \ m = n$ и (после перенумерации) $g_i = h_i, \ c = 1, \dots, m$
+            \par \quad НУО: \quad $m \le n$
+            \par Индукция по $m$:
+            \par \quad База $m = 0 \quad f = c = eg_1 \dots g_m \quad \deg f = 0 \Rightarrow n = 0 \Rightarrow c = e$
+            \par \quad Индкционный переход: $m \ge 1$ \quad $h_m | eg_1 \dots g_m \quad \boxed{*}$
+        \end{enumerate}
+    \end{proof}
 
 
 \end{document}
