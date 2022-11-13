@@ -1,0 +1,110 @@
+\input{../../preamble.tex}
+
+\begin{document}
+    \title{Алгебра}
+    \date{13 сентября 2022}
+    \maketitle
+
+    \pagebreak
+
+    \subsection*{\S5 Алгебраически замкнутые поля}
+
+    \par $K[x]$
+    \par $x - a, \ a \in K$ всегда неприводимые
+
+    \begin{illustration*}
+        $x^2 + 1$ неприводим над $\R$
+        \par \quad $x^3 + x^2 + 1, \ x^3 + x + 1, \ x^2 + x + 1$ неприводимы над $\mathbb{F}_2$
+    \end{illustration*}
+
+    \par Для многочленов степени $2$ и $3$ из отсутствия корней следует неприводимость
+
+    \begin{theorem*}
+        $K$ -- поле
+        \par \quad Следующие условия эквивалентны:
+        \begin{enumerate}
+            \item Любой $f \in K[x], \ \deg f > 0$ имеет в $K$ корень
+            \item $\forall f \in K[x]$ с $\deg f > 0$ число его корней в $K$ равно $\deg f$ с учетом кратности
+            \item Любой $f \in K[x] \ \deg f > 0$ делится на какой-то линейный
+            \item $\forall f \in K[x], \deg f > 0$ полностью раскладывается на произведение линейных сомножителей:
+                \[
+                    f = b \cdot \prod_{i = 1} (x_i- c_i)^{a_i}    
+                \]
+            \item Всякий неприводимый над $K$ линеен
+        \end{enumerate}
+    \end{theorem*}
+
+    \begin{definition}
+        Поле $K$, удовлетворяющее любому (а значит всем) из равносильных условий теоремы называется алгебраически замкнутым полем
+    \end{definition}
+
+    \begin{proof}
+        $ $
+        \begin{enumerate} % ЧЕТА Я ХЗ КАК СДЕЛАТЬ ТАК ЧТОБЫ ЭЛЕМЕНТЫ СПИСКА НОРМАЛЬНО ПОДВИНУЛИСЬ ВПРАВО
+            \item[$1 \Leftarrow 2$] Если корней $\deg f$, то хотя бы $1$ есть
+            \item[$1 \Leftrightarrow 3$] Теорема Безу
+            \item[$4 \Rightarrow 3$] Раскладывается $\Rightarrow$ делится
+            \item[$4 \Leftarrow 5$]
+                \[
+                    \begin{cases}
+                        f \in K[x] \\
+                        \deg f > 1 \\
+                        f = \text{ произв. лин. сомножителей } > 1
+                    \end{cases}    
+                \]
+            \item[$4 \Rightarrow 5$]
+                \[
+                    \begin{cases}
+                        f = \text{ произв. непр. (ОТА)} \\
+                        \text{всякий непр. -- линейный}
+                    \end{cases}    
+                \]
+            \item[$3 \Rightarrow 4$] $f \in K[x], \ \deg f > 0$
+                \par \quad Индукция по $\deg f$
+                \par \quad \quad База: $\deg f = 1$ -- доказано
+                \par \quad \quad Предположение: $\deg f > 1$
+                \par \quad \quad \quad По п. 3: $f = (x - c) g(x)$
+                \par \quad \quad \quad $\deg g = \deg f - 1$
+                \par \quad \quad \quad По и. п. $g(x) = b \cdot \prod_{i=1} (x - c_i)^{a_i} = f \cdot \text{ пр-ие лин.}$
+            \item[$1 \Rightarrow 2$] Индукция по $\deg f$
+                \par \quad База: $\deg f = 1$ -- выполнено
+                \par \quad Предположение: $\deg f > 1$ (по п. 1 у $f \ \ \exists$ корень $c$)
+                \par это значит, что $x - c | f$
+                \par $c$ -- корень $f$ кратности $a$
+                \par $(x - c)^a | f$ \quad $(x - c)^{a + 1} \not | f$
+                \par $f_{(x)} = (x - c)^a g(x)$ \quad $g(c) \not = 0$
+                \par Если $g =$ const:
+                \par \quad $\deg f = a$
+                \par \quad $c$ -- единственный корень $f$ кратности $a$
+                \par Если $\deg g > 0$:
+                \par \quad то т. к. $\deg g \le \deg f - 1$
+                \par \quad по и. п. число корней $g$ с учетом кратности .... (тут нада дописать дальше)
+                \par Всякий корень $g$ -- корень $f$ (не меньшей кратности)
+                \[
+                    (x - d)^e | g \Rightarrow (x - d)^e | f    
+                \]
+                \par $d$ -- корень $f$, отличный от $c$, тогда $d$ -- корень $g$ не меньшей кратности
+                \[
+                    (x - d)^e | f \Rightarrow (x - d)^e | g    
+                \]
+                \par $d \not = c \Rightarrow x-d, \ x-c$ взаимно простые
+                \par \quad \quad $(x-d)^e, \ (x-c)$ взаимно простые
+                \par \quad \quad $(x-d)^e, \ (x-c)^e$ взаимно простые
+                \par По теореме о сопряжении $(x-d)^e | g$
+                \par \quad $c$ - не корень $f$
+                \par Корни $f$, отличные от $c$ = корни $g$, причем той же кратности
+                \par $c$ -- корень $f$ кратности $a$
+                \par $\deg f = \deg g$ \quad (ну тут тоже нада дописать чета похоже)
+        \end{enumerate}
+    \end{proof}
+
+    \begin{theorem}[Без доказательства]
+        $ $
+        \par Поле $\C$ -- алгебраически замкнутое
+    \end{theorem}
+
+    \textit{\textbf{Факты:}} (Без доказательства)
+    \par \quad 1) Конечное поле сожержится в счетном алгебраически замкнутом поле
+    \par \quad 2) Всякое поле содержится в каком-то алгебраически замкнутом
+
+\end{document}
