@@ -189,5 +189,53 @@
             \item ну карочи тут все так же только меняет  $\epsilon$ на $M$ и вот там чета все получается я хз  
         \end{enumerate}
     \end{proof}
+
+    \begin{theorem}
+        $\{a_{nk}\}_{n, k \in \R}$ -- двойная последовательность в $\R$
+        \[
+            \sum_{n, k \in \N} |a_{nk}| < \infty    
+        \]
+        \par $(n, k) \in \N^2$ \quad Тогда сходятся и равны:
+        \[
+            \sum_{n=1}^\infty \sum_{k=1}^\infty a_{nk} = \sum_{k=1}^\infty \sum_{n=1}^\infty a_{nk}    
+        \]
+    \end{theorem}
+    
+    \begin{proof}
+        \[
+            \forall n \in \N \ \sum_{k=1}^\infty |a_{nk}| \le \sum_{n, k \in \N} |a_{nk}|  
+        \]
+        \[
+            \forall n \in \N \text{ ряд } \sum_{k=1}^\infty a_{nk} \text{ сходится асб.}    
+        \]
+        \[
+            \forall \epsilon \ \exists N : \forall m > n > N : \sum_{i = n}^m |\sum_{j = 1}^\infty a_{ij}| \le \sum_{i=n}^m |\sum_{j = 1}^\infty a_{ij}| < \epsilon    
+        \]
+        \[
+            \xRightarrow[\text{к. Коши}]{} \sum_{i=1}^\infty \sum_{j=1}^\infty a_{ij} \text{ ряд сходится}
+        \]
+        \par Рассмотрим подпоследовательность $\{\phi_{n^2}\}_{n=1}^\infty$
+        \[
+            \sum_{i=1}^n \sum_{j=1}^n |a_{ij}| \xrightarrow[n \rightarrow \infty]{} \sum_{(i, j) \in \N^2} |a_{ij}|    
+        \]
+        \[
+            \forall \epsilon \ \exists N : \forall n > N : \sum_{l=n^2 + 1}^\infty |a_{\phi(l)}| < \epsilon    
+        \]
+        \[
+            \sum_{i = 1}^n \sum_{j = n+1}^\infty |a_{ij}| + \sum_{i = n+1}^\infty \sum_{j=1}^\infty |a_{ij}| < \epsilon    
+        \]
+        \[
+            |\sum_{i=1}^n \sum_{j=1}^\infty a_{ij} - \sum_{i=1}^n \sum_{j=1}^n| \le |\sum_{i=1}^n \sum_{j=n+1}^\infty a_{ij}| \le \sum_{i=1}^n \sum_{j=n+1}^\infty |a_{ij}|
+        \]
+        \[
+            |\sum_{i=1}^\infty \sum_{j=1}^\infty - \sum_{i=1}^n \sum_{j=1}^\infty a_{ij}| = |\sum_{i=n+1}^\infty \sum_{j=1}^\infty| \le \sum_{n+1}^\infty \sum_{j=1}^\infty |a_{ij}|    
+        \]
+        \[
+            |\sum_{i=1}^n\sum_{j=1}^n a_{ij} - \sum_{i=1}^\infty \sum_{j=1}^\infty a_{ij}| < \epsilon     
+        \]
+        \[
+            \xRightarrow[]{\forall \epsilon \ \exists N} \sum_{i=1}^\infty \sum_{j=1}^\infty = \sum_{j=1}^\infty \sum_{i=1}^\infty    
+        \]
+    \end{proof}
     
 \end{document}
