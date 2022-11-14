@@ -1,0 +1,193 @@
+\input{../../../preamble.tex}
+
+\begin{document}
+    \title{Математический анализ}
+    \date{12 сентября 2022}
+    \maketitle{}
+
+    \pagebreak
+
+    \subsection*{Ряды интеграла, зависящие от параметра}
+
+    $X_0, \ X$ -- метрические пространства
+    \par $E \subset X_0, \ f : E \rightarrow X$
+    \par $\{f \text{ непр в } x\}_{x \in X}$
+    \par Непрерывность на $E$:
+    \[
+        \forall \epsilon > 0, \ x \in E, \ \exists \delta > 0 : \forall x' \in E : d_0(x, x') < \delta \text{ выпол. } d(f(x), f(x')) < \epsilon    
+    \]
+    \par Равномерная непрерывность:
+    \[
+        \forall \epsilon > 0 \ \exists \delta > 0 : \forall x, x' \in E : d_0(x, x') < \delta \text{ вып. } d(f(x), f(x')) < \epsilon    
+    \]
+
+    \par $\{x_n(p)\}_{n = 1}^\infty, \ p \in P$
+    \par $\{a_n(p) \xrightarrow[n \rightarrow \infty]{} a(p)\}_{p \in P}$
+    \par Сходимость : $\forall \epsilon > 0 \ \forall p \in P \ \exists N : \forall n > N : d(a_n(p), a(p)) < \epsilon$
+    \par Равномерная : $\forall \epsilon > 0 \ \exists N \ \forall p \in P : \forall n > N : d(a_n(p), a(p)) < \epsilon$
+
+    \begin{illustration}
+        $a_n(p) = \frac{np}{1 + (np)^2}, \ P = [0, 1]$
+    \end{illustration}
+
+    \begin{theorem}[о двойном пределе]
+        $X$ -- полное метрическое пространство
+        \par $\{a_{np}\}_{n, p \in \N}$ -- двойная последовательность в $X$
+        \par \quad $\forall p \in \N \ \exists \lim_{n \rightarrow \infty} a_{np} = u_p$
+        \par \quad $\forall n \in \N \ \exists \lim_{p \rightarrow \infty} a_{np} = v_n$
+        \par Если один из этих пределом достигается равномерно, то
+        \[
+            \exists \lim_{p \rightarrow \infty} u_p, \ \exists \lim_{n \rightarrow \infty} v_n
+        \]
+        \par и они равны.
+    \end{theorem}
+
+    \begin{proof}
+        Пусть $a_{np} \rightrightarrows_{n \rightarrow \infty}^{p \in \N} u_p$ % ХЗ КАК НОРМАЛЬНО ЭТИ СТРЕЛОЧКИ СДЕЛАТЬ
+        \[
+            \forall \epsilon > 0 \ \exists N_1 \ \forall n > N_1 \ \forall p \ d(a_{np}, u_p) < \frac{\epsilon}{3}   
+        \]
+        \par $n_0 > N_1$ \quad $a_{n_0p} \xrightarrow[p \rightarrow \infty]{} v_n$
+        \par для $\epsilon \ \exists N_2 : \forall p, q > N_2 \ d(a_{n_0p}, a_{n_0q}) < \frac{\epsilon}{3}$
+        \[
+            d(u_p, u_q) \le d(u_p, a_{n-p}) + d(a_{n_0p}, a_{n_0q}) + d(a_{n_0q}, u_q) < \epsilon    
+        \]
+        \par Критерий Коши: $\exists \lim_{p \rightarrow \infty} u_p =: w$
+        \par $d(a_{np}, u_p) < \frac{\epsilon}{3}$
+        \par $\xRightarrow[p \rightarrow \infty]{} d(v_n, w) \le \frac{\epsilon}{3} < \epsilon$
+        \par Значит, $v_n \xrightarrow[n \rightarrow \infty]{} w$
+    \end{proof}
+
+    \begin{remark}[Непрерывность расстояния]
+        $x_n \xrightarrow[n \rightarrow \infty]{} x$
+        \par $d(x_n, y_n) \xrightarrow[n \rightarrow \infty]{} d(x, y)$
+        \par $ $
+        \par $d(x_n, y_n) \le d(x, y) + d(x, x_n) + d(y, y_n)$
+        \par $d(x, y) \le d(x_n, y_n) + d(x, x_n) + d(y, y_n)$
+        \par $|d(x, y) - d(x_n, y_n)| \le d(x, x_n) + d(y, y_n) \xrightarrow[n \rightarrow \infty]{} 0$
+    \end{remark}
+
+    \begin{illustration} % ТУТ ЧЕТА ПРО ПРИМЕР ДЛЯ КОТОРОГО НЕ РАБОТАЕТ (ВСТАВИТЬ!)
+        $a_{np} = \frac{n}{1 + n + p}$
+        \par $a_{np} \xrightarrow[n \rightarrow \infty]{} 1$
+        \par $a_{np} \xrightarrow[p \rightarrow \infty]{} 0$
+        \[
+            \lim_{n \rightarrow \infty} \lim_{p \rightarrow \infty} = 0, \ \lim_{p \rightarrow \infty} \lim_{n \rightarrow \infty} = 1    
+        \]
+    \end{illustration}
+
+    \begin{corollary}
+        $X$ -- полное евклидово пространство
+        \[
+            \lim_{p \rightarrow \infty} \left(\sum_{n=1}^\infty a_{np}\right) = \sum_{n=1}^\infty \left( \lim_{p \rightarrow \infty} a_{np}\right)
+        \]
+    \end{corollary}
+    
+    \begin{corollary}
+        \[
+            \lim_{n \rightarrow \infty} \lim_{x \rightarrow a} f_n(x)  = \lim_{x \rightarrow a} \lim_{n \rightarrow \infty} f_n(x)   
+        \]
+    \end{corollary}
+
+    \begin{corollary}[2'] % СЛЕДСТВИЕ НЕ 3, А 2'
+        \[
+            \sum_{n=1}^\infty \lim_{x \rightarrow a} f_n(x) = \lim_{x \rightarrow a} \sum_{n=1}^\infty f_n(x)  
+        \]
+    \end{corollary}
+    
+    \begin{corollary}
+        $f_n(x) \rightrightarrows_{n \rightarrow \infty}^{x \in E} \phi(x), \ \forall n \ f_n \in C(E) \Rightarrow \phi \in C(E)$
+    \end{corollary}
+
+    \begin{corollary}[3'] % НЕ 5, А 3'
+        \[
+            \sum_{n = 1}^\infty f_n(x) = \phi(x) \text{ сх. равномерно по } x \in E, \ \forall n \ f_n \in C(E) \Rightarrow \phi \in C(E)   
+        \]
+    \end{corollary}
+
+    \begin{corollary}[3''] % ВОТ ТУТ ТОЖЕ МДА..
+        \[
+            \sum_{k = 1}^n f_k \in C(E), \ \forall n, \ \text{ равностеп. по } n 
+        \]
+        \[
+            \forall x \ \sum_{n=1}^\infty f_n(x) = \phi(x) \ \text{ сх-ся} \Rightarrow \phi \in C(E)   
+        \]
+    \end{corollary}
+
+    \begin{corollary}
+        \[
+            \lim_{n \rightarrow b} \lim_{x \rightarrow a} f(x, y) = \lim_{x \rightarrow a} \lim_{y \rightarrow b} f(x, y)    
+        \]
+    \end{corollary}
+
+    \begin{corollary}
+        \[
+            f(x, y) \rightrightarrows_{y \rightarrow b}^{x \in E} \phi(x), \ f(\cdot, y) \in C(E), \ \forall y \Rightarrow \phi \in C(E)  
+        \]
+    \end{corollary}
+
+    \begin{definition}
+        $X_0, \ X$ -- метрические пространства, $E \subset X_0, \ f_p : E \rightarrow X, \ p \in P$
+        \par $\{f_p(x)\}_{p \in P}$ -- равностепенно непрерывно, если
+        \[
+            \forall \epsilon > 0 \ \exists \delta > 0 : \forall x, x' \in E : d_0(x, x') < \delta, \ \forall p \in P \ \ d(f_p(x), f_p(x')) < \epsilon    
+        \]
+    \end{definition}
+
+    \subsection*{Суммирование двойного ряда}
+    \[
+        \sum_{n=1}^\infty \sum_{k=1}^\infty a_{nk} = \sum_{k=1}^\infty \sum_{n=1}^\infty a_{nk} \quad \text{ when??}   
+    \]
+    \par $a_{nk} \ge 0:$
+    \[
+        \phi : \N \rightarrow \N \text{ - биекция} \ \ \sum_{n=1}^\infty a_n = \sum_{n=1}^{\infty}   a_{\phi(n)} 
+    \]
+    \begin{definition}
+        $ $
+        \par $A$ -- счетное множество индексов ($a_{\alpha} \ge 0$): $\exists$ биекция $\phi : \N \rightarrow A$
+        \[
+            \sum_{\alpha \in A} a_{\alpha} = \sum_{n=1}^\infty a_{\phi(n)} \quad \sum_{(h, k) \in \N^2} a_{nk}
+        \]
+        \par Корректность: $gg$ % Я ТУТ ПРОПУСТИЛ БЛИН
+    \end{definition}
+
+    \begin{theorem}
+        $a_{nk} \ge 0, \ \forall n, k \in \N$
+        \[
+            \sum_{n=1}^\infty \sum_{k=1}^\infty a_{nk} = \sum_{k=1}^\infty \sum_{n=1}^\infty a_{nk} \quad \text{конеч. или } \infty    
+        \]
+    \end{theorem}
+
+    \begin{proof}
+        \[
+            \sum_{n=1}^\infty \sum_{k=1}^\infty a_{nk} \le \sum_{(h, k) \in \N^2} a_{nk}    
+        \]
+        \[
+            \sum_{n=1}^N \sum_{k=1}^{K_n} a_{nk} \le \sum_{(h, k) \in \N^2} a_{nk} \Rightarrow \lim_{K_1 \rightarrow \infty} 
+            \lim_{K_2 \rightarrow \infty} \dots \lim_{K_N \rightarrow \infty} \sum_{n=1}^N \sum_{k=1}^{K_n} a_{nk} \le \sum_{(h, k) \in \N^2} a_{nk}
+        \]
+        \[
+            \Rightarrow \sum_{n=1}^\infty \sum_{k=1}^\infty a_{nk} \le \sum_{(h, k) \in \N^2}    
+        \]
+
+        \begin{enumerate}
+            \item \[
+                \sum_{(h, k) \in \N^2} a_{nk} = \sum_{l = 1}^\infty a_{\phi(l)} < \infty    
+            \]
+            \[
+                \forall \epsilon \ \exists L : \forall l > L : \sum_{j=1}^l a_{\phi(l)} > \sum_{(h, k) \in \N^2} a_{nk}  - \epsilon   
+            \]
+            \par $K = \{\phi(l), \ l = 1, \dots, L + 1\} \ \exists N : K = \bigcup_{n=1}^N \tilde K_n$
+            \par $\tilde K_n = \{n\} \times K_n$
+            \par $K_n = \{k \ | \ (n, k) \in K\} = \pi_y \tilde K_n$
+            \[
+                \sum_{(n, k) \in \N^2} - \epsilon< \sum_{j=1}^{L+1} a_{\phi(j)} = \sum_{n=1}^N \sum_{k \in K_n} a_{nk} \le \sum_{n=1}^N \sum_{k=1}^\infty    
+            \]
+            \[
+                \forall \epsilon \ \exists N : \sum_{n=1}^N \sum_{k=1}^\infty a_{nk} \ge \sum_{(n, k) \in \N^2} a_{nk} - \epsilon \Rightarrow \sum_{n=1}^\infty \sum_{k=1}^\infty a_{nk} \ge \sum_{(n, k) \in \N^2} a_{nk}
+            \]
+            \item ну карочи тут все так же только меняет  $\epsilon$ на $M$ и вот там чета все получается я хз  
+        \end{enumerate}
+    \end{proof}
+    
+\end{document}
