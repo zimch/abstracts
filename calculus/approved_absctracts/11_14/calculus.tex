@@ -237,5 +237,122 @@
             \xRightarrow[]{\forall \epsilon \ \exists N} \sum_{i=1}^\infty \sum_{j=1}^\infty = \sum_{j=1}^\infty \sum_{i=1}^\infty    
         \]
     \end{proof}
-    
+
+    \subsection*{Интегрирование}
+
+    \begin{theorem}
+        $f_n : [a, b] \rightarrow \R$
+        \par $\forall n \ f_n \in C([a, b])$
+        \par $\forall x \in [a, b] : \exists \lim_{n \rightarrow \infty} f_n(x) = \phi(x)$, равномерно по $x \in [a, b]$
+        \par Тогда
+        \[
+            \int_a^b f_n(x) dx \xrightarrow[n \rightarrow \infty]{}  \int_a^b \phi(x) dx   
+        \]
+        \[
+            \lim_{n \rightarrow \infty} \int_a^b f_n(x) dx = \int_a^b \lim_{n \rightarrow \infty} f_n(x) dx    
+        \]
+    \end{theorem}
+
+    \begin{proof}
+        $\phi \in C([a, b])$ (по сл. 3)
+        \[
+            \forall \epsilon \ \exists N \ \forall n > N, \ x \in [a, b] : |f(x) - \phi(x)| < \frac{\epsilon}{b - a}    
+        \]
+        \par Проинтегрируем
+        \[
+            |\int_a^b f_n(x)dx - \int_a^b \phi(x)dx| \le \int_a^b|f_n(x) - \phi(x)| dx < \epsilon
+        \]
+    \end{proof}
+
+    \begin{corollary}
+        \[
+            \sum_{n=1}^\infty \int_a^b f_n(x) dx  = \int_a^b \sum_{n=1}^\infty f_n(x) dx  
+        \]
+    \end{corollary}
+
+    \begin{corollary}
+        \[
+            \lim_{y \rightarrow c} \int_a^b f(x, y) dx = \int_a^b \lim_{y \rightarrow c} f(x, y) dx    
+        \]
+    \end{corollary}
+
+    \begin{corollary}
+        $K \subset \R^n$ компактно, $f \in C([a, b] \times K)$ \quad $\int_a^b f(x, y) dx = \phi(x) : K \rightarrow \R$
+        \par Тогда $\phi \in C(K)$
+    \end{corollary}
+
+    \subsection*{Дифференцирование}
+
+    \begin{theorem}
+        $f_n : (a, b) \rightarrow \R$
+        \par $\forall n \ f_n \in C^1(a, b)$
+        \par $\forall x \in (a, b) \ \exists \lim_{n \rightarrow \infty} f_n(x) = \phi(x)$
+        \par $\forall x \in (a, b) \ \exists \lim_{n \rightarrow \infty} f'_n(x) = \psi(x)$, достигается равномерно
+        \par Тогда $\phi \in C^1(a, b)$ и $\phi' = \psi$
+        \[
+            \lim_{n \rightarrow \infty} \frac{d f_n}{dx}(x) = \frac{d}{dx}(\lim_{n \rightarrow \infty} f_n(x))    
+        \]
+    \end{theorem}
+
+    \begin{proof}
+        $x_0 \in (a, b)$
+        \[
+            f_n(x) = f_n(x_0) + \int_{x_0}^x f_n'(t) dt    
+        \]
+        \[
+            \phi(x) = \phi(x_0) + \int_{x_0}^x \psi(t) dt \Rightarrow \phi' = \psi    
+        \]
+    \end{proof}
+
+    \begin{corollary}
+        \[
+            \sum_{n=1^\infty} \frac{df_n}{dx}(x) = \frac{d}{dx}(\sum_{n=1}^{\infty} f_n(x))    
+        \]
+    \end{corollary}
+
+    \begin{corollary}
+        \[
+            \lim_{y \rightarrow c} \frac{df}{dx}(x, y) = \frac{d}{dx}(\lim_{y \rightarrow c} f(x, y))
+        \]
+    \end{corollary}
+
+    \begin{theorem}
+        $f : [a, b] \times (c, d) \rightarrow \R, \ f \in C([a, b] \times (c, d))$
+        \par $\forall x, y \in [a, b] \times (c,d ) \ \exists \frac{\partial f}{\partial y}(x,y) = \phi(x, y), \ \phi(x, y) \in C([a, b] \times (c, d))$
+        \par Тогда
+        \[
+            \exists \frac{d}{dy} \int_a^b f(x,y) dx = \int_a^b \phi(x, y)dy
+        \]
+        \[
+            \frac{d}{dy} \int_a^b f(x, y)dx  = \int_a^b \frac{\partial f}{\partial y}(x, y)dx   
+        \]
+    \end{theorem}
+
+    \begin{proof}
+        \[
+            \underbrace{\frac{1}{h} \int_a^b (f(x, y+h) - f(x, y)) dx}_{\xrightarrow[h \rightarrow 0]{} \frac{d}{dx}\int_a^b f(x, y) dx} = \underbrace{\int_a^b \frac{f(x, y + h) - f(x, y)}{h} dx}_{\xrightarrow[h \rightarrow 0]{} \frac{\partial f}{\partial y}(x, y)}   
+        \] % ТУТ ВСЕ В \[\] СДЕЛАТЬ !!
+        \par $g(h) = f(x, y+h) - f(x, y) \ \frac{\partial f}{\partial y}(x, y) h$
+        \par $g(h) = g(h) - g(0) = g'(\xi) h, \ \xi \leftarrow [0, h]$ \quad (т. Лагранжа)
+        \par $= (\frac{\partial f}{\partial y}(x, y + \xi) - \frac{\partial f}{\partial y}(x, y))h$
+        \par $\frac{f(x, y+h) - f(x, y)}{h} - \frac{\partial f}{\partial y}(x, y) = \frac{\partial f}{\partial y}(x, y + \xi(h)) - \frac{\partial f}{\partial y}(x, y)$
+        \par $\frac{\partial f}{\partial y} \in C([a, b] \times (c, d))$
+        \par $\frac{\partial f}{\partial y} \in C([a, b] \times [y - \delta, y + \delta])$
+        \par $\Rightarrow$ Равномерно непрерывна??? или чоо тут
+        \par $\Rightarrow \frac{\partial f}{\partial y} (x, y + \xi(n)) - \frac{\partial f}{\partial y}(x, y) \rightrightarrows_{h \rightarrow 0}^{x \in [a, b] } 0$ %%вот тут гавно какоита
+        \par $|\frac{\partial f}{\partial y}(x, y + \xi) - \frac{\partial f}{\partial y}(x, y)| < \epsilon$
+        \[
+            \Rightarrow \forall h \in (-\delta, \delta), \ \forall \xi(h) \in [0, h] \text{ или } [h, 0], \ \forall x \in [a, b]    
+        \]
+        \[
+            |\frac{f(x, y + h) - f(x, y)}{h}| = |\frac{\partial f}{\partial y}(x, y + \xi(h)) - \frac{\partial f}{\partial y}(x, y)| < \epsilon    
+        \]
+        \[
+            \Rightarrow \frac{f(x, y+h) - f(x, y)}{h} \rightrightarrows_{h \rightarrow 0}^{x \in [a, b]} \frac{\partial f}{\partial y}(x, y)    
+        \]
+        \[
+            \underbrace{\frac{1}{h} \int_a^b (f(x, y+h) - f(x, y)) dx}_{\xrightarrow[h \rightarrow 0]{} \frac{d}{dx}\int_a^b f(x, y) dx} = \underbrace{\int_a^b \frac{f(x, y + h) - f(x, y)}{h} dx}_{\rightrightarrows_{h \rightarrow 0}{} \frac{\partial f}{\partial y}(x, y)} % x \in [a, b]   
+        \] %
+    \end{proof}
+
 \end{document}
