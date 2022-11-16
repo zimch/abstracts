@@ -1,0 +1,186 @@
+\input{../../preamble.tex}
+
+\begin{document}
+    \title{Алгебра}
+    \date{27 сентября 2022}
+    \maketitle
+
+    \pagebreak
+
+    \section*{Линейные операторы}
+    \subsection*{\S Линейные операторы}
+
+    \begin{definition}
+        $V$ -- векторное пространство над $K$
+        \par Линейное отображение $f : V \rightarrow V$ называется линейным оператором на $V$
+    \end{definition}
+
+    \begin{illustration}
+        $ $
+        \begin{enumerate}
+            \item $V = K^n$
+                \par $A \in M_n(K)$
+                \par $f(v) = Av$
+                \par $f$ -- лин.
+            \item $V = K[x]$
+                \par $f = \frac{d}{dx}$
+                \par $g \in K[x]$
+                \par $f(g) = g' = \frac{dg}{dx}$
+            \item Интегральный оператор
+                \par $V = C([0, 1])$
+                \par $\mathcal{K}(x, y) \in C([0, 1]^2)$
+                \par $g \mapsto h(x) = \int_0^1 \mathcal{K}(x, y)g(y)dy$
+        \end{enumerate}
+    \end{illustration}
+
+    $ $
+
+    \par Множество всех линейных операторов на $V$ -- эндоморфизм:
+    \[
+        \End(V), \quad \mathscr{L}(V) 
+    \]
+    \par Пусть $f, g \in \End(V), \ c \in K$
+    \par \quad Определены:
+    \par \quad \ \ $f + g \in \End(V)$, \quad $c \cdot f \in \End(V)$
+    \par \quad $\End(V)$ -- векторное пространство над $K$
+    \par \quad $f \circ g : V \rightarrow V$, \quad $fg = f \circ g \in \End(V)$, (умножение операторов -- композиция)
+    \par $(\End(V), \ +, \ \circ)$ -- кольцо
+    \par $1_{\End(V)} = \Id_V$
+    \[
+        f \circ \Id_V = \Id_V \circ f = f \Rightarrow \text{Кольfцо с } 1    
+    \]
+
+    \par \textbf{(*) Аксиома:} $c \in K, \ v \in V$
+    \[
+        f(cg) = (cf)g = c(fg)   
+    \]
+    \[
+        (f(cg))(v) = f((cg)(v)) = f(cg(v)) =
+    \]
+    \[
+        = c(f(g(v))) = c(fg)(v) = (c(fg)(v)) =    
+    \]
+    \[
+        = ((cf)g)(v) = (cf)(g(v)) = cf(g(v)) = (c(fg)(v))
+    \]
+
+    \begin{definition}
+        Множество $A$ с тремя операциями:
+        \begin{align*}
+            &+ : A \times A \rightarrow A \\
+            &\circ : A \times A \rightarrow A \\
+            &\cdot : A \times A \rightarrow A
+        \end{align*}
+        \par т. ч.:
+        \begin{align*}
+            &A, \ +, \ \cdot \text{ -- векторное пространство} \\
+            &A, \ +, \ \circ \text{ -- кольцо} \\
+            &A, \ +, \ \circ, \ \cdot \text{ -- алгебра над } K
+        \end{align*}
+    \end{definition}
+
+    \begin{illustration*}[Примеры алгебр]
+        $ $
+        \begin{enumerate}
+            \item Алгебра квадратных матриц над $K$
+            \item $K[x]$ -- алгебра многочленов
+            \item $\mathbb{H}$ -- алгебра кватернионов над $\R$
+        \end{enumerate}
+    \end{illustration*}
+
+    \par $ $
+    \par Мы проверим, что $\End(V)$ -- алгебра над $K$:
+    \par \quad $\dim V < \infty$
+    \par \quad Зафиксируем базис $v_1, \dots, v_n$
+    \par \quad $f \in \End(V)$
+    \par \quad $A = [f]_{\{v_i\}}$ -- матрица линейного оператора в базисе $\{v_i\}$
+    \[
+        f(v_j) = \sum_{i=1}^n c_{ij} v_i    
+    \]
+    \par \quad $j$-ый столбец $A = \begin{pmatrix}
+        c_{1j} \\
+        \vdots \\
+        c_{nj}
+    \end{pmatrix}$
+
+    \par $\End(V) \rightarrowtail M_n(K)$ % ТУТ ДРУГАЯ СТРЕЛКА Я ХЗ КАК ТАКУЮ НАРИСОВАТЬ ТИПА: >-->->
+    \par \quad $f \mapsto [f]_{\{v_i\}}$
+    \par \quad $[f+g]_{\{v_i\}} = [f]_{\{v_i\}} + [g]_{\{v_i\}}$
+    \par \quad $[cf]_{\{v_i\}} = c[f]_{\{v_i\}}$
+    \par \quad $[fg]_{\{v_i\}} = [f]_{\{v_i\}}[g]_{\{v_i\}}$
+    \par $\End(V) \cong M_n(K)$
+
+    \subsection*{\S Собственные числа и собственные векторы}
+
+    \par $V$ -- векторное пространство над $K$
+    \par $f \in \End(V)$
+
+    \begin{definition}
+        $\lambda \in K$ -- собственное число $f$, если $\exists v \not = 0$
+        \[
+            f(v) = \lambda v    
+        \]
+        \par Если $\lambda$ -- собственное число $f$, то всякий $v \in V$ такой, что $f(v) = \lambda v$ называется
+        собственным вектором $f$, отвечающим собственному числу $\lambda$
+    \end{definition}
+
+    \begin{illustration*}
+        $ $
+        \begin{enumerate}
+            \item $V = K[x]$
+                \par $\frac{d}{dx} : K[x] \rightarrow K[x]$
+                \par $\frac{d}{dx} g = \lambda y$
+                \par Если $g \not= 0$, то $\lambda = 0$
+                \par Единственное собственное число -- $0$
+                \par $g' = 0$
+                \par $ $
+                \par Если $\Char K = 0$, то $V_k = \{const\}$
+                \par Если $\Char K = p > 0$:
+                \[
+                    V_\lambda = <1, x^p, x^{2p}, \dots> = K[x^p]    
+                \]
+            \item $\dim V = n < \infty$
+                \par $v_1, \dots, v_n$ -- базис
+                \par $f \in \End(V)$
+                \par $[f(v)]_{\{v_i\}} = [f]_{\{v_i\}} [v]_{\{v_i\}}$
+                \par $v$ -- собственный вектор с. ч. $\lambda \Leftrightarrow [v]_{\{v_i\}}$ -- с. в., отвечающий c. ч. $\lambda$
+                \par $f(v) = \lambda v \Leftrightarrow A[v]_{\{v_i\}} = \lambda[v]_{\{v_i\}}$
+        \end{enumerate}
+    \end{illustration*}
+
+    \par $A$ -- матрица оператора $f$ в базисе $v_1, \dots, v_n$
+    \par $\chi_A(t) = \det(A - tI) = \chi_f(t)$ -- характеристический многочлен оператора $f$
+    \par Если $C$ -- матрица перехода от одного базиса к другому, то матрица $A$ оператора $f$ в другом
+    базисе заменяется на сопряженную.
+    \[
+        A \rightarrow CAC^{-1}    
+    \]
+    \[
+        \det(CAC^{-1} - tI) = \det(CAC^{-1} - tCC^{-1}) = \det(CAC^{-1} - C(tI)C^{-1})    
+    \]
+    \[
+        = \det(C(A - tI)C^{-1}) = \det C \cdot \det (A-tI) \cdot \det C^{-1} =
+    \]
+    \[
+        = \underbrace{\det C \cdot \det C^{-1}}_{1} \cdot \det(A - tI) = \det(A - tI)
+    \]
+    \[
+        \Rightarrow \chi_{CAC^{-1}} = \chi_A \Rightarrow \chi_f \text{ не зависит от выбора базиса}
+    \]
+
+    \subsection*{\S Диагонализуемые операторы}
+
+    \par $V$ -- векторное поле над $K$
+    \par $\dim V = n < \infty$
+    \par $f \in \End(V)$
+
+    \begin{definition}
+        $f$ называется диагонализуемым, если $\exists$ базис $V$, такой что $[f]$ в этом базисе -- диагональная
+    \end{definition}
+
+    \begin{theorem*}[критерий диагонадизуемости]
+        $ $
+        \par $f$ -- диагонадизуем $\Leftrightarrow \exists$ базис $V$, состоящий из собственных векторов \\ оператора $f$
+    \end{theorem*}
+
+\end{document}
