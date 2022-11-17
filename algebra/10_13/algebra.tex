@@ -1,0 +1,42 @@
+\input{../../preamble.tex}
+
+\setcounter{lemma}{0}
+
+\begin{document}
+    \title{Алгебра}
+    \date{13 октября 2022}
+    \maketitle
+
+    \pagebreak
+
+    \subsection*{\S Жорданова форма оператора с единственным собственным числом}
+
+    \par $K$ -- алгебраически замкнуто
+    \par $V$ -- векторное пространство над $K, \ \dim V \ n < \infty$
+    \par $\phi \in \End(K)$ -- линейный оператор
+    \par $\chi_\phi(t) = (-1)^n (t - \lambda)^n$
+    \par $ $
+    \par Надо показать, что $\exists$ базис, в котором $[\phi]$ состоит из жордановых клеток, отвечающих
+    собственному числу $\lambda$
+    \[
+        \{0\} \subsetneqq U_0(\lambda) \subsetneqq U_1(\lambda) \subsetneqq \dots \subsetneqq U_n(\lambda) = V    
+    \]
+    \par $U_i, \ i = 0, \dots, n$ -- корневые подпространства
+
+    \begin{lemma}
+        Если $U_i(\lambda) = U_{i+1}(\lambda)$, то
+        \[
+            U_i(\lambda) = U_k(\lambda), \ \forall k \ge i    
+        \]
+    \end{lemma}
+
+    \begin{proof}
+        Достаточно доказать, что $U_{i+2}(\lambda) = U_{i+1}(\lambda)$
+        \par \quad $v \in U_{i+2}(\lambda)$
+        \par \quad $(\phi - \lambda \Id)^{i+2}(v) = 0$ \quad $(\phi - \lambda \Id)(v) \in U_{i+1}(\lambda) = U_i(\lambda)$
+        \par \quad $(\phi - \lambda \Id)^{i+1}((\phi - \lambda \Id)(v)) = 0$
+        \par $\Rightarrow (\phi - \lambda \Id)^i((\phi - \lambda \Id)(v)) = 0$
+        \par \quad $(\phi - \lambda\Id)^{i+1}(v) = 0$ \quad $v \in U_{i+1}(\lambda)$
+    \end{proof}
+
+\end{document}
