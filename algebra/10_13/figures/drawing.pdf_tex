@@ -1,0 +1,96 @@
+%% Creator: Inkscape 1.2.1 (1:1.2.1+202210291243+9c6d41e410), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'drawing.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{577.87502769bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.6739266)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(-0.00129279,0.66209378){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$m:$\end{tabular}}}}%
+    \put(0.1268703,0.66203872){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_1^{(m)}$\end{tabular}}}}%
+    \put(0.38385584,0.66203872){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_{k_m}^{(m)}$\end{tabular}}}}%
+    \put(0.2807345,0.66203872){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\dots$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{drawing.pdf}}%
+    \put(-0.00129279,0.46649892){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$m-1:$\end{tabular}}}}%
+    \put(0.1268703,0.46644387){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_1^{(m-1)}$\end{tabular}}}}%
+    \put(0.38385584,0.46644387){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_{k_m}^{(m-1)}$\end{tabular}}}}%
+    \put(0.2807345,0.46644387){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\dots$\end{tabular}}}}%
+    \put(0.55372523,0.46644387){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_{k_m + 1}^{(m-1)}$\end{tabular}}}}%
+    \put(0.73567663,0.46644387){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\dots$\end{tabular}}}}%
+    \put(0.79690566,0.46644387){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_{k_{m-1}}^{(m-1)}$\end{tabular}}}}%
+    \put(-0.00129279,0.29191784){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$m-2:$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{drawing.pdf}}%
+    \put(0.1268703,0.29272876){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_1^{(m-2)}$\end{tabular}}}}%
+    \put(0.38621759,0.29272876){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\dots$\end{tabular}}}}%
+    \put(0.38621759,0.29272876){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\dots$\end{tabular}}}}%
+    \put(0.54740597,0.29272876){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\dots$\end{tabular}}}}%
+    \put(0.79811544,0.29272876){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_{k_{m-1}}^{(m-1)}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{drawing.pdf}}%
+    \put(-0.00129279,0.29191784){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$m-2:$\end{tabular}}}}%
+    \put(0.38621759,0.20176383){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\dots$\end{tabular}}}}%
+    \put(0.55148687,0.20176383){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\dots$\end{tabular}}}}%
+    \put(-0.00129279,0.08725409){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$2:$\end{tabular}}}}%
+    \put(0.1268703,0.08854501){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_1^{(2)}$\end{tabular}}}}%
+    \put(0.38621759,0.08702273){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\dots$\end{tabular}}}}%
+    \put(0.48247612,0.08702273){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\dots$\end{tabular}}}}%
+    \put(0.63186065,0.08854501){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_{k_3}^{(2)}$\end{tabular}}}}%
+    \put(0.71194649,0.08854501){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_{k_3+1}^{(2)}$\end{tabular}}}}%
+    \put(0.80011966,0.08854501){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_{k_2}^{(2)}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{drawing.pdf}}%
+    \put(-0.00129279,0.00368494){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$1:$\end{tabular}}}}%
+    \put(0.1268703,0.00367304){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_1^{(1)}$\end{tabular}}}}%
+    \put(0.80311908,0.00367304){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_{k_2}^{(1)}$\end{tabular}}}}%
+    \put(0.86301003,0.00367304){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_{k_1}^{(1)}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{drawing.pdf}}%
+    \put(0.38621759,0.00349078){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\dots$\end{tabular}}}}%
+    \put(0.48247612,0.00349078){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\dots$\end{tabular}}}}%
+    \put(0.83306849,0.00349078){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\dots$\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

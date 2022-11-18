@@ -24,19 +24,163 @@
     \par $U_i, \ i = 0, \dots, n$ -- корневые подпространства
 
     \begin{lemma}
-        Если $U_i(\lambda) = U_{i+1}(\lambda)$, то
-        \[
-            U_i(\lambda) = U_k(\lambda), \ \forall k \ge i    
-        \]
+        Если $U_i(\lambda) = U_{i+1}(\lambda)$, то $U_i(\lambda) = U_k(\lambda), \ \forall k \ge i$
     \end{lemma}
 
     \begin{proof}
         Достаточно доказать, что $U_{i+2}(\lambda) = U_{i+1}(\lambda)$
-        \par \quad $v \in U_{i+2}(\lambda)$
-        \par \quad $(\phi - \lambda \Id)^{i+2}(v) = 0$ \quad $(\phi - \lambda \Id)(v) \in U_{i+1}(\lambda) = U_i(\lambda)$
-        \par \quad $(\phi - \lambda \Id)^{i+1}((\phi - \lambda \Id)(v)) = 0$
-        \par $\Rightarrow (\phi - \lambda \Id)^i((\phi - \lambda \Id)(v)) = 0$
+        \par \quad $v \in U_{i+2}(\lambda)$ \quad $(\phi - \lambda \Id)^{i+2}(v) = 0$ \quad $(\phi - \lambda \Id)(v) \in U_{i+1}(\lambda) = U_i(\lambda)$
+        \par \quad $(\phi - \lambda \Id)^{i+1}((\phi - \lambda \Id)(v)) = 0$ \quad $\Rightarrow (\phi - \lambda \Id)^i((\phi - \lambda \Id)(v)) = 0$ 
         \par \quad $(\phi - \lambda\Id)^{i+1}(v) = 0$ \quad $v \in U_{i+1}(\lambda)$
     \end{proof}
 
+    \par Пусть $m$ неизм. инд.:
+    \par $U_m(\lambda) = U_{m+1}(\lambda) \Rightarrow V = U_m(\lambda) \Rightarrow U_{m-1} \subsetneqq U_m(\lambda)$
+
+    \begin{definition}
+        Если $v \in U_i(\lambda) \ v \not \in U_{i-1}(\lambda)$, то
+        \par \quad $v$ -- корневой вектор высоты $i$
+        \par \quad $v_1^{(m)}, \dots, v_{k_m}^{(m)}$ -- относительный базис $U_m(\lambda)$ относительно $U_{m-1}(\lambda)$
+        \par \quad $v_j^{(m-1)} = (\phi - \lambda\Id)v_j^{(m)}, \ j = 1, \dots, k_m$
+        \par \quad $v_j^{(m-1)} \in U_{m-1}(\lambda)$ и отн. л. н. отн. $U_{m-2}(\lambda)$
+        \par \quad Дополним до относительного базиса $U_{m-1}(\lambda)$ отн. $U_{m-2}(\lambda)$
+    \end{definition}
+
+    \par \incfig{drawing}
+
+    \par $i+1: \ \dots$
+    \par $i: \ v_j^{(i)} = (\phi - \lambda\Id)v_j^{(i+1)} \quad i = 1, \dots, k_{i+1}$
+    \par \quad и дополним до относительного базиса $U_i(\lambda)$ относительно $U_{i-1}(\lambda)$
+    \[
+        v_j^{(i)}, \dots \quad j = k_{i+1} + 1, \dots, k_i
+    \]
+
+    \par $k_m \le k_{m-1} \le \dots \le k_1$
+    \par Обычно можно увидеть следующее: (диагр.)
+    \par
+    \begin{tabular}{ | c | c | c |}
+        \hline
+         & &  \\
+        \hline
+    \end{tabular} \par
+    \begin{tabular}{ | c | c | c | c |}
+        \hline
+         & & & \\
+        \hline
+    \end{tabular} \par
+    \dots \par
+    \begin{tabular}{ | c | c | c | c | c | c | c | c | c | c |}
+        \hline
+         & & & & & & & & &\\
+        \hline
+    \end{tabular} \par
+    \begin{tabular}{ | c | c | c | c | c | c | c | c | c | c | c |}
+        \hline
+         & & & & & & & & & &\\
+        \hline
+    \end{tabular}
+
+    \begin{illustration*}
+        $\{v_j^{(i)} \ | \ 1 \le i \le m; 1 \le j \le k_j \}$ -- базис $V$
+        \par \quad $\{v_j^{(i)}\}$ -- относительный базис $U_1(\lambda)$ относительно $U_0(\lambda)$
+        \par \quad то есть $\{v_j^{(i)}\}$ -- базис $U_1(\lambda)$
+        \par \quad $\{v_j^{(1)}, \ v_j^{(2)}\}$ -- базис $U_2(\lambda)$
+        \par \quad $v_j^{(1)}$ -- базис $U_1(\lambda)$, \quad $v_j^{(2)}$ -- базис $U_2(\lambda)$ относительно $U_1(\lambda)$
+        \par По индукции:
+        \par \quad $\{v_j^{(1)}\} \bigcup \dots \bigcup \{v_j^{(i)}\}$ -- базис $U_i(\lambda)$
+        \par \quad $\{v_j^{(i+1)}\}$ -- относительный базис $U_{i+1}(\lambda)$ относительно $U_i(\lambda)$
+    \end{illustration*}
+
+    \par \textbf{Повторение:} Инвариантное подпространство: $V$ -- векторное пространство 
+    \par $\exists W \subset E$ $\Rightarrow \exists T : V \rightarrow V \Rightarrow T(W) \subset W \Rightarrow$ инв.
+
+    \par $ $
+    \par Покажем, что пространство, порожденное векторами из $1$го столбца , инвариантно
+
+    \par $ $ \par \incfig{drawing-1}
+    \[
+        k\phi(v_j^{(k)}) = \lambda \phi_j^{(k)} + v_j^{(k-1)} \quad k \ge 2
+    \]
+    \[
+        \phi(v_j^{(1)}) = \lambda v_j^{(1)} \quad k \ge 1
+    \]
+    \[
+        <v_j^{(i), \dots, v_j^{(1)}}>    
+    \]
+    \par $\phi$ -- инвариантно
+
+    \par $ $
+    \par $V = \sum_j <v_j^{(i)}, \dots, v_j^{(1)}> = \bigoplus_j <v_j^{(i)}, \dots, v_j^{(1)}>$
+    \par $V$ расскладывается в $\bigoplus$ инвариантных подпространств с выбранным базисом
+    \par Клетка в $[\phi]$, отвечающая $j$-му столбцу диаграммы:
+    \[
+        \begin{pmatrix}
+            \lambda & 0 & & \dots & & & 0 \\
+            1 & \lambda & 0 & \dots & & & 0 \\
+            0 & 1 & \lambda & & & & 0 \\
+            \vdots & & & \ddots & & & \vdots\\
+            0 & & & & & \lambda & 0 \\
+            0 & & & \dots & & 1 & \lambda
+        \end{pmatrix} \text{ -- единственная жорданова клетка}
+    \]
+
+    \pagebreak
+    \begin{remark}
+        $ $
+        \par Сколько клеток для $\lambda$? -- сколько векторов на нижнем уровне $=$ размерность пространства 
+        собственных векторов -- геометрическая кратность $\lambda = \dim U_1(\lambda)$
+        \par Размер максимальной клетки = наименьшее $m$ т. ч.:
+        \[
+            U_m(\lambda) = \bigcup_{i=1}^\infty U_i(\lambda) = U_a(\lambda)    
+        \]
+        \par \quad $a$ -- алгебраическая кратность $\lambda$
+        \par Суммарный размер клеток = $\dim U_m(\lambda) = $ алгебраическая кратность
+    \end{remark}
+
+    \begin{remark}
+        Лучше снизу вверх, чем наоборот
+        \par \quad Мы пытаемся найти $(\phi - \lambda \Id) \boxed{v_j^{(2)}} = v_j^{(1)} \quad \boxed{*}$
+        \par \quad и уже знаем: $v_1^{(1)}, \dots , v_{k_1}^{(1)}$ -- базис $U_1(\lambda)$
+        \par \quad Но $\boxed{*}$ не всегда разешимо
+    \end{remark}
+
+    \begin{theorem}[о попарном разложении]
+        $ $
+        \par $\chi_\phi(t) = (-1)^n \prod_{i=1}^n (t - \lambda_i)^{a_i}$, $\lambda_i$ -- попарно разл.
+        \par $V = \bigoplus_{i=1}^n U_{a_i}(\lambda_i)$ 
+    \end{theorem}
+
+    \subsection*{\S Единственность жордановой формы}
+
+    \par $[\phi]$
+    \[
+        A = \begin{pmatrix}
+            \boxed{
+            \begin{matrix}
+                J_{k_1}(\lambda_1) & & \\
+                & \ddots & \\
+                & & J_{k_s}(\lambda_1)
+            \end{matrix}} & & \\
+            & \boxed{
+                \begin{matrix}
+                    J_{l_1}(\lambda_2) & & \\
+                    & \ddots & \\
+                    & & J_{l_r}(\lambda_2)
+                \end{matrix}} & \\
+            & & \ddots
+        \end{pmatrix}    
+    \]
+
+    \par $A - \lambda I$ : если $\lambda$ не совпадает с $\lambda_i$ в текущем блоке, на диагонали ненулевые элементы
+    $\Rightarrow$ обратим (ранг $=$ размеру)
+    \par А для совпадающего:
+    \[
+        n - \rank (A - \lambda I) = \text{ колич. клеток, отвеч. с. ч. } \lambda =
+    \]
+    \[
+        = \text{ размерность пространства решений } (A - \lambda I) x = 0 = \dim U_1(\lambda)    
+    \]
+    \par (ранг = размер - 1)
+
 \end{document}
+
