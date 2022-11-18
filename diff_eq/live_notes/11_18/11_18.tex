@@ -1,0 +1,201 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+\usepackage{amsfonts, amssymb, amsmath}  %% for math symbs
+\usepackage{mathrsfs}
+\usepackage{float}  %% for table floating
+\usepackage{enumerate} %% for lists
+
+\usepackage{fullpage}  %% less margin 
+
+\usepackage{graphicx} %% for pics
+\usepackage{amsthm, amsmath, amsfonts, amssymb, mathtools}
+
+\parindent 5px  % no white space in new lines
+% \baselinestretch{1.5}
+\renewcommand{\baselinestretch}{1.3} 
+
+%% titling
+\title{Hello world} 
+\author{Lindy2076}
+\date{22.22.2} %%\today
+
+\begin{document}
+  \textbf{Теорема} Есть задача Коши(перестали песать векторы, потому что надоело):
+
+  $
+  \begin{cases}
+    \dot x = f(t, x, \mu)\\ x(t_0) = x_0\\
+    (t_0, x_0) \in G_\mu
+  \end{cases},$
+  $\exists \frac{\partial f}{\partial x}, \frac{\partial F}{\partial \mu} \in C(G_\mu) \implies X(t, t_0, x_0, \mu) $ - решение
+
+  1. $\exists \frac{\partial x}{\partial t}, \frac{\partial x}{\partial T_0}, \frac{\partial x}{\partial x_0}, \frac{\partial x}{\partial \mu} \in C(D_\mu)$, при этом:
+  
+  2. $\frac{\partial x }{\partial x_0} =: y $ -- решение однородной $\dot y = \frac{\partial f}{\partial x}\big(t, x(t, t_0, x_0, \mu), \mu\big)y $
+
+  3. $\frac{\partial x}{\partial \mu} = y$ -- решение неоднородной $\dot y = \frac{\partial f}{\partial x}\big(t, x(t,t_0,x_0,\mu), \mu\big)y + \frac{\partial f}{\partial \mu}$
+
+  D. Достаточно доказать существование частных производных по начальным данным и параметрам
+  % извините, подвиньтесь (с)
+  ну там крч непрерывное поэтому решение тоже гладкое
+  Почему существует частная производная $\frac{\partial x}{\partial x_0{\text{чёта}}}$? Рассмотрим решение $x(t,t_0, x_0, \mu)$ на $[\tau, t]\times V\subset G_\mu$.
+
+  Пусть $0 < r$ даст нам $\forall h: |h| < r $ и даже $t_0, x_0$
+  
+  $x(t, n) = x(t, t_0, x_0 + \underset{\text{произв по напр}}{h\cdot e_i}, \mu), \quad\Delta x = \underbrace{x(t,h)}_{\begin{cases}
+    \dot x = f(t, x, \mu) \\ x(t_0) = x_0 + he_i
+  \end{cases}} - \underbrace{x(t, 0)}_{\begin{cases}
+    \dot x = f(t, x, \mu)\\x(t_0) = x_0
+  \end{cases}}$
+
+  Продифференцируем по $t$:
+
+  $\frac{d}{dt}(\Delta x) = f\big(t, x(t,h), \mu\big) - f\big(t,x(t,0), \mu\big) = 
+  % \int^1_0 \frac{\partial f}{\partial x} \big(t, x(t,0) + s\Delta x, \mu\big)ds = 
+  \int^1_0 \frac{\partial f}{\partial x} \big(t, x(t, 0) + s\Delta x, \mu\big)\Delta x ds =\\
+  \int^1_0 \frac{\partial f}{\partial x}\big(t, x(t,0) + s\Delta x, \mu\big)ds \frac{\Delta x}{n}
+  $
+
+  Можно ли $(h \to 0 ?)$
+  Интеграл непрерывен, зависит от $t,h$, обозначим его за $A$:
+
+  $A(t, n) \longrightarrow A(t, 0) = \frac{\partial f}{\partial x} \big( t, x(t, t_0, x_0, \mu), \mu\big)$
+
+  $y = \lim_{h \to 0} \frac{\Delta x}{h}$  -- решение $\begin{cases}
+    \dot y = \int^1_0 A(t, 0)ds\cdot y = A(t, 0)y \quad \frac{\Delta x}{h} = e_i\\ y(t_0) = e_i
+  \end{cases} $
+
+  Очевидно, что наш $y = \frac{\partial x}{\partial x_{0, i}}$
+
+  Ну мы кроме непрерывности и следующего не пользовались:
+
+  $\frac{\partial x(t_0)}{\partial h}= \frac{x_0 + he_i - x_0}{h} = \frac{he_i}{h} = e_i$ 
+
+  Предел существует, потому что это решение задачи, для которой существует единственное решение.
+
+  Почему существует $\frac{\partial x}{\partial \mu_j}$?
+
+  Аналогично! Возьмём $x(t,q) = x(t, t_0, x_0)\mu + qe_j$
+
+  $\Delta x = x\underbrace{(t,q)}_{\begin{cases}
+    \dot x = f(t, x, \mu + qe_j)\\x(t_0) = x_0
+  \end{cases}
+} - \underbrace{x(t,0)}_{\begin{cases}
+    \dot x = f(t, x, \mu) \\ x(t_0) = x_0
+  \end{cases}}$
+
+  etc...
+
+  Почему существует $\frac{\partial x}{\partial t_0}$?
+
+  $x\big(t, t_0, x_0(t_0, t, x)\big) \equiv x$ в силу единственности решения задачи Коши на одной и той же траектории.
+
+  Возьмём некий $t_0$ на некотором $I(t, x)$. И по скольку мы уже доказали существование производной $\frac{\partial x}{\partial x_0}, \frac{\partial x_0}{\partial t_0}$ и непрерывная, посчитаем производную икса 
+
+  Далее зависимость от $\mu$ опускаем\dots
+
+  Что такое $\frac{\partial x}{\partial x_0}$??? Это: $$\lim_{\Delta t_0 \to 0} \frac{x\big(t, t_0 + \Delta t, x_0(t_0, t, x)\big) - x\big(t, t_0, x_0(t_0, t, x)\big) \pm x\big(t, t_0 + \Delta t, x_0(t_0 + \Delta t, t,x)\big) }{\Delta t_0} =$$
+
+  $$= -\frac{\partial x}{\partial x_0} \frac{\partial x_0}{\partial t_0} = - \frac{\partial x}{\partial x_0} f(t_0, x_0)$$ они существуют и непрерывны.
+
+  \par $ $
+
+  \textbf{Следствие (Формула Лиувилля)}
+
+  $$\det \frac{\partial x}{\partial x_0}(t, t_0, x_0) = e^{\int^t_{t_0} \text{Tr} \frac{\partial f}{\partial x}(s, x(s, t_0, x_0))ds}$$
+
+  $\begin{cases}
+    \dot y = \frac{\partial f}{\partial x_0}y\\ y(t_0) = I
+    
+  \end{cases}$
+
+  $x(t, t_0, x_0) =: x_t(x_0) = T_t$ -- отображение нмерного фазового пространства в себя
+
+  Элемент объема $\det \frac{\partial x_t(x_0)}{\partial x_0} dx_0$ 
+
+  И если $\text{Tr} \frac{\partial f}{\partial x} \equiv 0 \implies $ отображение $T_t$ сохраняет фазовый объём.
+
+  Т. Лиувилля верна в этом случае
+
+  \textbf{Пример:} есть гамельтониан, две группы переменных ($y$ - не координата)
+  
+  $\dot x_k = \frac{\partial E}{\partial y_k} = F_k$
+
+  $\dot y_k = - \frac{\Delta E}{\partial dx_k}$
+
+  $\sum \frac{\partial f_k}{\partial x_k} + \frac{\partial f_{k + k}}{\partial y_k} = 0$
+
+  \par $ $
+  
+  \textbf{Теорема.} Пусть существуют и непрерывны в $G_\mu$ всевозможные 
+  производные $f$ по $x, \mu$, вплоть до порядка $l \ge 1$.
+
+  Тогда $x(t, t_0, x_0, \mu)$ -- решение $\begin{cases}
+    \dot x = f(t, x, \mu) \\ x(t_0) = x_0
+  \end{cases}$ 
+  имеет всевозможные непрерывные производные по $x_0, \mu$ вплоть до $l$-того порядка. 
+
+  Д. Индукция по $l$.
+
+  \par $ $
+
+  {\large\textbf{Устойчивость решений диффуров}}
+
+  \textbf{Устойчивость в малом (или по первому приближению)}
+
+  Рассмотрим 
+  $\dot x = f(t, x, \mu), \quad f:G_\mu \to \mathbb{R}^n, \quad f\in \text{Lip}_x(G_\mu)$ локально, $x \in \mathbb{R}^n, \mu \in \mathbb{R}^m$
+
+  Пусть при $\mu = \overline{\mu}, x= \overline{x}(t)$ решения, определено при $t \in  [t_0, \infty)$
+
+  Решение $\overline{x}: [t_0, \infty) \to \mathbb{R}^n$ при $\mu = \overline{\mu}$ называется \textbf{устойчивым в малом} тогда и только тогда, когда 
+  
+  существует окрестность начального условия $V^* = V^*(\overline{x}(t_0, \mu), \mu) \in \mathbb{R}^{n+m}$
+%это не наш метод(с)
+
+  $S = [t_0, \infty) \times V^* \subset D_\mu$ - область определения $x = x(t, x_0, \mu)$ и $x$ непрерывно по $(x_0, \mu)$ в точке $\big(\overline{x}(t_0), \overline{\mu}\big)$ равномерно по $t \in [t_0, + \infty)$
+  
+  Иначе решение называется неустойчивым
+
+  Пример. 
+
+  $\dot x = \mu x, \quad \mu, x \in \mathbb{R}$
+
+  $x(t, x_0, \mu) = x_0 e^{\mu (t-t_0)}$
+
+  Если $\mu = \overline{\mu} < 0 \implies $ устойчивость в малом есть
+
+  $| x(t, x_0, \mu) | \le |x_0| e^{\mu(t-t_0)} \underset{t\to\infty}{\longrightarrow} 0$
+
+  $\mu \in U_\delta(\overline{\mu}) < 0$
+
+  Иначе, если $\overline{\mu} \ge 0 \implies \mu > 0 \implies e^{\mu(t-t_0)} \to \infty$. $x$ неустойчив.
+
+  \par $ $
+
+  Как понять в общем случае устойчива ли система?
+
+  Положим $y = x- \overline{x}(t), \alpha = \mu - \overline{\mu} \implies $
+
+  $\begin{cases}
+    \dot y = F(t, y, \alpha), & F(t, y, \alpha) = f(t, y + \overline{x}(t), \alpha + \overline{\mu}) - f(t, \overline{x}(t), \overline{ \mu}) \\ y = 0
+  \end{cases}$
+
+  При $\mu = \overline \mu \implies \alpha = 0 \implies y \equiv 0$ при $t \in [t_0, \infty)$
+
+  Решение $y \equiv 0, t \in [t_0, \infty)$ при $\alpha = 0$ \textbf{устойчива в малом} $\iff \\
+  \forall \varepsilon > 0 \ \exists \delta_1 > 0, \delta_2 > 0 \ \forall \|y_0\| < \delta_1, \forall \| \alpha \| < \delta_2 :$
+
+  1. решение $y(t, y_0, \alpha) \ \begin{cases}
+    \dot y = F(t, y ,\alpha) \\ y(t_0) = y_0
+  \end{cases}$ продолжимо на $[t_0, \infty)$
+
+  2. $\forall t \ge t_0 : \| y(t, y_0, \alpha) \| < \varepsilon $
+
+  Пример. $\exists \delta^* > 0 : U = \{(t, x, \mu) : t \in [t_o, \infty), \| x - \bar x(t) \| < \delta^*, \| \mu - \mu^* \| < \delta^*\} \subset G_\mu$  - область липшецевости
+
+  $\forall (t_0, x_0, \mu) \in U \| y(t, y_0, \alpha) \| < \varepsilon \implies $ продолжимо в силу липшицевости на $[t_0, \infty)$
+\end{document}
