@@ -182,5 +182,41 @@
     \]
     \par (ранг = размер - 1)
 
+    \par $ $
+    \par Фиксируем $\lambda$
+    \par в жордановой форме:
+    \par $d_1$ -- клеток размера $1$
+    \par $d_2$ -- клеток размера $2$
+    \par \dots
+    \par $d_m$ -- клеток размера $m$
+    \par $ $
+    \par $d_1 + d_2 + \dots + d_m = \dim U_1(\lambda)$
+    \par $\dim U_2(\lambda) = \dim \{x : (A - \lambda I)^2 x = 0\} = n - \rank(A - \lambda I)^2$
+
+    \[
+        \begin{pmatrix}
+            0 & & & & \\
+            1 & 0 & & \\
+             & & \ddots & & \\
+             & & & 0 & \\
+             & & & 1 & 0
+        \end{pmatrix}^2 = \begin{pmatrix}
+            0 & & & & \\
+            0 & 0 & & \\
+            1 & & \ddots & & \\
+             & & & 0 & \\
+             & & 1 & 0 & 0
+        \end{pmatrix} 
+    \]
+
+    \par $d_1 + 2d_2 + \dots + 2d_m = \dim U_2(\lambda)$
+    \par $d_1 + 2d_2 + \dots + id_i + \dots + id_m = \dim U_i(\lambda)$
+    \par $d_{i+1} + \dots + d_m = \dim U_{i+1}(\lambda) - \dim U_i(\lambda)$
+    \par $d_i + d_{i+1} + \dots + d_m = \dim U_i(\lambda) - \dim U_{i-1}(\lambda)$
+    \par $d_i = 2 \dim U_i(\lambda) - \dim U_{i-1}(\lambda) - \dim U_{i+1}(\lambda)$
+    \par Размерность корневого пространства от выбора базиса никак не зависит
+    \par $d_1 = 2 \dim U_1(\lambda) - \dim U_2(\lambda) - 0$
+    \par $i = m : \ 2 \dim U_m(\lambda) - \dim U_{m-1}(\lambda) - \underbrace{\dim U_{m+1}(\lambda)}_{= \dim U_m(\lambda)} = \dim U_m(\lambda) - \dim U_{m-1}(\lambda)$
+
 \end{document}
 
