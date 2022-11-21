@@ -1,0 +1,107 @@
+\input{../../../preamble.tex}
+
+% beginwith добавить (начинается с 7 теоремы)
+
+\begin{document}
+    \title{Математический анализ}
+    \date{21 ноября 2022}
+    \maketitle{}
+
+    \pagebreak
+
+    \begin{theorem}
+        $f_n : [a, +\infty) \rightarrow \R$
+        \par $\forall n \in \N \quad f \in C([a, +\infty))$
+        \par $\forall x \in [a, + \infty) \ \exists \lim_{n \rightarrow \infty} f_n(x) =: \phi(x)$
+        \par $\forall R > a$ сходимость равномерна на $[a, R]$
+        \[
+            \forall n \ \exists \int_a^\infty f_n(x)dx \text{ и сходится равномерно по } n \in \N   
+        \]
+        \par Тогда 
+        \[
+            \exists \lim_{n \rightarrow a} \in_a^{+\infty} f_n(x)dx  = \int_{a} \phi(x)dx   
+        \]
+        \[
+            \lim_{n \rightarrow \infty} \int_a^{+\infty} f_n(x)dx = \int_a^{+\infty} \lim_{n \rightarrow \infty} f_n(x)dx   
+        \]
+    \end{theorem}
+
+    \begin{theorem}
+        $f : [a, + \infty) \times (c, d) \rightarrow \R, \ f \in C([a, + \infty) \times (c, d))$
+        \[
+            \forall x, \in [a, + \infty) \times (c, d) \ \exists \frac{\partial f}{\partial y}(x, y) = \phi(x, y), \phi \in C([a, + \infty) \times (c, d))
+        \]
+        \[
+            \forall y \in (c, d) \ \exists \int_a^{+\infty} f(x, y)dx, \ \exists \int_a^{+\infty} \phi(x, y) dx, \text{ сх. равномерно по } y \in (c, d)   
+        \]
+        \par Тогда $\exists$ и равны
+        \[
+            \frac{d}{dx} \int_a^{+\infty} f(x, y) dx = \int_a^{+\infty} \phi(x, y) dx    
+        \]
+        \[
+            \frac{d}{dx} \int_a^{+\infty} f(x, y)dx  = \int_a^{+\infty} \frac{\partial f}{\partial x} (x, y) dx  
+        \]
+    \end{theorem}
+
+    \begin{theorem}
+        $f : [a, + \infty) \times (c, d) \rightarrow \R, \ f \in C([a, + \infty) \times (c, d))$
+        \[
+            \int_a^{+\infty} f(x, y)dx \text{ сх. равномерно по } y \in [c, d]   
+        \]
+        \par Тогда $\exists$ и равны
+        \[
+            \int_c^d dy \int_a^{+\infty} f(x, y) dx = \int_a^{+\infty} dx \int_c^d f(x, y) dy 
+        \]
+    \end{theorem}
+
+    \subsection*{Внешняя алгебра}
+
+    $L$ -- линейное пространство, $\dim L = n$
+    \[
+        e_1, \dots, e_n \text{ -- базис в } L   
+    \]
+    \par $\Lambda^2 L$ -- формальные суммы $\sum_{i=1}^N \alpha_i a_i \wedge b_i, \ \alpha_i \in \R, \ a_i, b_i \in L$,
+    \par \quad профакторизованные по отношению эквивалентности, заданному правилом:
+    \[
+        (\alpha a_i + \beta b_1) \wedge a_2 = \alpha a_1 \wedge a_2 + \beta b_1 \wedge a_2   
+    \]
+    \[
+        a_1 \wedge a_2 = -a_2 \wedge a_1
+    \]
+    
+    \par $a = \sum_{i=1}^n a^i e_i, \ b = \sum_{i=1}^n b^i e_i$
+    \[
+        a \wedge b = \sum_{i, j = 1}^n a^i b^j e_i \wedge e_j  = \sum_{i, j \in \{1, \dots, n \}, i \not= j} a^ib^j e_i \wedge e_j =  
+    \]
+    \[
+        = \sum_{i, j \in \{1 \dots, n\}, i < j} (a^ib^j - b^i a^j) e_i \wedge e_j    
+    \]
+
+    \par $e_i \wedge e_j \ | \ 1 \le i < j_{\le n}$ -- базис $\Lambda^2 L$ \quad $\dim \Lambda^2 L = C_n^2$
+
+    \par $\Lambda^0 L = \R$
+    \par $\Lambda^1 L = L$
+    \par $\Lambda^p L$ -- формальные суммы $\sum \alpha a_1 \wedge a_2 \wedge \dots \wedge a_n$
+    \par \quad факторизованные по правилам
+    \[
+        (\alpha a_1 + \beta b_1)\wedge a_2 \wedge \dots \wedge a_p = \alpha a_1 \wedge a_2 \wedge \dots \wedge a_p + \beta b_1 \wedge a_2 \wedge \dots \wedge a_p    
+    \]
+
+    \par Базис $\Lambda^p L \quad e_{n_1} \wedge e_{n_2} \wedge \dots \wedge e_{n_p}$, где $1 \le n_1 < n_2 < \dots < n_p \le n$ 
+    \par $\dim \Lambda^p L = C_n^p$
+    \par Если $\pi$ -- перестановка $\{1, \dots, p\} \quad a_{\pi(1)} \wedge a_{\pi(2)} \wedge \dots \wedge a_{\pi(p)} = \sign \pi a_1 \wedge \dots \wedge a_p$
+
+    \par $\lambda = \sum_H a^H e_H$ \quad $b^{h_1 \dots h_p}$
+    \par если $h_1 < \dots < h_p$, то $b_H = a_H$. При всех остальных -- по антисимметричности
+    \par $\lambda = \frac{1}{p!} \sum_{h_1, \dots, h_p = 1}^n b^{h_1 \dots h_p} e_{h_1} \wedge \dots \wedge e_{n_p}$
+
+    \par $ $
+    \par $\dim \Lambda^p L = C_n^p$
+    \par $\dim \Lambda^h L = 1$
+    \par $\Lambda^n L = \{c e_1 \wedge e_2 \wedge \dots \wedge e_n \ | \ c \in \R \}$
+    \par Пусть $A \in B(L)$, $\det A = $
+    \par Рассмотрим $g_A(a_1, \dots, a_n) = (Aa_1) \wedge \dots \wedge (Aa_n)$
+    \par $g_A : L^n \rightarrow \Lambda^ L$
+    \par Скажем, что $\exists f_a \in \Lambda^n L \ $ $f_A(a_1 \wedge \dots \wedge a_n) = g_A(a_1, \dots, a_n)$
+
+\end{document}
