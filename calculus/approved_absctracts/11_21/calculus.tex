@@ -102,6 +102,49 @@
     \par Пусть $A \in B(L)$, $\det A = $
     \par Рассмотрим $g_A(a_1, \dots, a_n) = (Aa_1) \wedge \dots \wedge (Aa_n)$
     \par $g_A : L^n \rightarrow \Lambda^ L$
-    \par Скажем, что $\exists f_a \in \Lambda^n L \ $ $f_A(a_1 \wedge \dots \wedge a_n) = g_A(a_1, \dots, a_n)$
+    \par Скажем, что $\exists f_a \in \Lambda^n L \ $ $f_A(a_1 \wedge \dots \wedge a_n) = g_A(a_1, \dots, a_n)$ \quad $f^{A^{-1}}$ умножение на число
+    
+    \par \textbf{\textit{Утверждение: }} $f_A(a_1 \wedge \dots \wedge a_n) = (\det A) a_1 \wedge \dots \wedge a_n$
+    \begin{proof}
+        $a_1, \dots, a_n$ лин. нез. : $0 = 0$
+        \[
+            a_1, \dots, a_n \Rightarrow \text{ это базис } L   
+        \]
+        \[
+            Aa_i = \sum_{k=1}^{n} A_{ki}a_k    
+        \]
+        \[
+            f_A(a_1 \wedge \dots \wedge a_n) = g_A(a_1, \dots, a_n) = (Aa_1) \wedge \dots \wedge (Aa_n) =    
+        \]
+        \[
+            = \left(\sum_{k_1 = 1}^n A_{k_11 a_{k_1}}\right) \wedge \dots \wedge \left(\sum_{k_n = 1}^n A_{k_nn} a_{k_n}\right)    
+        \]
+        \[
+            = \sum_{k_1, \dots, k_n \in \{1, \dots, n\}, k_i \not= k_j, i \not= j} A_{k_11} \dots A_{k_nn} \underbrace{a_{k_1} \wedge \dots \wedge a_{k_n}}_{\sign (k_1, \dots, k_n)}
+        \]
+        \[
+            = (\det A) a_1 \wedge \dots \wedge a_n \Rightarrow
+        \]
+        \[
+            \Rightarrow (Aa_1) \wedge \dots \wedge (Aa_n) \ \det A a_1 \wedge \dots \wedge a_n
+        \]
+    \end{proof}
+
+    \subsection*{Внешее произведение}
+
+    \[
+        (\underbrace{a_1 \wedge \dots \wedge a_p}_{\in \Lambda^p L}) \wedge (\underbrace{b_1 \wedge \dots \wedge b_q}_{\in \Lambda^q L}) := a_1 \wedge \dots (a_p \wedge b_1) \wedge \dots \wedge b_1 \in \Lambda^{p+q} L    
+    \]
+    \par на полиномах -- по линейности
+    \[
+        \underbrace{\lambda}_{\in \Lambda^p L} \wedge \underbrace{\mu}_{\in \Lambda^q L} = (-1)^{pq}\mu \wedge \lambda    
+    \]
+
+    \begin{illustration*}
+        $L = \R^3$
+        \par $(a^1e_1 + a^2e_2 + a^3e_3) \wedge (b^1e_1 + b^2e_2 + b^3e_3) = (a^1b^2 - b^1a^2) e_1 \wedge e^2 + \\ + (a^2b^3 - b^2a^3)e_2 \wedge e_3 + (a^3b^1 - b^3a^1)e_3 \wedge e_1$
+        \par $(a^1e_1 + a^2e_2 + a^3e_3) \wedge (b^1e_2 \wedge e_3 + b^2 e_3 \wedge e_1 + b^3 e_1 \wedge e_2) =$
+        \par $= (a^1b^1 + a^2b^2 + a^3b^3) e_1 \wedge e^2 \wedge e^3$
+    \end{illustration*}
 
 \end{document}
