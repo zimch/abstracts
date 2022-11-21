@@ -1,4 +1,6 @@
 \input{../../../preamble.tex}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
 
 % beginwith добавить (начинается с 7 теоремы)
 
@@ -202,5 +204,19 @@
     \par $\lambda = a_1 \wedge \dots \wedge a_p$
     \par $\mu = b_1 \wedge \dots \wedge b_p$
     \par $(\lambda, \mu)_{\Lambda^p L} := \det \bigg((a_i, b_j)\bigg)_{i, j = 1}^p$
+    \par $\sigma_H = \sigma_{h_1} \wedge \dots \wedge \sigma_{h_p}$
+    \par $(\sigma_H, \sigma_K)_{\Lambda^p L} = 0, \ H \not= K$ (столбец из нулей в матрице $(\sigma_{h_i}, \sigma_{k_j})_{i, j = 1}^p$)
 
+    $(\sigma_H, \sigma_H) = \det \diag \{(\sigma_{h_i}, \sigma_{h_i}), \ i = 1, \dots, p\} = \prod_{i=1}^p (\sigma_{h_i}, \sigma_{h_i}) \not= 0 = \pm 1$
+
+    \par $\Lambda^p L, \ \dim = n$
+    \[
+        \alpha_n \sigma_1 \wedge \wedge \dots \wedge \sigma_{n-1}, \ \alpha_{n-1} = \sigma_1 \wedge \dots \wedge \sigma_{n-2} \wedge \sigma_n    
+    \]
+    \[
+        \alpha_i = \sigma_1 \wedge \dots \wedge \sigma_{i+1} \wedge \dots \wedge \sigma_n    
+    \]
+    \[
+        (\alpha_i, \alpha_j)_{\Lambda^n L} = \prod_{j \in \{1, \dots, n\}, i \not= j} (\sigma_j, \sigma_j) = (-1)^{r_-} (\sigma_i, \sigma_i)_L  
+    \]
 \end{document}
