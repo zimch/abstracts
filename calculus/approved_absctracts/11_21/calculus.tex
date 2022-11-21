@@ -144,7 +144,63 @@
         $L = \R^3$
         \par $(a^1e_1 + a^2e_2 + a^3e_3) \wedge (b^1e_1 + b^2e_2 + b^3e_3) = (a^1b^2 - b^1a^2) e_1 \wedge e^2 + \\ + (a^2b^3 - b^2a^3)e_2 \wedge e_3 + (a^3b^1 - b^3a^1)e_3 \wedge e_1$
         \par $(a^1e_1 + a^2e_2 + a^3e_3) \wedge (b^1e_2 \wedge e_3 + b^2 e_3 \wedge e_1 + b^3 e_1 \wedge e_2) =$
-        \par $= (a^1b^1 + a^2b^2 + a^3b^3) e_1 \wedge e^2 \wedge e^3$
+        \par $= (a^1b^1 + a^2b^2 + a^3b^3) e_1 \wedge e^2 \wedge e^3$.
     \end{illustration*}
+
+    \par $A \in B(M, N) \quad \Lambda^pA \in B(\Lambda^p M, \Lambda^p N)$
+    \par $(\Lambda^pA) (\underbrace{a_1 \wedge \dots \wedge a_p}_{\in \Lambda^p M}) = (Aa_1) \wedge \dots \wedge (Aa_p) \quad \Lambda^n A = \det A$
+    \par $e_1, \dots, e_m$ -- базис в $M$
+    \par $f_1, \dots, d_n$ -- базис в $N$
+    \par $\Lambda^p A eH = (\Lambda^p A)(e_{h_1} \wedge \dots \wedge e_{n_p}) = (Ae_{h_1}) \wedge \dots \wedge (Ae_{h_p}) =$
+    \par $= \left(\sum_{k_1 = 1}^n A_{k_1h_1} f_{k_1} \right) \wedge \dots \wedge \left(\sum_{k_p = 1}^n A_{k_1h_p} f_{k_p} \right) = $
+    \par $ = \sum_{k_1, \dots, k_p \in \{1, \dots, n\}, k_i \not= k_j, i \not= j} A_{k_1h_1} \dots A_{k_ph_p} f_{k_1} \wedge \dots \wedge f_{k_p} = $
+    \par $\sum_{k = (k_1, \dots, k_p), 1 \le k_1 < \dots < k_p \le n} \sum_\pi A_{k_1h_1} \dots A_{k_ph_p} \sign{\pi} f_{k_p} = A_{KH}$
+    \par $\Lambda^p A e H = \sum_K A_{KH}f_K$
+    
+    \subsection*{Свойства внешней степени оператора}
+
+    \begin{enumerate}
+        \item \par $\Lambda^p(AB) = \Lambda^p A \Lambda^p B$
+            \par $(\Lambda^p(AB)) (a_1 \wedge \dots \wedge a_p) = (ABa_1) \wedge \dots \wedge (ABa_p) = $
+            \par $= (\Lambda^p A)((Ba_1) \wedge \dots \wedge (Ba_p)) = (\Lambda^p A \Lambda^p B)(a_1 \wedge \dots \wedge a_p)$
+        \item $\lambda \in \Lambda^p M, \ \mu \in \Lambda^q M$
+            \par $(\Lambda^{p+q}A)(\lambda \wedge \mu) = (\Lambda^p A\lambda) \wedge (\Lambda^q A \mu)$
+            \par По линейности для мономов: $\lambda = a_1 \wedge \dots \wedge a_p, \ \mu = b_1 \wedge \dots \wedge b_q$
+            \par $(\Lambda^{p+q}A)(\lambda \wedge \mu) = \underbrace{(Aa_1) \wedge \dots \wedge (Aa_p)}_{\Lambda^p A\lambda} \wedge \underbrace{(Ab_1) \wedge \dots \wedge (Ab_q)}_{\Lambda^p A\mu}$
+    \end{enumerate}
+
+    \subsection*{Индефинитное скалярое произведение}
+
+    \par Скалярное произведение, внутреннее произведение, "индефинитная метрика"
+    \par $(\cdot, \cdot)$ -- симметричная невырожденная билинейная форма
+    \[
+        \text{невырожденность: } (a, b) = 0, \ \forall b \in L \Rightarrow a = 0    
+    \]
+    \[
+        (a, b) = (b, a), \forall a, b \in L    
+    \]
+
+    \begin{illustration*}[Лоренцево произведение]
+        $ $
+        \par $a = (x, y, z, t) \in \R^4 \quad (a_1, a_2) = x_1x_2 + y_1y_2 + z_1x_2 - t_1t_2$
+    \end{illustration*}
+
+    \par Невырожденность $\Leftrightarrow$ \[
+        \bigg((e_i, e_j)\bigg)_{i, j = 1}^n \text{ -- матрица Грамма}, \quad \det \not= 0
+    \]
+    \par $\exists$ ортонормированный базис $\sigma_i, \ i = 1, \dots, n$
+    \[
+        (v_i, v_j) = \mp \delta_{ij}    
+    \]
+    \par $r_+$ -- число знаков $+$, $r_-$ -- число знаков $-$, $s = r_+ - r_-$ -- сигнатура % сделать списком
+    \[
+        f \in L^* \ \exists b_+ \in L \ \forall a \in L \ f(a) = (b_f, a)
+    \]
+
+    \subsection*{Скалярное произведение в $\Lambda^p L$}
+
+    \par $\lambda = a_1 \wedge \dots \wedge a_p$
+    \par $\mu = b_1 \wedge \dots \wedge b_p$
+    \par $(\lambda, \mu)_{\Lambda^p L} := \det \bigg((a_i, b_j)\bigg)_{i, j = 1}^p$
 
 \end{document}
