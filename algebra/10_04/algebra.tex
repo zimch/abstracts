@@ -1,0 +1,238 @@
+\input{../../preamble.tex}
+
+\begin{document}
+    \title{Алгебра}
+    \date{4 октября 2022}
+    \maketitle
+
+    \pagebreak
+
+    \begin{theorem*}
+        $V$ - векторное пространство над полем $K$, $\dim V = n < \infty$, $f \in \End(V)$
+        \par $f$ диагонализируем $\Leftrightarrow \exists$ базис $V$, состоящий из собст. векторов оператора $f$
+    \end{theorem*}
+    \begin{proof}
+        $ $
+        \begin{enumerate}
+            \item[$\boxed{\Rightarrow}$] $\exists$ базис $v_1, \dots, v_n$
+                \par \[
+                    [f]_{\{v_i\}} = \begin{pmatrix}
+                        \lambda_1 & & 0 \\
+                        & \ddots & \\
+                        0 & & \lambda_n
+                    \end{pmatrix} \quad f(v_i) = \lambda_i v_i \quad v_i \text{ -- с. в., отвеч. с. ч. } \lambda_i
+                \]
+            \item[$\boxed{\Leftarrow}$] $v_1, \dots, v_n$ -- базис из собст. векторов
+                \par $f(v_i) = \lambda_i v_i$
+                \par \[
+                    [f]_{\{v_i\}} \begin{pmatrix}
+                        \lambda_1 & & 0 \\
+                        & \ddots & \\
+                        0 & & \lambda_n
+                    \end{pmatrix}    
+                \]
+        \end{enumerate}
+    \end{proof}
+
+    \subsection*{\S Формулировка теоремы о жордановой нормальной форме}
+
+    \par $V$ -- векторное пространство над полем $K$, $\dim V = n < \infty$, $f \in \End(V)$, $\lambda \in K$
+    \par $J_n(\lambda) = \begin{pmatrix}
+        \lambda & & & 0 \\
+        1 & \ddots & & \\
+        & \ddots & \ddots & \\
+        0 & & 1 & \lambda
+    \end{pmatrix}$ -- жорданова клетка размера $n$, отчевающая $\lambda$
+    \par $J_1(\lambda) = \begin{pmatrix}
+        \lambda
+    \end{pmatrix}$
+    \par $J_2(\lambda) = \begin{pmatrix}
+        \lambda & 0 \\
+        1 & \lambda
+    \end{pmatrix}$
+    \par $J_3(\lambda) = \begin{pmatrix}
+        \lambda & 0 & 0 \\
+        1 & \lambda & 0 \\
+        0 & 1 & \lambda
+    \end{pmatrix}$
+
+    \begin{definition}
+        Блочно-диагональная матрица, составленная из жордановых клеток, называется жордановой матрицей
+        \[
+            \begin{pmatrix}
+                \boxed{J_{n_1}(\lambda)} & & & 0 \\
+                & \boxed{J_{n_2}(\lambda)} & & \\
+                & & \ddots & \\
+                0 & & & \boxed{J_{n_k}(\lambda)}
+            \end{pmatrix}    
+        \]
+    \end{definition}
+
+    \begin{theorem*}[о жордановой нормальной форме]
+        $ $
+        \par $K$ -- алгебраически замкнутое поле
+        \par $V$ -- векторное пространство над $K$, $\dim V < \infty$, $f \in \End(V)$
+        \par Тогда $\exists$ базис $V$, такой что матрица $f$ в этом базисе -- жорданова матрица, причем жордановы 
+        клетки определены однозначно с точностю до порядка
+    \end{theorem*}
+
+    \begin{definition}
+        Базис в теореме называется жордановым базисом, а соответствующая жорданова матрица -- канонической жордановой формой оператора $f$
+        \par Жорданова форма однознача с точностю до порядка следования клеток
+        \par !Жорданов базис, вообще говоря, неоднозначен (только когда оператор диагонализируем с попарло различными $\lambda$)
+    \end{definition}
+
+    \begin{corollary}
+        $A \in M_n(K)$, $K$ -- алгебраически замкнутое поле.
+        \par $\exists C \in M_n(K)$, $\det C \not= 0$, такой что $C^{-1}AC$ -- жорданова матрица
+    \end{corollary}
+    \begin{proof}
+        $V = K^n$
+        \par $f(v) = Av$
+        \par В стандартных базисах $[f]_{\text{ст.}} = A$
+        \par По теореме о жордановой форме, $\exists$ базис $v_1, \dots, v_n$, такой что $[f]_{\text{ст.}}$ -- жорданова матрица
+        \par $C$ -- матрица преобразований координат при переходе от стандартного базиса к $\{v_i\}$
+        \[
+            [v]_{\text{ст}} = C \cdot [v]_{\{v_i\}}    
+        \]
+        \[
+            [f(v)]_{\text{ст}} = C \cdot [f(v)]_{\{v_i\}}    
+        \]
+        \[
+            [f(v)]_{\{v_i\}} = [f]_{\{v_i\}} [v]_{\{v_i\}}
+        \]
+        \[
+            C[f(v)]_{\{v_i\}}  = A[v]_{\text{ст}} = A \cdot C \cdot [v]_{\{v_i\}}   
+        \]
+        \[
+            [f(v)]_{\{v_i\}} = \underbrace{C^{-1}AC}_{= [f]_{\{v_i\}} \text{ -- жорд.}} [v]_{\{v_i\}}
+        \]
+    \end{proof}
+
+    \begin{illustration*}
+        $V = \{g \in K[x] \ | \ \deg g \le n \ \ \Char K = 0\}$
+        \[
+            \frac{d}{dx} : \quad \quad \frac{x^n}{n!}, \frac{x^{n-1}}{(n-1)!}, \dots, x, 1  
+        \]
+        \[
+            v_i = \frac{x^{n+1-i}}{(n+1-i)!}, \ i = 1, \dots, n+1   
+        \]
+        \[
+            \frac{d}{dx}(v_i) = \frac{d}{dx}(\frac{x^{n+1-i}}{(n+1-i)!}) = (n+1-i) \frac{x^{n+1-(i+1)}}{(n+1-i)!} = \frac{x^{n+1-(i+1)}}{(n+1-(i+1))!} = v_{i+1}
+        \]
+        \[
+            \frac{d}{dx}v_{i+1} = \frac{d}{dx} = 0    
+        \]
+        \[
+            i = n : \frac{d}{dx}v_i = v_{i+1}, \quad \quad i = n+1 : \frac{d}{dx} v_{i+1} = 0
+        \]
+    \end{illustration*}
+
+    % ВСТАВИТЬ СЮДА ЗАМЕЧАНИЕ ЧТО ЖОРД ФОРМЫ С ЕДИНИЦАМИ СВЕРХУ == ЕДИНИЦЫ СНИЗУ ОТН СВОИХ БАЗИСОВ
+
+    \subsection*{\S Инвариантное подпространство}
+
+    \par $V$ -- векторное пространство над полем $K$ (любым)
+    \par $f \in \End(V)$, $U \subseteq V$
+
+    \begin{definition}
+        $U$ -- $f$-инвариантное подпространство, если $f(U) \subseteq U$
+    \end{definition}
+
+    \begin{illustration*}
+        $V = K[x]$
+        \par $U = <1, x, \dots, x^n>$
+        \par $\frac{d}{dx} \ U$ -- инвариантно для $\frac{d}{dx}$
+    \end{illustration*}
+
+    \begin{theorem}
+        $\dim V < \infty$, $f \in \End(V)$
+        \par $V = U \oplus W$, причем $U$ -- $f$-инвариантно
+        \par Тогда $\exists$ базис $V$, в котором матрица $f$ верхняя блочно-треугольная
+    \end{theorem}
+
+    \begin{proof}
+        $ $
+        \par $u_1, \dots, u_r$ -- базис $U$
+        \par $w_{r+1}, \dots, w_n$ -- базис $W$
+        \par $f(u_i) \in U$ \quad ($U$ -- $f$-инв.) $\Leftrightarrow$
+        \[
+            f(u_j) = \sum_{i=1}^r c_{ij}u_i = \sum_{i=1}^r c_{ij} u_i + \sum_{j=r+1}^n 0 \cdot w_i   
+        \]
+        \par $f(w_j) \in V \Leftrightarrow$ раскладывается по базису
+        \[
+            [f] = \begin{pmatrix}
+                \boxed{*} & * \\
+                0 & *
+            \end{pmatrix} \text{ -- верхняя блочно-треугольная матрица}
+        \]
+    \end{proof}
+
+    \begin{theorem}
+        $\dim V < \infty$, $f \in \End(V)$
+        \par $V = U \oplus W$ \quad $(U, W \not= \{0\})$ \quad $U, W$ -- $f$-инварианты
+        \par Тогда $\exists$ базис $V$, в котором матрица $f$ -- блочно-диагональная
+    \end{theorem}
+    
+    \begin{proof}
+        $ $
+        \par $u_1, \dots, u_r$ -- базис $U$
+        \par $w_{r+1}, \dots, w_n$ -- базис $W$
+        \[
+            f(u_j) = \sum_{i=1}^r c_{ij} u_i + \sum_{i=r+1}^n 0 \cdot w_i  
+        \]
+        \[
+            f(w_j) = \sum_{i=1}^r 0 \cdot u_i + \sum_{i=r+1}^n d_{ij} w_i  
+        \]
+    \end{proof}
+
+    \begin{theorem}
+        $\dim V < \infty$, $f \in \End(V)$
+        \par $V = U_1 \oplus \dots \oplus U_k$ \quad $(U_i \not= \{0\})$ \quad $U_i$ -- $f$-инварианты, $i = 1, \dots, k$
+        \par Тогда $\exists$ базис $V$, в котором матрица $f$ -- блочно-диагональная и размер $i$-го диагонального блока есть $\dim U_i$
+    \end{theorem}
+
+    \begin{proof}
+        аналогично (как в Т. 2 выбираем базисы $U_i$)
+    \end{proof}
+
+    \subsection*{\S Многочлены от оператора}
+
+    \par $V$ -- векторное пространство над $K$, $\phi \in \End(V)$
+    \par $\phi^n = \underbrace{\phi \circ \dots \circ \phi}_{n \text{ раз прим. } \phi}$, $\phi^\circ = \Id$ -- тожд. оператор
+    \par $g, h \in K[x]$
+    \par $g(\phi) + h(\phi) = (g+h)(\phi)$
+    \par $h = b_0 + b_1x + \dots + b_nx^n$
+    \par $g(\phi) \cdot h(\phi) = (c_0\Id + c_1\phi + \dots + c_m\phi^m)(b_0\Id + b_1\phi + \dots + b_n\phi_n) =$
+    \[
+        = \sum_{i, j} (c_i\phi^i)(b_j\phi^j) = \sum_{i, j} c_ib_j \phi^{i+j} = \sum_{k=0}^{n+m} (\sum_{i + j = k} c_ib_j) \phi^k = (gh)(\phi)    
+    \]
+
+    \begin{corollary*}
+        многочлены от $1$ оператора коммутируют:
+        \[
+            g(\phi)h(\phi) = (gh)(\phi) = (hg)(\phi) = h(\phi)g(\phi)    
+        \]
+    \end{corollary*}
+
+    \begin{theorem}
+        $V$ -- векторное пространство над $K$, $\phi \in \End(V)$, $g \in K[x]$
+        \par Тогда $\Kerr g(\phi)$ и $\Imm g(\phi)$ -- $f$-инвариантные подпространства
+    \end{theorem}
+
+    \begin{proof}
+        $ $
+        \begin{enumerate}
+            \item $\Kerr g(\phi) = \{v : g(\phi)(v) = 0\}$
+                \par $v \in \Kerr g(\phi)$
+                \par $\Rightarrow \phi(v) \in \Kerr g(\phi)$
+                \par $g(\phi)(\phi(v)) = g(\phi)\phi(v) = (\phi \cdot g (\phi))(v) = \phi(g(\phi(v))) = \phi(0) = 0$
+            \item $\Imm g(\phi) = \{g(\phi)(v) : v \in V\}$
+                \par $w \in \Imm g(\phi)$
+                \par $\Rightarrow \phi(w) \in \Imm g(\phi)$
+                \par $w = g(\phi)(v)$ для некоторого $v \in V$
+                \par $\phi(w) = \phi(g(\phi))(v) = (\phi g(\phi))(v) = (g(\phi)\phi)(v) = g(\phi)(\phi(v)) \in \Imm g(\phi)$
+        \end{enumerate}
+    \end{proof}
+
+\end{document}
