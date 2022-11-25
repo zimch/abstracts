@@ -1,0 +1,165 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+\usepackage{amsfonts, amssymb, amsmath}  %% for math symbs
+\usepackage{mathrsfs}
+\usepackage{float}  %% for table floating
+\usepackage{enumerate} %% for lists
+
+\usepackage{fullpage}  %% less margin 
+
+\usepackage{graphicx} %% for pics
+\usepackage{amsthm, amsmath, amsfonts, amssymb, mathtools}
+
+\parindent 5px  % no white space in new lines
+% \baselinestretch{1.5}
+\renewcommand{\baselinestretch}{1.3} 
+
+%% titling
+\title{Hello world} 
+\author{Lindy2076}
+\date{22.22.2} %%\today
+
+\begin{document}
+  Устойчивость нулевого решения?
+
+  $\dot x = f(t,x,\mu)$
+
+  Пусть $\exists \frac{\partial f}{\partial x}, \frac{\partial f}{\partial \mu} \in C(G_\mu)$
+
+  Перешли подстановкой $x-\bar x = y, \alpha = \mu - \bar \mu$ к
+
+  $$\dot y = F(t, y, \alpha) $$
+
+  Хотим воспользоваться формулой тейлора так как там всё гладкое:
+
+  $$F(t,y,\alpha) = \frac{\partial f }{\partial x}\big(t, \bar x(t), \bar \mu\big)y  + \frac{\partial f}{\partial \mu}\big(t, \bar x(t), \bar \mu\big)\alpha + r(t, y, \alpha)$$
+
+  И пусть $\exists \frac{\partial r}{\partial y}, \frac{\partial r}{\partial \alpha} \in C(U^*)$ 
+  
+  \textit{Напоминание:} $\exists \delta^* > 0 : U^* = \{(t, x, \mu) \mid t \in [t_0, \infty), \| x - \bar x \| < \delta^*, \| \mu - \bar \mu \| < \delta^*\}$
+
+  $\frac{\| r(t, y, \alpha) \|}{\| (y, \alpha)\| } \underset{\|y\| \to 0, \|\alpha\| \to 0}{\longrightarrow} 0$
+
+  $$r(t,y,\alpha) = \frac{\partial r}{\partial y}y + \frac{\partial r}{\partial \alpha}\alpha + \bar o$$
+
+  Правая часть исходного уравнения с формулой тейлора:
+
+  $$ ... = \frac{\partial F}{\partial x}\big(t, \bar x(t), \mu\big)y + g(t,y) + h(t,y,\alpha)$$
+
+  Всё в добавку ушло...
+
+  $$\dot y = \frac{\partial F}{\partial x}\big(t, \bar x(t), \bar \mu\big)y + g(t, y) + h(t, y, \alpha)$$
+
+  $ \frac{\| g(t,y) \|}{\|y\|} \underset{\|y\| \to 0}{\longrightarrow} 0, \| h(t,y,\alpha)\| \le M(t)\|\alpha\| $
+
+  \par $ $
+  
+  Назовём $\dot y = A(t)y$, где $A = \frac{\partial f}{\partial x}(t, \bar x(t), \bar \mu)$ - матрица с переменными коэффициентами, \\\textbf{первым приближением уравнения/системы} $\dot x = f (t, x, \mu)$ в точке $(\bar x(t), \bar \mu)$
+
+  Пусть $A(t)$ постоянная матрица. Тогда линейная часть переписывается в таком виде:
+
+  $\dot y = Ay + g(t, y) + h(t, y, \alpha)$
+
+  \textbf{Теорема} (об устойчивости в малом(устойчивость по первому приближению))
+
+  Пусть
+
+  \quad 1. Собственные числа матрицы $A$ $\lambda_j$ имеют отрицательную вещественную часть
+
+  \quad 2. \textit{О}-малость выполняется равномерно по $t$: $\frac{\| g(t,y) \|}{\|y\|} \underset{t\in[t_0, \infty)}{\rightrightarrows} 0, \|y\| \to 0$
+
+  \quad 3. $\exists M_0 > 0: M(t) \le M_0; \ \| h(t,y,\alpha)\| \le M_0\|\alpha\|,\ t \in [t_0, \infty)$
+
+  Тогда решение $y=0$ устойчиво в малом при $\alpha = 0$
+
+  \textbf{Лемма Гронуолла}
+
+  Пусть $\mu > 0, \ f(x) \ge 0,\  \lambda(x) \ge 0,\ f, \lambda \in C[a,b]$
+
+  Если есть оценка $f(x) \underset{[a,b]}{\le} \lambda(x) + \mu \int^x_{x_0} f(s)ds$, то 
+  $$\forall x \in [a,b]: f(x) \le \lambda(x) + \mu \int^x_{x_0} e^{\mu (x-s)}\lambda(s) ds$$
+
+  $\bigtriangledown$ $x \ge x_0$, \quad $F(x) = \int^x_{x_0}f(s)ds \implies 0 \le f(x) \le \lambda(x) + \mu F(x)$
+
+  $F'(x) \le \lambda(x) + \mu F(x)$ домножим на $e^{-\mu(x-x_0)}$: 
+
+  $e^{-\mu(x-x_0)}F'(x) \le \lambda(x)e^{-\mu(x-x_0)} + \mu e^{-\mu(x-x_0)}F(x)$
+
+  $-\mu e^{-\mu(x-x_0)} F(x) + e^{-\mu(x-x_0)}F'(x) \le \lambda e^{-\mu(x-x_0)}$
+
+  Левая часть это производная $e^{-\mu(x-x_0)}F(x)$. Домножим всё на $dx$:
+
+  $e^{-\mu(t-x_0)}F(t) \big|^{x}_{x_0}$. Нижний предел не даёт вклада, поэтому:
+
+  $F(x) \le \int^x_{x_0}e^{-\mu(s-x_0)}\lambda(s)ds$. Домножим на $e^{\mu(x-x_0)}$:
+
+  $F(x) \le \int^x_{x_0} e^{\mu(x-s)}\lambda(s)ds \quad \mid \cdot \mu \quad \mid + \lambda(x)$:
+  
+  $f(x) \le \lambda(x) + \mu F(x) \le \lambda(x) + \mu\int^x_{x_0}e^{\mu(x-s)}\lambda(s)ds$ \quad $\bigtriangleup$
+
+  \par $ $
+
+  $\bigtriangledown$
+  $
+  \Phi = e^{A(t-t_0)} \impliedby 
+  \\\\
+  \begin{cases}
+    \dot\Phi = A\Phi \implies y(t) = e^{A(t-t_0)}y_0 + \int^t_{t_0}e^{A(t-s)}\big(g(s,y(s)) + h(s, y(s)), \alpha\big)ds \\
+     \Phi(t_0) = I
+  \end{cases}$
+
+  $\mathbb{R}\lambda_j < 0$, $\max_j \mathbb{R}\lambda_j = - \lambda < 0$, $| \lambda_j(e^{A(t-t_0)}) | < e^{-\lambda(t-t_0)}, \lambda > \varepsilon_0 > 0$
+
+  $\| y \| = \sup_{t\in[t_0, \infty)} \| y(t) \|,\\ \|y(t)\| \le \| e^{A(t-t_0)} \| \| y_0\| + \int^t_{t_0} \| e^{A(t-s)}\| \big(\|g\| + \|h\|\big)ds \le $
+  $e^{-\lambda(t-t_0)}\|y_0\| + \int^t_{t_0} e^{-\lambda(t-s)}\big(\|g\| + M_0\|\alpha\|\big)$
+
+  Умножим всё на некую константу $k>1$
+
+  В силу условия номер два для $\varepsilon_0 > 0 \ \exists \delta_0 > 0: \forall y: \| y \| < \delta_0, \ \| g(t,y) \| \le \varepsilon_0 \| y\| / k$
+
+  Пусть $\| y_0 \| < \delta_0$. Тогда $\exists [t_0, \bar t]: \forall t \in [t_0, \bar t] \ \| y \| < \delta_0$
+
+  Умножим оценку на $e^{\lambda(t-t_0)}$
+ 
+  $$\| y(t) \| \le k e^{-\lambda(t-t_0)}\|y_0\| + \frac{1}{\lambda} M_0 \| \alpha \| \big(1 - e^{-\lambda(t-t_0)} \big) + \varepsilon_0\int^t_{t_0} e^{-\lambda(t-s)}\|y(s)\| ds$$
+
+  Домножим на $e^{\lambda(t-t_0)}$ и положим $\varphi(t) = e^{\lambda(t-t_0)}\|y(t)\|$:
+
+  $$\varphi(t) \le \Psi(t) +  \varepsilon_0 \int^t_{t_0}\varphi(s)ds $$
+
+  $b = \frac{k}{\lambda}M_0\|\alpha\|, a = k \Big(\| y_0 \| - \frac{M_0 \|\alpha\|}{\lambda}\Big), \Psi(t) = a + be^{\lambda(t-t_0)}$
+
+  ГРАНУОЛЛ: $\Psi(t) \ge 0, \varphi \ge 0$
+
+  $$\varphi(t) \le \Psi(t) + \varepsilon_0 \int^t_{t_0} e^{\varepsilon_0(t-s)}\Psi(s)ds$$
+
+  $$\varphi(t) \le  a + be^{\lambda(t-t_0)} + \varepsilon_0 \int^t_{t_0} \big( a e^{\varepsilon_0 (t-s)} + b^{\varepsilon t - \lambda t_0} e^{(\lambda - \varepsilon_0)s}\big) ds$$
+
+  $$\varphi(t) \le \frac{e^{\lambda(t-t_0)}b}{\lambda - \varepsilon_0} + \Big(a - \frac{\varepsilon_0b}{\lambda - \varepsilon_0}\Big) e^{\varepsilon_0(t-t_0)}$$
+
+  Умножим на $e^{-\lambda(t-t_0)}$:
+
+  $$\|y(t)\| \le \frac{\lambda b}{\lambda - \varepsilon_0} + \Big(a - \frac{\varepsilon_0 b}{\lambda - \varepsilon_0}\Big) e^{-(\lambda - \varepsilon_0)(t-t_0)} \underset{t\to\infty}{\longrightarrow} 0$$
+
+  $$\| y(t) \| \le \max \{ a + b = k\|y_0\|, \frac{\lambda b}{\lambda- \varepsilon_0 } = \frac{k M_0\|\alpha\|}{\lambda - \varepsilon_0}\}$$
+
+  Пусть $\| y_0 \| < \frac{\delta_0}{k}, \| \alpha\| \le \frac{\delta_0(\lambda- \varepsilon_0)}{k M_0} \implies \|y(t)\| < \delta_0, \quad t \in [t_o, \bar t ]$
+
+  Пусть не выполняется на луче
+
+  $\bigtriangledown t \to \infty$
+
+  $\aleph \exists t^* \| y(t^*)\| = \delta_0$ и $t^*$ первый такой элемент
+  
+  $t^* > t_0$
+
+  $t \in [t_0, t^*) \quad \| y(t) \| < \delta_0 $ на $[t_0, t^*]$ тоже окажется
+  
+  взял $k$ поблии $t^* \le \bar t, \| y(t) \| < \delta_0$
+
+
+
+\end{document} 
