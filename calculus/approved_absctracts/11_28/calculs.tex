@@ -1,0 +1,278 @@
+\input{../../../preamble.tex}
+
+\begin{document}
+    \title{Математический анализ}
+    \date{28 ноября 2022}
+    \maketitle{}
+
+    \pagebreak
+
+    $L \quad \Lambda^pL \quad \lambda\Lambda\mu \in \bigwedge^{p+1}L \quad \bigoplus_{p=1}^\infty \Lambda^pL$
+
+    \subsection*{Дифференциальные формы}
+
+    \par Пусть $U \subset \R^n$ -- открыто
+    \par $L = \R^n$, $L^* = \R^n$ -- сопряженное пространство
+
+    \begin{definition}
+        Дифференциальная $p$-форма -- это гладое отображение из $U$ в $\Lambda^pL$
+        \[
+            F^p(U) = C^\infty(Ul \Lambda^pL^*)    
+        \]
+        \[
+            F^0 = C^\infty(U)    
+        \]
+        \[
+            F^1(U) = \sum_{i=1}^n a_i(x)dx^i, \ a_i \in C^\infty(U)    
+        \]
+    \end{definition}
+
+    \begin{illustration*}
+        $f \in C^\infty(U)$
+        \par $df(x) = \sum_{i=1}^n \frac{\partial f}{\partial x^i} dx^i$
+        \par $df(x, h) = f'(x) h, \ f'(x) \in L^* $
+        \par Производная -- вектор из $\R^n$ (сост. из частных пр-ых)
+        \[
+            df(x, h) = \sum_{i=1}^n \frac{\partial f}{\partial x^i}(x) h^i    
+        \]
+        \[
+            dx^i(h) = h^i, \quad  dx^i \text{ -- функционал}    
+        \]
+        \[
+            \frac{\partial a_i}{\partial x^j} = \frac{\partial a_j}{\partial x^i}, \quad \forall i, \ j \text{ -- неверно в общ. случ.}
+        \]
+        \par \quad \textbf{\textit{Пометка:}}\[
+            L \ni a = \sum_{i=1}^n a^i e_i
+        \]
+    \end{illustration*}
+
+    \par $ $
+    \par Пусть теперь так:
+    \[
+        \omega \in F^p(U) \quad \omega = \sum_H a_H(x) dx^H \quad a_H \in C^\infty(U), \ \forall H   
+    \]
+    
+    \begin{illustration*}
+        $n = 3$, $\R^3$
+        \par $0$-формы: $C^\infty(U)$
+        \par $1$-формы: $p(x, y, z)dx + q(x, y, z)dy + r(x, y, z)dz$ \quad $p, q, r \in C^\infty(U)$
+        \par $2$-формы: $a(x, y, z)dy \wedge dz + b(x, y, z)dz \wedge dx + c(x, y, z)dx \wedge dy$ \quad $a, b, c \in C^\infty(U)$
+        \par $3$-формы: $g(x, y, z) \wedge dy \wedge dz$ \quad $g \in C^\infty(U)$
+    \end{illustration*}
+
+    \par Поточечные операции: $\omega + \eta$, \ $\omega \wedge \eta$, \ $f \cdot \omega $
+    \par $\omega \in F^p(U) \text{ (тут дописать)}$ %ДОПИСАТЬ С ФОТО !!!%
+
+    \[
+        \alpha \wedge \lambda = \alpha \cdot \lambda, \ \alpha \in \Lambda^0P = \R, \ \lambda \in \Lambda^pL    
+    \]
+
+    \subsection*{Внешняя производная}
+    
+    \begin{illustration*}
+        Операция $d$ (вн. произв.) действует из $F^p(U)$ в $F^{p+1}(U)$ для $p = 0, \dots, n-1$ по правилу:
+        \[ % ВОТ ТУТ СДЕЛАТЬ СПИСОК МАТ ФОРМУЛ (ТИПА ЕНУМЕРЕЙТ)
+            1.\ df(x) = \sum_{i=1}^n \frac{\partial f}{\partial x^i}(x) dx^i 
+        \]
+        \[
+            2.\ d(\sum_H a_H(x) dx^H) = \sum_h(da_H(x)) \bigwedge dx^H
+        \]
+        \[
+            d(a(x)dx^{h_1} \wedge \dots \wedge dx^{h_n}) = \sum_{i=1}^n \frac{\partial a}{\partial x^i}(x) dx^i \wedge dx^m \wedge \dots \wedge dx^{np}    
+        \]
+    \end{illustration*}
+
+    \begin{illustration*}
+        $n = 3$, $\R^n$
+        \[
+            df = \frac{\partial f}{\partial x}(x, y, z) dx^1 + \frac{\partial f}{\partial y}(x, y, z)dy + \frac{\partial f}{\partial z}(x, y, z)dz =    
+        \]
+        \[ 
+            = (\grad f)_1(x, y, z)dx + (\grad f)_2(x, y, z)dy + (\grad f)_3(x, y, z) dz
+        \]
+        \par Производная $1$-формы:
+        \[
+            d(p(x, y, z)dx + q(x, y, z) dy + r(x, y, z) dz) = 
+        \]
+        \[
+            = (\frac{\partial q}{\partial x} - \frac{\partial p}{\partial y})dx \wedge dy + (\frac{\partial r}{\partial y} - \frac{\partial q}{\partial z})dy\wedge dz + (\frac{\partial p}{\partial z} - \frac{\partial r}{\partial x})dz \wedge dx =  
+        \]
+        \[
+            = (\rot F)_1 dy \wedge dz + (\rot F)_2 dz \wedge dx + (\rot F)_3 dx \wedge dy
+        \]
+        \[
+            F(x, y, z) = \begin{pmatrix}
+                p(x, y, z) \\
+                q(x, y, z) \\
+                r(x, y, z)
+            \end{pmatrix}  
+        \]
+        \par Производная $2$-формы:
+        \[
+            d(a(x, y, z) dz \wedge dz + b(x, y, z) dz \wedge dx + c(x, y, z) dx \wedge dy) =    
+        \]
+        \[
+            \left(\underbrace{\frac{\partial a}{\partial x}(x, y, z) + \frac{\partial b}{\partial y} + \frac{\partial c}{\partial z}(x, y, z)}_{= \divv G(x, y, z)}\right) dx \wedge dy \wedge dz =
+        \]
+        \[ % ЕТА ВИДИМО ДИВЕРГЕНЦИЯ
+            G(x, y, z) = \begin{pmatrix}
+                a(x, y, z) \\
+                b(x, y, z) \\
+                c(x, y, z)
+            \end{pmatrix}
+        \]
+    \end{illustration*}
+
+    \subsection*{Свойства внешней производной}
+
+    \begin{enumerate}
+        \item Аддитивность: $d(\omega \eta) = d \omega + d \eta$
+        \item Действие на $0$-форму: $f \in f^0(U)$
+            \[
+                df = \sum_{i=1}^n \frac{\partial f}{\partial x^i}(x) dx^i
+            \]
+        \item $d(\lambda \wedge \mu) = (d\lambda) \wedge \mu + (-1)^{\deg \lambda} \lambda \wedge d \mu$
+        \item Свойство Пуанкаре:
+            \[
+                d(\omega) = 0 \quad \lambda \in F^p(U): \ \deg \lambda = p    
+            \]
+    \end{enumerate}
+
+    \begin{lemma*}
+        Лемма Пуанкаре = свойство Пуанкаре
+    \end{lemma*}
+
+    \begin{proof}
+        $ $
+        \begin{enumerate}
+            \item[3.] $\lambda = a(x) dx^H, \ \mu = b(x)dx^K$
+            \[
+                d(\lambda \wedge \mu) = d(a(x) b(x) \wedge dx^K) = \sum_{i=1}^n \frac{\partial (ab)}{\partial x^i} dx^i \wedge dx^H \wedge dx^K =  
+            \]
+            \[
+                = \sum_{i = 1}^n a(x) \frac{\partial b}{\partial x^i} dx^i \wedge dx^H \wedge dx^K +    
+            \]
+            \[
+                + \sum_{i=1}^n b(x) \frac{\partial a}{\partial x^i}(x) dx^i \wedge dx^H \wedge dx^K = d\lambda \wedge \mu f (-1)^p \lambda \wedge d\mu   
+            \]
+            \item[4.] $\omega = a(x) dx^H$
+                \[
+                    d\omega = \sum_{i=1}^n \frac{\partial a}{\partial x^i} dx^i \wedge dx^H   
+                \]
+                \[
+                    d d \omega = \left(\sum_{j=1}^n\sum_{i=1}^n \frac{\partial^2 a}{\partial x^j \partial x^i}(x) dx^j dx^i \right) \wedge dx^H = 0    
+                \]
+        \end{enumerate}
+    \end{proof}
+
+    \begin{lemma*}
+        Операция $d$ со свойствами $1-4$ единственна
+    \end{lemma*}
+
+    \begin{proof}
+        Пусть $\tilde d$ -- такая операция ($1-4$)
+        \par $\forall H$ \quad $\tilde d(dx^H) = 0$ ??
+        \par Индукция: \quad $p=1$
+        \[
+            \tilde d (dx^i) = \tilde d(\tilde d x^i); \quad d(x^i) = dx^i = \tilde d (x^i) 
+        \]
+        \par Переход: \quad $(p-1) \rightarrow p$
+        \[
+            dx^H = \tilde d (x^{h_1} \cdot d x^{h_2} \wedge \dots \wedge dx^{h_p}) =
+        \]
+        \[
+            = (\tilde d x^{h_1}) \wedge (dx^{h_2} \wedge \dots \wedge dx^{h_p}) + x^{h_1} \underbrace{\tilde d (dx^{h_2} \wedge \dots \wedge dx^{h_p})}_{= 0}    
+        \]
+        \[
+            0 = \tilde d (d x^{h_1} \cdot dx^{h_2}\wedge \dots \wedge dx^{h_p}) = \tilde d (dx^H)
+        \]
+        \[
+            \tilde d(\sum_H a_H(x) dx^H) = \sum_H \tilde d (a_H(x) dx^H) = \sum_H(\tilde d a_H(x) \wedge dx^H + a_H(x) \wedge \tilde d (d x^H))    
+        \]
+        \[
+             = \sum_H \tilde d a_H(x) dx^H = \sum_H \sum_{i=1}^n \frac{\partial a_H(x)}{\partial x^i}(x) dx^i \wedge dx_H =
+        \]
+        \[
+            d\left( \sum_H a_H(x)dx^H \right)    
+        \]
+        \[
+            \Rightarrow \tilde d = d    
+        \]
+    \end{proof}
+
+    \subsection*{Индуцированное отображение}
+
+    \par $U \subset \R^n, \ V \subset \R^m$, \quad $x \in U$, $y \in V$
+    \par $\Phi \in C^\infty(U, V)$
+    \par $f \in C^\infty(V) = F^0(V)$
+    \par $\Phi^* f = f \circ \Phi$ \quad $\Phi^* : F^*(V) \rightarrow F^0(U)$
+    \[
+        \Phi^*(dy^i) = \sum_{j=1}^n \frac{\partial Phi^i}{\partial x^j}(x) dx^j = d \Phi^i(x), \quad \Phi(x) = y
+    \]
+    \[
+        H = (h_1, \dots, h_p) \quad \Phi^*(a_H(x) dx^{h_1} \wedge \dots \wedge dx^{h_p}) = (\Phi^*(a_H))(x) \Phi^*(dy^{h_1}) \wedge \dots \wedge \Phi^*(dy^{h_p})
+    \]
+
+    \begin{illustration*}
+        $U; V \subset \R^2$
+        \[
+            \Phi^*(dy^1 \wedge dy^2) = \left( \sum_{i=1}^2 \frac{\partial \Phi^1}{\partial x^i}(x) dx^i \right) \wedge \left( \sum_{j=1}^2 \frac{\partial \Phi^2}{\partial x^j}(x) dx^j \right)    
+        \]
+        \[
+            \sum_{i, j = 1}^2 \frac{\partial Phi^1}{\partial x^i} \frac{\partial \Phi^2}{\partial dx^j} dx^i dx^j = \left( \frac{\partial \Phi^1}{\partial x^2} \frac{\partial \Phi^2}{\partial x^1} \right) dx^1 \wedge dx^2 
+        \]
+        \[
+            = \det \Phi'(x) dx^1 dx^2    
+        \]
+    \end{illustration*}
+
+    \subsection*{Свойства индуцированного отображение}
+
+    \begin{enumerate}
+        \item $\Phi^*(\omega \eta) = \Phi^* \omega + \Phi^* \Phi^* \eta$
+        \item $\Phi^*(\omega \wedge \eta) = (\Phi^* \omega) \wedge (\Phi^* \eta)$
+        \item $\Phi^*(d\omega) = d \Phi^* \omega$
+        \item $(\psi \circ \Phi)^* = \Phi^* \circ \psi^*$
+    \end{enumerate}
+
+    \begin{proof}
+        $ $
+        \begin{enumerate}
+            \item[3.] По индукции
+                \par база: $p=0$
+                \[
+                    \Phi^* df = d \Phi^* f, \quad f \in C^\infty(V)    
+                \]
+                \[
+                    d(\Phi^* f) = d(f \circ \Phi) = \sum_{i=1}^n \frac{\partial (f \circ \Phi)}{\partial x^i} dx^i = 
+                \]
+                \[
+                    = \sum_{i=1}^b \sum_{j=1}^m \frac{\partial f}{\partial y^j}(\Phi(x)) \frac{\partial \Phi^j}{\partial x^i} dx^i = \sum_{j=1}^m \Phi^* \frac{\partial f}{\partial y^j}\Phi^* dy^j =   
+                \]
+                \[
+                    \Phi^* \left( \sum_{j=1}^m \frac{\partial f}{\partial y^j} dy^j \right) = \Phi^*(df)  
+                \]
+                \[
+                    \text{... тут фото карочи ...}    
+                \]
+                \[
+                    d \omega = d(g, d \eta) = dg \wedge d\eta    
+                \]
+                \[
+                    = \Phi^*(dg) \wedge \Phi^*(d\eta) + \dots \text{ ватафак я тут нипон}    
+                \]
+            
+            \item[4.] Достаточно доказать для $p=0$ и $p=1$
+                \par $p=0$: $(\psi \circ \Phi)^* f = f \circ \psi \circ \Phi = (f \circ \psi) \circ \Phi = (\psi^* f) \circ \Phi = \Phi^* \psi^* f$
+                \par $p=1$: $(\psi \circ \Phi)^* dz^i = $
+                \[
+                    = \sum_{i=1}^n \frac{\partial (\psi \circ \Phi)^j}{\partial x^i} dx^i    
+                \]
+                \par $\Phi^* \psi^* dz^j = $
+                \[
+                    \text{ блять я ничо не пон нужна фотка или конспект от руки}    
+                \]
+        \end{enumerate}
+    \end{proof}
+
+\end{document}
