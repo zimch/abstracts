@@ -1,0 +1,160 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+\usepackage{amsfonts, amssymb, amsmath}  %% for math symbs
+\usepackage{mathrsfs}
+\usepackage{float}  %% for table floating
+\usepackage{enumerate} %% for lists
+
+\usepackage{fullpage}  %% less margin 
+
+\usepackage{graphicx} %% for pics
+\usepackage{amsthm, amsmath, amsfonts, amssymb, mathtools}
+
+\parindent 5px  % no white space in new lines
+% \baselinestretch{1.5}
+\renewcommand{\baselinestretch}{1.3} 
+
+%% titling
+\title{Hello world} 
+\author{Lindy2076}
+\date{22.22.2} %%\today
+
+\begin{document}
+  Устойчивость по Ляпунову.
+
+  Зачем другой подход к устойчивости? Мы на самом деле доказали асимптотическую устойчивость.
+  
+  \textbf{Def:} Пусть есть $\dot y = h(t,y), h(t,0) = 0$.
+
+  'Cтоп!' - скажете вы! $\dot x = f(t,x), \bar x(t) - $ решение. $y = x - \bar x(t)$.
+  Тогда $x = y + \bar x(t)$ и $\dot{\overline{x}}(t) + \dot y = f(t, y + \bar x(t))$
+  
+  $\dot y = f(t,y + \bar x(t)) - f(t, \bar x(t)) = h(t,y)$
+
+  Решение $y\equiv 0$ \textbf{устойчиво по Ляпунову}, если $\forall \varepsilon > 0 \ \exists \delta > 0 \ \forall t > t_0 \ \|y_0\| < \delta \implies \| y(t, y_0) \| < \varepsilon$
+
+  \par $ $
+
+  \textbf{Def.} Решение $y(t) = 0$ асимтотически устойчиво тогда, когда оно устойчиво по Ляпунову и $\exists \delta > 0 \ \forall \| y_0 \| < \delta \ \| y(t, y_0) \| \to 0, t \to \infty$
+
+  \par $ $
+
+  Неустойчиво, если $\exists \varepsilon >0 \ \forall \delta > 0 \ \exists \{y_0^{(k)}\mid y_0^{(k) \to 0, k \to \infty}\}, \exists \{t_k \mid t_k \to \infty\} \| y(t_k, y_0^{(k)}) \| = \varepsilon$
+
+  \par $ $ 
+
+  $\dot y = h(t,y), h(t,0) = 0$. Замена переменных: $y = F(t,z), D(F) \supset \{t \in [t_0, \infty)\}, \|z\| < \delta_0$, причём $F(t,0) = 0$, $F$ непрерывна по $z$, 
+  равномерна по $t$. $F$ однозначно разрешима относительно $z$, то есть есть обратная замена: 
+  $z = G(t,y), D(G) \supset U^t\{(t,y), t\in [t_0, \infty)\}, y \in D(h)$.
+
+  Тогда под действием такой замены изначальная система переходит к $\dot z =  H(t,z)$
+
+  \textbf{Лемма 1.} Решение $y\equiv 0$ системы $\dot y = h(t,y)$ устойчиво по Ляпунову, асимптотически устойчиво или неустойчиво тогда, когда таковыми же являются решения $z\equiv 0$ системы $\dot z = H(t,z)$ 
+
+  $\triangleright$ $y(t) \leftrightarrow z(t) \quad \dot y = h(t,y) \iff \dot z = H(t,z)$
+
+  Достаточно доказать, что из устойчивости $y\equiv 0 $ вытекает устойчивость $z\equiv 0$ (асимптотичемская устойчивость).
+
+  $\forall \varepsilon >0$ (в силу равномерной по $t$ непр. $F(t,z)$) \ $\exists \varepsilon_1 > 0 \ \forall z \in U(0), \|z\| < \varepsilon_1 \implies \underset{=F(t,z)}{\|y\|} < \varepsilon$.
+
+  \textbf{1.}(устойчивость) Пусть $z\equiv 0$ устойчиво по Ляпунову. По $\varepsilon_1$ выберем $\delta_1 >0 : \forall z_0 : \| z_0\| < \delta_1 \implies \|z(t,z_0)\| < \varepsilon_1$. 
+
+  $G(t,y)$ также непрерывно. По $\delta_1$ выберем $\varepsilon > 0: \forall y_0 :\|y_0\| < \delta \implies \underset{=G(t,y)}{\|z_0\|} < \delta_1 $.
+
+  $\implies \forall \varepsilon > 0 \ \exists \delta > 0 \ \forall y_0: \|y_0\| < \delta \implies \underset{=F(t,z_0)}{\| z_0\|} < \delta_1 \implies \underset{=F(t,z(t,z_0))}{\|y(t,y_0)\|} < \varepsilon$.
+
+  \textbf{2.} Аналогично $\forall \varepsilon>0 \ \exists \delta>0: \forall y_0: \|y_0\| < \delta \implies \|z_0\| < \delta_1 \underset{\text{асимпт уст}}{\implies} \| z(t,z_0) \|\to 0, t\to \infty$.
+  
+  $y(t) = F(t, z(t,z_0)) \implies F(t,0)=0, F \in C \implies \|y(t, y_0)\| \to 0, t \to \infty$.
+
+  3. Неустойчивость аналогично.
+
+  $\triangleleft$
+
+  \par $ $
+
+  $A = \{ y_0 \mid \| y(t, y_0) \| \to 0, t \to \infty\}$ -- \textbf{область притяжения} нулевого решения.
+
+  Доказать, что $A$ открыто и связно...
+
+  \par $ $
+
+  \textbf{\large Устойчивость по Ляпунову линейных однородных СДУ.}
+
+  $\dot{\vec{x}} = P(t) x$
+
+  $\vec{\varphi}$ - решение, $\vec{y} = \vec{x} - \vec \varphi \implies \dot{\vec y} = P(t) y$ -- то же самое уравнение.
+
+  $\implies \text{всякое решение } \varphi$ устойчиво по Ляпунову, асимптотически устойчиво или неустойчиво одновременно с нулевым.
+
+  \textbf{Лемма 2.} $\Phi(t), \Psi(t) \quad t \in [t_0, \infty)\quad \Phi(t) = \Psi(t)Q(t), $ где $\det Q \neq 0$,
+
+  $\forall t \ \|Q(t) \| < C_1, \| Q^{-1} \| < C_2 \implies \Psi(t)$ ограничена, неограничена, бесконечно мала по норме при $t\to\infty \iff \Phi(t)$ такова же, 
+
+  $\triangleright \|\Phi(t)\| = \|\Psi(t)Q(t) \| = \| \Psi(t)\| \| Q(t) \| \le C_1 \| \Psi(t) \|$
+
+  $\| \Psi(t) \| = \| \Phi(t)\| \| Q^{-1}(t)\| \le C_2 \| \Phi(t) \| \quad\triangleleft$
+
+  \par $ $
+
+  \textbf{Следствие 1.} $\widetilde\Phi(t, t_0)$ - фундаментальная матрица $\widetilde\Phi(t_0, t_0) = I \implies \forall \Phi(t)$ - 
+  фунд. и ограничена, неограничена, бесконечно мала одновременно с $\widetilde{\Phi}$
+
+  \textbf{Теорема 1.} 1. Уравнение $\dot y = P(t) y$ устойчиво по Ляпунову $\iff$ $\Phi(t)$ - фунд. и ограничена $M$.
+
+  2. Уравнение асимтотически устойчиво $\iff \Phi(t)$ - фунд. и бесконечно мала ($\| \Phi(t)\| \to 0, t \to \infty$).
+
+  $\triangleright \| \widetilde{\Phi} \| < M \implies \vec{x}(t, x_0) = \widetilde{\Phi}(t, t_0) \vec{x_0}.$ Возьмём норму:
+  
+  $\| \vec{x}(t,x_0) \| \le \| \widetilde{\Phi}(t,t_0)\| \| \vec x_0 \| \le M\|x_0\|$.
+
+  $\forall \varepsilon > 0 \ \exists \delta = \varepsilon / M \ \forall t \ge t_0 \ \|x_0 \| < \delta : \| x(t, x_0)\| \le M \varepsilon / M = \varepsilon$.
+
+  Вправо: $\forall \varepsilon >0 \ \exists \delta > 0 \ \vec x_0^{(1)} = (\delta/2, 0 \dotsc, 0)^T, \vec{x} = \widetilde{\Phi}(t,t_0)\vec{x_0} = \vec \varphi^{(1)} \cdot \delta / 2, \ \| \delta/2 \cdot \vec{\varphi}^{(1)}\| = \delta/2 \cdot \| \vec\varphi^{(1)}\| < \varepsilon$. Домножим на $2/\delta$:
+
+  $\| \vec{ \varphi}^{(1)}\| < 2\varepsilon / \delta = M < \infty$.
+
+  $\vec{x_0}^{(k)} = (0, \dotsc, \delta/2, \dotsc, 0)^T \implies \| \vec \varphi^{(1)} \| < 2\varepsilon / \delta = M < \infty$
+
+  2. Влево $\| \Phi(t, t_0)\| \to 0, \ t\to \infty,\ \| x(t,x_0)\| \le \|x_0\| \|\Phi(t,t_0)\| \to 0, t \to \infty$.
+
+  Вправо $\exists \Delta > 0: \forall \vec x_0 : \| \vec x_0 \| < \Delta \ \| x(t,t_0)\| \to 0,$ 
+  
+  $\vec x_0^{(k)} = (0, \dotsc, \Delta/2, \dotsc, 0)^T \implies \Delta/2 \cdot \| \vec\varphi^{(k)}(t)\| \to 0, \ t\to\infty \quad \triangleleft$
+
+  \par $ $
+
+  \pagebreak
+  \textbf{Теорема 2.} Пусть $\dot{\vec x} = A\vec{x}$ с постоянными коэфф. Тогда 
+  
+  1. Система устойчива по Ляпунову $\iff$ среди собственных чисел $\lambda_j$ матрицы $A$ $\mathbb{R}\lambda_j \le 0$ и для чисто мнимых $\lambda_j = iB_j$
+  и $\lambda_j = 0$ они либо простые (кратности 1), либо их геометрические или алгебраические кратности совпадают.
+  
+  2. Асимтотически устойчива $iff$ все $\lambda_j$ имеют строго отрицательные вещественные части.
+
+  $\triangleright  Q \sim e^{Jt} \triangleleft$
+
+  \par $ $
+
+  $forall$ чисто мрнимы
+
+  $\lambda = 0 \quad J = \begin{pmatrix}
+    0 & 1\\0 & 0
+  \end{pmatrix}, e^{Jt} = \begin{pmatrix}
+    1 & t \\ 0 & 1
+  \end{pmatrix}, \| e^{Jt} \| = \| I  + \begin{pmatrix}
+    0 & t \\ 0 & 0
+  \end{pmatrix} \|, \quad$ норма последней матрицы равна $|t| c, \ c>0$ 
+
+  \par $ $
+
+  $\dot x = P(t)x \quad P(t + \omega) = P(t), \ P(t) = G(t)e^{Jt}, \ \det G(t) \neq 0, \ G(t + \omega) = G(t), \ G \in C$
+
+  $\| G(t)\| < C_1 , \ \|G^{-1}(t)\| \le C_2 , \quad t \in [0, \omega]$
+
+  $\lambda_j$ - характеристические множители. $\lambda_j = 1/\omega \cdot \ln \mu_j, \ \mu_j$ - собственные числа матрицы Монодромии
+
+\end{document}
