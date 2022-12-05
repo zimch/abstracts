@@ -1,0 +1,321 @@
+\input{../../../preamble.tex}
+
+\begin{document}
+    \title{Математический анализ}
+    \date{5 декабря 2022}
+    \maketitle{}
+
+    \pagebreak
+    
+    \par $U \subset \R^m = L_m$, $v \subset \R^n = L_n$ -- откр.
+    \par $\Phi \in C^\infty (U, V)$
+    \par $\Phi'(x) : L_m \rightarrow L_n$
+    \par $(\Phi'(x))^* : L_m^* \rightarrow L_n^*$
+    \par $\Lambda^p(\Phi'(x))^* : \Lambda^pL_n^* \rightarrow \Lambda^pL_m^*$
+    \par $\Phi^*(a(y)dy^H) = (a \circ \Phi)(x) \Lambda^p(\Phi'(x))^*(dy^H)$, $p = \deg H$
+    \[
+        \Phi'(x)e_i = \sum_{j=1}^n \frac{\partial \Phi_j}{\partial x^i} f_j = \sum_{j=1}^n (\Phi'(x))_{ij} f-j  
+    \]
+    \[
+        (\Phi'(x))^* \underbrace{f^{*j}}_{d y^j} = \sum_{i=1}^m (\Phi'(x))^*_{ij} e_i^* = \sum_{i=1}^m (\Phi'(x))_{ij} e_i^* = \sum_{i=1}^m \frac{\partial \Phi_j}{\partial x^i}(x)(e^*)^i
+    \]
+    \[
+        \Phi^*(d y^j) = \sum_{i=1}^m  \frac{\partial \Phi^j}{\partial x^i}(x) dx^i    
+    \]
+
+    \begin{example*} $ $
+        \begin{enumerate}
+            \item $\Phi : \R \rightarrow \R^2$ \quad $\Phi : t \mapsto (t^2, t^3)$
+                \par $\omega x dy \in F^1(\R^2)$
+                \par $\Phi^*(\omega) = t^2 3t^2 dt = 3t^4 dt \in F^1(\R)$
+            \item $\Phi : \R^2 \rightarrow \R$ \quad $\Phi : (x, y) \rightarrow x - y$
+                \par $\omega = dt \in F^1(\R)$
+                \par $\phi^*(\omega) = dx - dy \in F^1(\R)^2$
+            \item $U, V \subset \R^n$ откр.m $\Phi \in C^\infty (U, V)$
+                \par $\Phi^*(dy^1 \wedge \dots \wedge dy^n) = \det \Phi' (x) dx^1 \wedge \dots \wedge dx^n$
+                \par $\Phi^* d\omega = d \Phi^* \omega$
+        \end{enumerate}
+    \end{example*}
+
+    \subsection*{Лемма Пуанкаре}
+
+    \begin{example}
+        $U \subset \R^3 \quad F = (p, q, r) \in C^\infty(U, \R^3) \quad G = \rot F \in C^\infty (U, \R^3)$
+        \[
+            d(pdx + qdy + rdz) = G_1 dy \wedge dz + G_2 dz \wedge dx + G_3 dx \wedge dy    
+        \]
+        \[
+            0 = d(d(pdx + qdy + rdz)) = \underbrace{\divv G}_{=0} dx \wedge dy \wedge dz    
+        \]
+        \[
+            \divv \rot = 0    
+        \]
+    \end{example}
+    \begin{example}
+        $f \in C^\infty(U) \quad H = \grad f \in C^\infty (U, \R^3)$
+        \[
+            df = H_1 dx + H_2 dy + H_3 dz    
+        \]
+        \[
+            0 = d(df) = (\rot H)_1 dy \wedge dz + (\rot H)_2 dz \wedge dx + (\rot H)_3 dx \wedge dy   
+        \]
+        \[
+            \Rightarrow \rot H \equiv 0 \quad \rot \grad = 0    
+        \]
+    \end{example}
+    \begin{example} % ЭТО ПАХОДУ НЕ ПРИМЕР
+        $U \subset \R^n, \ V = \R \times U, \ t_0 \in \R$
+        \par $\Phi(x) = (t_0, x)$
+        \par $\Phi \in C^\infty (U, V)$
+        \par $ $
+        \par $\Phi^*(dt) = 0$
+        \par $\Phi^*(dx^i) = dx^i$
+        \[
+            \Phi^*(a(t, x)dt + \sum_{i=1}^n b_i(t, x)dx^i) = \sum_{i=1}^n b_i(t_0, x) dx^i   
+        \]
+        \par $U \subset \R^n, \ V = \R \times U$
+        \par $j_1 : U \rightarrow V \quad j_1(x) = (1, x)$
+        \par $j_0 : U \rightarrow V \quad j_0(x) = (0, x)$
+        \par $\omega \in F^p(V)$
+        \[
+            K : F(V) \rightarrow F(U)    
+        \]
+        \[
+            K(a(t, x) dx^H) = 0    
+        \]
+        \[
+            K(b(t, x)dt \wedge dx^H) = \left( \int_0^1 b(t, x)dt \right) dx^H    
+        \]  
+    \end{example}
+
+    \begin{lemma}
+        $K(d \omega) + d(K\omega) = j_1^*\omega - j_0^*\omega$, \quad $\forall \omega \in F(V)$
+    \end{lemma}
+    \begin{proof}
+        $ $
+        \item $\omega = a(t, x) dx^H$
+            \[
+                d\omega = \pfrac{a}{t} dt \wedge dx^H + \sum_{i=1}^n \pfrac{a}{x^i} dx^i \wedge dx^H
+            \]
+            \[
+                K(d\omega) = \left( \int_0^1 \pfrac{a}{t}(t, x) dt \right) dx^H \boxed{=}
+            \]
+            \[
+                d(K\omega) = 0    
+            \]
+            \[
+                \boxed{=} a(1, x) dx^H - a(0, x)dx^H = j^*_1 \omega - j^*_0 \omega
+            \]
+        \item $\omega = a(t, x)dt \wedge dx^H$
+            \par $j^*_1 \omega = j^*_0 \omega = 0$
+            \[
+                d \omega = \sum_{i=1}^n \pfrac{a}{x^i} dx^i \wedge dt \wedge dx^H   
+            \]
+            \[
+                K(d\omega) = - \int_0^1 \sum_{i=0}^n \pfrac{a}{x^i}(t, ) dt \ dx^i \wedge dx^H   
+            \]
+            \[
+                K\omega = \left( \int_0^1 a(t, x)dt \right) dx^H  
+            \]
+            \[
+                dK\omega = \sum_{i=1}^n \left( \int_0^1 \pfrac{a}{x^i}(t, x) dt \right) dx^i \wedge dx^H   
+            \]
+            \[
+                K(d\omega) + d(K\omega) = 0 = j^*_0 - j^*_0    
+            \]
+    \end{proof}
+
+    \subsection*{Области, стягиваемые в точку}
+
+    \par $E \subset \R^n$, $\gamma \in C([0, 1], E)$ -- путь из $x_0 = \gamma(0)$ в $x_1 = \gamma(1)$
+    \begin{definition}
+        $E \subset \R^n$ линейно связное, если
+        \[
+            \forall x_1, x_2 \in E \ \exists \text{путь из } x_1 \text{ в } x_2    
+        \]
+    \end{definition}
+
+    \begin{definition}
+        $\gamma_0$ и $\gamma_1$ -- два пути
+        \par $\gamma_0$ можно непрерывно продеформировать в $\gamma_1$, если
+        \[
+            \exists \Phi \in C([0,1]^2, E)    
+        \]
+        \par $\Phi(0, t) = \gamma_0(t)$
+        \par $\Phi(1, t) = \gamma_1(t)$
+        \par $\Phi(\alpha, t) = \gamma_\alpha(t)$
+    \end{definition}
+
+    \begin{definition}
+        $D$ область, если $D$ открытое и линейно связно
+    \end{definition}
+
+    \begin{definition}
+        Область $D$ односвязна, если
+        \[
+            \forall x_1, \ x_2 \ \forall \gamma_0, \ \gamma_1 \text{ соед. } x_1, x_2   
+        \]
+        \par можно непрерывно продеформировать $\gamma_0$ в $\gamma_1$
+    \end{definition}
+
+    \begin{definition}
+        Область $D$ стягивается в точку, если
+        \[
+            \exists x_0 \in D \text{ и } \Phi \in C([0, 1] \times D, D)    
+        \]
+        \par $\Phi(0, x) \equiv x_0$
+        \par $\Phi(1, x) = x$
+        \par $\R^n : \Phi(\alpha, x) = \alpha x$
+        \par $\R^2 : D$ стягивается $\Leftrightarrow$ односвязна % ЕТА ТОКА В R2
+    \end{definition}
+
+    \begin{lemma*}[Пуанкаре]
+        Пусть $U$ -- область, стягиваемая в точку
+        \par $\omega$ -- замкнутая дифф. форма $\Rightarrow$ точная
+    \end{lemma*}
+    \begin{proof} $ $
+        \par $V = \R \times U$, $\Phi : [0, 1] \times U \rightarrow U$
+        \par $j_0, \ j_1 : \R \times U \rightarrow U$
+        \par $K : F(V) \rightarrow F(U)$
+        \par $\omega \in F^p(U)$
+        \par $\Phi^* \omega \in F^p(V)$
+        \[
+            K(\underbrace{d\Phi^* \omega}_{= \Phi^* d\omega = 0}) + d(K\Phi^* \omega) = j_1^* \Phi^* \omega - j_0^* \Phi^* \omega = (\Phi j_1)^* \omega - (\Phi j_0^*) \omega = \omega
+        \]
+        \[
+            x \xmapsto[]{j_1} (1, x) \xmapsto[]{\Phi} x
+        \]
+        \[
+            x \xmapsto[]{j_0} (0, x) \mapsto x_0    
+        \]
+        \[
+            d(\underbrace{K\Phi^* \omega}_{=\alpha}) = \omega    
+        \]
+    \end{proof}
+
+    \subsection*{Векторный потенциал}
+
+    \par $F = (a, b, c)$
+    \par $\divv F \equiv 0$
+    \par $\exists \underbrace{G}_{=(p, q, r)} : F = \rot G$
+    \[
+        \begin{cases}
+            \pfrac{r}{y} - \pfrac{q}{z} = a \\
+            \pfrac{p}{z} - \pfrac{r}{x} = b \\
+            \pfrac{q}{x} - \pfrac{p}{y} = c
+        \end{cases}    
+    \]
+
+    \[
+        \omega = a dy \wedge dz + b dz \wedge dx + c dx \wedge dy    
+    \]
+    \par $\divv F = 0 \Leftrightarrow d \omega = 0$
+    \[
+        \alpha = K \Phi^* \omega = pdx + qdy + rdz \quad \omega = d \alpha    
+    \]
+    \[
+        \Phi(t, x, y, z) = (tx, ty, tz)    
+    \]
+    \[
+        \Phi^* \omega = a(tx, ty, tz) (ydt + tdy) \wedge (tdz + zdt) +    
+    \]
+    \[
+        + b(tx, ty, tz) (zdt + tdz) \wedge (xdt + tdx) +    
+    \]
+    \[
+        + c(tx, ty, tz) (tdx + xdt) \wedge (tdy + ydt)    
+    \]
+    \[
+        K \Phi^* \omega = (\underbrace{\int_0^1 (a(tx, ty, tz) - b(tx, ty, tz))dt}_{= r(x, y, z)})dz +  \int_0^1 (\dots) + \int_0^1 (\dots)
+    \]
+
+    \subsection*{Многообразия}
+
+    \begin{definition}
+        $(X, \tau) \quad \tau \subset 2^X, \quad (\tau \text{ откр.})$ -- топологическое пространство, если:
+        \begin{enumerate}
+            \item $\emptyset, \ X \in T$
+            \item $U_\alpha \in \tau, \ \forall \alpha \Rightarrow \bigcup_\alpha U_\alpha \in \tau$
+            \item $U_i \in \tau, \ i = 1, \dots, n \Rightarrow \bigcap_{i=1}^n U_i \in \tau$
+        \end{enumerate}
+    \end{definition}
+
+    \begin{definition}
+        $\forall x_1, \ x_2 \in X, \ x_1 \not= x_2 \ \exists u_1, \ u_2 \in \tau$:
+        \begin{enumerate}
+            \item $x_1 \in U_1$
+            \item $x_2 \in U_2$
+            \item $U_1 \cap U_2 \not= \emptyset$
+        \end{enumerate}
+        \par Тогда $X$ -- хаусдорфово т. п.
+    \end{definition}
+
+    \begin{definition}
+        $(X, \tau_x)$, $(Y, \tau_y)$ топологические пространства
+        \par $\phi: X \rightarrow Y$
+        \par $\phi \in C(X, Y)$, если $\forall V \in \tau_y$ $\phi^{-1} \in \tau_x$
+    \end{definition}
+
+    \begin{definition}
+        $\phi \in C(X, Y)$, биекция, $\phi^{-1} \in C(Y, X)$ -- гомеоморфизм
+    \end{definition}
+    \begin{definition}
+        $\phi \in C(X, Y)$. Если $\phi$ -- гомеоморфизм $X$ и $\phi$, то $phi$ -- вложение $X$ в $Y$
+    \end{definition}
+
+    % ЧТО ТАКОЕ БЛЯТЬ ИНДУЦИРОВАННАЯ ТОПОЛОГИЯ ?????????// ВУАТАФААК БИЩ Я МАЛАДОЙ ТУПАК
+
+    \begin{definition}
+        Хаусдорфово  топологическое пространство $M$ называется многообразием размерности $n$, если
+        \par $\exists$ конечная или счестная система открытых множеств
+        \[
+            U_i(\in \tau_M) \quad M = \bigcup_i U_i    
+        \]
+        \par $\phi_i$ -- вложение $U_i$ в $\R^n$
+        \par $\phi_i(U_i)$ открыто
+    \end{definition}
+
+    \begin{definition}
+        Топологическое многообразие $M$ называется гладким класса $C^r$, елси
+        \[
+            \forall i, \ j : U_i \cap U_j \not= \emptyset    
+        \]
+        \[
+            \phi_{ij} = \phi_j \circ \phi_i^{-1} : \phi_i (U_i \cap U_j) \rightarrow \phi_j(U_i \cap U_j)    
+        \]
+        \par -- диффеоморфизм класса $C^r$ 
+    \end{definition}
+
+    % КАРТА -- КООРДИНАТЫ
+    % АТЛАС -- СИСТЕМА КАРТ
+    % БЛЯТЬ ГЕОГРАФИЯ ЕБАНАЯ НАХУЙ МЫ ЭТО ПРОХОДИМ ОБЪЯСНИТЕ
+    % Я ЕБАЛ В РОТ :) 🙂
+    % ПРАЗДНИК К НАМ ПРИХОДИТ ПРАЗДНИК К НАМ ПРИХОДИТ 🎅🏿🎅🏿🎅🏿🎅🏿
+
+    \begin{remark}
+        Можно считать, что $\phi_i(u_i) = B_1(0)$
+    \end{remark}
+
+    \begin{definition}
+        $M$ -- многообразие с краем, если
+        \[
+            \phi_i(u_i) = \begin{cases}
+                B_1(0) \\
+                B_1^+(0) = \{ x \in \R^n : \| x \| < 1, x_1 \ge 0 \}
+            \end{cases}    
+        \]
+        \[
+            \delta M = \{ x \in M : \exists t \ x \in u_i , \ \phi_i(u_i) = B_1^+(0) \}
+        \]
+        \[
+            x = (x_1, \dots, x_n) \quad \gamma ([0, 1])   % НУ ТИПА НАХУЯ ЭТО НАПИСАНО ?? Я БЛЯТЬ НЕ ЕБУ 
+        \]
+    \end{definition}
+
+    \[
+        \text{ДЖЕЙКАБЕАААННАНАНААН xDDDDDDD}    
+    \]
+
+    
+
+\end{document}
