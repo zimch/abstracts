@@ -1,0 +1,135 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+\usepackage{amsfonts, amssymb, amsmath}  %% for math symbs
+\usepackage{mathrsfs}
+\usepackage{float}  %% for table floating
+\usepackage{enumerate} %% for lists
+
+\usepackage{fullpage}  %% less margin 
+
+\usepackage{graphicx} %% for pics
+\usepackage{amsthm, amsmath, amsfonts, amssymb, mathtools}
+
+\parindent 5px  % no white space in new lines
+% \baselinestretch{1.5}
+\renewcommand{\baselinestretch}{1.3} 
+
+%% titling
+\title{Hello world} 
+\author{Lindy2076}
+\date{22.22.2} %%\today
+
+\begin{document}
+    $\dot{x} = P(t)x, \ P(t) = G(t) e^{Jt}, \ \det G(t) \neq \| G \| < M, \ \lambda_k = 1/\omega \ln \mu$
+
+    \textbf{Теорема}. $\dot x = P(t)x, \ P(t + \omega) = P(t)$
+
+    1. Устойчиво по Ляпунову $\iff \forall | \mu_j | \le 1$, причём фак не понимаю что написано. фото крч
+
+    $\triangleright$ см предыдущ теорему $\triangleleft$
+
+    $| \mu_j | \le 1 \implies \mu \lambda_j \le 0$ (или дельта непон)
+
+    \par $ $
+
+    Устойчивость по первому приближению: 
+
+    $\dot x = F(t, \lambda), \ y = x = \bar x \implies$ 
+    
+    1. $\dot y  = A(t) y + g(t,y)$
+
+    2. $A(t) = \frac{\partial F}{\partial x }(t, \bar x (t))$
+
+    3. $\frac{\| g(t,y)\|}{\|y\|} \rightrightarrows 0, \|y\| \to 0$
+
+    4. $A(t) \equiv A$ и $\mathbb{R}\lambda_j < 0 |\implies y\equiv 0$ асимптотически устойчиво
+
+    $\triangleright$ см т об устойчивости в малом $\triangleleft$
+
+    \par $ $ 
+
+    Если $A(t) = \text{const}$, $\frac{\|g(t,y)\|}{\|y\|}\rightrightarrows 0$. Следует ли устойчивость по Ляпунову??
+
+    Задача. Покажите, что если существует $\mu_k, |\mu_k| > 1 \implies$ система неустойчива.
+
+    \par $ $
+
+    \textbf{Другой подход к устойчивости (Функция Ляпунова)}
+
+    $\dot x = f(t, \vec x), \ f: G \to \mathbb{R}^n, \ G = \{ (t, \vec x) \mid \| x \| < a, \ t \in (t, \infty) \} $ -- область однозначной разрешимости.
+
+    $f(t, 0) = 0, \ \forall t \in (\tau, \infty)$
+
+    $V: G \to \mathbb{R}: \ $ 1. $V(t,0) = 0 \ \forall t \in (\tau, \infty)$, 2. $V \in C^1(G)$
+
+    Определим некий линейный оператор на $V: DV = \frac{\partial V}{\partial t} + \frac{\partial V}{\partial x} F(t,x)$ -- енто производная в силу уравнения
+
+    $DV = \frac{d}{dt}V\big(t, x(t, x_0)\big)$
+
+    \par $ $ 
+
+    Функция Ляпунова $V(x)$ (не зависящая от $t$ явно) называется \textbf{определённо-положительной}, если в области $G$, при $x \neq 0 \ V(x) > 0$ 
+
+    Если $V=V(t,x)$ определённо-положительна $\iff \exists W(x)$ - определённо-положительная, $V (t,x)  \ge W(x) > 0 \ \forall t, \ (x\neq 0)$
+
+    Функция Ляпунова \textbf{определённо-отрицательна} $\iff -V(t,x)$ -- определённо-положительна.
+
+    Функция Ляпунова $V(t,x)$ \textbf{положительна} $\iff V(t,x) \ge 0$ в $G$.
+
+    Функция Ляпунова \textbf{отрицательна}, если она не\_положительна.
+    
+    \par $ $
+
+    \textbf{Теорема.} Пусть существует функция Ляпунова $V(x) \in C^1(G), V$ - определённо-положительна и $DV \le 0$. Тогда решение $x=0$ устойчиво по Ляпунову.
+    
+    $\triangleright \ \forall \varepsilon > 0 \ (\varepsilon < a)$. Рассмотрим $l = \min_{\|x\| = \varepsilon} V(x)$, по найденному $l$ выберем $\delta > 0 \ (\delta < \varepsilon) : \| x \| < \delta \implies V(x) < l $
+    
+    $\forall \| x_0 \| < \delta \implies \|x(t, x_0)\| < \varepsilon$ ? :
+
+    От противного $\exists T > t_0: \| x(T, x_0) \| = \varepsilon$ (при $t \in [t_0, T)$) $\|x(t, x_0)\| < \varepsilon$
+
+    $DV = \frac{d}{dt} V(x(t ,x_0)) \le 0 \implies V(x(t, x_0))$ должна быть вот такой $\uparrow \implies_{\text{not}}\\ V(x(T,x_0)) \le V(x_0) < l \implies \|x(T,x_0) < \varepsilon$ ПРОТИВОРЕЧИЕ!!! (там чета равенство где-то было) $\triangleleft$
+
+    \par $ $
+
+    \textbf{Следствие}. Если уравнение $\dot x = F(t,x)$ имеет в $G$ определённо-положительный первый интрегал, не зависящий от $t \implies \text{решение }x=0$ устойчиво по Ляпунову.
+
+    \textbf{Теорема}. $\exists V(x) \in C^1(G)$ определённо-положительна и $DV$ определённо-отрицательна. Тогда решение $x=0$ асимтотически устойчиво. $-DV \ge W(x) > 0$
+
+    $\triangleright \ $ я устал я не смог это записать извинити $\triangleleft$
+
+    Теорема о неустойчивости $M^t = \{ x: V(x) > 0, \ \| x\| < a \}$, $0 \in \delta M^t$
+
+    $\exists V(x)$ функция Ляпунова: 1. $M^t$ для $V M^t \neq 0$ 2. $\forall x \in M^t, \ t \ge t_0$.
+
+    Вся лааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааа
+
+    \par $ $
+
+    Лемма $L(V(x)) = U(x)$ однозначно разрешимо $\iff \lambda^{(L)} \neq 0$
+
+    $\lambda_j^{(L)} = \lambda_j + \lambda_k, \ j, k = 1,\dotsc, n$ собственные значения $L$. 
+
+    $\lambda_j$ - соственные $A$ с учётом ктм?
+
+    хихи я всё пропустил 
+    
+    $\Big( \widetilde{L} V(y) \Big) = f(y)$
+
+    $\Big( f(y)\Big)_i = \sum_{k_1 + \dotsc + k_n = 2, k_j \ge 0} b_i^{(k_1, \dotsc, k_n)}y_1^{k_1}y_2^{k_2}\dotsc y_n^{k_n}$
+
+    $V(y) = \sum_{k_1 + \dotsc + k_n = 2} c^{(k_1, \dotsc, k_n)}y_1^{k_1} \dotsc y_n^{k_n}$
+
+    $b_i^{(k_1, \dotsc, k_n)} = (k_1 \lambda_1 + \dotsc k_n \lambda_n)c_i^{(k_1, \dotsc, k_n)} \implies 
+    \lambda_{jk}^{(L)} = \lambda_j + \lambda_k$
+
+    Лемма. $\frac{\partial V}{\partial x} Ax = V(x) = \sum c_{ij}x_i x_j \implies \exists ! $ решения $V(x) \quad \varepsilon = \lambda_j + \lambda_k \neq 0$
+
+
+
+
+
+\end{document}
