@@ -1,0 +1,300 @@
+\input{../../../preamble.tex}
+\parindent 5px
+
+\usepackage{amsfonts, amssymb, amsmath, mathtools, amsthm}  %% for math symbs
+\usepackage{mathrsfs}
+
+
+\renewcommand{\baselinestretch}{1.3} 
+\DeclareMathOperator{\tp}{Tp}
+\DeclareMathOperator{\tm}{TM}
+\setcounter{lemma}{0}
+% \setcounter{theorem}{6}
+
+\begin{document}
+  Пример с сферами (6 полусфер, 6 карт как бы, ну там конспект савелия вообщем)
+
+  \subsection*{Касательное пространство} 
+
+  $p \in M, \dim M = m$
+
+  \begin{illustration}
+    $m = 3: \vec v = (a,b,c) \leftrightarrow a \frac{\partial}{\partial x} |_p + b\frac{\partial}{\partial y}|_p + c\frac{\partial}{\partial z}|_p$ - касательный вектор в точке $p$.
+
+  \end{illustration}
+    Рассмотрим гладкие функции на многообразии.
+
+    \begin{definition}
+      Если $v: C^\infty(M)\to\R$ -- такой линейный функционал на $C^\infty(M)$, что $$v(fg) = f(p)\cdot v(g) + g(p)\cdot v(f)\text{,}$$
+      то $v$ называется касательным вектором к многообразию $M$ в точке $p$.
+    \end{definition}
+    \begin{remark}
+      $v(\text{const}) = 0$
+
+      $v(1) = v(1\cdot 1) = 1\cdot v(1) + 1\cdot v(1) = 2\cdot v(1) \implies v(1) = 0$
+
+    \end{remark}
+    Касательные вектора образуют линейное пространство, обозначим его $\tp M$.
+    \begin{lemma}
+      $\frac{\partial}{\partial x^i} |_p, \ i=1,\dotsc, n$ -- базис в $\tp M \quad \frac{\partial}{\partial x^i}|_p(f) = \frac{\partial (f\circ \varphi^{-1})}{\partial x^i}|_{\varphi(p)}$
+    \end{lemma}
+    \begin{proof}
+      $f \in C^\infty (M), f \circ \varphi^{-1} \in C^\infty(\varphi(U))$
+
+      Дальше расписываем как-то, смотрите в конспекте савелия: $\frac{\partial}{\partial x^i}|_p (fg) = \dotsc = f(p)\frac{\partial}{\partial x^i}|_p (g) + g(p) \frac{\partial}{\partial x^i}|_p(f)$
+
+      Дифференцирование координат попадает в касательное пространство.
+
+      Докажем, что набор частных производных координат образует базис.
+
+      Возьмём произвольный функционал, посмотрим пробные функции $\varphi^i(\cdot) = x^i \in C^\infty(M)$, точнее $\varphi^i \cdot \eta$ (продолжение функции, чтобы она была бесконечногладкой).
+      $v(x^i) = v(x^i - \varphi^i(p)) =: a^i \in \R$
+
+      $\eta_1$ -- тождественная единица на отрезке от 0 до 1, тождественный ноль на луче от двух до бесконечности.
+
+      Срезка в пространстве $\R^n: \eta = \eta_1(\frac{\| \varphi(\cdot) - \varphi(p)\|}{2\delta}), \delta = B_{2\delta}(\varphi(p)) \subset \varphi(U)$
+      
+      Докажем, что действие фукнционала на такую срезку совпадает с чем-то не услышал...
+
+      $v(f\eta) = v(f), \forall f \in C^\infty(M)$
+
+      $v(1-\eta) = v(\sqrt{1-\eta}^2) = 2v(\sqrt{1 - \eta})\sqrt{1 - \eta}|_{\varphi(p)} = 0$
+      
+      $0 = v(1) = v(\eta + 1 - \eta) = v(\eta) + v(1 - \eta) = v(\eta)$
+
+      $f \in C^\infty(M), \ (f\circ \varphi^{-1})(x) = \dotsc =  f(p) + \sum^m_{i=1} g_i(x)(x^i - \varphi^i(p)), \ g(x) = (f\circ \varphi^{-1})' (\varphi(p) + \theta(x - \varphi(p)))$
+
+      $v(f) = \dotsc = \sum^m_{i=1} a^i \cdot g_i(\varphi(p)), \ a^i = v(\varphi^i(\cdot) - \varphi^i(p))$
+
+      $= \sum^m_{i=1} a^i \frac{\partial}{\partial x^i}|_p(f)$ чтд
+
+      $f\circ \varphi^{-1} = (f\circ \psi^{-1}) \circ (\psi \circ \varphi^{-1})$, дифференцируем. Там сумму какую-то получаем.
+
+      $\implies \frac{\partial}{\partial x^i}|_p = \sum^m_{j=1}\frac{\partial y^j}{\partial x^i} \frac{\partial }{\partial y^j}|_p$ -- закон преобразования базиса.
+
+      $\tp M \ni v = \sum^m_{i=1} a^i \frac{\partial}{\partial x^i} |_p = \sum^m_{j=1}b^j \frac{\partial }{\partial y^j} |_p,\ a^i = \sum^m_{j=1} \frac{\partial x^i}{\partial y^j} b^j$ -- контравариантный закон.
+
+    \end{proof}
+      
+    $\tm = \{ (p, v) \mid p \in M, v \in \tp M\}$ - касательное расслоение.
+    $M$ - база расслоения
+
+    $\pi : \tm \to M \quad \pi(p,v) = p$
+
+    \begin{definition}
+      $f: M \to \tm \quad : \pi \circ f = id_M$ - сечение касательного расслоения.
+
+      $M = U \subset \R^n \ f: U \to \R^n \quad \tm = M \times \R^n$
+    \end{definition}
+
+    \begin{definition}
+      $v \in C^\infty(M, \tm) : \pi \circ f = id_M $ -- гладкие сечения.
+
+      $v(x) = \sum^m_{i=1}a^i(x)\frac{\partial}{\partial x^i} = \sum^m_{j=1} b^j(y)\frac{\partial}{\partial y^j}, \quad a^i \in C^\infty(\varphi(U)), b^j \in C^\infty(\psi(V))$
+    \end{definition}
+    
+
+  \subsection*{Дифф формы на многообразии}
+
+  $F^0(M) = C^\infty(M)$
+
+  $\tp^*M = (\tm M)^*$ -- кокасательное пространство в точке $p$.
+
+  $dx^i, \ i=1,\dotsc, m$ -- базис, дуальный к $\frac{\partial}{\partial x^i}$
+
+  $dx^i(\frac{\partial}{\partial x^j}) = \delta^i_j$
+
+  $T^*M = \{ (p, w) \mid w \in \tp^*M \}$ -- кокасательное расслоение
+
+  $\pi(p,w) = p$
+
+  $F^1(M) = \{w \in C^\infty(M, T^*M)  \mid \pi \circ w = id_M\}$ -- гладкие сечения $T^*M =$ 1-формы на $M$.
+
+  $w = \sum^n_{i=1}a_i(x)dx^i = \sum^n_{j=1}b_j(y)dy^j$
+
+  $a_i \in C^\infty(\varphi(U))$
+
+  $dx^i = \sum^m_{j=1} \frac{\partial x^i}{\partial y^j}dy^j, \quad a_i^{(*)} = \sum^m_{j=1}\frac{\partial y^j}{\partial x^i}(*)b_j(y(x))$ -- ковариантный закон
+
+  $F^l(M) = \{ w \in C^\infty(M, \bigwedge^l T^*M) \mid \pi \circ w = id_M\}, \bigwedge^lT^*M = \{(p,w) \mid w \in \bigwedge^l \tp^*M\}$
+
+  $w = \sum_H a_H(x)dx^H = \sum_K b_K(y)dy^k$
+
+  \subsection*{Внешняя производная на многообразии}
+
+  $df = \sum^m_{i=1} \frac{\partial f}{\partial x^i}dx^i$ в локальных координатах.
+
+  Это определение не зависит от выбора координатной окрестности.
+
+  Не успеваю переписать, конспект савелия!
+
+  $df = \sum^m_{j=1}\frac{\partial (f\circ \psi^{-1})}{\partial y^j}$
+
+  \subsection*{Индуцированное отображение на многообразии}
+
+  $\phi = C^\infty(M,N)$ я совсем не успеваю
+
+  Свойства:
+
+  1. Аддитивность
+
+  2. Действие на произведение покомпонентно: $\phi^*(\lambda \land \mu) = (\phi^* \lambda)\land (\phi^*\mu)$
+  
+  3. Перестановка производных: $d\phi^*w = \phi^* dw$
+
+  Далее примеры.
+
+  \subsection*{Интегрирование дифференциальных форм}
+
+  $\R^n$
+
+  $U \subset \R^n$ открыто и измеримо по Жордану, $w \in F^n(U)$
+
+  $w(x) = a(x)dx^1 \land \dotsc dx^n: \int_U w := \int_U a$.
+
+  $M$ - гладкое многообразие размерности $m$, $w \in F^n(M), n \le m, C \subset M$
+
+  \begin{definition}
+    Множество $C$ допускает гладкую параметризацию, если существует открытое $D \subset \R^n,\ \phi \in C^\infty(D, M):\ C = \phi(D)$, $(D, \phi)$ -- параметризация. $\phi$ не обязан быть диффеоморфизмом.
+  \end{definition}
+  \begin{definition}
+    $(\Delta_1, \phi_1) \sim (D_2, \phi_2)$, если существует диффеоморфизм $g: D_1 \to D_2: \ \det g' > 0, \ \phi_1 = \phi_2 \circ g$.
+  \end{definition}
+  \begin{definition}
+    $C\subset M$ допускает параметризацию $(D, \phi), \ D \subset \R^n, \ w \in F^n(M).\\ \int_C w := \int_D \phi^*w$
+  \end{definition}
+  Корректность: \dots
+  
+  \subsection*{Симплекс}
+
+  0-симплекс -- точка
+
+  1-симплекс -- отрезок (направленный)
+
+  2-симплекс -- треугольник 
+  
+  3-симплекс -- тетраэдр
+
+  \begin{definition}
+    $n$-симплекс $\{ p = \alpha_0p_0 + \alpha_1p_1 + \dotsc \alpha_n p_n \mid \sum^n_{i=0} \alpha_i = 1, \ \alpha_i \ge 0 \} \subset \R^n$ -- замкнутая выпуклая оболочка.
+  \end{definition}
+  \begin{definition}
+    Цепь - формальная сумма (конечная) $c = \sum_i \alpha_iS_i$
+  \end{definition}
+  \begin{definition}
+    $\delta(p_0, \dotsc, p_n) = \sum^n_{i=0} (-1)^i(p_0, \dotsc, p_{i-1}, p_{i+1}, \dotsc, p_n)$
+  \end{definition}
+  Для отрезка: $p_1 - p_0$, треугольника: $(p_1, p_2) - (p_0, p_2) + (p_0, p_1)$, тетраэдра:$(p_1 p_2 p_3) - (p_0 p_2 p_3) + (p_0 p_1 p_3) - (p_0 p_1 p_2)$
+
+  $\delta(\delta(\text{тетраэдр})) = 0$
+
+  \begin{theorem}
+    $\delta(\delta C) = 0 \quad \forall C$
+  \end{theorem}
+  \begin{proof}
+    $\delta\delta C = \sum_{i,k} \pm (p_0, \dotsc, p_{i-1}, p_{i+1}, \dotsc, p_{k-1}, p_{k+1}, \dotsc, p_n)$, каждое слагаемое появляется дважды и с разными знаками
+  \end{proof}
+
+  $S_n$ -- стандартный симплекс в $\R^n$
+
+  
+  \subsection*{Симплексы на многообразии}
+
+  \begin{definition}
+    $\sigma \subset M$ -- $n$-симплекс на многообразии $M$, $\dim M = m$, если $\exists U \subset \R^n$ и симплекс $S \subset U$, а также такое $\phi \in C^\infty(U, M)$, что $\sigma = \phi(S) \subset M$
+
+  \end{definition}
+
+  $\phi(\delta S) = \delta \sigma$
+
+  Граница симлпекса на многообразии - граница на многообразии, можем интегрировать:
+
+  $\sigma = (u, s,  \phi) \quad \int_\sigma w = \int_S \phi^* w , \quad \int_C w  = \sum$ ой 
+
+  \subsection*{Теорема Стокса}
+
+  \begin{theorem}
+    $w \in F^p(M), \ c $ - $(p+1)$-цепь
+    $$\int_{\delta C} w = \int_C dw$$
+  \end{theorem}
+
+  \begin{proof}
+    ну короче всё понятно я считаю
+  \end{proof}
+
+  \subsection*{Криволинейные интегралы}
+
+  $\gamma \in C([a,b], \R^n)$ -- путь
+
+  $\gamma \in C^\infty([a,b], \R^n)$ -- гладкий путь
+
+  $\gamma_1 \sim \gamma_2 \iff \exists \phi \in C([a_1,b_1], [a_2,b_2]): \gamma_1 = \gamma_2 \circ \phi$
+ 
+  регулярный путь: $\gamma'(t) \neq 0 \ \forall t$
+
+  Простой путь: $t_1 \neq t_2 \implies \gamma(t_1) \neq \gamma(t_2)$
+
+  Замкнутый: $\gamma(a) = \gamma(b)$
+
+  Кривая - одномерное многообразие, вложенное в $\R^n$. $\gamma'(x) = 0$. Погружение: $\gamma(x_1) \neq \gamma(x_2) \ \forall x_1, x_2$
+
+  $\frac{d}{dt}|_p \leftrightarrow \frac{d\gamma}{dt}(t) \in \R \quad p = \gamma(t)$
+
+  $dl = \| \frac{d\gamma}{dt}\| dt \in F^1(M_\gamma)$ -- 1-форма на $M_\gamma$ -- форма длины.
+
+  $\| \gamma'(t)\| dt = \| \widetilde{\gamma}'(s)\| ds$
+
+  $dt = \frac{dt}{ds}ds, \quad t(s) = \gamma^{-1}\circ \widetilde{\gamma}$
+
+  $\frac{d\gamma}{dt} = \frac{d(\widetilde{\gamma}(s(t)))}{dt} = \frac{d\widetilde{\gamma}}{ds}\cdot \frac{ds}{dt}$
+
+  $l(\widetilde{PQ}) = \int_{\widetilde{PQ}}dl = \int^{\gamma^{-1}(Q)}_{\gamma^{-1}(P)}\gamma^*dl = \int^q_p \| \frac{d\gamma}{dt}(t)\| dt$
+
+  $\widetilde{PQ}$ - участок кривой. 
+
+  \begin{definition}
+    $f \in C^\infty(M_\gamma) : \int^Q_P f\cdot dl = \int^q_p (f\circ \gamma)(t) \| \frac{d\gamma}{dt}(t)\| dt$ -- криволинейный интеграл первого рода (или наоборот непон)
+  \end{definition}
+  \begin{definition}
+    $w \in F^1(M_\gamma): \int^Q_P w = \int_{\widetilde{PW}}w$ -- криволинейный интеграл второго рода
+  \end{definition}
+
+  $w \in F^1(U), \ U \subset \R^n$ открытое, $M_\gamma \subset U$
+
+  $w = a_1(x)dx^1 + \dotsc + a_n(x)dx^n$
+
+  $id: M_\gamma \to U$
+
+  $id^*: F^1(U) \to F^1(M_\gamma)$
+
+  $id^*w = a_1(x)dx^1 + \dotsc + a_n(x)dx^n$
+
+  $\int^Q_P a_1(x)dx^1 + \dotsc + a_n(x)dx^n = \int_{\widetilde{PQ}}id^*w = \dotsc = \int^q_p(a(\gamma(t)), \tau(\gamma(t)))dl = \int^q_p(a, \tau)dl$ -- выражение инт второго рода через первого рода (или наоборот непон)
+
+  $\tau(p) = \frac{\gamma'(t)}{\|\gamma'(t) \|}, dl = \| \gamma'(t) \|dt$
+
+  \subsection*{Поверхностные интегралы}
+
+  Гладкое многообразие с краем или без края, вложенное в $\R^n$
+
+  $x(t) = \varphi^{-1}(t)$
+
+  ВСЁ. я устал. дальше конспект савелия.
+  
+  Вектор нормали в $\R^3:$
+
+  $N = \frac{\partial x}{\partial u}\times \frac{\partial x}{\partial r} = (\det \frac{D(x^2, x^3)}{D(u,v)}, \det \frac{D(x^3, x^1)}{D(u,v)}, \det \frac{D(x^1, x^2)}{D(u,v)})$
+
+  $n = \frac{N}{\| N\|}$ -- единичный вектор нормали.
+
+  $\| N\| = \sqrt{\det g}$
+  
+  ВСЁ. я устал. дальше конспект савелия.
+  \dots
+
+  \subsection*{Формула Грина}
+
+  \subsection*{Формула Стокса}
+
+  \subsection*{Теорема Остроградского-Гаусса}
+\end{document}
