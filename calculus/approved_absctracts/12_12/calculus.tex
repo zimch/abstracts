@@ -1,0 +1,237 @@
+\input{../../../preamble.tex}
+\parindent 5px
+
+\usepackage{amsfonts, amssymb, amsmath, mathtools, amsthm}  %% for math symbs
+\usepackage{mathrsfs}
+
+
+\renewcommand{\baselinestretch}{1.3} 
+\DeclareMathOperator{\tp}{Tp}
+\DeclareMathOperator{\tm}{TM}
+\setcounter{lemma}{0}
+% \setcounter{theorem}{6}
+
+\begin{document}
+  \section*{Ряды podiФуре}
+  ахахахахаха
+
+  Будем говорить про Гильбертовы пространства.
+
+  \subsection*{Гильбертовы простраства}
+
+  Енто частный случай евклидового пространства.
+
+  $E$ - евклидово, если оно линейно, и на нём задано скалярное произведение.
+  
+  Есть норма $\|f\| = \sqrt{(f,f)}$, неравенство КБ: $|(f,g)| \le \|f\| \cdot \|g\|$.
+
+  $\rho(f,g) = \| f-g\|$ -- расстояние.
+
+  \begin{definition}
+    
+  Если евклидово пространство полное и бесконечномерное, то оно \textbf{гильбертово}.
+  \end{definition}
+  $f \bot g \iff (f,g) = 0$.
+
+  \begin{definition} 
+    Система $\{f_\alpha\}$ ортогональна, если $f_\alpha \bot f_\beta \ \forall \alpha \neq \beta$.
+  \end{definition}
+  \begin{proposition}
+    Система ортогональна $\iff$ линейно независима.
+  \end{proposition}
+  \begin{proof}
+    $\sum^n_{i=1}c_{\alpha_i}f_{\alpha_i} = 0 \implies \sum^n_{i=1} (c_{\alpha_i}f_{\alpha_i}, f_{\alpha_i}) = c_{\alpha_k}\|f_{\alpha_k}\|^2 = 0 \implies c_{\alpha_k} = 0 \ \forall k$
+  \end{proof}
+
+  \begin{definition}
+    Система $\{f_\alpha\}$ полна $\iff$ замыкание её линейной оболочки - всё пространство.  
+  \end{definition}
+
+  \begin{definition}
+    Система полна и ортагональна $\iff$ ортогональный базис.
+  \end{definition}
+
+  \begin{definition}
+    Ортогональный базис из векторов единичной длины - ортонормированный базис.
+  \end{definition}
+
+  Для ортонормированной системы $(f_\alpha, f_\beta) = \begin{cases}
+    0 & \alpha \neq \beta \\ 1 & \alpha = \beta
+  \end{cases}$
+
+  \begin{example}
+    $\R^n, \ e_i = (0,\dotsc, 1, \dotsc 0)$ - стандартный базис $\{e_i\}^n_{i=1}$ - онб.
+  \end{example}
+
+  \begin{example}
+    $l^2(\N; \C)= \{ (x_1, x_2, \dotsc),\ x_i \in \C ,\ \sum^\infty_{i=1}|x_i|^2 < \infty\}$ - гильбертово.
+    
+    $(x,y) = \sum^\infty_{i=1}x_i \bar y_i$
+    
+    $|x_i \cdot \bar y_i| \le \frac{|x_i|^2 + |y_i|^2}{2}$
+  \end{example}
+
+  \begin{example} Не гильбертово: 
+
+    $C([a,b]) \quad (f,g) = \int^b_a f(x)\overline{g(x)} dx \quad \|f\| = \sqrt{\int^b_a|f(x)|^2dx}$
+
+    Такую систему возьмём: $1/2, \ \cos(\frac{2\pi nx}{b-a}),\ \sin(\frac{2\pi nx}{b-a}),\ n \ge 1$, пространство неполно.
+
+    $L^2(a,b)$ будет гильбертовым.
+  \end{example}
+
+  \begin{definition}
+    Подпространство \textbf{плотно} $\iff$ его замыкание совпадает со всем пространством.
+  \end{definition}
+
+  \begin{definition}
+    Если в евклидовом пространстве есть счётное и плотное множество, то оно \textbf{сепарабельно}.
+  \end{definition}
+
+  \begin{theorem}
+    В сепарабельном евклидовом пространстве любая ортогональная система не более, чем счётна.
+  \end{theorem}
+  \begin{proof}
+    Предъявим набор подмножеств пространства множества системы, но не превосходящей мощности плотного множества?
+
+    На плоскости круги с центром в $(1,0), (0,1)$ радиуса корень из двух не пересекаются. 
+
+    $\{f_\alpha\}$ ортогональная. Перейдём к ортонормированной системе $\{\varphi_a = \frac{f_\alpha}{\|f\|_\alpha}$ он система в $E$.
+
+    $B_{1/\sqrt{2}}(\varphi_\alpha) \cap B_{1/\sqrt{2}}(\varphi_\beta), \ \alpha\neq \beta$
+
+    $\|\varphi_\alpha - \varphi_\beta\| = \sqrt{(-, -)} = \sqrt{(\varphi_\alpha, \varphi_\alpha) - (\varphi_\beta, \varphi_\beta)} = \sqrt{2}$
+
+    Если икс попал бы в пересечение, то посчитаем по неравенству треугольника: $\|\varphi_\alpha - \varphi_\beta\| \le \| \varphi_\alpha - x \| + \| x - \varphi_\beta \| < 2 \cdot 1/\sqrt{2} = \sqrt{2} \implies$ такого икса не существует.
+
+    В любом шарике есть хотя бы по одной точке, мощность множества шариков не может превосходить мощности множества точек, следовательно их не более чем счётное количество. 
+
+    (объяснение номер два) Пусть есть пространство $E, \ \bar S = E,\ S$ счётно. $\forall \alpha \ \exists s_\alpha \in S \cap B_{1 /\sqrt{2}}(\varphi_\alpha)$ т.к. существует последовательность в $S$, сх. к $\varphi_\alpha$, и окрестность $B_{1/\sqrt{2}}(\varphi_\alpha)$ содержит элементы этой последовательности, начиная с некоторого номера. Значит, хотя бы один элемент существует внутри шарика. Получается, что множество этих шариков содержит элементов не более, чем $|S|$.
+
+    Они не пересекаются, следовательно там столько же элементов, как и в системе, следовательно система (не более чем) счётна.
+  \end{proof} 
+
+  \begin{theorem}
+    Любую линейно независимую систему можно привести к ортонормированности.
+
+    $\varphi_n = \alpha_{n1}f_1 + \dotsc + a_{nn}f_n \neq 0$
+  \end{theorem}
+  \begin{proof}
+    $\{f_n\}^\infty_{n=1}$
+
+    По индукции: $n=1: \frac{f_1}{\|f_1\|} = \varphi_1$
+
+    Переход: $\varphi_1, \dotsc, \varphi_{n-1}$ построены.
+
+    $f_n - (f_n, \varphi_1)\cdot \varphi_1 - \dotsc - (f_n,\varphi_{n-1})\cdot \varphi_{n-1} = h_n$.
+
+    $h_n$ ортогонален каждому $\varphi_n$.
+
+    $(h_n, \varphi_i) = (f_n, \varphi_i) - \sum^{n-1}_{k=1}(f_n,\varphi_k)(\varphi_i, \varphi_k) = (f_n, \varphi_i) - (f_n, \varphi_i) = 0$
+
+    $\varphi_n = \frac{h_n}{\|h_n\|}$, \ $f_n = (f_n, \varphi_1)\varphi_1 + \dotsc + (f_n, \varphi_{n-1})\varphi_n + \|h_n\|\varphi_n = \alpha_{n1}\varphi_1 + \dotsc + \alpha_{nn}\varphi_n$
+    
+    $\displaystyle\varphi_n = \frac{f_n - (f_n, \varphi_1)\varphi_1 - \dots - (f_n, \varphi_{n-1})\varphi_{n-1}}{\| h_n\| }$ 
+  \end{proof}
+
+  Заметим, что $\left\langle f_n\right\rangle  = \left\langle \varphi_n\right\rangle $
+
+  \begin{proposition}
+    Пространство сепарабельно $\implies$ в нём есть ОНБ.
+  \end{proposition}
+  \begin{proof}
+    
+    $S \subset E, \ \bar S = E$
+    
+    $S = \{f_n, \ n \in \N\} \quad C = \{\varphi_k := f_{n_k}, \ k \in \N\}, \ f_{n_k}$ не выражается через $f_{n_1}, \dotsc, f_{n_{k-1}}$. $f_n, \ n \neq n_k$, выражается через $f_{n_k}$.
+    
+    Тогда $C$ - л.н. система, $S \subset \left\langle C \right\rangle, E = \bar S = \overline {\left\langle C \right\rangle} \implies$ полно, т.е. онб.
+    
+    Берём эту систему и нормируем. $\{\frac{\varphi_n}{\|\varphi_n\|}, \ n \in \N\}$ - ОНБ.
+  \end{proof}
+
+  \subsection*{Ряды Фурье в евклидовом (на самом деле унитарном) пространстве}
+
+  $\{\varphi_k\}^\infty_{k=1}$ ортонормированная система.
+
+  $f \in E, \quad \sum^\infty_{k=1} c_k \cdot \varphi_k \quad c_k = (f_k, \varphi_k)$ - ряд Фурье.
+
+  $S_n = \sum^n_{k=1}c_k\varphi_k$
+
+  $ 0 \le \| S_n - f\|^2 = (f - \sum^n_{k=1}c_k\varphi_k, f - \sum^n_{k=1}c_k\varphi_k) = \\
+  \|f\|^2 - \sum^n_{k=1}c_k\underbrace{(\varphi_k, f)}_{=\bar c_k} - \sum^n_{k=1} \bar c_k \underbrace{(f, \varphi_k)}_{=c_k} + \sum^n_{k=1}|c_k|^2 \underbrace{(\varphi_k, \varphi_k)}_{=1}
+  = \|f\|^2 - \sum^n_{k=1} |c_k|^2$
+
+  $\sum^n_{k=1}|c_k|^2 \le \|f\|^2 \implies \sum^\infty_{k=1}|c_k|^2 \le \|f\|^2$ - неравенство Бесселя, означает, что рядик сходится, сумма ряда $\le \|f\|^2$
+  (Если равенство, то называется Парсеваля)
+  Геом смысл извинити пропустил.
+
+  \begin{definition}
+    $\{\varphi_k\}^\infty_{k=1}$ - о/н система. Если $\forall f\in E:$ $\|f\|^2 = \sum^\infty_{k=1} |c_k|^2$, то $\{\varphi_k\}^\infty_{k=1}$ - замкнута.
+    $(\iff S_n \longrightarrow f, \ n \to \infty)$
+  \end{definition}
+
+  \begin{theorem}
+    Если $E$ сепарабельно, $\{\varphi_n\}_{n=1}^\infty$ о/н система, то для неё замкнутость $\iff$ полнота.
+  \end{theorem}
+  \begin{proof}
+    $\boxed\implies$  $\forall f \in E \ \sum^n_{k=1}(f, \varphi_k)\varphi_k \longrightarrow f, \ n\to \infty \implies \left\langle \{\varphi_k\}_{k=1}^\infty\right\rangle $ плотна в $E$.    
+  
+    $\boxed\impliedby$  $\forall \varepsilon, f \ \exists\  \| \sum^n_{k=1} a_k\varphi_k - f\| < \varepsilon$
+
+    $\| f - \sum^n_{k=1}a_k\varphi_k\|^2 = \|f\|^2 - (f, \sum^n_{k=1}a_k\varphi_k) - (\sum^n_{k=1}a_k\varphi_k, f) + (\sum^n_{k=1}a_k\varphi_k, \sum^n_{l=1}a_l\varphi_l) = \|f\|^2 - \sum^n_{k=1}\bar a_k c_k - \sum^n_{k=1}a_k\bar c_k + \sum^n_{k=1}|a_k|^2 = \|f\|^2 - \sum|c_k|^2 + \sum\underbrace{\big(|c_k|^2 - 2\R (a_k\bar c_k)\big)}_{=|c_k-a_k|^2} + |a_k|^2 \\ \ge \|f\|^2 - \sum^n_{k=1} |c_k|^2$
+  
+    $\forall f \in E, \varepsilon > 0 \ \exists n: \| f\|^2 - \sum^n_{k=1} |c_k|^2 < \varepsilon^2$
+
+    Значит, $\sum^n_{k=1}|c_k|^2 = \|f\|^2$
+  \end{proof}
+
+  $f \in C([a,b]) \implies f = a_0 + \sum^\infty_{k=1}\Big( a_k \cos(\frac{2 \pi nx}{b - a}) + b_k\sin(\frac{2 \pi nx}{b-a})\Big)$
+
+  $a_k = \int^b_a f(x)\cos(\frac{2 \pi nx}{b - a})dx / \| \cos(...) \| ^2$
+
+  $b_k =$ сейм, только кос на син.
+
+  $\|f\|_C = \max_{x \in [a,b]} |f(x)| \quad \|f\|_{L^2} = \sqrt{\int^b_a|f(x)|^2dx} \le \|f\|_C \cdot \sqrt{b - a}$
+
+  \begin{theorem}(Рисса-Фишера)
+    Если есть последовательность из $L^2$, то найдется вектор, у которого она будет коэф ряда Фурье.
+
+    $H$ - сепарабельное гильбертово пространство, $\{\varphi_k\}^\infty_{k=1}$ - о/н система
+
+    $\{c_k\}_{k=1}^\infty, : \sum^\infty_{k=1} |c_k|^2 < \infty$. Тогда $\exists f \in H: c_k = (f, \varphi_k), \ \sum^\infty_{k=1}|c_k|^2 = \|f\|^2 (\iff$ ряд Фурье сходится).
+  \end{theorem}
+  \begin{proof}
+    $f_n = \sum^n_{k=1}c_k\varphi_k$
+
+    $\|f_n - f_m\|^2 = \|\sum_{k=n+1}^m c_k\varphi_k\|^2 \overset{\text{ск.пр.}}{=}\sum_{k=n+1}^m |c_k|^2 \underset{n, m \to \infty}{\longrightarrow} 0$ (кр. Коши)
+
+    $\underset{H \text{ полное}}\implies \exists f \in H: f_n \underset{n \to \infty}{\longrightarrow} f$
+
+    $n\ge k: (f_n, \varphi_k) = c_k, \ f_n \underset{n\to\infty}{\longrightarrow} f \implies (f, \varphi_k) = c_k$ по непр. ск произв по первому аргументу, которое следует из н-ва КБ.
+
+    
+    $f_n = \sum^n_{k=1} c_k\varphi_k \to f$ - это и есть равносильное условие сходимости Парсеваля.
+
+  \end{proof}
+
+  \begin{corollary}
+    $H$ - сепарабельное гильбертово, $\{\varphi_n\}_{n=1}^\infty$ о/н система. 
+
+    Она полна $\iff \not \exists g \in H\setminus\{0\}: \forall n \ g \bot \varphi_n$.
+  \end{corollary}
+  \begin{proof}
+    $\boxed\implies\quad$ Пусть существует. $g \in H \ c_k = (g, \varphi_k) = 0$. Полна, значит замкнута. Н-во Парсеваля:
+
+    $\|g\|^2 = \sum^\infty_{k=1}|c_k|^2 = 0 \implies g =0 $
+
+    $\boxed\impliedby\quad$ Полнота нарушается, если есть элемент, на котором нарушается неравентсво Парсеваля:
+
+    $\exists h: \|h\|^2 > \sum^\infty_{k=1}|c_k|^2, \ c_k = (h,\varphi_k)$.
+
+    По т. Рисса-Фишера $\exists f \in H: c_k = (f, \varphi_k) \ \forall k, \ \| f\| = \sum^\infty_{k=1}|c_k|^2 (\implies f \neq h)$
+
+    Посмотрим их разность:  $g = h -f\neq 0 \quad (g, \varphi_k) = 0 \ \forall k \ (g \bot \varphi_k)$
+  \end{proof}
+
+\end{document}
