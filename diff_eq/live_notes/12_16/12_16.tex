@@ -1,0 +1,162 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+\usepackage{amsfonts, amssymb, amsmath}  %% for math symbs
+\usepackage{mathrsfs}
+\usepackage{float}  %% for table floating
+\usepackage{enumerate} %% for lists
+
+\usepackage{fullpage}  %% less margin 
+
+\usepackage{graphicx} %% for pics
+\usepackage{amsthm, amsmath, amsfonts, amssymb, mathtools}
+
+\parindent 5px  % no white space in new lines
+% \baselinestretch{1.5}
+\renewcommand{\baselinestretch}{1.3} 
+
+%% titling
+\title{Hello world} 
+\author{Lindy2076}
+\date{22.22.2} %%\today
+
+\begin{document}
+    фото
+
+    \textbf{Лемма 3.} $\exists \lambda_j $ собств. значения $A$, $\mathbb{R}\lambda_j > 0$. Тогда существует единственное решение $V: \frac{\partial V}{\partial x} Ax = \lambda V + U(x) \implies M^+ \neq \varnothing$
+    
+    $\triangleright\quad \frac{\partial V}{\partial x}Ax - \lambda V = U(x)$
+
+    $\frac{\partial}{\partial x} V (A - \lambda/2 I)x$. Из ниже получается что сосбвтенные значения $\lambda_j - \Lambda/2$.
+
+    $* \frac{\partial x^2}{\partial x} ax - \lambda x^2$
+
+    $2a x^2  - \lambda x^2 = 2x (a - \lambda/2)x = \frac{\partial}{\partial x} x^2 (a - \lambda/2)x$
+
+    $L = \lambda_1 + \Lambda_a - \lambda/2 - \lambda/2 \neq 0$. Подберём $\lambda > 0$ так, чтобы $L$ была не ноль. Отсюда существование единственного решения $V$.
+    
+    От противного. Пусть для любого лямбда область $M^+ = \varnothing \implies V(x)$ - определённо отрицательна. Тогда $-V(x)$ - определённо положительна, $D(-V(x)) = -U(x) < 0$. Отсюда в силу чета ляпунова хз наша система $\dot x = Ax$ асимптотически устойчиво, что как бы не правда. Предположение неверно, существует лямбда сколь угодно малый? $\triangleleft$
+
+    \par $ $
+
+    Итак, для линейных систем мы доказали существование функции Ляпунова, отсюда для нелинейных систем, для которых в первом приближении существует линейное чё ну короче там функция Ляпунова для линейной части надо проверить.
+
+    $\dot x = Ax + g(t,x), \frac{||g(t,x)||}{\|x\|} \rightrightarrows 0$
+
+    \textbf{Теорема.} Если все вещ части собств значений $\mathbb{R}\lambda_j < 0$, то нулевое решение асимптотически устойчиво. 
+
+    $\triangleright\quad \frac{\partial V}{\partial x}Ax = - (x^2_1 + \dotsc + x^2_n) \implies \exists ! V $ - определённо положительна.
+
+    $DV = \frac{\partial V}{\partial x}(Ax + g(t,x)) = \underbrace{-(x_1^2 + \dotsc + x_n^2)}_{=-\|x\|^2} + \frac{\partial V}{\partial x}g(t,x) = - \|x\|^2 + o(\|x\|^2)$. По теореме Ляпунова об асимпт устойчивости $x=0$ - асимптотически устойчиво. $\triangleleft$
+
+    \textbf{Теорема.} Если существует $\lambda_j, \mathbb{R}\lambda_j > 0 \implies x=0$ асимпт неустойчиво.
+
+    $\triangleright\quad \frac{\partial V}{\partial x} Ax = \lambda V + x^2_1 + \dotsc + x^2_n, \ \exists \lambda \ge 0 \implies \exists ! V: M^+ \neq \varnothing$
+
+    $DV = \lambda V + x^2_1 + \dotsc + x^2_n + \underbrace{\frac{\partial V}{\partial x}g(t,x)}_{o(\|x\|^2)} \ge 1/2 \|x\|^2$
+
+    Отсюда т.к. $M^+ \neq \varnothing$, то выполняются условия теоремы Ляпунова о неустойчивости в силу непустоты вот етонго и положительности производной. $\triangleleft$
+    
+    \par $ $ 
+
+    \textbf{Сл.} Критический случай $\mathbb{R}\lambda_j \le 0$. Тогда у нас есть чисто мнимые корни $\lambda_j$. У нас нет теоремы для такого. ахаха и что с этим делать? новая тема
+
+    \subsection*{Уравнения с частными производными перваго порядка}
+
+    $(*) \sum_{k=1}^n a_k (\vec x) \frac{\partial U}{\partial x_k} + b(\vec x, U) = 0$ - полулинейные уравнения в частных производных.
+
+    $a_k \in C^1(G),\ \sum a^2_k > 0,\ b(\vec x, U) \subset C^1(x \in G, |U| < M)$
+
+    $\{\dot x_k = a_k(x) \mid k=1,\dotsc, n \}$ - система характеристик уравнения $(*)$. Решение такой системы - некие кривые.
+
+    Через каждую точку $x \in G$ проходит только одна траектория движения, характеристика. 
+
+    \textbf{Теорема} единственности. Если $u = u(\vec x)$ - решение $(*)$ и оно гладкое на $G$, тогда значения $u(\vec x(t))$ вполне определяются $u(\vec x^{(0)}), x^{(0)} \in x(t)$
+    
+    $\triangleright\quad \sum a_k \frac{\partial u}{\partial x_k} + b |_{x = x(t)} = \sum \frac{\partial u}{\partial x_k} \frac{d x}{dt} + b = \frac{d}{dt}u(\vec x(t)) + b = 0$
+
+    $\begin{cases}
+        \frac{du(x(t))}{dt} = -b(x(t,x_0), u) = \psi(t, u, x^{(0)}) \\ u(\vec x(t_0)) = u(x^{(0)})
+    \end{cases}$ однозначно разрешима. $\triangleleft$
+    
+    \par $ $
+
+    \textbf{Теорема} единственности и существования. 
+    
+    Пусть $S - (n-1)$-мерное гиперповерхность в $G$:
+
+    \quad1.1. $S$ имеет непрерываное поле нормалей $\implies \exists$ непрерывное семейство касательных плоскостей.
+
+    \quad1.2. $S$ не касается ни одной из характеристик (кривых). ($\dot x \notin $ касат плоск)
+
+    Пусть на $S$ задана функция $F(\vec x):$
+    
+    \quad2.1. $F$ ограничена на $S$.
+
+    \quad2.2. $\forall x \in S \ \exists U(x): F \in F(x_1, \dotsc, x_{n-1})$ локально, когда $\vec x \in U(x), f\in C^1(U(\vec x))$
+
+    Пусть 
+
+    \quad3.1 $\exists R_0 \supset S, \ R_0$ - окрестность $S$, $R_0 \subset G$.
+
+    \quad3.2 $\vec x (t)\cap S$ проходят далее через $R_0$ так, что $x(t)$ больше не пересекается с $S$ ($\forall x \in R_0$ проходит ровна одна х-ня)
+
+    \quad3.3 $\forall x^{(0)} \in S \begin{cases}
+        \frac{d}{dt} U(x(t)) = \psi(t, u, x_0) \\ u(x(0)) = F(x^{(0)})
+    \end{cases}$ решение можно продлить вдоль дуги характеристики в $R_0$ (при этом $|U| < M$)
+
+    Тогда существует и единственное решение $U(x)$ в $R_0$: 
+
+    1. $U \in C^1(R_0)$
+
+    2. $\begin{cases}
+        \sum a_k \frac{\partial u}{\partial x_k} + b(\vec x, u) = 0 \\ U|_S = F
+    \end{cases}$ $U$ - решение этой "задачи Коши"
+
+    $\triangleright\quad $ случай $n=2$. Неизвестная функция $z = z(x,y)$. 
+
+    $a(x,y)\frac{\partial z}{\partial x} + b(x,y)\frac{\partial z}{\partial y} + c(x,y,z) = 0$
+
+    Х-ри: $\begin{cases}
+        \frac{dx}{dt} = a(x,y) \\ \frac{dy}{dt} = b(x,y) 
+    \end{cases}$ Подставляем, получаем
+
+    $\frac{\partial z}{\partial x}\frac{dx}{dt} + \frac{\partial z}{\partial y}\frac{dy}{dt} + c(x,y,z) \implies \frac{dz}{dt} + c(x,y,z) = 0$
+
+    $\exists x = \varphi(t, x^{(0)}, y^{(0)}),\ y = \psi(t, x^{(0)}, y^{(0)})$
+
+    Подставим, получаем $\begin{cases}
+        \frac{dz}{dt} = -c(\varphi(t,x^{(0)},y^{(0)}),\ \psi(t, x^{(0)}, y^{(0)})) = X(t, z, x^{(0)}, y^{(0)}) \\
+        z(t_0) = F(x^{(0)}, y^{(0)})
+    \end{cases}$
+
+    $S^{(1)} = \{x, y\}$ - кривая. Нарисуем картинку (фото). %11:10 
+
+    Строим значения $z$ вдоль каждой из характеристик, пересекающих $S$ в $R_0$. Как построить $\bar S$? $\bar S = (\underbrace{x, y}_{\in S}, F(x,y)),\ \bar H (x(t), y(t), z(t))$, где $z = z(x,y)|_H$
+
+    $\begin{cases}
+        \frac{dz}{dt} = \chi(t,z,x^{(0)},y^{(0)}) \\ 
+        z_0(t_0) = z_0 = F(x^{(0)},y^{(0)})
+    \end{cases}$
+
+    После такого построения поверхности осталось доказать существование $\frac{\partial z}{\partial x},\ \frac{\partial z}{\partial y}$ таких, что $\frac{\partial z}{\partial x}\frac{dx}{dt} + \frac{\partial z}{\partial y}\frac{dy}{dt} = \frac{dz}{dt}$
+
+    Локальная замена переменных. Введём в точке $A_0(x_0, y_0)$ (и некоторой её окрестности) криволинейные координаты. Пусть касательная к $S$ в точке $A_0$ не параллельна оси $Oy$. Тогда для $S$ локально можно считать, что есть зависимость $y$ от $x$ ($y^{(0)} = F(x^{(0)}))$, где $F$ гладкая в силу гладкости поверхности. Поскольку правые части системы характеристик гладкие, то решения $\varphi(\dotsc) = \widetilde{ \varphi}, \psi(\dotsc)= \widetilde{\psi}$ тоже гладкие (по гладкости начальных данных). Переходим от переменных $x,y$ к $x,t$.
+
+    $x^{(0)}, t$ - новые переменные. $x = \widetilde{\varphi}(t,x^0),\ y=\psi(t, x^0)$
+
+    Якобиан не ноль? $\dot{\widetilde{\varphi}}=a(\widetilde{\varphi}, \widetilde{\psi}),\ \dot{\widetilde{\psi}} = b(\widetilde{\varphi}, \widetilde{\psi}) \implies \frac{d}{dt}\widetilde{\varphi}(t,x_0) = a(\widetilde{\varphi}(t,x_0), \widetilde{\psi}(t,x_0))$
+
+    $\frac{d}{dt}\widetilde{\psi} = b(\widetilde{\varphi}(t,x_0), \widetilde{\psi}(t,x_0))$ % надо к кейсы запихнуть
+
+    Правые части гладкие по $t, x_0$, поменяем местами 
+
+    $\frac{\partial}{\partial t}(\frac{d\widetilde{\varphi}}{dt}) = \frac{\partial a}{\partial x}\frac{\partial \widetilde{\varphi}}{dt} + \frac{\partial a}{\partial y}\frac{\partial \widetilde{\varphi}}{\delta t}$
+
+    $\frac{\partial}{\partial t}$ фото короче дальше я устал.
+
+    $\triangleleft$
+
+\end{document}
