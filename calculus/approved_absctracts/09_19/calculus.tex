@@ -120,7 +120,7 @@
     \par $A \in \Mat^{m, n}$
     \par $A : \R^n \rightarrow \R^m$
     \[
-        (Ax, y) = \sum_{k=1}^n \sum_{i=1}^m A_{ik} x_k y_i = \sum_{k=1}^n x_k (A^Ty)_k = (x, A^ty) % ТУТ ПЕРЕПРОВЕРИТЬ ПЖПЖ
+        (Ax, y) = \sum_{k=1}^n \sum_{i=1}^m A_{ik} x_k y_i = \sum_{k=1}^n x_k (A^Ty)_k = (x, A^ty) % ТУТ ПЕРЕПРОВЕРИТЬ
     \]
     \[
         (A^Ty)_k = \sum_{l=1}^m (A^T)_{kl}y_l = \sum_{l=1}^m A_{lk}y_l   
@@ -240,14 +240,14 @@
             % - \sum_{\begin{split}
             %     \pi \in p_{\epsilon, k} \\
             %     \pi \in \bigcup_{\pi'' \in p_k} \pi''
-            % \end{split}} \inf_\pi f v(\pi) % ЧЕСТНО Я ХЗ КАК СДЕЛАТЬ ИНАЧЕ КРАСИВО ;(
+            % \end{split}} \inf_\pi f v(\pi)  ;(
             - \underset{\pi \in \underset{\pi'' \in p_k}{\bigcup} \pi}{\sum_{\pi \in p_{\epsilon, k}}} \inf_\pi f v(\pi)
         \]
 
         $S(p_\epsilon)$ -- сумма площадей всех граней п-ов из $p_\epsilon$
         
         \[
-            \sum_{\pi'' \in p_k''} v(\pi'') \le \mycontour{2} \cdot S(p_\epsilon) \cdot d(p_k) % ПЕРЕПРОВЕРИТЬ ПЖПЖ!    
+            \sum_{\pi'' \in p_k''} v(\pi'') \le \mycontour{2} \cdot S(p_\epsilon) \cdot d(p_k) % ПЕРЕПРОВЕРИТЬ!    
         \]
         \[
             \left|\sum_{\pi'' \in p_k''} v(\pi'')\right|, 
