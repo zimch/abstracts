@@ -3,7 +3,7 @@
 \begin{document}
     \title{Математический анализ}
     \date{14 ноября 2022}
-    \maketitle{}
+    % \maketitle{}
 
     \pagebreak
 
@@ -47,11 +47,11 @@
     \end{theorem}
 
     \begin{proof}
-        Пусть $a_{np} \rightrightarrows_{n \rightarrow \infty}^{p \in \N} u_p$ % ХЗ КАК НОРМАЛЬНО ЭТИ СТРЕЛОЧКИ СДЕЛАТЬ
+        Пусть $a_{np} \rightrightarrows_{n \rightarrow \infty}^{p \in \N} u_p$ 
         \[
             \forall \epsilon > 0 \ \exists N_1 \ \forall n > N_1 \ \forall p \ d(a_{np}, u_p) < \frac{\epsilon}{3}   
         \]
-        \par $n_0 > N_1$ \quad $a_{n_0p} \xrightarrow[p \rightarrow \infty]{} v_n$
+        \par $n_0 > N_1$ \quad $a_{n_0p} \xrightarrow[p \rightarrow \infty]{} v_{n_0}$
         \par для $\epsilon \ \exists N_2 : \forall p, q > N_2 \ d(a_{n_0p}, a_{n_0q}) < \frac{\epsilon}{3}$
         \[
             d(u_p, u_q) \le d(u_p, a_{n-p}) + d(a_{n_0p}, a_{n_0q}) + d(a_{n_0q}, u_q) < \epsilon    
@@ -151,7 +151,7 @@
         \[
             \sum_{\alpha \in A} a_{\alpha} = \sum_{n=1}^\infty a_{\phi(n)} \qquad \sum_{(n, k) \in \N^2} a_{nk}
         \]
-        \par Корректность:  $\psi: \N \to A$ др $\sum^\infty_{n=1} a_{\varphi(n)} = \sum^\infty_{k=1}a_{\psi(k)}$ (теорема об изменении порядка суммирования) %еб что такое др
+        \par Корректность:  $\psi: \N \to A$ др $\sum^\infty_{n=1} a_{\varphi(n)} = \sum^\infty_{k=1}a_{\psi(k)}$ (теорема об изменении порядка суммирования) 
     \end{definition}
 
     \begin{theorem}
@@ -191,7 +191,7 @@
             \[
                 \forall \epsilon \ \exists N : \sum_{n=1}^N \sum_{k=1}^\infty a_{nk} \ge \sum_{(n, k) \in \N^2} a_{nk} - \epsilon \Rightarrow \sum_{n=1}^\infty \sum_{k=1}^\infty a_{nk} \ge \sum_{(n, k) \in \N^2} a_{nk}
             \]
-            %\item ну карочи тут все так же только меняет  $\epsilon$ на $M$ и вот там чета все получается я хз  
+            %\item тут все так же только меняет  $\epsilon$ на $M$ и вот там чета все получается
             \item $\sum_{(n,k) \in\N^2} a_{nk} = \infty$
 
             (вместо $\varepsilon$ и $\sum_{(n,k)\in\N^2}a_{nk}$ ставим $M$, а последний переход равен бесконечности)
@@ -354,7 +354,7 @@
         \par $\frac{\partial f}{\partial y} \in C\big([a, b] \times (c, d)\big)$, возьмём такую $h$, чтобы $(y-h, y+h) \subset (c,d):$
         \par $\frac{\partial f}{\partial y} \in C\big([a, b] \times [y - \delta, y + \delta]\big)$
         \par $\Rightarrow$ Равномерно непрерывна??? или чоо тут
-        \par $\Rightarrow \frac{\partial f}{\partial y} \big(x, y + \xi(h)\big) - \frac{\partial f}{\partial y}(x, y) \rightrightarrows_{h \rightarrow 0}^{x \in [a, b] } 0$ %%вот тут гавно какоита (ноу всё ок)
+        \par $\Rightarrow \frac{\partial f}{\partial y} \big(x, y + \xi(h)\big) - \frac{\partial f}{\partial y}(x, y) \rightrightarrows_{h \rightarrow 0}^{x \in [a, b] } 0$ 
         \par $\forall \varepsilon > 0 \ \exists \delta > 0: \forall \xi \in (-\delta, \delta), \forall x \in [a,b] \quad \Big|\frac{\partial f}{\partial y}(x, y + \xi) - \frac{\partial f}{\partial y}(x, y)\Big| < \epsilon$
         \[
             \Rightarrow \forall h \in (-\delta, \delta), \ \forall \xi(h) \in [0, h] \text{ или } [h, 0], \ \forall x \in [a, b]    
